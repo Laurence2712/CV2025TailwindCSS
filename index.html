@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-translate="pageTitle">Portfolio Laurence - Web Developer</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cdefs%3E%3ClinearGradient id='logoGradient' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%236366f1'/%3E%3Cstop offset='50%25' style='stop-color:%23a855f7'/%3E%3Cstop offset='100%25' style='stop-color:%23ec4899'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='20' cy='20' r='18' fill='url(%23logoGradient)' opacity='0.1'/%3E%3Ccircle cx='20' cy='20' r='15' fill='none' stroke='url(%23logoGradient)' stroke-width='2'/%3E%3Ctext x='20' y='26' font-family='Poppins' font-weight='700' font-size='14' fill='url(%23logoGradient)' text-anchor='middle'%3ELP%3C/text%3E%3Ccircle cx='20' cy='8' r='2' fill='url(%23logoGradient)'/%3E%3C/svg%3E">
+
+  <link href="https://fonts.googleapis.com/css2?family=Combo&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tailwind.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 text-gray-900 font-poppins">
+
+  <div class="cursor-dot" id="cursor-dot"></div>
+
+  <header id="main-header" class="fixed top-0 left-0 w-full bg-white/70 backdrop-blur-xl shadow-lg z-50 border-b border-white/20">
+    <nav class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <a href="#" class="flex items-center space-x-2 group">
+        <svg width="65" height="65" viewBox="0 0 40 40" class="transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12">
+          <defs>
+            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#6366f1"/>
+              <stop offset="50%" style="stop-color:#a855f7"/>
+              <stop offset="100%" style="stop-color:#ec4899"/>
+            </linearGradient>
+          </defs>
+          <circle cx="20" cy="20" r="18" fill="url(#logoGradient)" opacity="0.1"/>
+          <circle cx="20" cy="20" r="15" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
+          <text x="20" y="26" font-family="Poppins" font-weight="700" font-size="14" fill="url(#logoGradient)" text-anchor="middle">LP</text>
+          <circle cx="20" cy="8" r="2" fill="url(#logoGradient)"/>
+        </svg>
+      </a>
+      
+      <div class="flex items-center space-x-6">
+        <div class="hidden md:flex space-x-8 text-gray-800 font-semibold items-baseline uppercase">
+          <ul class="flex space-x-8">
+            <li><a href="#about" class="nav-link" data-translate="nav.about">À propos</a></li>
+            <li><a href="#skills" class="nav-link" data-translate="nav.skills">Compétences</a></li>
+            <li><a href="#portfolio" class="nav-link" data-translate="nav.portfolio">Portfolio</a></li>
+            <li><a href="#contact" class="nav-link" data-translate="nav.contact">Contact</a></li>
+          </ul>
+          <div class="flex space-x-2">
+            <button class="lang-btn px-4 py-2 text-sm font-medium rounded-lg transition-all" data-lang="fr" onclick="changeLanguage('fr')">FR</button>
+            <button class="lang-btn px-4 py-2 text-sm font-medium rounded-lg transition-all" data-lang="en" onclick="changeLanguage('en')">EN</button>
+          </div>
+        </div>
+        <button class="md:hidden focus:outline-none" id="menu-btn" aria-label="Toggle menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+    <div class="md:hidden transition-all duration-300 ease-in-out text-center uppercase" id="mobile-menu">
+      <ul class="flex flex-col p-6 space-y-4 text-gray-800 font-semibold">
+        <li><a href="#about" class="nav-link block py-2" data-translate="nav.about">À propos</a></li>
+        <li><a href="#skills" class="nav-link block py-2" data-translate="nav.skills">Compétences</a></li>
+        <li><a href="#portfolio" class="nav-link block py-2" data-translate="nav.portfolio">Portfolio</a></li>
+        <li><a href="#contact" class="nav-link block py-2" data-translate="nav.contact">Contact</a></li>
+        <div class="space-x-2 block">
+          <button class="lang-btn px-4 py-2 text-sm font-medium rounded-lg transition-all" data-lang="fr" onclick="changeLanguage('fr')">FR</button>
+          <button class="lang-btn px-4 py-2 text-sm font-medium rounded-lg transition-all" data-lang="en" onclick="changeLanguage('en')">EN</button>
+        </div>
+      </ul>
+    </div>
+  </header>
+
+  <section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20 relative overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="floating absolute top-1/4 left-1/4 w-20 h-20 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-xl"></div>
+      <div class="floating absolute top-3/4 right-1/4 w-32 h-32 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-xl"></div>
+      <div class="floating absolute top-1/2 right-1/3 w-16 h-16 bg-gradient-to-r from-indigo-400/20 to-blue-400/20 rounded-full blur-xl"></div>
+    </div>
+    
+    <div class="relative z-10">
+      <h1 id="animated-name" class="text-6xl md:text-8xl mb-8 gradient-text tracking-wide font-combo">
+        LaurenceP.
+      </h1>
+      <p class="text-xl md:text-2xl mb-4 font-medium" data-translate="hero.subtitle">Vous cherchez un développeur web ?</p>
+      <p class="text-2xl md:text-3xl font-semibold mb-8" data-translate="hero.subtitle2">Je suis là !</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#portfolio" class="uppercase contact-btn inline-block bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-8 py-4 rounded-xl font-semibold shadow-xl hover:scale-105 transform transition-all duration-300" data-translate="hero.ctaProjects">
+          Voir mes projets
+        </a>
+        <a href="#contact" class="uppercase inline-block border-2 border-indigo-500 text-indigo-600 px-8 py-4 rounded-xl font-semibold hover:bg-indigo-500 hover:text-white transform transition-all duration-300 hover:scale-105" data-translate="hero.ctaContact">
+          Me contacter
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="max-w-6xl mx-auto py-20 px-6 fade-slide-up">
+    <h2 class="text-5xl font-bold mb-12 text-center gradient-text font-combo" data-translate="sections.aboutTitle">À propos</h2>
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-lg text-gray-700 leading-relaxed mb-6" data-translate="sections.aboutText">
+         Passionnée par la construction d'expériences digitales fluides, je crée des sites web performants et entièrement responsifs. Grâce à mes compétences en JavaScript et en TailwindCSS, je transforme des idées en interfaces utilisateur intuitives et optimisées.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <span class="px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 rounded-full text-sm font-medium" data-translate="about.tagResponsive">Responsive Design</span>
+          <span class="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 rounded-full text-sm font-medium" data-translate="about.tagUxUi">UX/UI</span>
+          <span class="px-4 py-2 bg-gradient-to-r from-pink-100 to-red-100 text-pink-800 rounded-full text-sm font-medium" data-translate="about.tagPerformance">Performance</span>
+        </div>
+      </div>
+<div class="hidden md:block relative">
+        <div class="w-80 h-80 mx-auto bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 rounded-full opacity-20 blur-3xl animate-pulse"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="bg-gray-100 py-20 px-6 fade-slide-up">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-5xl font-bold mb-12 text-center gradient-text font-combo" data-translate="sections.skillsTitle">Compétences</h2>
+      
+      <div id="skills-slider-container" class="relative">
+        <button id="skills-prev" class="slider-btn left-0" aria-label="Compétence précédente" data-translate="skills.ariaPrev">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+
+        <div id="skills-scroller" class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar space-x-8 pb-8">
+          
+          <div class="skill-card flex-shrink-0 w-80 snap-center p-8 rounded-2xl bg-white/80 backdrop-blur-sm shadow-xl transition-all duration-300 transform-gpu hover:scale-105 hover:shadow-2xl">
+            <div class="text-center">
+              <div class="flex justify-center items-center h-16 mb-6"><img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML5 logo" class="h-full"></div>
+              <h3 class="font-semibold text-2xl text-gray-800">HTML5</h3>
+              <p class="text-gray-600 mt-2 text-sm" data-translate="skills.htmlDesc">Structurer et présenter des contenus web.</p>
+            </div>
+          </div>
+
+          <div class="skill-card flex-shrink-0 w-80 snap-center p-8 rounded-2xl bg-white/80 backdrop-blur-sm shadow-xl transition-all duration-300 transform-gpu hover:scale-105 hover:shadow-2xl">
+            <div class="text-center">
+              <div class="flex justify-center items-center h-16 mb-6"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS3 logo" class="h-full"></div>
+              <h3 class="font-semibold text-2xl text-gray-800">CSS3</h3>
+              <p class="text-gray-600 mt-2 text-sm" data-translate="skills.cssDesc">Mettre en forme des interfaces modernes.</p>
+            </div>
+          </div>
+
+          <div class="skill-card flex-shrink-0 w-80 snap-center p-8 rounded-2xl bg-white/80 backdrop-blur-sm shadow-xl transition-all duration-300 transform-gpu hover:scale-105 hover:shadow-2xl">
+            <div class="text-center">
+              <div class="flex justify-center items-center h-16 mb-6"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript logo" class="h-full"></div>
+              <h3 class="font-semibold text-2xl text-gray-800">JavaScript</h3>
+              <p class="text-gray-600 mt-2 text-sm" data-translate="skills.jsDesc">Ajouter de l'interactivité et du dynamisme.</p>
+            </div>
+          </div>
+
+          <div class="skill-card flex-shrink-0 w-80 snap-center p-8 rounded-2xl bg-white/80 backdrop-blur-sm shadow-xl transition-all duration-300 transform-gpu hover:scale-105 hover:shadow-2xl">
+            <div class="text-center">
+              <div class="flex justify-center items-center h-16 mb-6"><svg class="h-14 text-gray-800" viewBox="0 0 167 21" fill="none" class="h-5 text-black dark:text-white"><path class="fill-sky-400" d="M17.183 0C12.6 0 9.737 2.291 8.59 6.873c1.719-2.29 3.723-3.15 6.014-2.577 1.307.326 2.242 1.274 3.275 2.324 1.685 1.71 3.635 3.689 7.894 3.689 4.582 0 7.445-2.291 8.591-6.872-1.718 2.29-3.723 3.15-6.013 2.576-1.308-.326-2.243-1.274-3.276-2.324C23.39 1.98 21.44 0 17.183 0ZM8.59 10.309C4.01 10.309 1.145 12.6 0 17.182c1.718-2.291 3.723-3.15 6.013-2.577 1.308.326 2.243 1.274 3.276 2.324 1.685 1.71 3.635 3.689 7.894 3.689 4.582 0 7.445-2.29 8.59-6.872-1.718 2.29-3.722 3.15-6.013 2.577-1.307-.327-2.242-1.276-3.276-2.325-1.684-1.71-3.634-3.689-7.893-3.689Z"></path><path fill="currentColor" d="M51.547 8.688h-3v5.803c0 1.548 1.016 1.524 3 1.427v2.346c-4.015.483-5.611-.629-5.611-3.773V8.688H43.71V6.172h2.225V2.925l2.612-.774v4.021h2.998v2.516Zm11.43-2.516h2.61v12.092h-2.61v-1.741c-.92 1.28-2.346 2.055-4.233 2.055-3.288 0-6.021-2.78-6.021-6.36 0-3.603 2.733-6.36 6.021-6.36 1.886 0 3.313.774 4.233 2.032V6.172Zm-3.821 9.915c2.176 0 3.82-1.62 3.82-3.87 0-2.248-1.644-3.868-3.82-3.868-2.177 0-3.821 1.62-3.821 3.869s1.644 3.87 3.82 3.87ZM69.94 4.36a1.687 1.687 0 0 1-1.668-1.669c.002-.443.179-.868.491-1.18a1.662 1.662 0 0 1 2.354 0c.312.312.49.737.491 1.18 0 .895-.75 1.669-1.668 1.669Zm-1.306 13.905V6.172h2.612v12.092h-2.612Zm5.635 0V.609h2.611v17.654H74.27ZM93.834 6.172h2.757l-3.797 12.092h-2.563l-2.516-8.15-2.539 8.15h-2.563L78.816 6.172h2.757l2.346 8.343 2.54-8.343h2.49l2.514 8.343 2.37-8.343ZM99.83 4.36c-.92 0-1.669-.774-1.669-1.669.002-.443.18-.868.492-1.18a1.661 1.661 0 0 1 2.354 0c.313.312.49.737.492 1.18 0 .895-.75 1.669-1.669 1.669Zm-1.306 13.905V6.172h2.612v12.092h-2.612ZM110.52 5.858c2.708 0 4.643 1.838 4.643 4.982v7.423h-2.612v-7.158c0-1.838-1.064-2.804-2.708-2.804-1.717 0-3.071 1.015-3.071 3.482v6.48h-2.612V6.174h2.612V7.72c.798-1.257 2.103-1.862 3.748-1.862Zm17.024-4.522h2.612v16.927h-2.612v-1.741c-.918 1.282-2.345 2.055-4.231 2.055-3.289 0-6.022-2.78-6.022-6.36 0-3.603 2.733-6.36 6.022-6.36 1.886 0 3.313.774 4.231 2.032V1.336Zm-3.821 14.751c2.177 0 3.821-1.62 3.821-3.87 0-2.248-1.644-3.868-3.821-3.868-2.176 0-3.82 1.62-3.82 3.869s1.644 3.87 3.82 3.87Zm15.187 2.49c-3.651 0-6.384-2.78-6.384-6.36 0-3.602 2.733-6.359 6.384-6.359 2.37 0 4.426 1.233 5.393 3.12l-2.249 1.306c-.532-1.137-1.717-1.863-3.168-1.863-2.128 0-3.748 1.62-3.748 3.797 0 2.176 1.62 3.797 3.748 3.797 1.451 0 2.636-.75 3.216-1.863l2.249 1.282c-1.015 1.91-3.071 3.144-5.441 3.144Zm9.746-9.068c0 2.201 6.505.87 6.505 5.345 0 2.419-2.104 3.724-4.716 3.724-2.418 0-4.159-1.089-4.933-2.83l2.249-1.305c.387 1.088 1.355 1.74 2.684 1.74 1.161 0 2.056-.386 2.056-1.354 0-2.151-6.505-.942-6.505-5.27 0-2.274 1.959-3.701 4.425-3.701 1.983 0 3.628.92 4.474 2.515l-2.2 1.233c-.436-.943-1.283-1.378-2.274-1.378-.943 0-1.765.41-1.765 1.281Zm11.148 0c0 2.201 6.505.87 6.505 5.345 0 2.419-2.104 3.724-4.716 3.724-2.418 0-4.158-1.089-4.933-2.83l2.249-1.305c.387 1.088 1.354 1.74 2.684 1.74 1.161 0 2.056-.386 2.056-1.354 0-2.151-6.505-.942-6.505-5.27 0-2.274 1.959-3.701 4.426-3.701 1.982 0 3.627.92 4.473 2.515l-2.2 1.233c-.435-.943-1.282-1.378-2.273-1.378-.944 0-1.766.41-1.766 1.281Z"></path></svg></div>
+              <h3 class="font-semibold text-2xl text-gray-800">TailwindCSS</h3>
+              <p class="text-gray-600 mt-2 text-sm" data-translate="skills.tailwindDesc">Styliser rapidement les interfaces.</p>
+            </div>
+          </div>
+          
+         <div class="skill-card flex-shrink-0 w-80 snap-center p-8 rounded-2xl bg-white/80 backdrop-blur-sm shadow-xl transition-all duration-300 transform-gpu hover:scale-105 hover:shadow-2xl">
+    <div class="text-center">
+      <div class="flex justify-center items-center h-16 mb-6">
+       <svg xmlns="http://www.w3.org/2000/svg" role="img" width="60" height="60" viewBox="0 0 28 28">
+	<title>WordPress.org</title>
+	<path fill="currentColor" d="M13.6052 0.923525C16.1432 0.923525 18.6137 1.67953 20.7062 3.09703C22.7447 4.47403 24.3512 6.41803 25.3097 8.68603C26.9837 12.6415 26.5382 17.164 24.1352 20.7145C22.7582 22.753 20.8142 24.3595 18.5462 25.318C14.5907 26.992 10.0682 26.5465 6.51772 24.1435C4.47922 22.7665 2.87272 20.8225 1.91422 18.5545C0.240225 14.599 0.685725 10.0765 3.08872 6.52603C4.46572 4.48753 6.40973 2.88103 8.67772 1.92253C10.2302 1.26103 11.9177 0.923525 13.6052 0.923525ZM13.6052 0.113525C6.15322 0.113525 0.105225 6.16153 0.105225 13.6135C0.105225 21.0655 6.15322 27.1135 13.6052 27.1135C21.0572 27.1135 27.1052 21.0655 27.1052 13.6135C27.1052 6.16153 21.0572 0.113525 13.6052 0.113525Z"></path>
+	<path fill="currentColor" d="M2.36011 13.6133C2.36011 17.9198 4.81711 21.8618 8.70511 23.7383L3.33211 9.03684C2.68411 10.4813 2.36011 12.0338 2.36011 13.6133ZM21.2061 13.0463C21.2061 11.6558 20.7066 10.6973 20.2746 9.94134C19.8426 9.18534 19.1676 8.22684 19.1676 7.30884C19.1676 6.39084 19.9506 5.31084 21.0576 5.31084H21.2061C16.6296 1.11234 9.51511 1.42284 5.31661 6.01284C4.91161 6.45834 4.53361 6.93084 4.20961 7.43034H4.93861C6.11311 7.43034 7.93561 7.28184 7.93561 7.28184C8.54311 7.24134 8.61061 8.13234 8.00311 8.21334C8.00311 8.21334 7.39561 8.28084 6.72061 8.32134L10.8111 20.5118L13.2681 13.1273L11.5131 8.32134C10.9056 8.28084 10.3386 8.21334 10.3386 8.21334C9.73111 8.17284 9.79861 7.25484 10.4061 7.28184C10.4061 7.28184 12.2691 7.43034 13.3626 7.43034C14.4561 7.43034 16.3596 7.28184 16.3596 7.28184C16.9671 7.24134 17.0346 8.13234 16.4271 8.21334C16.4271 8.21334 15.8196 8.28084 15.1446 8.32134L19.2081 20.4173L20.3691 16.7453C20.8821 15.1388 21.1926 14.0048 21.1926 13.0328L21.2061 13.0463ZM13.7946 14.5853L10.4196 24.3998C12.6876 25.0613 15.1041 25.0073 17.3316 24.2243L17.2506 24.0758L13.7946 14.5853ZM23.4741 8.21334C23.5281 8.59134 23.5551 8.98284 23.5551 9.37434C23.5551 10.5218 23.3391 11.8043 22.7046 13.3973L19.2621 23.3333C24.5271 20.2688 26.4036 13.5593 23.4741 8.21334Z"></path>
+</svg>
+      </div>
+      <h3 class="font-semibold text-2xl text-gray-800">WordPress</h3>
+      <p class="text-gray-600 mt-2 text-sm" data-translate="skills.wpDesc">Créer des sites web sur mesure.</p>
+    </div>
+  </div>
+
+  <div class="skill-card flex-shrink-0 w-80 snap-center p-8 rounded-2xl bg-white/80 backdrop-blur-sm shadow-xl transition-all duration-300 transform-gpu hover:scale-105 hover:shadow-2xl">
+    <div class="text-center">
+      <div class="flex justify-center items-center h-16 mb-6">
+        <svg class="h-14 text-gray-800" role="img" aria-labelledby="kirby-cms-icon" viewBox="0 0 36 42">  <title id="kirby-cms-icon">Kirby CMS</title>  <path d="M18,0 L36,10.4981014 L36,31.5018986 L18,42 L0,31.5018986 L0,10.4981014 L18,0 Z M2,11.6926791 L2,30.3073209 L18,39.6389666 L34,30.3073209 L34,11.6926791 L18,2.36103344 L2,11.6926791 Z"></path>  <polyline points="26 21 21 23.59 21 24 26 24 26 28 10 28 10 24 15 24 15 23.563 10 21 10 16 18 20.297 26 16"></polyline></svg>
+      </div>
+      <h3 class="font-semibold text-2xl text-gray-800">Kirby</h3>
+      <p class="text-gray-600 mt-2 text-sm" data-translate="skills.kirbyDesc">Un CMS flexible et sans base de données.</p>
+    </div>
+  </div>
+
+</div>
+
+        <button id="skills-next" class="slider-btn right-0" aria-label="Compétence suivante" data-translate="skills.ariaNext">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+<section id="portfolio" class="py-20 px-6 fade-slide-up">
+    <h2 class="text-5xl font-bold mb-16 text-center gradient-text font-combo" data-translate="sections.portfolioTitle">Portfolio</h2>
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+      
+      <a href="https://chiropracteur-mons.be/" target="_blank" class="portfolio-card group">
+        <div class="relative overflow-hidden">
+          <img src="uploads/chiro.jpg" alt="Chiropracteur Mons" class="w-full h-56 object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <p class="text-sm font-medium" data-translate="portfolio.chiroType">Site professionnel</p>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-semibold mb-2 text-gray-800" data-translate="portfolio.chiroTitle">Chiropracteur</h3>
+          <p class="text-gray-600 mb-4" data-translate="portfolio.chiroDesc">Site WordPress responsive pour cabinet de chiropractie.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">WordPress</span>
+            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs" data-translate="portfolio.tags.professional">Professionnel</span>
+            <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs" data-translate="portfolio.tags.responsive">Responsive</span>
+          </div>
+        </div>
+      </a>
+      <a href="https://hospel-notaire.be/" target="_blank" class="portfolio-card group">
+  <div class="relative overflow-hidden">
+    <img src="uploads/hospel.jpg" alt="Hospel Notaire" class="w-full h-56 object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <p class="text-sm font-medium" data-translate="portfolio.hospelType">Site institutionnel</p>
+    </div>
+  </div>
+  <div class="p-6">
+    <h3 class="text-2xl font-semibold mb-2 text-gray-800" data-translate="portfolio.hospelTitle">Notaire</h3>
+    <p class="text-gray-600 mb-4" data-translate="portfolio.hospelDesc">Projet réalisé chez Paf! : Site web professionnel pour étude notariale.</p>
+    <div class="flex flex-wrap gap-2">
+      <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">WordPress</span>
+      <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs" data-translate="portfolio.tags.professional">Professionnel</span>
+      <span class="px-3 py-1 bg-cyan-100 text-cyan-800 rounded-full text-xs">TailwindCSS</span>
+      <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs" data-translate="portfolio.tags.responsive">Responsive</span>
+    </div>
+  </div>
+</a>
+<a href="https://memisa.be/fr/" target="_blank" class="portfolio-card group">
+  <div class="relative overflow-hidden">
+    <img src="uploads/memisa.jpg" alt="Memisa" class="w-full h-56 object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <p class="text-sm font-medium" data-translate="portfolio.memisaType">Site associatif</p>
+    </div>
+  </div>
+  <div class="p-6">
+    <h3 class="text-2xl font-semibold mb-2 text-gray-800" data-translate="portfolio.memisaTitle">Memisa</h3>
+    <p class="text-gray-600 mb-4" data-translate="portfolio.memisaDesc">Projet réalisé chez Paf! : Site web pour ONG de santé internationale.</p>
+    <div class="flex flex-wrap gap-2">
+      <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">WordPress</span>
+      <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-xs" data-translate="portfolio.tags.multilingual">Multilingue</span>
+      <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs" data-translate="portfolio.tags.responsive">Responsive</span>
+    </div>
+  </div>
+</a>
+    </div>
+</section>
+
+  <section id="contact" class="max-w-5xl mx-auto py-20 px-6 text-center fade-slide-up">
+    <h2 class="text-5xl font-bold mb-8 gradient-text font-combo" data-translate="sections.contactTitle">Contactez-moi</h2>
+    <p class="mb-12 text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed" data-translate="sections.contactText">
+      N'hésitez pas à me contacter pour des collaborations ou juste pour dire bonjour 👋
+    </p>
+    <div class="flex flex-col sm:flex-row gap-6 justify-center">
+      <a href="mailto:laurencewebdev@gmail.com" class="contact-btn inline-block bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-10 py-4 rounded-xl font-semibold shadow-2xl hover:scale-110 transform transition-all duration-300" data-translate="contact.sendEmail">
+        Envoyer un email
+      </a>
+    </div>
+  </section>
+<footer class="bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 text-white py-16 mt-24">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+    
+      <div>
+  
+        <div class="flex space-x-3">
+          
+          <svg width="50" height="50" viewBox="0 0 50 50" class="flex-shrink-0 transition-transform duration-300 hover:scale-110">
+            <defs><linearGradient id="footerLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#6366f1"/><stop offset="50%" style="stop-color:#a855f7"/><stop offset="100%" style="stop-color:#ec4899"/></linearGradient></defs>
+            <circle cx="25" cy="25" r="23" fill="url(#footerLogoGradient)" opacity="0.2"/><circle cx="25" cy="25" r="18" fill="none" stroke="url(#footerLogoGradient)" stroke-width="2"/>
+            <text x="25" y="31" font-family="Poppins" font-weight="700" font-size="16" fill="url(#footerLogoGradient)" text-anchor="middle">LP</text>
+            <circle cx="25" cy="10" r="3" fill="url(#footerLogoGradient)"/>
+          </svg>
+
+
+          <div>
+     
+            <div>
+              <h3 class="text-2xl font-bold gradient-text">Laurence Pirard</h3>
+              <p class="text-gray-300" data-translate="footer.jobTitle">Développeuse Web</p>
+            </div>
+
+
+            <div class="flex space-x-4 mt-4">
+              <a href="https://github.com/Laurence2712?tab=overview&from=2025-08-01&to=2025-08-21" target="_blank" class="footer-link w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.809 1.305 3.493.998.108-.776.417-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.095 8.199-11.411 0-6.627-5.373-12-12-12z"/></svg></a>
+              <a href="https://www.linkedin.com/in/laurence-pirard-2069a7ba/" target="_blank" class="footer-link w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.762s.784-1.762 1.75-1.762 1.75.79 1.75 1.762-.783 1.762-1.75 1.762zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold mb-4 text-white uppercase" data-translate="footer.servicesTitle">Services</h4>
+        <ul class="space-y-2">
+          <li class="footer-link text-gray-300 hover:text-white transition-colors" data-translate="footer.serviceDev">Développement Web</li>
+          <li class="footer-link text-gray-300 hover:text-white transition-colors" data-translate="footer.serviceWp">WordPress</li>
+          <li class="footer-link text-gray-300 hover:text-white transition-colors" data-translate="footer.serviceKirby">Kirby</li>
+          <li class="footer-link text-gray-300 hover:text-white transition-colors" data-translate="footer.serviceMaintenance">Maintenance</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-lg font-semibold mb-4 text-white uppercase" data-translate="footer.contactTitle">Contact</h4>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-center space-x-3">
+            <span>📧</span>
+            <a href="mailto:laurencewebdev@gmail.com" class="footer-link text-gray-300 hover:text-white transition-colors">laurencewebdev@gmail.com</a>
+          </li>
+          <li class="flex items-center space-x-3">
+            <span>📍</span>
+            <span class="text-gray-300" data-translate="footer.location">Bruxelles, Belgique</span>
+          </li>
+        </ul>      
+      </div>
+
+    </div>
+    <div class="border-t border-gray-700 pt-8 text-center">
+      <p class="text-sm text-gray-400" data-translate="footer.copyright">© 2025 Laurence Pirard — Développeuse Web</p>
+    </div>
+  </div>
+</footer>
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
