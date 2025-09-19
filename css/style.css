@@ -194,7 +194,11 @@ html { scroll-behavior: smooth; }
   z-index: 9999;
   transition: transform 0.1s ease;
 }
-
+@media (max-width: 768px) {
+  .cursor-dot {
+    display: none !important;
+  }
+}
 /* Cache la barre de défilement mais garde la fonctionnalité */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;

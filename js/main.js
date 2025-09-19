@@ -61,21 +61,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     mobileMenu.addEventListener('click', (e) => {
-      if (e.target.tagName === 'A' || e.target.classList.contains('lang-btn')) {
-        mobileMenu.classList.remove('open');
-      }
-    });
+  console.log('Click sur', e.target);
+  if (e.target.tagName === 'A' || e.target.classList.contains('lang-btn')) {
+    console.log('fermeture du menu');
+    mobileMenu.classList.remove('open');
+  }
+});
   }
   
   // --- 5. Effet de traînée du curseur ---
-  const cursorDot = document.getElementById('cursor-dot');
-  if (cursorDot) {
-    document.addEventListener('mousemove', (e) => {
-      const posX = e.clientX - cursorDot.offsetWidth / 2;
-      const posY = e.clientY - cursorDot.offsetHeight / 2;
-      cursorDot.style.transform = `translate(${posX}px, ${posY}px)`;
-    });
+const cursorDot = document.getElementById('cursor-dot');
+const desktopQuery = window.matchMedia('(min-width: 769px)');
+
+function moveCursor(e) {
+  const posX = e.clientX - cursorDot.offsetWidth / 2;
+  const posY = e.clientY - cursorDot.offsetHeight / 2;
+  cursorDot.style.transform = `translate(${posX}px, ${posY}px)`;
+}
+
+if (cursorDot) {
+  if (desktopQuery.matches) {
+    document.addEventListener('mousemove', moveCursor);
+  } else {
+    // Sur mobile : on masque ET on retire les events
+    cursorDot.style.display = 'none';
   }
+}
 
   // --- Logique pour le slider des compétences ---
   const skillsScroller = document.getElementById('skills-scroller');

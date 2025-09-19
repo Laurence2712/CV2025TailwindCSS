@@ -1,5 +1,3 @@
-// js/translations.js
-
 const translations = {
   fr: {
     pageTitle: "Portfolio Laurence - Web Developer",
@@ -17,7 +15,7 @@ const translations = {
     },
     sections: {
       aboutTitle: "À propos",
-      aboutText: "Passionnée par la création d’expériences digitales fluides et agréables, je conçois des sites web performants et responsive. Grâce à mes compétences, je transforme des idées en interfaces intuitives, efficaces et plaisantes à utiliser.",
+      aboutText: "Passionnée par la création d'expériences digitales fluides et agréables, je conçois des sites web performants et responsive. Grâce à mes compétences, je transforme des idées en interfaces intuitives, efficaces et plaisantes à utiliser.",
       skillsTitle: "Compétences",
       portfolioTitle: "Portfolio",
       contactTitle: "Contact",
@@ -36,8 +34,7 @@ const translations = {
       jsDesc: "Ajouter de l'interactivité et du dynamisme.",
       tailwindDesc: "Styliser rapidement les interfaces.",
       wpDesc: "Créer des sites web sur mesure.",
-      kirbyDesc: "Un CMS flexible et sans base de données." 
-
+      kirbyDesc: "Un CMS flexible et sans base de données."
     },
     portfolio: {
       chiroType: "Site professionnel",
@@ -45,10 +42,10 @@ const translations = {
       chiroDesc: "Site WordPress responsive pour cabinet de chiropractie.",
       hospelType: "Site professionnel",
       hospelTitle: "Notaire",
-      hospelDesc: "Projet réalisé chez Paf! : Site web professionnel pour étude notariale.",
+      hospelDesc: "Projet réalisé dans l'agence <a href='https://pafdesign.be/' target='_blank' rel='noopener noreferrer'>Paf!</a>",
       memisaType: "Site associatif",
       memisaTitle: "Memisa",
-      memisaDesc: "Projet réalisé chez Paf! : Site web pour ONG de santé internationale.",
+      memisaDesc: "Projet réalisé dans l'agence <a href='https://pafdesign.be/' target='_blank' rel='noopener noreferrer'>Paf!</a>",
       tags: {
         professional: "Professionnel",
         responsive: "Responsive",
@@ -107,7 +104,6 @@ const translations = {
       tailwindDesc: "Rapidly styling user interfaces.",
       wpDesc: "Creating custom-made websites.",
       kirbyDesc: "A flexible, file-based CMS."
-
     },
     portfolio: {
       chiroType: "Professional Website",
@@ -115,11 +111,10 @@ const translations = {
       chiroDesc: "Responsive WordPress site for a chiropractic clinic.",
       hospelType: "Professional Website",
       hospelTitle: "Notary",
-      hospelDesc: "Project carried out at Paf!: Professional website for a notary office.",
+      hospelDesc: "Project carried out at <a href='https://pafdesign.be/' target='_blank' rel='noopener noreferrer'>Paf!</a>",
       memisaType: "Non-profit Website",
       memisaTitle: "Memisa",
-      memisaDesc: "Project carried out at Paf!: Website for an international health NGO.",
-
+      memisaDesc: "Project carried out at <a href='https://pafdesign.be/' target='_blank' rel='noopener noreferrer'>Paf!</a>",
       tags: {
         professional: "Professional",
         responsive: "Responsive",
@@ -144,50 +139,76 @@ const translations = {
   }
 };
 
-
-
 // Fonction pour changer la langue
 function changeLanguage(lang) {
-  document.documentElement.lang = lang;
-  localStorage.setItem('preferredLanguage', lang);
-  updateTexts(lang);
-  updateLanguageButtons(lang);
+  try {
+    document.documentElement.lang = lang;
+    localStorage.setItem('preferredLanguage', lang);
+    updateTexts(lang);
+    updateLanguageButtons(lang);
+  } catch (error) {
+    console.error('Error changing language:', error);
+  }
 }
+
+// Rendre accessible depuis le HTML
+window.changeLanguage = changeLanguage;
 
 // Fonction de mise à jour des textes
 function updateTexts(lang) {
-  document.querySelectorAll('[data-translate]').forEach(element => {
-    const key = element.dataset.translate;
-    const keys = key.split('.');
-    
-    let text = translations[lang];
-    for (const k of keys) {
-      text = text ? text[k] : undefined;
-    }
-    
-    if (text) {
-      // Pour les 'aria-label', on met à jour l'attribut, sinon le contenu
-      if (element.hasAttribute('aria-label')) {
-        element.setAttribute('aria-label', text);
-      } else if (element.tagName === 'TITLE') {
-        element.textContent = text;
+  const elements = document.querySelectorAll('[data-translate]');
+  
+  elements.forEach(element => {
+    try {
+      const key = element.dataset.translate;
+      const keys = key.split('.');
+
+      let text = translations[lang];
+      for (const k of keys) {
+        text = text ? text[k] : undefined;
       }
-      else {
-        element.textContent = text;
+
+      if (text) {
+        if (element.tagName === 'TITLE') {
+          element.textContent = text;
+        } else if (element.hasAttribute('aria-label')) {
+          element.setAttribute('aria-label', text);
+        } else {
+          element.innerHTML = text; // innerHTML pour supporter les <a>
+        }
       }
+    } catch (error) {
+      console.error('Error updating text for element:', element, error);
     }
   });
 }
 
 // Fonction pour mettre à jour l'état des boutons de langue
 function updateLanguageButtons(lang) {
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === lang);
+  const langButtons = document.querySelectorAll('.lang-btn');
+  
+  langButtons.forEach(btn => {
+    try {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    } catch (error) {
+      console.error('Error updating language button:', btn, error);
+    }
   });
 }
 
 // Initialisation au chargement de la page
-document.addEventListener('DOMContentLoaded', () => {
-  const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
-  changeLanguage(savedLang);
+document.addEventListener('DOMContentLoaded', function() {
+  try {
+    const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
+    changeLanguage(savedLang);
+  } catch (error) {
+    console.error('Error during initialization:', error);
+    // Fallback to French if there's an error
+    changeLanguage('fr');
+  }
 });
+
+// Export pour les modules (optionnel)
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { translations, changeLanguage };
+}
