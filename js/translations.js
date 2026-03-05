@@ -39,7 +39,12 @@ const translations = {
       date2: "2022 – 2023",
       title2: "Développeuse Web",
       company2: "Paf! Design · Bruxelles",
-      desc2: "Développement de sites WordPress et Kirby en agence. Projets pour Hospel Notaire, Memisa (site multilingue) et d'autres clients institutionnels."
+      desc2: "Développement de sites WordPress et Kirby en agence. Projets pour Hospel Notaire, Memisa (site multilingue) et d'autres clients institutionnels.",
+      date3: "2022 · Stage",
+      title3: "Stagiaire Développeuse Web",
+      company3: "ADEPS · Louvain-la-Neuve",
+      desc3: "Stage de fin de formation BES à l'Administration de l'Éducation physique et du Sport. Développement et intégration web dans un contexte institutionnel belge.",
+      tag3Institutional: "Institutionnel"
     },
     skills: {
       ariaPrev: "Compétence précédente",
@@ -129,7 +134,12 @@ const translations = {
       date2: "2022 – 2023",
       title2: "Web Developer",
       company2: "Paf! Design · Brussels",
-      desc2: "WordPress and Kirby development at an agency. Projects for Hospel Notaire, Memisa (multilingual site) and other institutional clients."
+      desc2: "WordPress and Kirby development at an agency. Projects for Hospel Notaire, Memisa (multilingual site) and other institutional clients.",
+      date3: "2022 · Internship",
+      title3: "Web Developer Intern",
+      company3: "ADEPS · Louvain-la-Neuve",
+      desc3: "End-of-study internship (BES program) at the Belgian Sports Administration. Web development and integration in an institutional context.",
+      tag3Institutional: "Institutional"
     },
     skills: {
       ariaPrev: "Previous skill",
