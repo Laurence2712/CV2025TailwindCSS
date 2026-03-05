@@ -3,334 +3,333 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CV - Laurence Pirard | Développeuse Web</title>
+  <title>CV — Laurence Pirard | Développeuse Web</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --indigo: #6366f1;
-      --purple: #a855f7;
-      --pink: #ec4899;
-      --dark: #1e1b4b;
-      --gray: #64748b;
-      --light: #f8fafc;
+      --bg:      #0d0e12;
+      --surface: #13141a;
+      --card:    #1a1b22;
+      --border:  #252630;
+      --text:    #e8eaf0;
+      --muted:   #6a6c7e;
+      --accent:  #c8f400;
     }
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: #f1f5f9;
-      color: #1e293b;
+      background: #f0f1f5;
+      color: #1a1b22;
       min-height: 100vh;
     }
 
-    /* ── Print bar (masquée à l'impression) ── */
+    /* ── Print bar ── */
     .print-bar {
-      background: linear-gradient(135deg, var(--indigo), var(--purple), var(--pink));
+      background: #0d0e12;
+      border-bottom: 1px solid #252630;
       padding: 12px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 4px 20px rgba(99,102,241,.3);
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
     }
     .print-bar a {
-      color: white;
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      opacity: .85;
-      transition: opacity .2s;
+      color: #6a6c7e; text-decoration: none;
+      font-size: .82rem; font-weight: 500;
+      display: flex; align-items: center; gap: 8px;
+      transition: color .2s;
     }
-    .print-bar a:hover { opacity: 1; }
-    .print-bar .bar-right { display: flex; gap: 12px; align-items: center; }
+    .print-bar a:hover { color: #c8f400; }
     .btn-print {
-      background: white;
-      color: var(--indigo);
-      border: none;
-      padding: 8px 20px;
-      border-radius: 8px;
+      background: #c8f400; color: #0d0e12;
+      border: none; padding: 8px 20px; border-radius: 6px;
       font-family: 'Poppins', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 600;
+      font-size: .82rem; font-weight: 700;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      display: flex; align-items: center; gap: 8px;
       transition: transform .2s, box-shadow .2s;
     }
-    .btn-print:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.15); }
+    .btn-print:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(200,244,0,.3);
+    }
 
     /* ── CV wrapper ── */
     .cv-page {
-      max-width: 860px;
-      margin: 32px auto;
+      max-width: 880px; margin: 32px auto;
       background: white;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,.12);
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 16px 48px rgba(0,0,0,.14);
     }
 
     /* ── Header ── */
     .cv-header {
-      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%);
+      background: #0d0e12;
       color: white;
       padding: 48px 48px 40px;
-      position: relative;
-      overflow: hidden;
     }
-    .cv-header::before {
-      content: '';
-      position: absolute;
-      top: -50px; right: -50px;
-      width: 200px; height: 200px;
-      background: rgba(168,85,247,.2);
-      border-radius: 50%;
+    .cv-header-inner {
+      display: flex; align-items: flex-start; gap: 28px;
     }
-    .cv-header::after {
-      content: '';
-      position: absolute;
-      bottom: -30px; left: 30%;
-      width: 120px; height: 120px;
-      background: rgba(236,72,153,.15);
-      border-radius: 50%;
-    }
-    .cv-header-inner { position: relative; z-index: 1; display: flex; align-items: flex-start; gap: 32px; }
     .cv-avatar {
-      width: 100px; height: 100px;
+      width: 90px; height: 90px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--indigo), var(--pink));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2.2rem; font-weight: 700; color: white;
+      overflow: hidden;
+      border: 2px solid #252630;
       flex-shrink: 0;
-      border: 3px solid rgba(255,255,255,.3);
+      background: #1a1b22;
+      display: flex; align-items: center; justify-content: center;
     }
-    .cv-header h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 4px; }
-    .cv-header h2 { font-size: 1.1rem; font-weight: 400; opacity: .85; margin-bottom: 20px; }
-    .cv-contacts { display: flex; flex-wrap: wrap; gap: 16px; }
+    .cv-avatar img {
+      width: 100%; height: 100%; object-fit: cover; object-position: top;
+    }
+    .cv-avatar-initials {
+      font-size: 1.8rem; font-weight: 900; color: #c8f400;
+    }
+    .cv-header h1 {
+      font-size: 2rem; font-weight: 900;
+      color: white; margin-bottom: 4px; line-height: 1.1;
+    }
+    .cv-header h2 {
+      font-size: 1rem; font-weight: 400;
+      color: #6a6c7e; margin-bottom: 20px;
+    }
+    .cv-contacts { display: flex; flex-wrap: wrap; gap: 14px; }
     .cv-contact-item {
-      display: flex; align-items: center; gap: 8px;
-      font-size: 0.82rem; opacity: .9;
+      display: flex; align-items: center; gap: 7px;
+      font-size: .78rem; color: #8a8ca0;
     }
-    .cv-contact-item svg { opacity: .7; flex-shrink: 0; }
+    .cv-contact-item svg { opacity: .6; flex-shrink: 0; }
+    .cv-contact-item a { color: inherit; text-decoration: none; }
+    .cv-contact-item a:hover { color: #c8f400; }
 
     /* ── Body ── */
     .cv-body {
       display: grid;
-      grid-template-columns: 1fr 300px;
+      grid-template-columns: 1fr 272px;
     }
 
-    /* ── Main column ── */
-    .cv-main { padding: 40px 40px 40px 48px; border-right: 1px solid #f1f5f9; }
+    /* ── Main ── */
+    .cv-main {
+      padding: 40px 40px 40px 48px;
+      border-right: 1px solid #eef0f6;
+    }
 
     /* ── Sidebar ── */
-    .cv-sidebar { padding: 40px 40px 40px 32px; background: #fafbff; }
+    .cv-sidebar {
+      padding: 40px 32px;
+      background: #fafbff;
+    }
 
     /* ── Section titles ── */
     .section-title {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--indigo);
+      font-size: .66rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: #c8f400;
+      background: #0d0e12;
+      display: inline-block;
+      padding: 3px 10px; border-radius: 3px;
       margin-bottom: 20px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid;
-      border-image: linear-gradient(135deg, var(--indigo), var(--pink)) 1;
     }
 
     /* ── Experience ── */
-    .exp-list { display: flex; flex-direction: column; gap: 28px; margin-bottom: 36px; }
-    .exp-item { position: relative; padding-left: 20px; }
-    .exp-item::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 6px;
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--indigo), var(--purple));
+    .exp-list { display: flex; flex-direction: column; gap: 0; margin-bottom: 36px; }
+    .exp-item {
+      padding: 20px 0;
+      border-bottom: 1px solid #eef0f6;
     }
-    .exp-item::after {
-      content: '';
-      position: absolute;
-      left: 3px; top: 18px;
-      width: 2px;
-      bottom: -20px;
-      background: linear-gradient(to bottom, var(--indigo), transparent);
-      opacity: .3;
-    }
-    .exp-item:last-child::after { display: none; }
+    .exp-item:first-child { padding-top: 0; }
+    .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
     .exp-date {
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--purple);
-      text-transform: uppercase;
-      letter-spacing: .05em;
-      margin-bottom: 3px;
+      font-size: .68rem; font-weight: 700;
+      color: #c8f400;
+      background: #0d0e12;
+      padding: 1px 8px; border-radius: 2px;
+      display: inline-block; margin-bottom: 6px;
+      letter-spacing: .04em;
     }
-    .exp-title { font-size: 1rem; font-weight: 600; color: #1e293b; }
-    .exp-company {
-      font-size: 0.85rem;
-      color: var(--gray);
-      margin-bottom: 6px;
-    }
-    .exp-desc {
-      font-size: 0.82rem;
-      color: #475569;
-      line-height: 1.6;
-    }
-    .exp-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .exp-title { font-size: .96rem; font-weight: 700; color: #1a1b22; margin-bottom: 2px; }
+    .exp-company { font-size: .8rem; color: #6a6c7e; margin-bottom: 8px; }
+    .exp-desc { font-size: .8rem; color: #4a4b5e; line-height: 1.65; margin-bottom: 10px; }
+    .exp-tags { display: flex; flex-wrap: wrap; gap: 5px; }
     .exp-tag {
-      font-size: 0.68rem; font-weight: 500;
-      padding: 2px 10px;
-      border-radius: 100px;
-      background: linear-gradient(135deg, #ede9fe, #fce7f3);
-      color: var(--indigo);
+      font-size: .65rem; font-weight: 500;
+      padding: 2px 8px; border-radius: 3px;
+      background: #f0f1f5; color: #4a4b5e;
+      border: 1px solid #dde0ea;
     }
 
+    /* ── Education ── */
+    .edu-item { margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid #eef0f6; }
+    .edu-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .edu-date {
+      font-size: .68rem; font-weight: 700;
+      color: #c8f400; background: #0d0e12;
+      padding: 1px 8px; border-radius: 2px;
+      display: inline-block; margin-bottom: 5px;
+    }
+    .edu-title { font-size: .88rem; font-weight: 700; color: #1a1b22; }
+    .edu-school { font-size: .76rem; color: #6a6c7e; }
+
     /* ── Sidebar: Skills ── */
-    .skill-group { margin-bottom: 28px; }
-    .skill-group h4 { font-size: 0.72rem; font-weight: 600; color: var(--gray); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
-    .skill-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-group { margin-bottom: 22px; }
+    .skill-group h4 {
+      font-size: .64rem; font-weight: 700;
+      color: #9a9cae; text-transform: uppercase;
+      letter-spacing: .1em; margin-bottom: 8px;
+    }
+    .skill-chips { display: flex; flex-wrap: wrap; gap: 5px; }
     .skill-chip {
-      font-size: 0.75rem; font-weight: 500;
-      padding: 4px 12px;
-      border-radius: 100px;
-      border: 1px solid #e0e7ff;
-      color: var(--indigo);
-      background: white;
+      font-size: .72rem; font-weight: 500;
+      padding: 3px 10px; border-radius: 3px;
+      background: white; border: 1px solid #dde0ea;
+      color: #3a3b4e;
     }
 
     /* ── Sidebar: Languages ── */
-    .lang-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 0.82rem; }
-    .lang-bar { height: 4px; border-radius: 4px; background: #e0e7ff; margin-top: 4px; overflow: hidden; }
-    .lang-bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(135deg, var(--indigo), var(--purple)); }
+    .lang-item {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: .78rem; margin-bottom: 3px;
+      color: #1a1b22;
+    }
+    .lang-level { font-size: .68rem; color: #6a6c7e; }
+    .lang-bar {
+      height: 3px; border-radius: 3px;
+      background: #eef0f6; margin-bottom: 10px; overflow: hidden;
+    }
+    .lang-bar-fill {
+      height: 100%; border-radius: 3px;
+      background: #0d0e12;
+    }
 
     /* ── Sidebar: Soft skills ── */
-    .soft-item { font-size: 0.82rem; padding: 6px 0; border-bottom: 1px solid #f1f5f9; color: #334155; display: flex; align-items: center; gap: 8px; }
-    .soft-item::before { content: '→'; color: var(--purple); font-weight: 700; }
+    .soft-item {
+      font-size: .78rem; padding: 5px 0;
+      border-bottom: 1px solid #eef0f6;
+      color: #3a3b4e;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .soft-item:last-child { border-bottom: none; }
+    .soft-item::before { content: '→'; color: #c8f400; font-weight: 700; background: #0d0e12; padding: 0 3px; border-radius: 2px; font-size: .65rem; }
 
-    /* ── Education ── */
-    .edu-item { margin-bottom: 18px; }
-    .edu-date { font-size: 0.72rem; font-weight: 600; color: var(--purple); margin-bottom: 2px; }
-    .edu-title { font-size: 0.9rem; font-weight: 600; color: #1e293b; }
-    .edu-school { font-size: 0.8rem; color: var(--gray); }
+    /* ── Profil block ── */
+    .profil-text {
+      font-size: .84rem; color: #4a4b5e;
+      line-height: 1.75; margin-bottom: 36px;
+      padding-bottom: 28px; border-bottom: 1px solid #eef0f6;
+    }
 
-    /* ── Print styles ── */
+    /* ── Print ── */
     @media print {
       body { background: white; }
       .print-bar { display: none !important; }
       .cv-page { margin: 0; border-radius: 0; box-shadow: none; max-width: none; }
-      .cv-body { grid-template-columns: 1fr 270px; }
+      .cv-body { grid-template-columns: 1fr 256px; }
       .cv-main, .cv-sidebar { padding: 28px 32px; }
       .cv-header { padding: 32px; }
-      .cv-avatar { width: 80px; height: 80px; font-size: 1.8rem; }
-      .cv-header h1 { font-size: 1.8rem; }
+      .cv-avatar { width: 72px; height: 72px; }
+      .cv-header h1 { font-size: 1.7rem; }
       a { color: inherit; text-decoration: none; }
       * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     }
 
     @media (max-width: 680px) {
       .cv-body { grid-template-columns: 1fr; }
-      .cv-main { padding: 28px 24px; border-right: none; border-bottom: 1px solid #f1f5f9; }
+      .cv-main { padding: 28px 24px; border-right: none; border-bottom: 1px solid #eef0f6; }
       .cv-sidebar { padding: 28px 24px; }
       .cv-header { padding: 32px 24px 28px; }
-      .cv-header-inner { flex-direction: column; gap: 20px; }
-      .cv-header h1 { font-size: 1.7rem; }
+      .cv-header-inner { flex-direction: column; gap: 16px; }
+      .cv-header h1 { font-size: 1.6rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Barre d'outils -->
   <div class="print-bar">
     <a href="index.html">
-      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/>
+      </svg>
       Retour au portfolio
     </a>
-    <div class="bar-right">
-      <button class="btn-print" onclick="window.print()">
-        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0110.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0l.229 2.523a1.125 1.125 0 01-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0021 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 00-1.913-.247M6.34 18H5.25A2.25 2.25 0 013 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 011.913-.247m10.5 0a48.536 48.536 0 00-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5zm-3 0h.008v.008H15V10.5z" /></svg>
-        Télécharger / Imprimer PDF
-      </button>
-    </div>
+    <button class="btn-print" onclick="window.print()">
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0110.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0l.229 2.523a1.125 1.125 0 01-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0021 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 00-1.913-.247M6.34 18H5.25A2.25 2.25 0 013 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 011.913-.247m10.5 0a48.536 48.536 0 00-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5zm-3 0h.008v.008H15V10.5z"/>
+      </svg>
+      Imprimer / PDF
+    </button>
   </div>
 
-  <!-- CV -->
   <div class="cv-page">
 
     <!-- En-tête -->
     <div class="cv-header">
       <div class="cv-header-inner">
-        <div class="cv-avatar">LP</div>
+        <div class="cv-avatar">
+          <img src="uploads/photo.jpg" alt="Laurence Pirard"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <span class="cv-avatar-initials" style="display:none">LP</span>
+        </div>
         <div>
           <h1>Laurence Pirard</h1>
           <h2>Développeuse Web Front-End</h2>
           <div class="cv-contacts">
             <div class="cv-contact-item">
-              <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
-              laurencewebdev@gmail.com
+              <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+              <a href="mailto:laurencewebdev@gmail.com">laurencewebdev@gmail.com</a>
             </div>
             <div class="cv-contact-item">
-              <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+              <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
               Bruxelles, Belgique
             </div>
             <div class="cv-contact-item">
-              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.809 1.305 3.493.998.108-.776.417-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.095 8.199-11.411 0-6.627-5.373-12-12-12z"/></svg>
-              github.com/Laurence2712
+              <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.809 1.305 3.493.998.108-.776.417-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.095 8.199-11.411 0-6.627-5.373-12-12-12z"/></svg>
+              <a href="https://github.com/Laurence2712" target="_blank">github.com/Laurence2712</a>
             </div>
             <div class="cv-contact-item">
-              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.762s.784-1.762 1.75-1.762 1.75.79 1.75 1.762-.783 1.762-1.75 1.762zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-              linkedin.com/in/laurence-pirard
+              <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.762s.784-1.762 1.75-1.762 1.75.79 1.75 1.762-.783 1.762-1.75 1.762zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              <a href="https://linkedin.com/in/laurence-pirard-2069a7ba" target="_blank">linkedin.com/in/laurence-pirard</a>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Corps du CV -->
+    <!-- Corps -->
     <div class="cv-body">
 
       <!-- Colonne principale -->
       <div class="cv-main">
 
         <!-- Profil -->
-        <div style="margin-bottom:36px">
-          <div class="section-title">Profil</div>
-          <p style="font-size:0.88rem;color:#475569;line-height:1.75">
-            Développeuse web front-end passionnée par la création d'interfaces digitales fluides et performantes.
-            Spécialisée WordPress, TailwindCSS et JavaScript, je transforme des maquettes en sites web responsifs,
-            accessibles et optimisés. Expérience en agence et en freelance, avec un sens aigu du détail et de l'UX.
-          </p>
-        </div>
+        <p class="profil-text">
+          Développeuse web front-end passionnée par la création d'interfaces digitales soignées et performantes.
+          Spécialisée WordPress, TailwindCSS et JavaScript — je transforme des maquettes en sites web responsifs,
+          accessibles et optimisés. Expérience en agence et en freelance, avec un sens aigu du détail et de l'UX.
+        </p>
 
-        <!-- Expérience professionnelle -->
+        <!-- Expérience -->
         <div style="margin-bottom:36px">
-          <div class="section-title">Expérience Professionnelle</div>
+          <div class="section-title">Expérience</div>
           <div class="exp-list">
 
             <div class="exp-item">
               <div class="exp-date">2023 – Présent</div>
-              <div class="exp-title">Développeuse Web Front-End — Freelance</div>
+              <div class="exp-title">Développeuse Web Freelance</div>
               <div class="exp-company">Indépendante · Bruxelles, Belgique</div>
               <div class="exp-desc">
-                Conception et développement de sites web sur mesure pour des clients variés (professions libérales, associations, PME).
-                Intégration de maquettes, optimisation des performances et suivi de projet de A à Z.
-                Réalisation de projets personnels — dont <strong>poulettes.laurencepirard.be</strong> — pour approfondir les nouvelles technologies front-end et enrichir le portfolio.
+                Conception et développement de sites web sur mesure pour professions libérales, associations et PME.
+                Accompagnement de A à Z : maquette, intégration, mise en ligne et maintenance.
+                Développement de projets personnels — dont <strong>poulettes.laurencepirard.be</strong> — pour
+                continuer à explorer de nouvelles technologies front-end.
               </div>
               <div class="exp-tags">
                 <span class="exp-tag">WordPress</span>
                 <span class="exp-tag">TailwindCSS</span>
                 <span class="exp-tag">JavaScript</span>
                 <span class="exp-tag">Responsive</span>
-                <span class="exp-tag">Projet perso</span>
               </div>
             </div>
 
@@ -339,8 +338,8 @@
               <div class="exp-title">Développeuse Web</div>
               <div class="exp-company">Paf! Design · Bruxelles, Belgique</div>
               <div class="exp-desc">
-                Développement de sites WordPress complexes en équipe. Réalisation de projets pour des clients institutionnels
-                et associatifs, dont Hospel Notaire et Memisa (site multilingue). Intégration TailwindCSS, gestion de contenu Kirby.
+                Développement de sites WordPress complexes en équipe. Projets pour des clients institutionnels
+                et associatifs : Hospel Notaire, Memisa (multilingue). Intégration TailwindCSS, gestion de contenu Kirby.
               </div>
               <div class="exp-tags">
                 <span class="exp-tag">WordPress</span>
@@ -355,38 +354,15 @@
               <div class="exp-title">Stagiaire Développeuse Web</div>
               <div class="exp-company">ADEPS · Louvain-la-Neuve, Belgique</div>
               <div class="exp-desc">
-                Stage de fin de formation BES à l'Administration de l'Éducation physique et du Sport.
-                Développement et intégration web dans un contexte institutionnel.
+                Stage de fin de formation BES. Développement et intégration web dans un contexte institutionnel.
               </div>
               <div class="exp-tags">
-                <span class="exp-tag">HTML/CSS</span>
+                <span class="exp-tag">HTML / CSS</span>
                 <span class="exp-tag">JavaScript</span>
                 <span class="exp-tag">Institutionnel</span>
               </div>
             </div>
 
-          </div>
-        </div>
-
-        <!-- Projets Personnels -->
-        <div style="margin-bottom:36px">
-          <div class="section-title">Projets Personnels</div>
-          <div class="exp-list">
-            <div class="exp-item">
-              <div class="exp-date">En ligne</div>
-              <div class="exp-title">poulettes.laurencepirard.be</div>
-              <div class="exp-company">Projet personnel · laurencepirard.be</div>
-              <div class="exp-desc">
-                Site conçu et développé intégralement : conception UI, intégration front-end et mise en production.
-                Vitrine de mes compétences en dehors des projets clients.
-              </div>
-              <div class="exp-tags">
-                <span class="exp-tag">TailwindCSS</span>
-                <span class="exp-tag">JavaScript</span>
-                <span class="exp-tag">HTML5/CSS3</span>
-                <span class="exp-tag">Responsive</span>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -400,8 +376,8 @@
           </div>
           <div class="edu-item">
             <div class="edu-date">Continu</div>
-            <div class="edu-title">Auto-formation · Veille technologique</div>
-            <div class="edu-school">TailwindCSS, JavaScript avancé, performance web</div>
+            <div class="edu-title">Auto-formation & veille technologique</div>
+            <div class="edu-school">TailwindCSS, JavaScript, performance web</div>
           </div>
         </div>
 
@@ -411,8 +387,8 @@
       <div class="cv-sidebar">
 
         <!-- Compétences techniques -->
-        <div style="margin-bottom:32px">
-          <div class="section-title">Compétences Techniques</div>
+        <div style="margin-bottom:28px">
+          <div class="section-title">Compétences</div>
           <div class="skill-group">
             <h4>Langages</h4>
             <div class="skill-chips">
@@ -436,25 +412,25 @@
             <h4>Design</h4>
             <div class="skill-chips">
               <span class="skill-chip">Figma</span>
-              <span class="skill-chip">UX/UI</span>
+              <span class="skill-chip">UX / UI</span>
               <span class="skill-chip">Responsive</span>
             </div>
           </div>
         </div>
 
         <!-- Langues -->
-        <div style="margin-bottom:32px">
+        <div style="margin-bottom:28px">
           <div class="section-title">Langues</div>
-          <div style="margin-bottom:14px">
-            <div class="lang-item"><span>Français</span><span style="font-size:.72rem;color:var(--purple);font-weight:600">Natif</span></div>
+          <div style="margin-bottom:10px">
+            <div class="lang-item"><span>Français</span><span class="lang-level">Natif</span></div>
             <div class="lang-bar"><div class="lang-bar-fill" style="width:100%"></div></div>
           </div>
-          <div style="margin-bottom:14px">
-            <div class="lang-item"><span>Anglais</span><span style="font-size:.72rem;color:var(--purple);font-weight:600">Courant</span></div>
+          <div style="margin-bottom:10px">
+            <div class="lang-item"><span>Anglais</span><span class="lang-level">Courant</span></div>
             <div class="lang-bar"><div class="lang-bar-fill" style="width:80%"></div></div>
           </div>
           <div>
-            <div class="lang-item"><span>Néerlandais</span><span style="font-size:.72rem;color:var(--purple);font-weight:600">Notions</span></div>
+            <div class="lang-item"><span>Néerlandais</span><span class="lang-level">Notions</span></div>
             <div class="lang-bar"><div class="lang-bar-fill" style="width:30%"></div></div>
           </div>
         </div>
