@@ -114,7 +114,22 @@ if (cursorDot) {
     setTimeout(updateButtonsState, 100);
   }
 
-  // --- 6. Barre de navigation qui se cache au scroll (mobile) ---
+  // --- 6. Scroll to top button ---
+  const scrollTopBtn = document.getElementById('scroll-top');
+  if (scrollTopBtn) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    });
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // --- 7. Barre de navigation qui se cache au scroll (mobile) ---
   const header = document.getElementById('main-header');
   if (header) {
     let lastScrollY = window.scrollY;

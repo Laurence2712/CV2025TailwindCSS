@@ -3,19 +3,23 @@ const translations = {
     pageTitle: "Portfolio Laurence - Web Developer",
     nav: {
       about: "À propos",
+      experience: "Expérience",
       skills: "Compétences",
       portfolio: "Portfolio",
-      contact: "Contact"
+      contact: "Contact",
+      cv: "CV"
     },
     hero: {
       subtitle: "Vous êtes à la recherche d'un développeur web ?",
       subtitle2: "Je suis là !",
       ctaProjects: "Mes projets",
-      ctaContact: "Me contacter"
+      ctaContact: "Me contacter",
+      ctaCV: "Mon CV"
     },
     sections: {
       aboutTitle: "À propos",
       aboutText: "Passionnée par la création d'expériences digitales fluides et agréables, je conçois des sites web performants et responsive. Grâce à mes compétences, je transforme des idées en interfaces intuitives, efficaces et plaisantes à utiliser.",
+      experienceTitle: "Expérience",
       skillsTitle: "Compétences",
       portfolioTitle: "Portfolio",
       contactTitle: "Contact",
@@ -24,7 +28,18 @@ const translations = {
     about: {
       tagResponsive: "Responsive Design",
       tagUxUi: "UX/UI",
-      tagPerformance: "Performance"
+      tagPerformance: "Performance",
+      downloadCV: "Télécharger mon CV"
+    },
+    experience: {
+      date1: "2023 – Présent",
+      title1: "Développeuse Web Freelance",
+      company1: "Indépendante · Bruxelles",
+      desc1: "Conception et développement de sites web sur mesure. Accompagnement de clients de A à Z : maquette, intégration, mise en ligne et maintenance.",
+      date2: "2022 – 2023",
+      title2: "Développeuse Web",
+      company2: "Paf! Design · Bruxelles",
+      desc2: "Développement de sites WordPress et Kirby en agence. Projets pour Hospel Notaire, Memisa (site multilingue) et d'autres clients institutionnels."
     },
     skills: {
       ariaPrev: "Compétence précédente",
@@ -53,7 +68,9 @@ const translations = {
       }
     },
     contact: {
-      sendEmail: "Envoyer un email"
+      sendEmail: "Envoyer un email",
+      linkedin: "LinkedIn",
+      downloadCV: "Mon CV"
     },
     footer: {
       jobTitle: "Développeuse Web",
@@ -72,19 +89,23 @@ const translations = {
     pageTitle: "Laurence's Portfolio - Web Developer",
     nav: {
       about: "About",
+      experience: "Experience",
       skills: "Skills",
       portfolio: "Portfolio",
-      contact: "Contact"
+      contact: "Contact",
+      cv: "CV"
     },
     hero: {
       subtitle: "Looking for a Web Developer?",
       subtitle2: "I'm here!",
       ctaProjects: "View My Projects",
-      ctaContact: "Contact Me"
+      ctaContact: "Contact Me",
+      ctaCV: "My Resume"
     },
     sections: {
       aboutTitle: "About",
       aboutText: "Passionate about creating smooth and enjoyable digital experiences, I design high-performing, responsive websites. Leveraging my skills, I turn ideas into intuitive, efficient, and user-friendly interfaces.",
+      experienceTitle: "Experience",
       skillsTitle: "Skills",
       portfolioTitle: "Portfolio",
       contactTitle: "Get in Touch",
@@ -93,7 +114,18 @@ const translations = {
     about: {
       tagResponsive: "Responsive Design",
       tagUxUi: "UX/UI",
-      tagPerformance: "Performance"
+      tagPerformance: "Performance",
+      downloadCV: "Download my Resume"
+    },
+    experience: {
+      date1: "2023 – Present",
+      title1: "Freelance Web Developer",
+      company1: "Self-employed · Brussels",
+      desc1: "Design and development of custom websites. End-to-end client support: wireframes, integration, deployment and maintenance.",
+      date2: "2022 – 2023",
+      title2: "Web Developer",
+      company2: "Paf! Design · Brussels",
+      desc2: "WordPress and Kirby development at an agency. Projects for Hospel Notaire, Memisa (multilingual site) and other institutional clients."
     },
     skills: {
       ariaPrev: "Previous skill",
@@ -122,7 +154,9 @@ const translations = {
       }
     },
     contact: {
-      sendEmail: "Send an email"
+      sendEmail: "Send an email",
+      linkedin: "LinkedIn",
+      downloadCV: "My Resume"
     },
     footer: {
       jobTitle: "Web Developer",

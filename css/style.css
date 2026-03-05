@@ -266,3 +266,50 @@ html { scroll-behavior: smooth; }
 #main-header.header-hidden {
   transform: translateY(-100%);
 }
+
+/* ── About avatar ── */
+.about-avatar {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ── CV nav button ── */
+.cv-nav-btn {
+  white-space: nowrap;
+}
+
+/* ── Timeline experience ── */
+.timeline-card {
+  position: relative;
+}
+.timeline-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(99,102,241,.05), rgba(236,72,153,.05));
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.timeline-card:hover::before {
+  opacity: 1;
+}
+
+/* Mobile timeline: left-side line */
+@media (max-width: 767px) {
+  .timeline-item {
+    padding-left: 24px;
+    border-left: 2px solid;
+    border-image: linear-gradient(to bottom, #6366f1, #ec4899) 1;
+    margin-left: 8px;
+    margin-bottom: 24px;
+  }
+}
+
+/* ── Scroll to top button ── */
+#scroll-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+#scroll-top:hover {
+  box-shadow: 0 8px 25px rgba(99,102,241,.5);
+}
