@@ -10,26 +10,47 @@ const translations = {
       cv: "CV"
     },
     hero: {
+      available: "Disponible pour missions freelance",
+      eyebrow: "Développeuse Web Front-End · Bruxelles",
       subtitle: "Vous êtes à la recherche d'un développeur web ?",
-      subtitle2: "Je suis là !",
-      ctaProjects: "Mes projets",
+      subtitle2: "Je construis des sites web qui fonctionnent vraiment — rapides, responsifs et taillés sur mesure.",
+      ctaProjects: "Voir mes projets",
       ctaContact: "Me contacter",
-      ctaCV: "Mon CV"
+      ctaCV: "Mon CV",
+      scrollHint: "Défiler"
     },
     sections: {
       aboutTitle: "À propos",
-      aboutText: "Passionnée par la création d'expériences digitales fluides et agréables, je conçois des sites web performants et responsive. Grâce à mes compétences, je transforme des idées en interfaces intuitives, efficaces et plaisantes à utiliser.",
-      experienceTitle: "Expérience",
+      aboutText: "Passionnée par la création d'interfaces digitales soignées et performantes. Spécialisée <strong>WordPress, TailwindCSS et JavaScript</strong> — je transforme des maquettes en sites web responsifs, accessibles et optimisés.",
+      aboutText2: "J'ai travaillé en agence chez <strong>Paf! Design</strong> avant de me lancer en freelance. J'aime les projets où le soin apporté au détail fait toute la différence.",
+      experienceTitle: "Parcours",
+      experienceSubtitle: "De la formation au freelance",
       skillsTitle: "Compétences",
       portfolioTitle: "Portfolio",
-      contactTitle: "Contact",
-      contactText: "N'hésitez pas à me contacter pour des collaborations ou juste pour dire bonjour !"
+      contactTitle: "On travaille ensemble ?",
+      contactText: "Un projet web en tête ? N'hésitez pas à m'écrire — je suis disponible pour des missions freelance."
     },
     about: {
       tagResponsive: "Responsive Design",
-      tagUxUi: "UX/UI",
+      tagUxUi: "UX / UI",
       tagPerformance: "Performance",
-      downloadCV: "Télécharger mon CV"
+      tagWp: "WordPress",
+      tagTailwind: "TailwindCSS",
+      downloadCV: "Télécharger mon CV",
+      stat1num: "3+",
+      stat1label: "ans d'expérience",
+      stat2num: "10+",
+      stat2label: "projets livrés",
+      locationLabel: "Bruxelles, Belgique",
+      locationSub: "Europe · UTC+1",
+      availableLabel: "Disponible",
+      availableSub: "Missions freelance"
+    },
+    formation: {
+      date1: "2021 – 2022",
+      title1: "BES Web Developer",
+      school1: "EPFC · Bruxelles",
+      desc1: "Formation certifiante en développement web. HTML, CSS, JavaScript, PHP, bases de données et bonnes pratiques d'intégration."
     },
     experience: {
       date1: "2023 – Présent",
@@ -105,26 +126,47 @@ const translations = {
       cv: "CV"
     },
     hero: {
+      available: "Available for freelance projects",
+      eyebrow: "Front-End Web Developer · Brussels",
       subtitle: "Looking for a Web Developer?",
-      subtitle2: "I'm here!",
-      ctaProjects: "View My Projects",
-      ctaContact: "Contact Me",
-      ctaCV: "My Resume"
+      subtitle2: "I build websites that actually work — fast, responsive, and tailor-made.",
+      ctaProjects: "View my projects",
+      ctaContact: "Contact me",
+      ctaCV: "Resume",
+      scrollHint: "Scroll"
     },
     sections: {
       aboutTitle: "About",
-      aboutText: "Passionate about creating smooth and enjoyable digital experiences, I design high-performing, responsive websites. Leveraging my skills, I turn ideas into intuitive, efficient, and user-friendly interfaces.",
-      experienceTitle: "Experience",
+      aboutText: "Passionate about crafting polished digital interfaces. Specialising in <strong>WordPress, TailwindCSS and JavaScript</strong> — I turn designs into responsive, accessible and optimised websites.",
+      aboutText2: "I worked at <strong>Paf! Design</strong> agency before going freelance. I love projects where attention to detail makes all the difference.",
+      experienceTitle: "Journey",
+      experienceSubtitle: "From training to freelance",
       skillsTitle: "Skills",
       portfolioTitle: "Portfolio",
-      contactTitle: "Get in Touch",
-      contactText: "Feel free to reach out for collaborations or just to say a friendly hello!"
+      contactTitle: "Let's work together?",
+      contactText: "Have a web project in mind? Feel free to reach out — I'm available for freelance projects."
     },
     about: {
       tagResponsive: "Responsive Design",
-      tagUxUi: "UX/UI",
+      tagUxUi: "UX / UI",
       tagPerformance: "Performance",
-      downloadCV: "Download my Resume"
+      tagWp: "WordPress",
+      tagTailwind: "TailwindCSS",
+      downloadCV: "Download my Resume",
+      stat1num: "3+",
+      stat1label: "years of experience",
+      stat2num: "10+",
+      stat2label: "projects delivered",
+      locationLabel: "Brussels, Belgium",
+      locationSub: "Europe · UTC+1",
+      availableLabel: "Available",
+      availableSub: "Freelance projects"
+    },
+    formation: {
+      date1: "2021 – 2022",
+      title1: "BES Web Developer",
+      school1: "EPFC · Brussels",
+      desc1: "Certified front-end web development program. HTML, CSS, JavaScript, PHP, databases and web integration best practices."
     },
     experience: {
       date1: "2023 – Present",
