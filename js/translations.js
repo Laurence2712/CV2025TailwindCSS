@@ -35,7 +35,7 @@ const translations = {
       date1: "2023 – Présent",
       title1: "Développeuse Web Freelance",
       company1: "Indépendante · Bruxelles",
-      desc1: "Conception et développement de sites web sur mesure. Accompagnement de clients de A à Z : maquette, intégration, mise en ligne et maintenance.",
+      desc1: "Conception et développement de sites web sur mesure pour professions libérales, associations et PME. Accompagnement de clients de A à Z : maquette, intégration, mise en ligne et maintenance. Développement de projets personnels (poulettes.laurencepirard.be) pour explorer de nouvelles technologies.",
       date2: "2022 – 2023",
       title2: "Développeuse Web",
       company2: "Paf! Design · Bruxelles",
@@ -61,10 +61,14 @@ const translations = {
       memisaType: "Site associatif",
       memisaTitle: "Memisa",
       memisaDesc: "Projet réalisé dans l'agence <a href='https://pafdesign.be/' target='_blank' rel='noopener noreferrer'>Paf!</a>",
+      poulettesType: "Projet personnel",
+      poulettesTitle: "Les Poulettes",
+      poulettesDesc: "Site personnel conçu et développé de A à Z, vitrine de mes compétences front-end.",
       tags: {
         professional: "Professionnel",
         responsive: "Responsive",
-        multilingual: "Multilingue"
+        multilingual: "Multilingue",
+        personal: "Projet perso"
       }
     },
     contact: {
@@ -121,7 +125,7 @@ const translations = {
       date1: "2023 – Present",
       title1: "Freelance Web Developer",
       company1: "Self-employed · Brussels",
-      desc1: "Design and development of custom websites. End-to-end client support: wireframes, integration, deployment and maintenance.",
+      desc1: "Design and development of custom websites for freelancers, non-profits and SMEs. End-to-end client support: wireframes, integration, deployment and maintenance. Personal projects (poulettes.laurencepirard.be) to explore new technologies.",
       date2: "2022 – 2023",
       title2: "Web Developer",
       company2: "Paf! Design · Brussels",
@@ -147,10 +151,14 @@ const translations = {
       memisaType: "Non-profit Website",
       memisaTitle: "Memisa",
       memisaDesc: "Project carried out at <a href='https://pafdesign.be/' target='_blank' rel='noopener noreferrer'>Paf!</a>",
+      poulettesType: "Personal Project",
+      poulettesTitle: "Les Poulettes",
+      poulettesDesc: "Personal website designed and developed from scratch, showcasing my front-end skills.",
       tags: {
         professional: "Professional",
         responsive: "Responsive",
-        multilingual: "Multilingual"
+        multilingual: "Multilingual",
+        personal: "Personal project"
       }
     },
     contact: {
