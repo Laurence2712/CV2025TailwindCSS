@@ -35,7 +35,27 @@ document.addEventListener('DOMContentLoaded', () => {
     sectionObserver.observe(section);
   });
   
-  // --- 3. Intersection Observer pour les cartes de compétences ---
+  // --- 3. Timeline animée ---
+  const timelineLine = document.getElementById('timelineLine');
+  const tlItems = document.querySelectorAll('.tl-item');
+
+  if (timelineLine && tlItems.length) {
+    const tlObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          timelineLine.classList.add('drawn');
+          tlItems.forEach(item => {
+            const delay = parseInt(item.dataset.delay || 0);
+            setTimeout(() => item.classList.add('visible'), delay);
+          });
+          tlObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.1 });
+    tlObserver.observe(document.getElementById('timeline'));
+  }
+
+  // --- 4. Intersection Observer pour les cartes de compétences ---
   const skillObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry, index) => {
       if (entry.isIntersecting) {
