@@ -60,7 +60,7 @@ const translations = {
       date2: "Juil. 2021 – 2023",
       title2: "Développeuse Web",
       company2: "Paf! Design · Bruxelles",
-      desc2: "Intégration WordPress et Kirby CMS au sein d'une agence bruxelloise. Réalisation de sites pour Hospel Notaire, l'ONG Memisa (site multilingue FR/EN/NL) et plusieurs clients institutionnels. Travail en équipe, respect des délais et des specs.",
+      desc2: "Développement de sites WordPress (thèmes custom, ACF), Drupal et Craft CMS en agence. Projets pour Hospel Notaire, l'ONG Memisa (multilingue FR/EN/NL) et d'autres clients institutionnels. Sous-traitance pour Europcar (webmastering). Outils : Atlassian, Contentful.",
       date3: "Oct. 2018 – Jan. 2019 · Stage",
       title3: "Stagiaire Développeuse Web",
       company3: "MFM Digital · Bruxelles",
@@ -75,7 +75,7 @@ const translations = {
       jsDesc: "Vanilla JS, logique d'interaction, scripts sur mesure.",
       tailwindDesc: "Utility-first, prototypage rapide, cohérence garantie.",
       wpDesc: "Thèmes custom, ACF, Gutenberg, WooCommerce.",
-      kirbyDesc: "CMS flat-file, flexible et rapide à déployer."
+      kirbyDesc: "CMS robustes pour projets complexes."
     },
     portfolio: {
       chiroType: "Site professionnel",
@@ -176,7 +176,7 @@ const translations = {
       date2: "Jul. 2021 – 2023",
       title2: "Web Developer",
       company2: "Paf! Design · Brussels",
-      desc2: "WordPress and Kirby CMS integration at a Brussels agency. Projects for Hospel Notaire, Memisa NGO (multilingual FR/EN/NL site) and several institutional clients. Team collaboration, deadline-driven environment.",
+      desc2: "WordPress development (custom themes, ACF), Drupal and Craft CMS at a Brussels agency. Projects for Hospel Notaire, Memisa NGO (multilingual FR/EN/NL) and other institutional clients. Subcontracting for Europcar (webmastering). Tools: Atlassian, Contentful.",
       date3: "Oct. 2018 – Jan. 2019 · Internship",
       title3: "Web Developer Intern",
       company3: "MFM Digital · Brussels",
@@ -191,7 +191,7 @@ const translations = {
       jsDesc: "Vanilla JS, interaction logic, custom scripts.",
       tailwindDesc: "Utility-first, rapid prototyping, guaranteed consistency.",
       wpDesc: "Custom themes, ACF, Gutenberg, WooCommerce.",
-      kirbyDesc: "Flat-file CMS, flexible and fast to deploy."
+      kirbyDesc: "Robust CMSs for complex projects."
     },
     portfolio: {
       chiroType: "Professional Website",
