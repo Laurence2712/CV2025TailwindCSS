@@ -47,25 +47,25 @@ const translations = {
       availableSub: "Missions freelance"
     },
     formation: {
-      date1: "2021 – 2022",
-      title1: "BES Web Developer",
+      date1: "Diplômée 2020",
+      title1: "BES Web Developer — Grande distinction",
       school1: "EPFC · Bruxelles",
-      desc1: "Formation certifiante en développement web. HTML, CSS, JavaScript, PHP, bases de données et bonnes pratiques d'intégration."
+      desc1: "Formation certifiante en développement web. HTML5/CSS3, JavaScript, PHP, jQuery, WordPress, Bootstrap, bases de données, Photoshop/Illustrator."
     },
     experience: {
       date1: "2023 – Présent",
       title1: "Développeuse Web Freelance",
       company1: "Indépendante · Bruxelles",
       desc1: "Conception et développement de sites web sur mesure pour indépendants, associations et PME bruxelloises. Gestion complète des projets : découverte, maquette, intégration, déploiement, maintenance. Je mène aussi des projets personnels — dont poulettes.laurencepirard.be — pour explorer de nouvelles technologies.",
-      date2: "2022 – 2023",
+      date2: "Juil. 2021 – 2023",
       title2: "Développeuse Web",
       company2: "Paf! Design · Bruxelles",
       desc2: "Intégration WordPress et Kirby CMS au sein d'une agence bruxelloise. Réalisation de sites pour Hospel Notaire, l'ONG Memisa (site multilingue FR/EN/NL) et plusieurs clients institutionnels. Travail en équipe, respect des délais et des specs.",
-      date3: "2022 · Stage",
+      date3: "Oct. 2018 – Jan. 2019 · Stage",
       title3: "Stagiaire Développeuse Web",
-      company3: "ADEPS · Louvain-la-Neuve",
-      desc3: "Stage de fin de formation BES à l'Administration de l'Éducation physique et du Sport. Développement et intégration web dans un contexte institutionnel belge — première confrontation avec les contraintes d'un vrai environnement professionnel.",
-      tag3Institutional: "Institutionnel"
+      company3: "MFM Digital · Bruxelles",
+      desc3: "Stage en entreprise dans le cadre de la formation EPFC. Intégration HTML/CSS, JavaScript et travail sur des projets web réels dans un contexte professionnel.",
+      tag3Institutional: "Stage"
     },
     skills: {
       ariaPrev: "Compétence précédente",
@@ -163,25 +163,25 @@ const translations = {
       availableSub: "Freelance projects"
     },
     formation: {
-      date1: "2021 – 2022",
-      title1: "BES Web Developer",
+      date1: "Graduated 2020",
+      title1: "BES Web Developer — High Distinction",
       school1: "EPFC · Brussels",
-      desc1: "Certified front-end web development program. HTML, CSS, JavaScript, PHP, databases and web integration best practices."
+      desc1: "Certified web development program. HTML5/CSS3, JavaScript, PHP, jQuery, WordPress, Bootstrap, databases, Photoshop/Illustrator."
     },
     experience: {
       date1: "2023 – Present",
       title1: "Freelance Web Developer",
       company1: "Self-employed · Brussels",
       desc1: "Custom website design and development for freelancers, non-profits and Brussels SMEs. Full project ownership: discovery, wireframing, integration, deployment and maintenance. Personal projects — including poulettes.laurencepirard.be — to keep exploring new technologies.",
-      date2: "2022 – 2023",
+      date2: "Jul. 2021 – 2023",
       title2: "Web Developer",
       company2: "Paf! Design · Brussels",
       desc2: "WordPress and Kirby CMS integration at a Brussels agency. Projects for Hospel Notaire, Memisa NGO (multilingual FR/EN/NL site) and several institutional clients. Team collaboration, deadline-driven environment.",
-      date3: "2022 · Internship",
+      date3: "Oct. 2018 – Jan. 2019 · Internship",
       title3: "Web Developer Intern",
-      company3: "ADEPS · Louvain-la-Neuve",
-      desc3: "End-of-study internship (BES) at the Belgian Sports Administration. Web development and integration in an institutional context — first real exposure to professional constraints.",
-      tag3Institutional: "Institutional"
+      company3: "MFM Digital · Brussels",
+      desc3: "Internship during the EPFC training program. HTML/CSS integration, JavaScript and hands-on work on real web projects in a professional environment.",
+      tag3Institutional: "Internship"
     },
     skills: {
       ariaPrev: "Previous skill",
