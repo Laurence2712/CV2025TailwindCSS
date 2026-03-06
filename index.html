@@ -278,39 +278,92 @@
       .about-grid { grid-template-columns: 1fr; gap: 48px; }
     }
 
-    /* ── Experience ── */
-    .exp-list { display: flex; flex-direction: column; gap: 0; }
-    .exp-item {
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 32px; padding: 36px 0;
-      border-bottom: 1px solid var(--border);
-      align-items: start;
+    /* ── Timeline ── */
+    .timeline {
+      position: relative;
+      padding: 0 0 0 48px;
     }
-    .exp-item:first-child { border-top: 1px solid var(--border); }
-    .exp-year {
-      font-size: .75rem; font-weight: 600;
-      color: var(--muted); letter-spacing: .06em;
-      padding-top: 4px; text-transform: uppercase;
+    .timeline-line {
+      position: absolute;
+      left: 12px;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      background: var(--border);
+      overflow: hidden;
     }
-    .exp-content h3 {
-      font-size: 1.1rem; font-weight: 700;
-      color: var(--text); margin-bottom: 4px;
+    .timeline-line::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      background: var(--accent);
+      height: 0%;
+      transition: height 1.2s cubic-bezier(.4,0,.2,1);
     }
-    .exp-company {
-      font-size: .82rem; color: var(--accent);
+    .timeline-line.drawn::after { height: 100%; }
+
+    .tl-item {
+      position: relative;
+      padding-bottom: 52px;
+      opacity: 0;
+      transform: translateX(-28px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .tl-item.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .tl-item:last-child { padding-bottom: 0; }
+
+    .tl-dot {
+      position: absolute;
+      left: -43px;
+      top: 6px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--border);
+      transition: border-color .4s ease, box-shadow .4s ease;
+    }
+    .tl-item.visible .tl-dot {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(77,159,255,.15);
+    }
+
+    .tl-year {
+      font-size: .7rem; font-weight: 600;
+      color: var(--accent); letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .tl-title {
+      font-size: 1.05rem; font-weight: 700;
+      color: var(--text); margin-bottom: 3px;
+    }
+    .tl-company {
+      font-size: .82rem; color: var(--muted);
       margin-bottom: 12px; font-weight: 500;
     }
-    .exp-desc { font-size: .85rem; color: var(--muted); line-height: 1.75; margin-bottom: 14px; }
-    .exp-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .exp-tag {
+    .tl-desc {
+      font-size: .84rem; color: var(--muted);
+      line-height: 1.75; margin-bottom: 14px;
+    }
+    .tl-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tl-tag {
       font-size: .7rem; font-weight: 500;
       padding: 3px 10px; border-radius: 3px;
       background: var(--card); border: 1px solid var(--border);
       color: var(--muted);
+      transition: border-color .3s, color .3s;
+    }
+    .tl-item.visible .tl-tag {
+      border-color: rgba(77,159,255,.3);
+      color: var(--text);
     }
     @media (max-width: 600px) {
-      .exp-item { grid-template-columns: 1fr; gap: 8px; }
+      .timeline { padding-left: 32px; }
+      .tl-dot { left: -27px; }
     }
 
     /* ── Skills ── */
@@ -589,65 +642,64 @@
 </section>
 
 <!-- ── Expérience ── -->
-<section id="experience" class="section fade-slide-up" style="border-top:1px solid var(--border)">
-  <p class="section-title" data-translate="sections.experienceTitle">Expérience</p>
-  <div class="exp-list">
+<section id="experience" class="section" style="border-top:1px solid var(--border)">
+  <p class="section-title fade-slide-up" data-translate="sections.experienceTitle">Expérience</p>
 
-    <div class="exp-item">
-      <div class="exp-year" data-translate="experience.date1">2023 – Présent</div>
-      <div class="exp-content">
-        <h3 data-translate="experience.title1">Développeuse Web Freelance</h3>
-        <p class="exp-company" data-translate="experience.company1">Indépendante · Bruxelles</p>
-        <p class="exp-desc" data-translate="experience.desc1">
-          Conception et développement de sites web sur mesure pour indépendants, associations
-          et PME bruxelloises. Gestion complète des projets : découverte, maquette, intégration,
-          déploiement, maintenance. Je mène aussi des projets personnels — dont poulettes.laurencepirard.be —
-          pour explorer de nouvelles technologies.
-        </p>
-        <div class="exp-tags">
-          <span class="exp-tag">WordPress</span>
-          <span class="exp-tag">TailwindCSS</span>
-          <span class="exp-tag">JavaScript</span>
-          <span class="exp-tag">Responsive</span>
-        </div>
+  <div class="timeline" id="timeline">
+    <div class="timeline-line" id="timelineLine"></div>
+
+    <div class="tl-item" data-delay="0">
+      <div class="tl-dot"></div>
+      <p class="tl-year" data-translate="experience.date1">2023 – Présent</p>
+      <h3 class="tl-title" data-translate="experience.title1">Développeuse Web Freelance</h3>
+      <p class="tl-company" data-translate="experience.company1">Indépendante · Bruxelles</p>
+      <p class="tl-desc" data-translate="experience.desc1">
+        Conception et développement de sites web sur mesure pour indépendants, associations
+        et PME bruxelloises. Gestion complète des projets : découverte, maquette, intégration,
+        déploiement, maintenance. Je mène aussi des projets personnels — dont poulettes.laurencepirard.be —
+        pour explorer de nouvelles technologies.
+      </p>
+      <div class="tl-tags">
+        <span class="tl-tag">WordPress</span>
+        <span class="tl-tag">TailwindCSS</span>
+        <span class="tl-tag">JavaScript</span>
+        <span class="tl-tag">Responsive</span>
       </div>
     </div>
 
-    <div class="exp-item">
-      <div class="exp-year" data-translate="experience.date2">Juil. 2021 – 2023</div>
-      <div class="exp-content">
-        <h3 data-translate="experience.title2">Développeuse Web</h3>
-        <p class="exp-company" data-translate="experience.company2">Paf! Design · Bruxelles</p>
-        <p class="exp-desc" data-translate="experience.desc2">
-          Développement de sites WordPress (thèmes custom, ACF), Drupal et Craft CMS en agence.
-          Projets pour Hospel Notaire, l'ONG Memisa (multilingue FR/EN/NL) et d'autres clients
-          institutionnels. Sous-traitance pour Europcar (webmastering). Outils : Atlassian, Contentful.
-        </p>
-        <div class="exp-tags">
-          <span class="exp-tag">WordPress</span>
-          <span class="exp-tag">Drupal</span>
-          <span class="exp-tag">Craft CMS</span>
-          <span class="exp-tag">ACF</span>
-          <span class="exp-tag">Contentful</span>
-          <span class="exp-tag">Atlassian</span>
-        </div>
+    <div class="tl-item" data-delay="150">
+      <div class="tl-dot"></div>
+      <p class="tl-year" data-translate="experience.date2">Juil. 2021 – 2023</p>
+      <h3 class="tl-title" data-translate="experience.title2">Développeuse Web</h3>
+      <p class="tl-company" data-translate="experience.company2">Paf! Design · Bruxelles</p>
+      <p class="tl-desc" data-translate="experience.desc2">
+        Développement de sites WordPress (thèmes custom, ACF), Drupal et Craft CMS en agence.
+        Projets pour Hospel Notaire, l'ONG Memisa (multilingue FR/EN/NL) et d'autres clients
+        institutionnels. Sous-traitance pour Europcar (webmastering). Outils : Atlassian, Contentful.
+      </p>
+      <div class="tl-tags">
+        <span class="tl-tag">WordPress</span>
+        <span class="tl-tag">Drupal</span>
+        <span class="tl-tag">Craft CMS</span>
+        <span class="tl-tag">ACF</span>
+        <span class="tl-tag">Contentful</span>
+        <span class="tl-tag">Atlassian</span>
       </div>
     </div>
 
-    <div class="exp-item">
-      <div class="exp-year" data-translate="experience.date3">Oct. 2018 – Jan. 2019 · Stage</div>
-      <div class="exp-content">
-        <h3 data-translate="experience.title3">Stagiaire Développeuse Web</h3>
-        <p class="exp-company" data-translate="experience.company3">MFM Digital · Bruxelles</p>
-        <p class="exp-desc" data-translate="experience.desc3">
-          Stage en entreprise dans le cadre de la formation EPFC. Intégration HTML/CSS, JavaScript
-          et travail sur des projets web réels dans un contexte professionnel.
-        </p>
-        <div class="exp-tags">
-          <span class="exp-tag">HTML / CSS</span>
-          <span class="exp-tag">JavaScript</span>
-          <span class="exp-tag" data-translate="experience.tag3Institutional">Stage</span>
-        </div>
+    <div class="tl-item" data-delay="300">
+      <div class="tl-dot"></div>
+      <p class="tl-year" data-translate="experience.date3">Oct. 2018 – Jan. 2019 · Stage</p>
+      <h3 class="tl-title" data-translate="experience.title3">Stagiaire Développeuse Web</h3>
+      <p class="tl-company" data-translate="experience.company3">MFM Digital · Bruxelles</p>
+      <p class="tl-desc" data-translate="experience.desc3">
+        Stage en entreprise dans le cadre de la formation EPFC. Intégration HTML/CSS, JavaScript
+        et travail sur des projets web réels dans un contexte professionnel.
+      </p>
+      <div class="tl-tags">
+        <span class="tl-tag">HTML / CSS</span>
+        <span class="tl-tag">JavaScript</span>
+        <span class="tl-tag" data-translate="experience.tag3Institutional">Stage</span>
       </div>
     </div>
 
