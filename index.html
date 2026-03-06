@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title data-translate="pageTitle">Laurence Pirard — Développeuse Web</title>
   <meta name="description" content="Laurence Pirard — Développeuse Web Front-End à Bruxelles. WordPress, TailwindCSS, JavaScript." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ctext y='32' font-size='28' font-family='Poppins' font-weight='700' fill='%23c8f400'%3ELP%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ctext y='32' font-size='28' font-family='Poppins' font-weight='700' fill='%234d9fff'%3ELP%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
@@ -15,13 +15,13 @@
   <style>
     /* ── Variables ── */
     :root {
-      --bg:      #0d0e12;
-      --surface: #131419;
-      --card:    #1a1b22;
-      --border:  #252630;
-      --text:    #e8eaf0;
-      --muted:   #6a6c7e;
-      --accent:  #c8f400;
+      --bg:      #080c14;
+      --surface: #0d1220;
+      --card:    #131926;
+      --border:  #1e2a3a;
+      --text:    #e8eef8;
+      --muted:   #5a6a82;
+      --accent:  #4d9fff;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -177,7 +177,7 @@
     }
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(200,244,0,.2);
+      box-shadow: 0 8px 24px rgba(77,159,255,.2);
     }
     .btn-outline {
       display: inline-flex; align-items: center; gap: 8px;
@@ -234,6 +234,24 @@
       max-width: 1160px; margin: 0 auto;
     }
     .section-full { padding: 100px 32px; }
+
+    /* ── Section claire (alternance) ── */
+    .bg-light {
+      --bg:      #eef2f8;
+      --surface: #ffffff;
+      --card:    #ffffff;
+      --border:  #cdd8e8;
+      --text:    #0f172a;
+      --muted:   #4a6078;
+      background: #eef2f8;
+      color: var(--text);
+    }
+    .bg-light .section-title::after { background: var(--border); }
+    /* Cartes blanches avec légère ombre sur fond clair */
+    .bg-light .portfolio-card,
+    .bg-light .skill-card {
+      box-shadow: 0 2px 12px rgba(15,23,42,.08);
+    }
     .section-title {
       font-size: .72rem; font-weight: 700;
       color: var(--accent); letter-spacing: .14em;
@@ -330,7 +348,7 @@
     }
     .tl-item.visible .tl-dot {
       border-color: var(--accent);
-      box-shadow: 0 0 0 4px rgba(200,244,0,.15);
+      box-shadow: 0 0 0 4px rgba(77,159,255,.15);
     }
 
     .tl-year {
@@ -360,7 +378,7 @@
       transition: border-color .3s, color .3s;
     }
     .tl-item.visible .tl-tag {
-      border-color: rgba(200,244,0,.3);
+      border-color: rgba(77,159,255,.3);
       color: var(--text);
     }
     @media (max-width: 600px) {
@@ -599,6 +617,7 @@
 </div>
 
 <!-- ── À propos ── -->
+<div class="bg-light">
 <section id="about" class="section fade-slide-up">
   <p class="section-title" data-translate="sections.aboutTitle">À propos</p>
   <div class="about-grid">
@@ -642,9 +661,10 @@
     </div>
   </div>
 </section>
+</div>
 
 <!-- ── Expérience ── -->
-<section id="experience" class="section" style="border-top:1px solid var(--border)">
+<section id="experience" class="section">
   <p class="section-title fade-slide-up" data-translate="sections.experienceTitle">Expérience</p>
 
   <div class="timeline" id="timeline">
@@ -709,7 +729,7 @@
 </section>
 
 <!-- ── Compétences ── -->
-<section id="skills" style="background:var(--surface);">
+<section id="skills" class="bg-light">
   <div class="skills-section-inner fade-slide-up">
     <p class="section-title" data-translate="sections.skillsTitle">Compétences</p>
     <div class="skills-grid">
@@ -841,7 +861,8 @@
 </section>
 
 <!-- ── Contact ── -->
-<section id="contact" class="section fade-slide-up" style="border-top:1px solid var(--border); text-align:center">
+<div class="bg-light">
+<section id="contact" class="section fade-slide-up" style="text-align:center">
   <p class="contact-headline" data-translate="sections.contactTitle">Un projet en tête ?</p>
   <p class="contact-sub" data-translate="sections.contactText">
     Disponible pour des missions freelance à Bruxelles et à distance. Parlez-moi de votre projet — je réponds vite.
@@ -858,6 +879,7 @@
     <a href="cv.html" target="_blank" class="btn-outline" data-translate="contact.downloadCV">CV ↓</a>
   </div>
 </section>
+</div>
 
 <!-- ── Footer ── -->
 <footer>

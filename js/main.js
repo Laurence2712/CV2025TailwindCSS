@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const nameContainer = document.getElementById('animated-name');
   if (nameContainer) {
-    const nameText = 'LaurenceP.';
+    const nameText = 'Laurence';
     nameContainer.innerHTML = ''; 
     nameText.split('').forEach(letter => {
       const span = document.createElement('span');
