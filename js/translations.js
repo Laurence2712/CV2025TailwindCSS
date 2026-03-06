@@ -39,8 +39,8 @@ const translations = {
       downloadCV: "Télécharger mon CV",
       stat1num: "5+",
       stat1label: "ans d'expérience",
-      statCoffeeNum: "☕ ∞",
-      statCoffeeLabel: "cafés bus pendant le débogage",
+      statCoffeeNum: "7 300+",
+      statCoffeeLabel: "cafés — 4 par jour depuis 5 ans",
       locationLabel: "Bruxelles, Belgique",
       locationSub: "Europe · UTC+1",
       availableLabel: "Disponible",
@@ -57,7 +57,7 @@ const translations = {
       title1: "Développeuse Web Freelance",
       company1: "Indépendante · Bruxelles",
       desc1: "Conception et développement de sites web sur mesure. Gestion complète des projets : découverte, maquette, intégration, déploiement, maintenance. Je mène aussi des projets personnels pour explorer de nouvelles technologies et garder une veille active.",
-      date2: "Juil. 2021 – 2023",
+      date2: "Juil. 2021 – Présent",
       title2: "Développeuse Web",
       company2: "Paf! Design · Bruxelles",
       desc2: "Développement de sites WordPress (thèmes custom, ACF), Drupal et Craft CMS en agence. Projets pour Hospel Notaire, l'ONG Memisa (multilingue FR/EN/NL) et d'autres clients institutionnels. Sous-traitance pour Europcar (webmastering). Outils : Atlassian, Contentful.",
@@ -75,6 +75,7 @@ const translations = {
       jsDesc: "Vanilla JS, logique d'interaction, scripts sur mesure.",
       tailwindDesc: "Utility-first, prototypage rapide, cohérence garantie.",
       wpDesc: "Thèmes custom, ACF, Gutenberg, WooCommerce.",
+      strapiDesc: "CMS headless — API REST & contenu flexible.",
       kirbyDesc: "CMS robustes pour projets complexes."
     },
     portfolio: {
@@ -89,7 +90,7 @@ const translations = {
       memisaDesc: "Site multilingue (FR/EN/NL) pour l'ONG Memisa, réalisé chez <a href='https://pafdesign.be/' target='_blank' rel='noopener noreferrer'>Paf!</a>.",
       poulettesType: "Projet personnel",
       poulettesTitle: "Les Poulettes",
-      poulettesDesc: "Projet créé de A à Z — concept, design, code. Ce que je fais quand j'ai carte blanche.",
+      poulettesDesc: "E-commerce créé de A à Z pour explorer Strapi (CMS headless), Vercel et Render. Découverte personnelle d'un stack moderne hors agence.",
       tags: {
         professional: "Professionnel",
         responsive: "Responsive",
@@ -155,8 +156,8 @@ const translations = {
       downloadCV: "Download my Resume",
       stat1num: "5+",
       stat1label: "years of experience",
-      statCoffeeNum: "☕ ∞",
-      statCoffeeLabel: "coffees downed while debugging",
+      statCoffeeNum: "7,300+",
+      statCoffeeLabel: "coffees — 4 a day for 5 years",
       locationLabel: "Brussels, Belgium",
       locationSub: "Europe · UTC+1",
       availableLabel: "Available",
@@ -173,7 +174,7 @@ const translations = {
       title1: "Freelance Web Developer",
       company1: "Self-employed · Brussels",
       desc1: "Custom website design and development. Full project ownership: discovery, wireframing, integration, deployment and maintenance. Personal projects on the side to keep exploring new technologies and stay current.",
-      date2: "Jul. 2021 – 2023",
+      date2: "Jul. 2021 – Present",
       title2: "Web Developer",
       company2: "Paf! Design · Brussels",
       desc2: "WordPress development (custom themes, ACF), Drupal and Craft CMS at a Brussels agency. Projects for Hospel Notaire, Memisa NGO (multilingual FR/EN/NL) and other institutional clients. Subcontracting for Europcar (webmastering). Tools: Atlassian, Contentful.",
@@ -191,6 +192,7 @@ const translations = {
       jsDesc: "Vanilla JS, interaction logic, custom scripts.",
       tailwindDesc: "Utility-first, rapid prototyping, guaranteed consistency.",
       wpDesc: "Custom themes, ACF, Gutenberg, WooCommerce.",
+      strapiDesc: "Headless CMS — REST API & flexible content.",
       kirbyDesc: "Robust CMSs for complex projects."
     },
     portfolio: {
@@ -205,7 +207,7 @@ const translations = {
       memisaDesc: "Multilingual site (FR/EN/NL) for Memisa NGO, built at <a href='https://pafdesign.be/' target='_blank' rel='noopener noreferrer'>Paf!</a>.",
       poulettesType: "Personal Project",
       poulettesTitle: "Les Poulettes",
-      poulettesDesc: "Built from scratch — concept, design, code. What I do when given full creative freedom.",
+      poulettesDesc: "E-commerce built from scratch to explore Strapi (headless CMS), Vercel and Render. Personal discovery of a modern stack outside the agency.",
       tags: {
         professional: "Professional",
         responsive: "Responsive",
