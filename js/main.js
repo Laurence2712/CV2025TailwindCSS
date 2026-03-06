@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Ring "link" sur les cartes portfolio
-    document.querySelectorAll('.portfolio-card').forEach(el => {
+    document.querySelectorAll('.portfolio-card, .pf-bento-card').forEach(el => {
       el.addEventListener('mouseenter', () => {
         ring.classList.remove('hovered');
         ring.classList.add('link-hovered');
