@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title data-translate="pageTitle">Laurence Pirard — Développeuse Web</title>
   <meta name="description" content="Laurence Pirard — Développeuse Web Front-End à Bruxelles. WordPress, TailwindCSS, JavaScript." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ctext y='32' font-size='28' font-family='Poppins' font-weight='700' fill='%234d9fff'%3ELP%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ctext y='32' font-size='28' font-family='Poppins' font-weight='700' fill='%23c8f400'%3ELP%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
@@ -15,13 +15,13 @@
   <style>
     /* ── Variables ── */
     :root {
-      --bg:      #1a2540;
-      --surface: #1f2d4d;
-      --card:    #253457;
-      --border:  #3a5080;
-      --text:    #e8eef8;
-      --muted:   #8fa3c0;
-      --accent:  #4d9fff;
+      --bg:      #0d0e12;
+      --surface: #131419;
+      --card:    #1a1b22;
+      --border:  #252630;
+      --text:    #e8eaf0;
+      --muted:   #6a6c7e;
+      --accent:  #c8f400;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -44,7 +44,7 @@
     /* ── Nav ── */
     #main-header {
       position: fixed; top: 0; left: 0; right: 0;
-      background: rgba(8,12,20,.88);
+      background: rgba(13,14,18,.88);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
       z-index: 100;
@@ -177,7 +177,7 @@
     }
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(77,159,255,.2);
+      box-shadow: 0 8px 24px rgba(200,244,0,.2);
     }
     .btn-outline {
       display: inline-flex; align-items: center; gap: 8px;
@@ -298,21 +298,23 @@
       top: 0; left: 0;
       width: 100%;
       background: var(--accent);
-      height: 0%;
-      transition: height 1.2s cubic-bezier(.4,0,.2,1);
+      height: calc(var(--progress, 0) * 100%);
+      transition: height .08s linear;
     }
-    .timeline-line.drawn::after { height: 100%; }
 
     .tl-item {
       position: relative;
       padding-bottom: 52px;
       opacity: 0;
-      transform: translateX(-28px);
-      transition: opacity .55s ease, transform .55s ease;
+      transform: translateX(-28px) translateY(20px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+    .tl-item.from-above {
+      transform: translateX(-28px) translateY(-20px);
     }
     .tl-item.visible {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateX(0) translateY(0);
     }
     .tl-item:last-child { padding-bottom: 0; }
 
@@ -328,7 +330,7 @@
     }
     .tl-item.visible .tl-dot {
       border-color: var(--accent);
-      box-shadow: 0 0 0 4px rgba(77,159,255,.15);
+      box-shadow: 0 0 0 4px rgba(200,244,0,.15);
     }
 
     .tl-year {
@@ -358,7 +360,7 @@
       transition: border-color .3s, color .3s;
     }
     .tl-item.visible .tl-tag {
-      border-color: rgba(77,159,255,.3);
+      border-color: rgba(200,244,0,.3);
       color: var(--text);
     }
     @media (max-width: 600px) {

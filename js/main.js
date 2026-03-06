@@ -35,24 +35,42 @@ document.addEventListener('DOMContentLoaded', () => {
     sectionObserver.observe(section);
   });
   
-  // --- 3. Timeline animée ---
+  // --- 3. Timeline bidirectionnelle ---
   const timelineLine = document.getElementById('timelineLine');
   const tlItems = document.querySelectorAll('.tl-item');
+  const timelineSection = document.getElementById('timeline');
 
-  if (timelineLine && tlItems.length) {
-    const tlObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          timelineLine.classList.add('drawn');
-          tlItems.forEach(item => {
-            const delay = parseInt(item.dataset.delay || 0);
-            setTimeout(() => item.classList.add('visible'), delay);
-          });
-          tlObserver.disconnect();
-        }
-      });
-    }, { threshold: 0.1 });
-    tlObserver.observe(document.getElementById('timeline'));
+  if (timelineLine && tlItems.length && timelineSection) {
+    // Ligne qui progresse selon le scroll
+    function updateTimelineProgress() {
+      const rect = timelineSection.getBoundingClientRect();
+      const windowH = window.innerHeight;
+      const progress = Math.max(0, Math.min(1, (windowH * 0.7 - rect.top) / rect.height));
+      timelineLine.style.setProperty('--progress', progress);
+    }
+    window.addEventListener('scroll', updateTimelineProgress, { passive: true });
+    updateTimelineProgress();
+
+    // Chaque item s'anime individuellement — dans les deux directions
+    tlItems.forEach(item => {
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            item.classList.add('visible');
+            item.classList.remove('from-above');
+          } else {
+            item.classList.remove('visible');
+            // Si l'item sort par le haut → il réapparaîtra par le bas la prochaine fois
+            if (entry.boundingClientRect.top < 0) {
+              item.classList.add('from-above');
+            } else {
+              item.classList.remove('from-above');
+            }
+          }
+        });
+      }, { threshold: 0.2 });
+      obs.observe(item);
+    });
   }
 
   // --- 4. Intersection Observer pour les cartes de compétences ---
