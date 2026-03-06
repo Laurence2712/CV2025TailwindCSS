@@ -13,7 +13,7 @@ const translations = {
       available: "Disponible pour missions freelance",
       eyebrow: "Développeuse Web Front-End · Bruxelles, Belgique",
       subtitle: "Vous cherchez une développeuse web ?",
-      subtitle2: "Je crée des interfaces qui fonctionnent et qui plaisent — rapides, soignées, taillées sur mesure.",
+      subtitle2: "",
       ctaProjects: "Voir mes projets",
       ctaContact: "Me contacter",
       ctaCV: "Mon CV",
@@ -21,8 +21,8 @@ const translations = {
     },
     sections: {
       aboutTitle: "À propos",
-      aboutText: "Développeuse web front-end basée à Bruxelles. Spécialisée <strong>WordPress, TailwindCSS et JavaScript</strong>, je transforme vos idées en sites web performants, responsifs et accessibles — de la maquette à la mise en ligne.",
-      aboutText2: "Après une expérience en agence chez <strong>Paf! Design</strong>, je travaille en freelance. Ce qui me motive : les projets où chaque détail compte, et où le code au service du design crée quelque chose de vraiment utile.",
+      aboutText: "Développeuse web front-end basée à Bruxelles. Spécialisée <strong>WordPress, TailwindCSS, JavaScript et PHP</strong>, je transforme vos idées en sites web performants, mobile first et accessibles — de la maquette à la mise en ligne.",
+      aboutText2: "Je travaille chez <strong>Paf! Design</strong> et je mène des projets freelance en parallèle pour élargir mes compétences et explorer de nouvelles technologies. Ce qui me motive : les projets où chaque détail compte, et où le code au service du design crée quelque chose de vraiment utile.",
       experienceTitle: "Parcours",
       experienceSubtitle: "De la formation au freelance",
       skillsTitle: "Compétences",
@@ -37,10 +37,10 @@ const translations = {
       tagWp: "WordPress",
       tagTailwind: "TailwindCSS",
       downloadCV: "Télécharger mon CV",
-      stat1num: "3+",
+      stat1num: "5+",
       stat1label: "ans d'expérience",
-      stat2num: "10+",
-      stat2label: "projets livrés",
+      statCoffeeNum: "☕ ∞",
+      statCoffeeLabel: "cafés bus pendant le débogage",
       locationLabel: "Bruxelles, Belgique",
       locationSub: "Europe · UTC+1",
       availableLabel: "Disponible",
@@ -56,7 +56,7 @@ const translations = {
       date1: "2023 – Présent",
       title1: "Développeuse Web Freelance",
       company1: "Indépendante · Bruxelles",
-      desc1: "Conception et développement de sites web sur mesure pour indépendants, associations et PME bruxelloises. Gestion complète des projets : découverte, maquette, intégration, déploiement, maintenance. Je mène aussi des projets personnels — dont poulettes.laurencepirard.be — pour explorer de nouvelles technologies.",
+      desc1: "Conception et développement de sites web sur mesure. Gestion complète des projets : découverte, maquette, intégration, déploiement, maintenance. Je mène aussi des projets personnels pour explorer de nouvelles technologies et garder une veille active.",
       date2: "Juil. 2021 – 2023",
       title2: "Développeuse Web",
       company2: "Paf! Design · Bruxelles",
@@ -112,7 +112,7 @@ const translations = {
       contactTitle: "Contact",
       location: "Bruxelles, Belgique",
       followTitle: "Suivez-moi",
-      copyright: "© 2025 Laurence Pirard — Développeuse Web"
+      copyright: "© 2026 Laurence Pirard — Développeuse Web"
     }
   },
   en: {
@@ -129,7 +129,7 @@ const translations = {
       available: "Available for freelance projects",
       eyebrow: "Front-End Web Developer · Brussels, Belgium",
       subtitle: "Looking for a web developer?",
-      subtitle2: "I build interfaces that work and look great — fast, polished, and tailored to each project.",
+      subtitle2: "",
       ctaProjects: "View my projects",
       ctaContact: "Contact me",
       ctaCV: "My Resume",
@@ -137,8 +137,8 @@ const translations = {
     },
     sections: {
       aboutTitle: "About",
-      aboutText: "Front-end web developer based in Brussels. Specialising in <strong>WordPress, TailwindCSS and JavaScript</strong>, I turn ideas into responsive, accessible and high-performing websites — from wireframe to launch.",
-      aboutText2: "After working at <strong>Paf! Design</strong> agency, I now work as a freelancer. What drives me: projects where every detail matters, and where code serving design creates something truly useful.",
+      aboutText: "Front-end web developer based in Brussels. Specialising in <strong>WordPress, TailwindCSS, JavaScript and PHP</strong>, I turn ideas into mobile-first, accessible and high-performing websites — from wireframe to launch.",
+      aboutText2: "I work at <strong>Paf! Design</strong> and run freelance projects on the side to broaden my skills and explore new technologies. What drives me: projects where every detail matters, and where code serving design creates something truly useful.",
       experienceTitle: "Journey",
       experienceSubtitle: "From training to freelance",
       skillsTitle: "Skills",
@@ -153,10 +153,10 @@ const translations = {
       tagWp: "WordPress",
       tagTailwind: "TailwindCSS",
       downloadCV: "Download my Resume",
-      stat1num: "3+",
+      stat1num: "5+",
       stat1label: "years of experience",
-      stat2num: "10+",
-      stat2label: "projects delivered",
+      statCoffeeNum: "☕ ∞",
+      statCoffeeLabel: "coffees downed while debugging",
       locationLabel: "Brussels, Belgium",
       locationSub: "Europe · UTC+1",
       availableLabel: "Available",
@@ -172,7 +172,7 @@ const translations = {
       date1: "2023 – Present",
       title1: "Freelance Web Developer",
       company1: "Self-employed · Brussels",
-      desc1: "Custom website design and development for freelancers, non-profits and Brussels SMEs. Full project ownership: discovery, wireframing, integration, deployment and maintenance. Personal projects — including poulettes.laurencepirard.be — to keep exploring new technologies.",
+      desc1: "Custom website design and development. Full project ownership: discovery, wireframing, integration, deployment and maintenance. Personal projects on the side to keep exploring new technologies and stay current.",
       date2: "Jul. 2021 – 2023",
       title2: "Web Developer",
       company2: "Paf! Design · Brussels",
@@ -228,7 +228,7 @@ const translations = {
       contactTitle: "Contact",
       location: "Brussels, Belgium",
       followTitle: "Follow me",
-      copyright: "© 2025 Laurence Pirard — Web Developer"
+      copyright: "© 2026 Laurence Pirard — Web Developer"
     }
   }
 };
