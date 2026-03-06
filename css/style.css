@@ -1,116 +1,15 @@
-/* ── Global ── */
-body { font-family: 'Poppins', sans-serif; }
-html { scroll-behavior: smooth; }
+/* Styles globaux complémentaires — la majorité du CSS est dans le <style> de index.html */
 
-/* ── Scrollbar ── */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #0d0e12; }
-::-webkit-scrollbar-thumb { background: #252630; border-radius: 6px; }
-::-webkit-scrollbar-thumb:hover { background: #c8f400; }
+/* Nav hide on mobile */
+#main-header { transition: transform .3s ease-in-out; }
+#main-header.header-hidden { transform: translateY(-100%); }
 
-/* ── Fade / slide animation ── */
-.fade-slide-up {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity .8s ease, transform .8s ease;
-}
-.fade-slide-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ── Skill cards ── */
-.skill-card {
-  opacity: 0;
-  transform: scale(0.9);
-  transition: opacity .4s ease, transform .4s ease, border-color .2s, box-shadow .2s;
-}
-.skill-card.visible {
-  opacity: 1;
-  transform: scale(1);
-}
-.skill-card.visible:hover {
-  transform: translateY(-4px);
-  border-color: #c8f400 !important;
-}
-
-/* ── Nav link underline ── */
-.nav-link { position: relative; }
-.nav-link::after {
-  content: '';
-  position: absolute; bottom: -3px; left: 0;
-  width: 0; height: 1px;
-  background: #c8f400;
-  transition: width .25s ease;
-}
-.nav-link:hover::after { width: 100%; }
-
-/* ── Portfolio cards ── */
-.portfolio-card {
-  transition: border-color .25s, transform .25s !important;
-}
-.portfolio-card:hover {
-  transform: translateY(-6px) !important;
-  border-color: #c8f400 !important;
-}
-.portfolio-card img {
-  transition: transform .4s ease, filter .4s ease;
-}
-.portfolio-card:hover img {
-  transform: scale(1.04) !important;
-  filter: brightness(1) saturate(1) !important;
-}
-
-/* ── Mobile menu ── */
-#mobile-menu {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height .4s cubic-bezier(.25,.8,.25,1);
-}
-#mobile-menu.open { max-height: 400px; }
-
-/* ── Nav header hide on mobile scroll ── */
-#main-header {
-  transition: transform .3s ease-in-out;
-}
-#main-header.header-hidden {
-  transform: translateY(-100%);
-}
-
-/* ── Language buttons ── */
+/* Lang btn active (piloté par JS) */
 .lang-btn.active {
-  background: #c8f400 !important;
-  color: #0d0e12 !important;
-  border-color: #c8f400 !important;
+  background: var(--accent) !important;
+  color: var(--bg) !important;
+  border-color: var(--accent) !important;
 }
 
-/* ── Scroll to top ── */
-#scroll-top.visible {
-  opacity: 1 !important;
-  pointer-events: auto !important;
-}
-
-/* ── Cursor dot ── */
-.cursor-dot {
-  width: 8px; height: 8px;
-  background: #c8f400;
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-}
-@media (max-width: 768px) {
-  .cursor-dot { display: none !important; }
-}
-
-/* ── Hero name animation ── */
-#animated-name span {
-  opacity: 0;
-  transform: translateY(20px);
-  display: inline-block;
-  transition: all .5s cubic-bezier(.68,-.55,.265,1.55);
-}
-#animated-name span.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* Scroll to top visible */
+#scroll-top.visible { opacity: 1 !important; pointer-events: auto !important; }
