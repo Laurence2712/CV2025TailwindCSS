@@ -1,6 +1,6 @@
 const translations = {
   fr: {
-    pageTitle: "Portfolio Laurence - Web Developer",
+    pageTitle: "Laurence Pirard — Développeuse Web Front-End",
     nav: {
       about: "À propos",
       experience: "Expérience",
@@ -11,9 +11,9 @@ const translations = {
     },
     hero: {
       available: "Disponible pour missions freelance",
-      eyebrow: "Développeuse Web Front-End · Bruxelles",
-      subtitle: "Vous êtes à la recherche d'un développeur web ?",
-      subtitle2: "Je construis des sites web qui fonctionnent vraiment — rapides, responsifs et taillés sur mesure.",
+      eyebrow: "Développeuse Web Front-End · Bruxelles, Belgique",
+      subtitle: "Vous cherchez une développeuse web ?",
+      subtitle2: "Je crée des interfaces qui fonctionnent et qui plaisent — rapides, soignées, taillées sur mesure.",
       ctaProjects: "Voir mes projets",
       ctaContact: "Me contacter",
       ctaCV: "Mon CV",
@@ -21,14 +21,14 @@ const translations = {
     },
     sections: {
       aboutTitle: "À propos",
-      aboutText: "Passionnée par la création d'interfaces digitales soignées et performantes. Spécialisée <strong>WordPress, TailwindCSS et JavaScript</strong> — je transforme des maquettes en sites web responsifs, accessibles et optimisés.",
-      aboutText2: "J'ai travaillé en agence chez <strong>Paf! Design</strong> avant de me lancer en freelance. J'aime les projets où le soin apporté au détail fait toute la différence.",
+      aboutText: "Développeuse web front-end basée à Bruxelles. Spécialisée <strong>WordPress, TailwindCSS et JavaScript</strong>, je transforme vos idées en sites web performants, responsifs et accessibles — de la maquette à la mise en ligne.",
+      aboutText2: "Après une expérience en agence chez <strong>Paf! Design</strong>, je travaille en freelance. Ce qui me motive : les projets où chaque détail compte, et où le code au service du design crée quelque chose de vraiment utile.",
       experienceTitle: "Parcours",
       experienceSubtitle: "De la formation au freelance",
       skillsTitle: "Compétences",
       portfolioTitle: "Portfolio",
-      contactTitle: "On travaille ensemble ?",
-      contactText: "Un projet web en tête ? N'hésitez pas à m'écrire — je suis disponible pour des missions freelance."
+      contactTitle: "Un projet en tête ?",
+      contactText: "Disponible pour des missions freelance à Bruxelles et à distance. Parlez-moi de votre projet — je réponds vite."
     },
     about: {
       tagResponsive: "Responsive Design",
@@ -56,40 +56,40 @@ const translations = {
       date1: "2023 – Présent",
       title1: "Développeuse Web Freelance",
       company1: "Indépendante · Bruxelles",
-      desc1: "Conception et développement de sites web sur mesure pour professions libérales, associations et PME. Accompagnement de clients de A à Z : maquette, intégration, mise en ligne et maintenance. Développement de projets personnels (poulettes.laurencepirard.be) pour explorer de nouvelles technologies.",
+      desc1: "Conception et développement de sites web sur mesure pour indépendants, associations et PME bruxelloises. Gestion complète des projets : découverte, maquette, intégration, déploiement, maintenance. Je mène aussi des projets personnels — dont poulettes.laurencepirard.be — pour explorer de nouvelles technologies.",
       date2: "2022 – 2023",
       title2: "Développeuse Web",
       company2: "Paf! Design · Bruxelles",
-      desc2: "Développement de sites WordPress et Kirby en agence. Projets pour Hospel Notaire, Memisa (site multilingue) et d'autres clients institutionnels.",
+      desc2: "Intégration WordPress et Kirby CMS au sein d'une agence bruxelloise. Réalisation de sites pour Hospel Notaire, l'ONG Memisa (site multilingue FR/EN/NL) et plusieurs clients institutionnels. Travail en équipe, respect des délais et des specs.",
       date3: "2022 · Stage",
       title3: "Stagiaire Développeuse Web",
       company3: "ADEPS · Louvain-la-Neuve",
-      desc3: "Stage de fin de formation BES à l'Administration de l'Éducation physique et du Sport. Développement et intégration web dans un contexte institutionnel belge.",
+      desc3: "Stage de fin de formation BES à l'Administration de l'Éducation physique et du Sport. Développement et intégration web dans un contexte institutionnel belge — première confrontation avec les contraintes d'un vrai environnement professionnel.",
       tag3Institutional: "Institutionnel"
     },
     skills: {
       ariaPrev: "Compétence précédente",
       ariaNext: "Compétence suivante",
-      htmlDesc: "Structurer et présenter des contenus web.",
-      cssDesc: "Mettre en forme des interfaces modernes.",
-      jsDesc: "Ajouter de l'interactivité et du dynamisme.",
-      tailwindDesc: "Styliser rapidement les interfaces.",
-      wpDesc: "Créer des sites web sur mesure.",
-      kirbyDesc: "Un CMS flexible et sans base de données."
+      htmlDesc: "Sémantique, accessibilité, structure solide.",
+      cssDesc: "Animations, Grid, Flexbox — des interfaces qui respirent.",
+      jsDesc: "Vanilla JS, logique d'interaction, scripts sur mesure.",
+      tailwindDesc: "Utility-first, prototypage rapide, cohérence garantie.",
+      wpDesc: "Thèmes custom, ACF, Gutenberg, WooCommerce.",
+      kirbyDesc: "CMS flat-file, flexible et rapide à déployer."
     },
     portfolio: {
       chiroType: "Site professionnel",
       chiroTitle: "Chiropracteur",
-      chiroDesc: "Site WordPress responsive pour cabinet de chiropractie.",
-      hospelType: "Site professionnel",
-      hospelTitle: "Notaire",
-      hospelDesc: "Projet réalisé dans l'agence <a href='https://pafdesign.be/' target='_blank' rel='noopener noreferrer'>Paf!</a>",
+      chiroDesc: "Site WordPress vitrine pour un cabinet de chiropractie à Mons — responsive, rapide et pensé pour les conversions.",
+      hospelType: "Site institutionnel",
+      hospelTitle: "Notaire Hospel",
+      hospelDesc: "Site développé chez <a href='https://pafdesign.be/' target='_blank' rel='noopener noreferrer'>Paf!</a> pour une étude notariale bruxelloise.",
       memisaType: "Site associatif",
       memisaTitle: "Memisa",
-      memisaDesc: "Projet réalisé dans l'agence <a href='https://pafdesign.be/' target='_blank' rel='noopener noreferrer'>Paf!</a>",
+      memisaDesc: "Site multilingue (FR/EN/NL) pour l'ONG Memisa, réalisé chez <a href='https://pafdesign.be/' target='_blank' rel='noopener noreferrer'>Paf!</a>.",
       poulettesType: "Projet personnel",
       poulettesTitle: "Les Poulettes",
-      poulettesDesc: "Site personnel conçu et développé de A à Z, vitrine de mes compétences front-end.",
+      poulettesDesc: "Projet créé de A à Z — concept, design, code. Ce que je fais quand j'ai carte blanche.",
       tags: {
         professional: "Professionnel",
         responsive: "Responsive",
@@ -116,35 +116,35 @@ const translations = {
     }
   },
   en: {
-    pageTitle: "Laurence's Portfolio - Web Developer",
+    pageTitle: "Laurence Pirard — Front-End Web Developer",
     nav: {
       about: "About",
       experience: "Experience",
       skills: "Skills",
       portfolio: "Portfolio",
       contact: "Contact",
-      cv: "CV"
+      cv: "Resume"
     },
     hero: {
       available: "Available for freelance projects",
-      eyebrow: "Front-End Web Developer · Brussels",
-      subtitle: "Looking for a Web Developer?",
-      subtitle2: "I build websites that actually work — fast, responsive, and tailor-made.",
+      eyebrow: "Front-End Web Developer · Brussels, Belgium",
+      subtitle: "Looking for a web developer?",
+      subtitle2: "I build interfaces that work and look great — fast, polished, and tailored to each project.",
       ctaProjects: "View my projects",
       ctaContact: "Contact me",
-      ctaCV: "Resume",
+      ctaCV: "My Resume",
       scrollHint: "Scroll"
     },
     sections: {
       aboutTitle: "About",
-      aboutText: "Passionate about crafting polished digital interfaces. Specialising in <strong>WordPress, TailwindCSS and JavaScript</strong> — I turn designs into responsive, accessible and optimised websites.",
-      aboutText2: "I worked at <strong>Paf! Design</strong> agency before going freelance. I love projects where attention to detail makes all the difference.",
+      aboutText: "Front-end web developer based in Brussels. Specialising in <strong>WordPress, TailwindCSS and JavaScript</strong>, I turn ideas into responsive, accessible and high-performing websites — from wireframe to launch.",
+      aboutText2: "After working at <strong>Paf! Design</strong> agency, I now work as a freelancer. What drives me: projects where every detail matters, and where code serving design creates something truly useful.",
       experienceTitle: "Journey",
       experienceSubtitle: "From training to freelance",
       skillsTitle: "Skills",
       portfolioTitle: "Portfolio",
-      contactTitle: "Let's work together?",
-      contactText: "Have a web project in mind? Feel free to reach out — I'm available for freelance projects."
+      contactTitle: "Got a project in mind?",
+      contactText: "Available for freelance work in Brussels and remotely. Tell me about your project — I reply fast."
     },
     about: {
       tagResponsive: "Responsive Design",
@@ -172,40 +172,40 @@ const translations = {
       date1: "2023 – Present",
       title1: "Freelance Web Developer",
       company1: "Self-employed · Brussels",
-      desc1: "Design and development of custom websites for freelancers, non-profits and SMEs. End-to-end client support: wireframes, integration, deployment and maintenance. Personal projects (poulettes.laurencepirard.be) to explore new technologies.",
+      desc1: "Custom website design and development for freelancers, non-profits and Brussels SMEs. Full project ownership: discovery, wireframing, integration, deployment and maintenance. Personal projects — including poulettes.laurencepirard.be — to keep exploring new technologies.",
       date2: "2022 – 2023",
       title2: "Web Developer",
       company2: "Paf! Design · Brussels",
-      desc2: "WordPress and Kirby development at an agency. Projects for Hospel Notaire, Memisa (multilingual site) and other institutional clients.",
+      desc2: "WordPress and Kirby CMS integration at a Brussels agency. Projects for Hospel Notaire, Memisa NGO (multilingual FR/EN/NL site) and several institutional clients. Team collaboration, deadline-driven environment.",
       date3: "2022 · Internship",
       title3: "Web Developer Intern",
       company3: "ADEPS · Louvain-la-Neuve",
-      desc3: "End-of-study internship (BES program) at the Belgian Sports Administration. Web development and integration in an institutional context.",
+      desc3: "End-of-study internship (BES) at the Belgian Sports Administration. Web development and integration in an institutional context — first real exposure to professional constraints.",
       tag3Institutional: "Institutional"
     },
     skills: {
       ariaPrev: "Previous skill",
       ariaNext: "Next skill",
-      htmlDesc: "Structuring and presenting web content.",
-      cssDesc: "Styling modern and responsive interfaces.",
-      jsDesc: "Adding interactivity and dynamic features.",
-      tailwindDesc: "Rapidly styling user interfaces.",
-      wpDesc: "Creating custom-made websites.",
-      kirbyDesc: "A flexible, file-based CMS."
+      htmlDesc: "Semantics, accessibility, solid structure.",
+      cssDesc: "Animations, Grid, Flexbox — interfaces that breathe.",
+      jsDesc: "Vanilla JS, interaction logic, custom scripts.",
+      tailwindDesc: "Utility-first, rapid prototyping, guaranteed consistency.",
+      wpDesc: "Custom themes, ACF, Gutenberg, WooCommerce.",
+      kirbyDesc: "Flat-file CMS, flexible and fast to deploy."
     },
     portfolio: {
       chiroType: "Professional Website",
       chiroTitle: "Chiropractor",
-      chiroDesc: "Responsive WordPress site for a chiropractic clinic.",
-      hospelType: "Professional Website",
-      hospelTitle: "Notary",
-      hospelDesc: "Project carried out at <a href='https://pafdesign.be/' target='_blank' rel='noopener noreferrer'>Paf!</a>",
+      chiroDesc: "WordPress showcase site for a chiropractic clinic in Mons — responsive, fast and conversion-focused.",
+      hospelType: "Institutional Website",
+      hospelTitle: "Notary Hospel",
+      hospelDesc: "Site built at <a href='https://pafdesign.be/' target='_blank' rel='noopener noreferrer'>Paf!</a> for a Brussels notary practice.",
       memisaType: "Non-profit Website",
       memisaTitle: "Memisa",
-      memisaDesc: "Project carried out at <a href='https://pafdesign.be/' target='_blank' rel='noopener noreferrer'>Paf!</a>",
+      memisaDesc: "Multilingual site (FR/EN/NL) for Memisa NGO, built at <a href='https://pafdesign.be/' target='_blank' rel='noopener noreferrer'>Paf!</a>.",
       poulettesType: "Personal Project",
       poulettesTitle: "Les Poulettes",
-      poulettesDesc: "Personal website designed and developed from scratch, showcasing my front-end skills.",
+      poulettesDesc: "Built from scratch — concept, design, code. What I do when given full creative freedom.",
       tags: {
         professional: "Professional",
         responsive: "Responsive",
@@ -251,7 +251,7 @@ window.changeLanguage = changeLanguage;
 // Fonction de mise à jour des textes
 function updateTexts(lang) {
   const elements = document.querySelectorAll('[data-translate]');
-  
+
   elements.forEach(element => {
     try {
       const key = element.dataset.translate;
@@ -280,7 +280,7 @@ function updateTexts(lang) {
 // Fonction pour mettre à jour l'état des boutons de langue
 function updateLanguageButtons(lang) {
   const langButtons = document.querySelectorAll('.lang-btn');
-  
+
   langButtons.forEach(btn => {
     try {
       btn.classList.toggle('active', btn.dataset.lang === lang);
@@ -297,7 +297,6 @@ document.addEventListener('DOMContentLoaded', function() {
     changeLanguage(savedLang);
   } catch (error) {
     console.error('Error during initialization:', error);
-    // Fallback to French if there's an error
     changeLanguage('fr');
   }
 });
