@@ -15,12 +15,12 @@
   <style>
     /* ── Variables ── */
     :root {
-      --bg:      #1a2540;
-      --surface: #1f2d4d;
-      --card:    #253457;
-      --border:  #3a5080;
+      --bg:      #080c14;
+      --surface: #0d1220;
+      --card:    #131926;
+      --border:  #1e2a3a;
       --text:    #e8eef8;
-      --muted:   #8fa3c0;
+      --muted:   #5a6a82;
       --accent:  #4d9fff;
     }
 
@@ -44,7 +44,7 @@
     /* ── Nav ── */
     #main-header {
       position: fixed; top: 0; left: 0; right: 0;
-      background: rgba(8,12,20,.88);
+      background: rgba(13,14,18,.88);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
       z-index: 100;
@@ -234,6 +234,24 @@
       max-width: 1160px; margin: 0 auto;
     }
     .section-full { padding: 100px 32px; }
+
+    /* ── Section claire (alternance) ── */
+    .bg-light {
+      --bg:      #eef2f8;
+      --surface: #ffffff;
+      --card:    #ffffff;
+      --border:  #cdd8e8;
+      --text:    #0f172a;
+      --muted:   #4a6078;
+      background: #eef2f8;
+      color: var(--text);
+    }
+    .bg-light .section-title::after { background: var(--border); }
+    /* Cartes blanches avec légère ombre sur fond clair */
+    .bg-light .portfolio-card,
+    .bg-light .skill-card {
+      box-shadow: 0 2px 12px rgba(15,23,42,.08);
+    }
     .section-title {
       font-size: .72rem; font-weight: 700;
       color: var(--accent); letter-spacing: .14em;
@@ -298,21 +316,23 @@
       top: 0; left: 0;
       width: 100%;
       background: var(--accent);
-      height: 0%;
-      transition: height 1.2s cubic-bezier(.4,0,.2,1);
+      height: calc(var(--progress, 0) * 100%);
+      transition: height .08s linear;
     }
-    .timeline-line.drawn::after { height: 100%; }
 
     .tl-item {
       position: relative;
       padding-bottom: 52px;
       opacity: 0;
-      transform: translateX(-28px);
-      transition: opacity .55s ease, transform .55s ease;
+      transform: translateX(-28px) translateY(20px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+    .tl-item.from-above {
+      transform: translateX(-28px) translateY(-20px);
     }
     .tl-item.visible {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateX(0) translateY(0);
     }
     .tl-item:last-child { padding-bottom: 0; }
 
@@ -597,6 +617,7 @@
 </div>
 
 <!-- ── À propos ── -->
+<div class="bg-light">
 <section id="about" class="section fade-slide-up">
   <p class="section-title" data-translate="sections.aboutTitle">À propos</p>
   <div class="about-grid">
@@ -640,9 +661,10 @@
     </div>
   </div>
 </section>
+</div>
 
 <!-- ── Expérience ── -->
-<section id="experience" class="section" style="border-top:1px solid var(--border)">
+<section id="experience" class="section">
   <p class="section-title fade-slide-up" data-translate="sections.experienceTitle">Expérience</p>
 
   <div class="timeline" id="timeline">
@@ -707,7 +729,7 @@
 </section>
 
 <!-- ── Compétences ── -->
-<section id="skills" style="background:var(--surface);">
+<section id="skills" class="bg-light">
   <div class="skills-section-inner fade-slide-up">
     <p class="section-title" data-translate="sections.skillsTitle">Compétences</p>
     <div class="skills-grid">
@@ -839,7 +861,8 @@
 </section>
 
 <!-- ── Contact ── -->
-<section id="contact" class="section fade-slide-up" style="border-top:1px solid var(--border); text-align:center">
+<div class="bg-light">
+<section id="contact" class="section fade-slide-up" style="text-align:center">
   <p class="contact-headline" data-translate="sections.contactTitle">Un projet en tête ?</p>
   <p class="contact-sub" data-translate="sections.contactText">
     Disponible pour des missions freelance à Bruxelles et à distance. Parlez-moi de votre projet — je réponds vite.
@@ -856,6 +879,7 @@
     <a href="cv.html" target="_blank" class="btn-outline" data-translate="contact.downloadCV">CV ↓</a>
   </div>
 </section>
+</div>
 
 <!-- ── Footer ── -->
 <footer>
