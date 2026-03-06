@@ -129,7 +129,22 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.skill-card').forEach(el => skillObs.observe(el));
 
   /* ════════════════════════════════════════
-     6. MENU MOBILE
+     6. PORTFOLIO CARDS — stagger
+  ════════════════════════════════════════ */
+  const portfolioObs = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const delay = parseInt(entry.target.dataset.index || 0) * 120;
+        setTimeout(() => entry.target.classList.add('visible'), delay);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.portfolio-card').forEach(el => portfolioObs.observe(el));
+
+  /* ════════════════════════════════════════
+     7. MENU MOBILE
   ════════════════════════════════════════ */
   const menuBtn    = document.getElementById('menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
@@ -141,10 +156,11 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileMenu.classList.remove('open');
       }
     });
+
   }
 
   /* ════════════════════════════════════════
-     7. SCROLL TO TOP
+     8. SCROLL TO TOP
   ════════════════════════════════════════ */
   const scrollTopBtn = document.getElementById('scroll-top');
   if (scrollTopBtn) {
