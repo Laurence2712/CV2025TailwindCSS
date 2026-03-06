@@ -4,7 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title data-translate="pageTitle">Laurence Pirard — Développeuse Web</title>
-  <meta name="description" content="Laurence Pirard — Développeuse Web Front-End à Bruxelles. WordPress, TailwindCSS, JavaScript." />
+  <meta name="description" content="Laurence Pirard — Développeuse Web Front-End à Bruxelles. WordPress, TailwindCSS, JavaScript, PHP." />
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://laurence2712.github.io/CV2025TailwindCSS/" />
+  <meta property="og:title"       content="Laurence Pirard — Développeuse Web Front-End" />
+  <meta property="og:description" content="Développeuse web front-end à Bruxelles. WordPress, TailwindCSS, JavaScript, PHP — mobile first." />
+  <meta property="og:image"       content="https://laurence2712.github.io/CV2025TailwindCSS/uploads/photo.jpg" />
+  <meta name="twitter:card"       content="summary_large_image" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ctext y='32' font-size='28' font-family='Poppins' font-weight='700' fill='%234d9fff'%3ELP%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -686,6 +693,17 @@
     #scroll-top:hover { border-color: var(--accent); color: var(--accent); }
 
     /* ════════════════════════════════════════
+       PORTFOLIO CARD — stagger
+    ════════════════════════════════════════ */
+    .portfolio-card {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity .6s ease, transform .6s ease,
+                  border-color .3s, transform .35s cubic-bezier(.16,1,.3,1);
+    }
+    .portfolio-card.visible { opacity: 1; transform: translateY(0); }
+    .portfolio-card.visible:hover { transform: translateY(-6px); }
+
+    /* ════════════════════════════════════════
        FADE-SLIDE-UP (compat sections)
     ════════════════════════════════════════ */
     .fade-slide-up {
@@ -936,11 +954,14 @@
       </p>
       <div class="tl-tags">
         <span class="tl-tag">WordPress</span>
+        <span class="tl-tag">ACF</span>
+        <span class="tl-tag">WooCommerce</span>
+        <span class="tl-tag">WPML</span>
+        <span class="tl-tag">SCSS / Gulp</span>
+        <span class="tl-tag">Swiper</span>
         <span class="tl-tag">Drupal</span>
         <span class="tl-tag">Craft CMS</span>
-        <span class="tl-tag">ACF</span>
         <span class="tl-tag">Contentful</span>
-        <span class="tl-tag">Atlassian</span>
       </div>
     </div>
 
@@ -961,6 +982,27 @@
       </div>
     </div>
 
+  </div>
+
+  <!-- Formation -->
+  <div style="margin-top:56px">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:32px">
+      <span class="sn">↳</span>
+      <span class="sl" data-translate="formation.sectionLabel">Formation</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="timeline" style="padding-left:48px">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <p class="tl-year" data-translate="formation.date1">Diplômée 2020 · Grande distinction</p>
+        <h3 class="tl-title" data-translate="formation.title1">BES Web Developer</h3>
+        <p class="tl-company" data-translate="formation.school1">EPFC · Bruxelles</p>
+        <p class="tl-desc" data-translate="formation.desc1">
+          Formation certifiante en développement web. HTML5/CSS3, JavaScript, PHP, jQuery,
+          WordPress, Bootstrap, bases de données, Photoshop/Illustrator.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -991,8 +1033,8 @@
         <div class="skill-icon">
           <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS3">
         </div>
-        <h3>CSS3</h3>
-        <p data-translate="skills.cssDesc">Interfaces modernes et responsives.</p>
+        <h3>CSS3 / SCSS</h3>
+        <p data-translate="skills.scssDesc">Architecture SCSS modulaire, compilation via Gulp/NPM, media-queries et composants réutilisables.</p>
       </div>
 
       <div class="skill-card">
@@ -1000,7 +1042,18 @@
           <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript">
         </div>
         <h3>JavaScript</h3>
-        <p data-translate="skills.jsDesc">Interactivité et dynamisme.</p>
+        <p data-translate="skills.jsDesc">Vanilla JS, jQuery, GSAP, Swiper, logique d'interaction et scripts sur mesure.</p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon" style="color:#7b86c4">
+          <svg viewBox="0 0 128 128" fill="currentColor" style="height:44px;width:auto">
+            <path d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64 64-28.7 64-64S99.3 0 64 0zm0 114.7C36 114.7 13.3 92 13.3 64S36 13.3 64 13.3 114.7 36 114.7 64 92 114.7 64 114.7z" opacity=".2"/>
+            <path d="M38.5 56.3H44c3.7 0 6.4 2.5 6.4 6s-2.7 6.1-6.4 6.1h-3.2v6.8H38.5V56.3zm5.1 9.4c2 0 3.2-1.2 3.2-3.3s-1.2-3.3-3.2-3.3h-2.8v6.6h2.8zM54.1 56.3h5.5c3.7 0 6.4 2.5 6.4 6s-2.7 6.1-6.4 6.1h-3.2v6.8H54V56.3zm5.1 9.4c2 0 3.2-1.2 3.2-3.3s-1.2-3.3-3.2-3.3h-2.8v6.6H59V65.7zM69.2 56.3h3.3v15.1h7.9v3H69.2z"/>
+          </svg>
+        </div>
+        <h3>PHP</h3>
+        <p data-translate="skills.phpDesc">Templates WordPress, shortcodes, AJAX, sécurisation des sorties (esc_html, esc_url).</p>
       </div>
 
       <div class="skill-card">
@@ -1021,7 +1074,40 @@
           </svg>
         </div>
         <h3>WordPress</h3>
-        <p data-translate="skills.wpDesc">Sites sur mesure et thèmes custom.</p>
+        <p data-translate="skills.wpDesc">Thèmes custom, hooks/filters, templates PHP, wp_enqueue, post types, menus.</p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon" style="color:#00b9ae">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="height:44px;width:auto">
+            <rect x="3" y="5" width="18" height="3" rx="1"/>
+            <rect x="3" y="10.5" width="18" height="3" rx="1"/>
+            <rect x="3" y="16" width="11" height="3" rx="1"/>
+          </svg>
+        </div>
+        <h3>ACF</h3>
+        <p data-translate="skills.acfDesc">Champs personnalisés, flexible content, galeries et options pages.</p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon" style="color:#96588a">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="height:44px;width:auto">
+            <path d="M1.858 9.177c.33-.758.846-1.372 1.547-1.842L6.5 5.5l1 4-3 .5-2.642 3.677c-.03-.63.03-1.27.03-1.93 0-.19.36-1.81-.03-2.57zM21.5 6.5l-3.105 1.835c.7.47 1.216 1.084 1.547 1.842.39.76.03 2.38.03 2.57 0 .66.06 1.3.03 1.93L17.5 11l-3-.5 1-4 3.105-1.335A5.5 5.5 0 0 1 21.5 6.5zm-9.5 9.5l-2.5 4.5 2.5 1 2.5-1L12 16zm0-13A9 9 0 0 0 3 12c0 2.85 1.33 5.39 3.415 7.07L9 16.5l3 1 3-1 2.585 2.57A9 9 0 0 0 21 12a9 9 0 0 0-9-9zm0 2a7 7 0 0 1 7 7 7 7 0 0 1-7 7 7 7 0 0 1-7-7 7 7 0 0 1 7-7z"/>
+          </svg>
+        </div>
+        <h3>WooCommerce</h3>
+        <p data-translate="skills.wooDesc">E-commerce WordPress — templates, hooks et personnalisation avancée.</p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon" style="color:#009fda">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="height:44px;width:auto">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M3 12h18M12 3a13 13 0 0 1 0 18M12 3a13 13 0 0 0 0 18"/>
+          </svg>
+        </div>
+        <h3>WPML</h3>
+        <p data-translate="skills.wpmlDesc">Sites multilingues (FR/EN/NL), requêtes WPML-aware, colonnes suffixées.</p>
       </div>
 
       <div class="skill-card">
@@ -1063,9 +1149,9 @@
   </div>
   <div class="portfolio-grid">
 
-    <a href="https://chiropracteur-mons.be/" target="_blank" class="portfolio-card">
+    <a href="https://chiropracteur-mons.be/" target="_blank" class="portfolio-card" data-index="0">
       <div class="pc-media">
-        <img src="uploads/chiro.jpg" alt="Chiropracteur Mons"
+        <img src="uploads/chiro.jpg" alt="Chiropracteur Mons" loading="lazy"
           onerror="this.closest('.pc-media').innerHTML='<div class=\'pc-placeholder\'><svg xmlns=\'http://www.w3.org/2000/svg\' width=\'40\' height=\'40\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'currentColor\' stroke-width=\'1\' style=\'color:var(--border)\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/></svg></div>'">
         <div class="pc-overlay"><div class="pc-arrow">→</div></div>
       </div>
@@ -1080,9 +1166,9 @@
       </div>
     </a>
 
-    <a href="https://hospel-notaire.be/" target="_blank" class="portfolio-card">
+    <a href="https://hospel-notaire.be/" target="_blank" class="portfolio-card" data-index="1">
       <div class="pc-media">
-        <img src="uploads/hospel.jpg" alt="Hospel Notaire"
+        <img src="uploads/hospel.jpg" alt="Hospel Notaire" loading="lazy"
           onerror="this.closest('.pc-media').innerHTML='<div class=\'pc-placeholder\'><svg xmlns=\'http://www.w3.org/2000/svg\' width=\'40\' height=\'40\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'currentColor\' stroke-width=\'1\' style=\'color:var(--border)\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/></svg></div>'">
         <div class="pc-overlay"><div class="pc-arrow">→</div></div>
       </div>
@@ -1097,9 +1183,9 @@
       </div>
     </a>
 
-    <a href="https://memisa.be/fr/" target="_blank" class="portfolio-card">
+    <a href="https://memisa.be/fr/" target="_blank" class="portfolio-card" data-index="2">
       <div class="pc-media">
-        <img src="uploads/memisa.jpg" alt="Memisa"
+        <img src="uploads/memisa.jpg" alt="Memisa" loading="lazy"
           onerror="this.closest('.pc-media').innerHTML='<div class=\'pc-placeholder\'><svg xmlns=\'http://www.w3.org/2000/svg\' width=\'40\' height=\'40\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'currentColor\' stroke-width=\'1\' style=\'color:var(--border)\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/></svg></div>'">
         <div class="pc-overlay"><div class="pc-arrow">→</div></div>
       </div>
@@ -1114,7 +1200,7 @@
       </div>
     </a>
 
-    <a href="https://poulettes.laurencepirard.be/" target="_blank" class="portfolio-card">
+    <a href="https://poulettes.laurencepirard.be/" target="_blank" class="portfolio-card" data-index="3">
       <div class="pc-media">
         <div class="pc-placeholder">
           <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" style="color:var(--border)">
