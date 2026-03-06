@@ -144,7 +144,22 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.craft-card').forEach(el => craftObs.observe(el));
 
   /* ════════════════════════════════════════
-     7. PORTFOLIO CARDS — stagger
+     7. TERRAIN CARDS — stagger
+  ════════════════════════════════════════ */
+  const terrainObs = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const delay = parseInt(entry.target.dataset.terrainIndex || 0) * 75;
+        setTimeout(() => entry.target.classList.add('visible'), delay);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.terrain-card').forEach(el => terrainObs.observe(el));
+
+  /* ════════════════════════════════════════
+     8. PORTFOLIO CARDS — stagger
   ════════════════════════════════════════ */
   const portfolioObs = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
