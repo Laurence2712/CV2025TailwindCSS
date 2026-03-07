@@ -144,6 +144,25 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.craft-card').forEach(el => craftObs.observe(el));
 
   /* ════════════════════════════════════════
+     6b. CRAFT CARDS — 3D tilt + cursor glow
+  ════════════════════════════════════════ */
+  document.querySelectorAll('.craft-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r  = card.getBoundingClientRect();
+      const cx = (e.clientX - r.left)  / r.width;
+      const cy = (e.clientY - r.top)   / r.height;
+      const rx = (cy - 0.5) * -10;
+      const ry = (cx - 0.5) *  12;
+      card.style.transform = `perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(6px)`;
+      card.style.setProperty('--mx', `${cx * 100}%`);
+      card.style.setProperty('--my', `${cy * 100}%`);
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+
+  /* ════════════════════════════════════════
      7. TERRAIN CARDS — stagger
   ════════════════════════════════════════ */
   const terrainObs = new IntersectionObserver((entries, obs) => {
