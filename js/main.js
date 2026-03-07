@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Ring "link" sur les cartes portfolio
-    document.querySelectorAll('.portfolio-card').forEach(el => {
+    document.querySelectorAll('.portfolio-card, .pf-bento-card').forEach(el => {
       el.addEventListener('mouseenter', () => {
         ring.classList.remove('hovered');
         ring.classList.add('link-hovered');
@@ -144,7 +144,41 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.craft-card').forEach(el => craftObs.observe(el));
 
   /* ════════════════════════════════════════
-     7. PORTFOLIO CARDS — stagger
+     6b. CRAFT CARDS — 3D tilt + cursor glow
+  ════════════════════════════════════════ */
+  document.querySelectorAll('.craft-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r  = card.getBoundingClientRect();
+      const cx = (e.clientX - r.left)  / r.width;
+      const cy = (e.clientY - r.top)   / r.height;
+      const rx = (cy - 0.5) * -10;
+      const ry = (cx - 0.5) *  12;
+      card.style.transform = `perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(6px)`;
+      card.style.setProperty('--mx', `${cx * 100}%`);
+      card.style.setProperty('--my', `${cy * 100}%`);
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+
+  /* ════════════════════════════════════════
+     7. TERRAIN CARDS — stagger
+  ════════════════════════════════════════ */
+  const terrainObs = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const delay = parseInt(entry.target.dataset.terrainIndex || 0) * 75;
+        setTimeout(() => entry.target.classList.add('visible'), delay);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.terrain-card').forEach(el => terrainObs.observe(el));
+
+  /* ════════════════════════════════════════
+     8. PORTFOLIO CARDS — stagger
   ════════════════════════════════════════ */
   const portfolioObs = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
