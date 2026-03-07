@@ -728,6 +728,46 @@
       opacity: .4;
     }
 
+    /* ── Freelance vs Agence distinction ── */
+    .pf-bento--freelance {
+      border-color: rgba(251,191,36,.4);
+    }
+    .pf-bento--freelance:hover {
+      border-color: #fbbf24;
+      box-shadow: 0 0 0 1px #fbbf24, 0 24px 56px rgba(251,191,36,.22);
+    }
+    .pf-bento--freelance .pf-bento-cat { color: #fbbf24; }
+    .pf-bento--freelance .pf-bento-link-icon {
+      border-color: rgba(251,191,36,.3);
+    }
+    .pf-bento--freelance:hover .pf-bento-link-icon {
+      background: #fbbf24;
+      border-color: #fbbf24;
+    }
+    .pf-bento--agency {
+      border-color: rgba(255,255,255,.07);
+    }
+    .pf-bento-badge {
+      font-size: .53rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 3px 9px; border-radius: 20px;
+      backdrop-filter: blur(4px);
+      white-space: nowrap;
+    }
+    .pf-bento-badge--freelance {
+      background: rgba(251,191,36,.12);
+      border: 1px solid rgba(251,191,36,.45);
+      color: #fbbf24;
+    }
+    .pf-bento-badge--agency {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      color: rgba(255,255,255,.35);
+    }
+    .pf-bento-top-right {
+      display: flex; align-items: center; gap: 8px;
+    }
+
     /* Responsive */
     @media (max-width: 860px) {
       .pf-bento { grid-template-columns: 1fr; }
@@ -1981,7 +2021,7 @@
   <div class="pf-bento">
 
     <!-- 01 — Hospel Notaire (featured, 2 rows) -->
-    <a href="https://hospel-notaire.be/" target="_blank" class="pf-bento-card pf-bento--featured portfolio-card" data-index="0" rel="noopener noreferrer">
+    <a href="https://hospel-notaire.be/" target="_blank" class="pf-bento-card pf-bento--featured pf-bento--agency portfolio-card" data-index="0" rel="noopener noreferrer">
       <div class="pf-bento-img">
         <img src="uploads/hospel.jpg" alt="Hospel Notaire" loading="lazy" onerror="this.parentElement.style.background='#0f1826'">
         <div class="pf-bento-overlay"></div>
@@ -1989,7 +2029,10 @@
       <div class="pf-bento-content">
         <div class="pf-bento-top">
           <span class="pf-bento-num">01</span>
-          <span class="pf-bento-link-icon" aria-hidden="true">↗</span>
+          <div class="pf-bento-top-right">
+            <span class="pf-bento-badge pf-bento-badge--agency">Agence</span>
+            <span class="pf-bento-link-icon" aria-hidden="true">↗</span>
+          </div>
         </div>
         <div class="pf-bento-info">
           <div class="pf-bento-cat" data-translate="portfolio.hospelCat">Agence · WordPress</div>
@@ -2003,7 +2046,7 @@
     </a>
 
     <!-- 02 — Chiropracteur Mons -->
-    <a href="https://chiropracteur-mons.be/" target="_blank" class="pf-bento-card portfolio-card" data-index="1" rel="noopener noreferrer">
+    <a href="https://chiropracteur-mons.be/" target="_blank" class="pf-bento-card pf-bento--freelance portfolio-card" data-index="1" rel="noopener noreferrer">
       <div class="pf-bento-img">
         <img src="uploads/chiro.jpg" alt="Chiropracteur Mons" loading="lazy" onerror="this.parentElement.style.background='#0f1826'">
         <div class="pf-bento-overlay"></div>
@@ -2011,7 +2054,10 @@
       <div class="pf-bento-content">
         <div class="pf-bento-top">
           <span class="pf-bento-num">02</span>
-          <span class="pf-bento-link-icon" aria-hidden="true">↗</span>
+          <div class="pf-bento-top-right">
+            <span class="pf-bento-badge pf-bento-badge--freelance">Freelance</span>
+            <span class="pf-bento-link-icon" aria-hidden="true">↗</span>
+          </div>
         </div>
         <div class="pf-bento-info">
           <div class="pf-bento-cat" data-translate="portfolio.chiroCat">Vitrine · WordPress</div>
@@ -2025,7 +2071,7 @@
     </a>
 
     <!-- 03 — Memisa -->
-    <a href="https://memisa.be/fr/" target="_blank" class="pf-bento-card portfolio-card" data-index="2" rel="noopener noreferrer">
+    <a href="https://memisa.be/fr/" target="_blank" class="pf-bento-card pf-bento--agency portfolio-card" data-index="2" rel="noopener noreferrer">
       <div class="pf-bento-img">
         <img src="uploads/memisa.jpg" alt="Memisa" loading="lazy" onerror="this.parentElement.style.background='#0f1826'">
         <div class="pf-bento-overlay"></div>
@@ -2033,7 +2079,10 @@
       <div class="pf-bento-content">
         <div class="pf-bento-top">
           <span class="pf-bento-num">03</span>
-          <span class="pf-bento-link-icon" aria-hidden="true">↗</span>
+          <div class="pf-bento-top-right">
+            <span class="pf-bento-badge pf-bento-badge--agency">Agence</span>
+            <span class="pf-bento-link-icon" aria-hidden="true">↗</span>
+          </div>
         </div>
         <div class="pf-bento-info">
           <div class="pf-bento-cat" data-translate="portfolio.memisaCat">ONG · Multilingue</div>
@@ -2047,21 +2096,24 @@
     </a>
 
     <!-- 04 — Les Poulettes (wide, no photo) -->
-    <a href="https://poulettes.laurencepirard.be/" target="_blank" class="pf-bento-card pf-bento--wide portfolio-card" data-index="3" rel="noopener noreferrer">
+    <a href="https://poulettes.laurencepirard.be/" target="_blank" class="pf-bento-card pf-bento--wide pf-bento--freelance portfolio-card" data-index="3" rel="noopener noreferrer">
       <div class="pf-bento-no-bg">
         <div class="pf-bento-no-bg-inner">
-          <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="none" viewBox="0 0 24 24" stroke="var(--accent)" stroke-width=".8">
+          <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="none" viewBox="0 0 24 24" stroke="#fbbf24" stroke-width=".8">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 3C8 3 5 6 5 9c0 2.5 1.5 4.5 3.5 5.5L8 18h8l-.5-3.5C17.5 13.5 19 11.5 19 9c0-3-3-6-7-6z"/>
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 18v2a1 1 0 001 1h4a1 1 0 001-1v-2"/>
           </svg>
-          <span class="pf-bento-no-bg-label">poulettes.laurencepirard.be</span>
+          <span class="pf-bento-no-bg-label" style="color:#fbbf24">poulettes.laurencepirard.be</span>
         </div>
       </div>
       <div class="pf-bento-overlay" style="background:linear-gradient(135deg, rgba(6,10,18,.7) 0%, rgba(6,10,18,.3) 100%)"></div>
       <div class="pf-bento-content">
         <div class="pf-bento-top">
           <span class="pf-bento-num">04</span>
-          <span class="pf-bento-link-icon" aria-hidden="true">↗</span>
+          <div class="pf-bento-top-right">
+            <span class="pf-bento-badge pf-bento-badge--freelance">Freelance</span>
+            <span class="pf-bento-link-icon" aria-hidden="true">↗</span>
+          </div>
         </div>
         <div class="pf-bento-info">
           <div class="pf-bento-cat" data-translate="portfolio.poulettesCat">Perso · Headless CMS</div>
