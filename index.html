@@ -578,6 +578,7 @@
       padding: 100px 40px 48px;
     }
     #skills { overflow: hidden; padding-bottom: 80px; }
+    #skills .skills-section-inner { padding-left: 40px; padding-right: 40px; }
     .skills-scroll-rows {
       margin-top: 56px;
       overflow: hidden;
@@ -728,236 +729,212 @@
     /* ════════════════════════════════════════
        PORTFOLIO — BENTO 2026
     ════════════════════════════════════════ */
+    /* ════════════════════════════════════════
+       PORTFOLIO — REDESIGN 2026
+    ════════════════════════════════════════ */
     .pf-bento {
       display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 14px;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 16px;
     }
     .pf-bento-card {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      border-radius: 14px;
-      min-height: 340px;
-      max-height: 340px;
-      background: var(--card);
-      border: 1px solid var(--border);
+      position: relative; display: flex; flex-direction: column;
+      overflow: hidden; border-radius: 20px;
+      min-height: 340px; max-height: 340px;
+      background: #06090f;
+      border: 1px solid rgba(255,255,255,.07);
       text-decoration: none;
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity .6s ease, transform .6s ease, border-color .35s, box-shadow .4s;
+      opacity: 0; transform: translateY(32px);
+      transition: opacity .7s ease, transform .7s ease, border-color .4s, box-shadow .45s;
+      will-change: transform;
     }
     .pf-bento-card.visible { opacity: 1; transform: none; }
-    .pf-bento-card:hover {
-      border-color: rgba(77,159,255,.38);
-      box-shadow: 0 16px 48px rgba(77,159,255,.09), 0 2px 12px rgba(77,159,255,.06);
-    }
-    /* Cursor glow + top line */
+
+    /* SPOTLIGHT CURSOR */
     .pf-bento-card::before {
-      content: '';
-      position: absolute; inset: 0; z-index: 1;
-      background: radial-gradient(circle 160px at var(--mx, 50%) var(--my, 50%),
-        rgba(77,159,255,.06) 0%, transparent 65%);
-      opacity: 0; transition: opacity .4s;
-      pointer-events: none;
+      content: ''; position: absolute; inset: 0; z-index: 2;
+      background: radial-gradient(circle 220px at var(--mx,50%) var(--my,50%),
+        rgba(77,159,255,.09) 0%, transparent 70%);
+      opacity: 0; transition: opacity .4s; pointer-events: none;
     }
     .pf-bento-card:hover::before { opacity: 1; }
+
+    /* SHIMMER LINE — sweeps left → right */
     .pf-bento-card::after {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 1px; z-index: 3;
-      background: linear-gradient(90deg, transparent, rgba(77,159,255,.28) 50%, transparent);
-      transform: scaleX(0); transform-origin: center;
-      transition: transform .5s cubic-bezier(.16,1,.3,1);
+      content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 1px; z-index: 4;
+      background: linear-gradient(90deg, transparent, rgba(77,159,255,.7) 50%, transparent);
+      transition: left .65s cubic-bezier(.16,1,.3,1);
     }
-    .pf-bento-card:hover::after { transform: scaleX(1); }
-    /* Yellow variants pour freelance */
+    .pf-bento-card:hover::after { left: 100%; }
+
+    /* HOVER GLOW */
+    .pf-bento-card:hover {
+      border-color: rgba(77,159,255,.32);
+      box-shadow: 0 0 0 1px rgba(77,159,255,.07),
+        0 28px 72px rgba(0,0,0,.55),
+        0 0 100px rgba(77,159,255,.06);
+    }
+
+    /* FREELANCE VARIANTS */
+    .pf-bento--freelance { border-color: rgba(251,191,36,.1); }
     .pf-bento--freelance::before {
-      background: radial-gradient(circle 160px at var(--mx, 50%) var(--my, 50%),
-        rgba(251,191,36,.06) 0%, transparent 65%);
+      background: radial-gradient(circle 220px at var(--mx,50%) var(--my,50%),
+        rgba(251,191,36,.08) 0%, transparent 70%);
     }
     .pf-bento--freelance::after {
-      background: linear-gradient(90deg, transparent, rgba(251,191,36,.28) 50%, transparent);
+      background: linear-gradient(90deg, transparent, rgba(251,191,36,.7) 50%, transparent);
     }
-    .pf-bento--featured { grid-row: span 2; min-height: 700px; max-height: none; }
-    .pf-bento--wide { grid-column: span 2; min-height: 260px; max-height: 260px; }
+    .pf-bento--freelance:hover {
+      border-color: rgba(251,191,36,.32);
+      box-shadow: 0 0 0 1px rgba(251,191,36,.07),
+        0 28px 72px rgba(0,0,0,.55),
+        0 0 100px rgba(251,191,36,.05);
+    }
 
-    /* Image background */
-    .pf-bento-img {
-      position: absolute; inset: 0; overflow: hidden;
-    }
+    /* FEATURED */
+    .pf-bento--featured { grid-row: span 2; min-height: 700px; max-height: none; }
+
+    /* IMAGE */
+    .pf-bento-img { position: absolute; inset: 0; overflow: hidden; }
     .pf-bento-img img {
       width: 100%; height: 100%;
       object-fit: cover; object-position: top;
-      filter: brightness(.52) saturate(.75);
-      transition: filter .7s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);
+      filter: brightness(.42) saturate(.65);
+      transition: filter .9s cubic-bezier(.16,1,.3,1), transform 1.1s cubic-bezier(.16,1,.3,1);
     }
     .pf-bento-card:hover .pf-bento-img img {
-      filter: brightness(.62) saturate(1.05);
-      transform: scale(1.05);
+      filter: brightness(.58) saturate(1.1);
+      transform: scale(1.07);
     }
+
+    /* CINEMATIC OVERLAY */
     .pf-bento-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(6,10,18,.98) 0%, rgba(6,10,18,.55) 50%, rgba(6,10,18,.25) 100%);
-      transition: background .5s ease;
-    }
-    .pf-bento-card:hover .pf-bento-overlay {
-      background: linear-gradient(to top, rgba(6,10,18,.99) 0%, rgba(6,10,18,.82) 50%, rgba(6,10,18,.6) 100%);
+      background:
+        linear-gradient(to top, rgba(4,7,14,.99) 0%, rgba(4,7,14,.65) 40%, transparent 100%),
+        linear-gradient(to right, rgba(4,7,14,.25) 0%, transparent 50%);
     }
 
-    /* Content layer */
+    /* GRAIN */
+    .pf-grain {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      opacity: .03;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px;
+    }
+
+    /* CONTENT */
     .pf-bento-content {
-      position: relative; z-index: 1;
-      display: flex; flex-direction: column;
-      justify-content: space-between;
-      flex: 1;
-      padding: 22px;
+      position: relative; z-index: 3;
+      display: flex; flex-direction: column; justify-content: space-between;
+      flex: 1; padding: 20px 22px;
     }
-    .pf-bento-top {
-      display: flex; justify-content: space-between; align-items: flex-start;
-    }
+    .pf-bento-top { display: flex; justify-content: space-between; align-items: center; }
     .pf-bento-num {
-      font-size: .8rem; font-weight: 700; letter-spacing: .15em;
-      color: rgba(255,255,255,.4);
-      background: rgba(255,255,255,.07);
-      border: 1px solid rgba(255,255,255,.1);
-      padding: 4px 11px; border-radius: 20px;
-      backdrop-filter: blur(4px);
+      font-size: .62rem; font-weight: 700; letter-spacing: .2em;
+      color: rgba(255,255,255,.3); font-variant-numeric: tabular-nums;
     }
+    .pf-bento-top-right { display: flex; align-items: center; gap: 8px; }
+
+    /* BADGE */
+    .pf-bento-badge {
+      font-size: .58rem; font-weight: 800; letter-spacing: .14em;
+      text-transform: uppercase; padding: 4px 10px; border-radius: 20px;
+      backdrop-filter: blur(8px); transition: box-shadow .35s, background .35s;
+    }
+    .pf-bento-badge--agency {
+      color: #4d9fff;
+      background: rgba(77,159,255,.1); border: 1px solid rgba(77,159,255,.25);
+    }
+    .pf-bento-card:hover .pf-bento-badge--agency {
+      background: rgba(77,159,255,.18); box-shadow: 0 0 14px rgba(77,159,255,.28);
+    }
+    .pf-bento-badge--freelance {
+      color: #fbbf24;
+      background: rgba(251,191,36,.1); border: 1px solid rgba(251,191,36,.28);
+    }
+    .pf-bento-card:hover .pf-bento-badge--freelance {
+      background: rgba(251,191,36,.18); box-shadow: 0 0 14px rgba(251,191,36,.22);
+    }
+
+    /* LINK ICON */
     .pf-bento-link-icon {
-      width: 46px; height: 46px;
-      background: rgba(255,255,255,.07);
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem; color: rgba(255,255,255,.55);
-      backdrop-filter: blur(4px);
-      transition: background .35s, border-color .35s, color .35s, transform .4s cubic-bezier(.16,1,.3,1);
+      width: 34px; height: 34px;
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: .85rem; color: rgba(255,255,255,.4);
+      transition: all .4s cubic-bezier(.16,1,.3,1);
     }
     .pf-bento-card:hover .pf-bento-link-icon {
-      background: rgba(77,159,255,.15);
-      border-color: rgba(77,159,255,.5);
-      color: var(--accent);
-      transform: rotate(45deg);
+      background: rgba(77,159,255,.15); border-color: rgba(77,159,255,.55);
+      color: var(--accent); transform: rotate(45deg) scale(1.1);
+    }
+    .pf-bento--freelance:hover .pf-bento-link-icon {
+      background: rgba(251,191,36,.15); border-color: rgba(251,191,36,.55); color: #fbbf24;
     }
 
-    /* Bottom info */
+    /* BOTTOM INFO */
     .pf-bento-info { margin-top: auto; }
     .pf-bento-cat {
-      font-size: .82rem; font-weight: 700; letter-spacing: .12em;
-      text-transform: uppercase; color: var(--accent);
-      margin-bottom: 5px;
-      opacity: 0; transform: translateY(8px);
-      transition: opacity .35s .05s, transform .35s .05s;
+      font-size: .6rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 6px;
+      opacity: 0; transform: translateY(6px);
+      transition: opacity .35s, transform .35s;
     }
-    .pf-bento-card:hover .pf-bento-cat { opacity: 1; transform: translateY(0); }
-    .pf-bento--wide .pf-bento-cat { opacity: 1; transform: none; }
+    .pf-bento-card:hover .pf-bento-cat { opacity: 1; transform: none; }
+    .pf-bento--freelance .pf-bento-cat { color: #fbbf24; }
 
     .pf-bento-title {
-      font-size: clamp(1.15rem, 2.5vw, 1.6rem);
-      font-weight: 800; color: #fff;
-      margin-bottom: 8px; line-height: 1.15;
+      font-size: clamp(1.05rem, 2.2vw, 1.5rem);
+      font-weight: 800; color: #fff; margin-bottom: 8px; line-height: 1.15; letter-spacing: -.01em;
     }
-    .pf-bento--featured .pf-bento-title { font-size: clamp(1.7rem, 3vw, 2.4rem); }
-    .pf-bento--wide .pf-bento-title { font-size: clamp(1.2rem, 2.5vw, 1.9rem); }
+    .pf-bento--featured .pf-bento-title { font-size: clamp(1.55rem, 2.8vw, 2.1rem); }
 
     .pf-bento-desc {
-      font-size: .8rem; color: rgba(255,255,255,.5);
-      line-height: 1.6; margin-bottom: 12px;
-      overflow: hidden; max-height: 0;
-      transition: max-height .45s cubic-bezier(.16,1,.3,1), opacity .35s;
-      opacity: 0;
+      font-size: .72rem; color: rgba(255,255,255,.42);
+      line-height: 1.65; margin-bottom: 10px;
+      overflow: hidden; max-height: 0; opacity: 0;
+      transition: max-height .5s cubic-bezier(.16,1,.3,1), opacity .4s .05s;
     }
-    .pf-bento--wide .pf-bento-desc { max-height: 80px; opacity: 1; }
     .pf-bento-card:hover .pf-bento-desc { max-height: 120px; opacity: 1; }
 
     .pf-bento-tags {
-      display: flex; flex-wrap: wrap; gap: 5px;
-      overflow: hidden; max-height: 0;
-      transition: max-height .45s cubic-bezier(.16,1,.3,1), opacity .35s .05s;
-      opacity: 0;
+      display: flex; flex-wrap: wrap; gap: 4px;
+      overflow: hidden; max-height: 0; opacity: 0;
+      transition: max-height .5s cubic-bezier(.16,1,.3,1), opacity .4s .1s;
     }
-    .pf-bento--wide .pf-bento-tags { max-height: 80px; opacity: 1; }
-    .pf-bento-card:hover .pf-bento-tags { max-height: 80px; opacity: 1; }
+    .pf-bento-card:hover .pf-bento-tags { max-height: 60px; opacity: 1; }
     .pf-bento-tags span {
-      font-size: .82rem; font-weight: 600;
-      padding: 3px 10px; border-radius: 20px;
-      background: rgba(77,159,255,.1);
-      border: 1px solid rgba(77,159,255,.2);
-      color: rgba(255,255,255,.7);
-      backdrop-filter: blur(4px);
+      font-size: .58rem; font-weight: 600; letter-spacing: .06em;
+      padding: 2px 8px; border-radius: 20px;
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+      color: rgba(255,255,255,.5); backdrop-filter: blur(8px);
     }
 
-    /* No-image placeholder */
+    /* NO-BG PLACEHOLDER */
     .pf-bento-no-bg {
       position: absolute; inset: 0;
       background: linear-gradient(135deg, #07101e 0%, #0f1826 100%);
       display: flex; align-items: center; justify-content: center;
     }
+    .pf-bento-no-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(77,159,255,.12) 1px, transparent 1px);
+      background-size: 28px 28px; opacity: .35;
+    }
     .pf-bento-no-bg-inner {
       display: flex; flex-direction: column; align-items: center; gap: 10px;
-      opacity: .16; transition: opacity .35s;
+      opacity: .15; transition: opacity .35s; z-index: 1;
     }
-    .pf-bento-card:hover .pf-bento-no-bg-inner { opacity: .3; }
+    .pf-bento-card:hover .pf-bento-no-bg-inner { opacity: .28; }
     .pf-bento-no-bg-label {
-      font-size: .88rem; font-family: monospace; color: var(--accent);
-      letter-spacing: .04em;
-    }
-    /* grid dots pattern on no-bg */
-    .pf-bento-no-bg::after {
-      content: '';
-      position: absolute; inset: 0;
-      background-image: radial-gradient(circle, rgba(77,159,255,.15) 1px, transparent 1px);
-      background-size: 24px 24px;
-      opacity: .4;
+      font-size: .75rem; font-family: monospace; color: var(--accent); letter-spacing: .04em;
     }
 
-    /* ── Freelance vs Agence distinction ── */
-    .pf-bento--freelance {
-      border-color: rgba(251,191,36,.12);
-    }
-    .pf-bento--freelance:hover {
-      border-color: rgba(251,191,36,.38);
-      box-shadow: 0 16px 48px rgba(251,191,36,.09), 0 2px 12px rgba(251,191,36,.06);
-    }
-    .pf-bento--freelance .pf-bento-cat { color: #fbbf24; }
-    .pf-bento--freelance .pf-bento-link-icon {
-      border-color: rgba(251,191,36,.2);
-    }
-    .pf-bento--freelance:hover .pf-bento-link-icon {
-      background: rgba(251,191,36,.15);
-      border-color: rgba(251,191,36,.5);
-      color: #fbbf24;
-    }
-    .pf-bento--agency {
-      border-color: rgba(77,159,255,.12);
-    }
-    .pf-bento-badge {
-      font-size: .73rem; font-weight: 700; letter-spacing: .12em;
-      text-transform: uppercase;
-      padding: 3px 9px; border-radius: 20px;
-      backdrop-filter: blur(4px);
-      white-space: nowrap;
-    }
-    .pf-bento-badge--freelance {
-      background: rgba(251,191,36,.08);
-      border: 1px solid rgba(251,191,36,.28);
-      color: rgba(251,191,36,.85);
-    }
-    .pf-bento-badge--agency {
-      background: rgba(77,159,255,.08);
-      border: 1px solid rgba(77,159,255,.25);
-      color: var(--accent);
-    }
-    .pf-bento-top-right {
-      display: flex; align-items: center; gap: 8px;
-    }
-
-    /* Responsive */
+    /* RESPONSIVE */
     @media (max-width: 860px) {
       .pf-bento { grid-template-columns: 1fr; }
-      .pf-bento--featured { grid-row: auto; min-height: 340px; }
-      .pf-bento--wide { grid-column: auto; }
+      .pf-bento--featured { grid-row: auto; min-height: 360px; }
       .pf-bento-cat { opacity: 1; transform: none; }
     }
 
@@ -1619,6 +1596,7 @@
         <img src="uploads/chiro.jpg" alt="Chiropracteur Mons" loading="lazy" onerror="this.parentElement.style.background='#0f1826'">
         <div class="pf-bento-overlay"></div>
       </div>
+      <div class="pf-grain"></div>
       <div class="pf-bento-content">
         <div class="pf-bento-top">
           <span class="pf-bento-num">01</span>
@@ -1644,6 +1622,7 @@
         <img src="uploads/hospel.jpg" alt="Hospel Notaire" loading="lazy" onerror="this.parentElement.style.background='#0f1826'">
         <div class="pf-bento-overlay"></div>
       </div>
+      <div class="pf-grain"></div>
       <div class="pf-bento-content">
         <div class="pf-bento-top">
           <span class="pf-bento-num">02</span>
@@ -1669,6 +1648,7 @@
         <img src="uploads/memisa.jpg" alt="Memisa" loading="lazy" onerror="this.parentElement.style.background='#0f1826'">
         <div class="pf-bento-overlay"></div>
       </div>
+      <div class="pf-grain"></div>
       <div class="pf-bento-content">
         <div class="pf-bento-top">
           <span class="pf-bento-num">03</span>
@@ -1696,6 +1676,7 @@
         <img src="uploads/lespoulettes.png" alt="lespoulettes" loading="lazy" onerror="this.parentElement.style.background='#0f1826'">
         <div class="pf-bento-overlay"></div>
       </div>
+      <div class="pf-grain"></div>
       <div class="pf-bento-content">
         <div class="pf-bento-top">
           <span class="pf-bento-num">04</span>
