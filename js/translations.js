@@ -1,6 +1,6 @@
 const translations = {
   fr: {
-    pageTitle: "Laurence Pirard — Développeuse Web Front-End",
+    pageTitle: "Laurence Pirard — Front-End Developer",
     nav: {
       about: "À propos",
       experience: "Expérience",
@@ -13,7 +13,8 @@ const translations = {
     },
     hero: {
       available: "Disponible pour missions freelance",
-      eyebrow: "Développeuse Web Front-End · Bruxelles, Belgique",
+      location: "Bruxelles · 2026",
+      eyebrow: "Front-End Developer· Bruxelles, Belgique",
       subtitle: "Vous cherchez une développeuse web ?",
       subtitle2: "",
       ctaProjects: "Voir mes projets",
@@ -23,7 +24,7 @@ const translations = {
     },
     sections: {
       aboutTitle: "À propos",
-      aboutText: "Développeuse web front-end basée à Bruxelles. Spécialisée <strong>WordPress, TailwindCSS, JavaScript et PHP</strong>, je transforme vos idées en sites web performants, accessibles et mobile first — de la maquette à la mise en ligne.",
+      aboutText: "Front-End Developer basée à Bruxelles. Spécialisée <strong>WordPress, TailwindCSS, JavaScript et PHP</strong>, je transforme vos idées en sites web performants, accessibles et mobile first — de la maquette à la mise en ligne.",
       experienceTitle: "Parcours",
       experienceSubtitle: "De la formation au freelance",
       skillsTitle: "Compétences",
@@ -67,15 +68,15 @@ const translations = {
     },
     experience: {
       date1: "2023 – Présent",
-      title1: "Développeuse Web Freelance",
+      title1: "Front-End Developer Freelance",
       company1: "Indépendante complémentaire · Bruxelles",
       desc1: "Conception et développement de sites web sur mesure. Gestion complète des projets : découverte, maquette, intégration, déploiement, maintenance. Je mène aussi des projets personnels pour explorer de nouvelles technologies et garder une veille active.",
       date2: "Juil. 2021 – Présent",
-      title2: "Développeuse Web",
+      title2: "Front-End Developer",
       company2: "<a href=\"https://pafdesign.be/\" target=\"_blank\" rel=\"noopener noreferrer\">Paf! Design</a> · Bruxelles",
       desc2: "Développement de thèmes WordPress sur-mesure.<ul><li>ACF Flexible Content</li><li>Templating PHP (tpl/)</li><li>Hooks &amp; filters</li><li>WooCommerce</li><li>WPML</li><li>SCSS modulaire</li><li>Gulp / NPM</li><li>Swiper · Lightbox</li></ul><div class=\"tl-stack-tags\" style=\"margin-top:12px;\"><span class=\"tl-stack-tag\">PHP</span><span class=\"tl-stack-tag\">WordPress</span><span class=\"tl-stack-tag\">JavaScript</span><span class=\"tl-stack-tag\">TailwindCSS</span></div><div class=\"tl-col-side-label\" style=\"margin-top:14px;\">Webmastering — Europcar</div><div class=\"tl-stack-tags\"><span class=\"tl-stack-tag\">Atlassian</span><span class=\"tl-stack-tag\">Contentful</span><span class=\"tl-stack-tag\">Jira</span></div>",
       date3: "Oct. 2018 – Jan. 2019 · Stage",
-      title3: "Stagiaire Développeuse Web",
+      title3: "Front-End Developer Intern",
       company3: "<a href=\"https://mfmdigital.com/\" target=\"_blank\" rel=\"noopener noreferrer\">MFM Digital</a> · Bruxelles",
       desc3: "Stage en entreprise dans le cadre de la formation EPFC. Intégration HTML/CSS, JavaScript et travail sur des projets web réels dans un contexte professionnel.",
       tag3Institutional: "Stage"
@@ -174,7 +175,7 @@ const translations = {
       downloadCV: "Mon CV"
     },
     footer: {
-      jobTitle: "Développeuse Web",
+      jobTitle: "Front-End Developer",
       servicesTitle: "Services",
       serviceDev: "Développement Web",
       serviceWp: "WordPress",
@@ -183,11 +184,11 @@ const translations = {
       contactTitle: "Contact",
       location: "Bruxelles, Belgique",
       followTitle: "Suivez-moi",
-      copyright: "© 2026 Laurence Pirard — Développeuse Web"
+      copyright: "© 2026 Laurence Pirard — Front-End Developer"
     }
   },
   en: {
-    pageTitle: "Laurence Pirard — Front-End Web Developer",
+    pageTitle: "Laurence Pirard — Front-End Developer",
     nav: {
       about: "About",
       experience: "Experience",
@@ -200,7 +201,8 @@ const translations = {
     },
     hero: {
       available: "Available for freelance missions",
-      eyebrow: "Front-End Web Developer · Brussels, Belgium",
+      location: "Brussels · 2026",
+      eyebrow: "Front-End Developer · Brussels, Belgium",
       subtitle: "Looking for a web developer?",
       subtitle2: "",
       ctaProjects: "View my projects",
@@ -210,7 +212,7 @@ const translations = {
     },
     sections: {
       aboutTitle: "About",
-      aboutText: "Front-end web developer based in Brussels. Specialising in <strong>WordPress, TailwindCSS, JavaScript and PHP</strong>, I turn ideas into high-performing, accessible and mobile-first websites — from wireframe to launch.",
+      aboutText: "Front-End Developer based in Brussels. Specialising in <strong>WordPress, TailwindCSS, JavaScript and PHP</strong>, I turn ideas into high-performing, accessible and mobile-first websites — from wireframe to launch.",
       experienceTitle: "Journey",
       experienceSubtitle: "From training to freelance",
       skillsTitle: "Skills",
@@ -255,11 +257,11 @@ const translations = {
     },
     experience: {
       date1: "2023 – Present",
-      title1: "Freelance Web Developer",
+      title1: "Freelance Front-End Developer",
       company1: "Self-employed · Brussels",
       desc1: "Custom website design and development. Full project ownership: discovery, wireframing, integration, deployment and maintenance. Personal projects on the side to keep exploring new technologies and stay current.",
       date2: "Jul. 2021 – Present",
-      title2: "Web Developer",
+      title2: "Front-End Developer",
       company2: "<a href=\"https://pafdesign.be/\" target=\"_blank\" rel=\"noopener noreferrer\">Paf! Design</a> · Brussels",
       desc2: "Custom WordPress theme development.<ul><li>ACF Flexible Content</li><li>PHP templating (tpl/)</li><li>Hooks &amp; filters</li><li>WooCommerce</li><li>WPML</li><li>Modular SCSS</li><li>Gulp / NPM</li><li>Swiper · Lightbox</li></ul><div class=\"tl-stack-tags\" style=\"margin-top:12px;\"><span class=\"tl-stack-tag\">PHP</span><span class=\"tl-stack-tag\">WordPress</span><span class=\"tl-stack-tag\">JavaScript</span><span class=\"tl-stack-tag\">TailwindCSS</span></div><div class=\"tl-col-side-label\" style=\"margin-top:14px;\">Webmastering — Europcar</div><div class=\"tl-stack-tags\"><span class=\"tl-stack-tag\">Atlassian</span><span class=\"tl-stack-tag\">Contentful</span><span class=\"tl-stack-tag\">Jira</span></div>",
       date3: "Oct. 2018 – Jan. 2019 · Internship",
@@ -362,7 +364,7 @@ const translations = {
       downloadCV: "My Resume"
     },
     footer: {
-      jobTitle: "Web Developer",
+      jobTitle: "Front-End Developer",
       servicesTitle: "Services",
       serviceDev: "Web Development",
       serviceWp: "WordPress",
@@ -371,7 +373,7 @@ const translations = {
       contactTitle: "Contact",
       location: "Brussels, Belgium",
       followTitle: "Follow me",
-      copyright: "© 2026 Laurence Pirard — Web Developer"
+      copyright: "© 2026 Laurence Pirard — Front-End Developer"
     }
   }
 };

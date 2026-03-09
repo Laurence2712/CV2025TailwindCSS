@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Ring "link" sur les cartes portfolio
-    document.querySelectorAll('.portfolio-card, .pf-bento-card').forEach(el => {
+    document.querySelectorAll('.portfolio-card, .pf-row').forEach(el => {
       el.addEventListener('mouseenter', () => {
         ring.classList.remove('hovered');
         ring.classList.add('link-hovered');
@@ -190,37 +190,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ════════════════════════════════════════
-     6c. PORTFOLIO CARDS — cursor glow
-  ════════════════════════════════════════ */
-  if (window.innerWidth > 768) {
-    document.querySelectorAll('.pf-bento-card').forEach(card => {
-      card.addEventListener('mousemove', e => {
-        const r  = card.getBoundingClientRect();
-        const x  = e.clientX - r.left;
-        const y  = e.clientY - r.top;
-        const cx = r.width  / 2;
-        const cy = r.height / 2;
-        const rx = ((y - cy) / cy) * -5;
-        const ry = ((x - cx) / cx) *  5;
-        card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(6px)`;
-        card.style.setProperty('--mx', `${x}px`);
-        card.style.setProperty('--my', `${y}px`);
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-      });
-    });
-  } else {
-    document.querySelectorAll('.pf-bento-card').forEach(card => {
-      card.addEventListener('touchmove', e => {
-        const r = card.getBoundingClientRect();
-        const t = e.touches[0];
-        card.style.setProperty('--mx', `${t.clientX - r.left}px`);
-        card.style.setProperty('--my', `${t.clientY - r.top}px`);
-      }, { passive: true });
-    });
-  }
 
   /* ════════════════════════════════════════
      7. TERRAIN CARDS — stagger
