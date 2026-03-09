@@ -53,6 +53,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* ════════════════════════════════════════
+     PORTRAIT — entrance + scroll parallax
+  ════════════════════════════════════════ */
+  const portrait = document.querySelector('.hero-portrait');
+  if (portrait) {
+    portrait.classList.add('portrait-in');
+
+    portrait.addEventListener('animationend', () => {
+      // Hand off from CSS animation to JS-managed transform
+      portrait.style.opacity   = '1';
+      portrait.style.transform = 'translateX(0) translateY(0px) rotate(-4deg)';
+      portrait.style.animation = 'none';
+
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          const y  = Math.min(window.scrollY, 900);
+          const py = -(y * 0.12);                     // parallax vertical doux
+          const pr = -4 + (y * 0.004);                // légère rotation au scroll
+          portrait.style.transform = `translateX(0) translateY(${py}px) rotate(${pr}deg)`;
+          ticking = false;
+        });
+      }, { passive: true });
+    }, { once: true });
+  }
+
   // Autres sections : IntersectionObserver
   const revealObs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -163,6 +191,17 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ════════════════════════════════════════
+     6c. PORTFOLIO CARDS — cursor glow
+  ════════════════════════════════════════ */
+  document.querySelectorAll('.pf-bento-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r  = card.getBoundingClientRect();
+      card.style.setProperty('--mx', `${(e.clientX - r.left)  / r.width  * 100}%`);
+      card.style.setProperty('--my', `${(e.clientY - r.top)   / r.height * 100}%`);
+    });
+  });
+
+  /* ════════════════════════════════════════
      7. TERRAIN CARDS — stagger
   ════════════════════════════════════════ */
   const terrainObs = new IntersectionObserver((entries, obs) => {
@@ -234,3 +273,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+console.log('%cHello ! N\'hésitez pas à me contacter! 👋', 'color:#4d9fff;font-size:16px;font-weight:bold;');

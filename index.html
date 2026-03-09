@@ -12,7 +12,7 @@
   <meta property="og:description" content="Développeuse web front-end à Bruxelles. WordPress, TailwindCSS, JavaScript, PHP — mobile first." />
   <meta property="og:image"       content="https://laurence2712.github.io/CV2025TailwindCSS/uploads/photo.jpg" />
   <meta name="twitter:card"       content="summary_large_image" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ctext y='32' font-size='28' font-family='Poppins' font-weight='700' fill='%234d9fff'%3ELP%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 42' fill='none' stroke='%234d9fff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='9' y1='4' x2='9' y2='38'/%3E%3Cline x1='9' y1='38' x2='24' y2='38'/%3E%3Cpath d='M9 4 C9 4 38 4 38 15 C38 26 9 26 9 26' fill='none'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
@@ -34,7 +34,7 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; font-size: 18px; }
 
     body {
       font-family: 'Poppins', sans-serif;
@@ -90,7 +90,7 @@
     /* ════════════════════════════════════════
        LINE REVEAL — .rc / .rl
     ════════════════════════════════════════ */
-    .rc { overflow: hidden; display: block; }
+    .rc {  display: block; }
     .rl {
       display: block;
       transform: translateY(108%);
@@ -110,21 +110,24 @@
       transition: transform .3s ease;
     }
     .nav-inner {
-      max-width: 1200px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 18px 40px;
+      max-width: 1620px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 18px 48px;
     }
+    .nav-inner .nav-langs { justify-self: end; }
     .nav-logo {
-      font-size: 1rem; font-weight: 700;
+      font-size: 1.25rem; font-weight: 700;
       color: var(--accent); letter-spacing: .06em;
       text-decoration: none;
     }
     .nav-links { display: flex; align-items: center; gap: 30px; }
     .nav-links a {
-      font-size: .76rem; font-weight: 500;
+      font-size: .95rem; font-weight: 500;
       color: var(--muted); text-decoration: none;
-      text-transform: uppercase; letter-spacing: .1em;
+      text-transform: uppercase; letter-spacing: .07em;
       transition: color .2s; position: relative;
+      white-space: nowrap;
     }
     .nav-links a::after {
       content: ''; position: absolute; bottom: -3px; left: 0;
@@ -134,7 +137,7 @@
     .nav-links a:hover { color: var(--text); }
     .nav-links a:hover::after { width: 100%; }
     .nav-cv {
-      font-size: .74rem; font-weight: 600;
+      font-size: .94rem; font-weight: 600;
       color: var(--accent); border: 1px solid var(--accent);
       padding: 7px 18px; border-radius: 6px;
       text-decoration: none; letter-spacing: .05em;
@@ -144,7 +147,7 @@
     .nav-cv::after { display: none !important; }
     .nav-langs { display: flex; gap: 6px; }
     .lang-btn {
-      font-size: .7rem; font-weight: 600;
+      font-size: .9rem; font-weight: 600;
       padding: 4px 10px; border-radius: 4px;
       background: transparent; border: 1px solid var(--border);
       color: var(--muted); cursor: pointer;
@@ -167,7 +170,7 @@
     #mobile-menu.open { max-height: 420px; }
     #mobile-menu a, #mobile-menu button {
       display: block; padding: 14px 24px;
-      font-size: .82rem; font-weight: 500;
+      font-size: 1.02rem; font-weight: 500;
       color: var(--muted); text-decoration: none;
       border-bottom: 1px solid var(--border);
       background: none; text-align: left; cursor: pointer;
@@ -232,12 +235,12 @@
     }
     .hero-status .rc { line-height: 1; }
     .hero-status .rl {
-      font-size: .7rem; font-weight: 600;
+      font-size: .9rem; font-weight: 600;
       letter-spacing: .1em; text-transform: uppercase;
       color: var(--muted);
     }
     .hero-meta-right {
-      font-size: .7rem; font-weight: 500;
+      font-size: .9rem; font-weight: 500;
       letter-spacing: .07em; color: var(--muted);
     }
 
@@ -253,7 +256,7 @@
       justify-content: space-between;
     }
     .hero-name-line {
-      font-size: clamp(4.5rem, 13vw, 9.5rem);
+      font-size: clamp(72px, 13vw, 152px);
       font-weight: 900;
       line-height: .95;
       letter-spacing: -.03em;
@@ -261,8 +264,10 @@
       display: block;
     }
     .hero-eyebrow-inline {
-      font-size: .7rem; font-weight: 600;
-      color: var(--accent); letter-spacing: .12em;
+      font-size: .6rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: .12em;
       text-transform: uppercase;
       align-self: flex-end;
       padding-bottom: 14px;
@@ -271,13 +276,25 @@
 
     /* Portrait photo */
     .hero-portrait {
-      width: 190px; height: 250px;
+      width: 230px; height: 305px;
       border-radius: 8px; overflow: hidden;
       border: 1px solid var(--border);
       background: var(--card);
       flex-shrink: 0;
       margin-bottom: 10px;
+      margin-right: 20px;
       position: relative;
+      opacity: 0;
+      transform: translateX(130px) rotate(8deg);
+      will-change: transform, opacity;
+    }
+    .hero-portrait.portrait-in {
+      animation: portrait-enter 1.5s cubic-bezier(.16, 1, .3, 1) 0.5s forwards;
+    }
+    @keyframes portrait-enter {
+      0%   { opacity: 0; transform: translateX(130px) rotate(8deg); }
+      45%  { opacity: 1; }
+      100% { opacity: 1; transform: translateX(0) rotate(-4deg); }
     }
     .hero-portrait img {
       width: 100%; height: 100%;
@@ -295,7 +312,7 @@
       font-size: 2.5rem; font-weight: 900; color: var(--border);
     }
     .hero-portrait .pp p {
-      font-size: .65rem; letter-spacing: .1em;
+      font-size: .85rem; letter-spacing: .1em;
       text-transform: uppercase; color: var(--muted);
     }
 
@@ -306,7 +323,7 @@
     }
     .hero-sub-wrap { max-width: 460px; }
     .hero-sub {
-      font-size: .95rem; color: var(--muted); line-height: 1.85;
+      font-size: 1.15rem; color: var(--muted); line-height: 1.85;
     }
     .hero-ctas {
       display: flex; flex-wrap: wrap; gap: 12px; flex-shrink: 0;
@@ -316,7 +333,7 @@
     .hero-scroll {
       position: absolute; bottom: 32px; left: 40px;
       display: flex; align-items: center; gap: 14px;
-      font-size: .65rem; font-weight: 600; letter-spacing: .12em;
+      font-size: .85rem; font-weight: 600; letter-spacing: .12em;
       text-transform: uppercase; color: var(--muted);
     }
     .scroll-line-anim {
@@ -339,11 +356,12 @@
     /* Responsive hero */
     @media (max-width: 900px) {
       .hero-wrap { padding: 32px 24px 80px; }
-      .hero-portrait { width: 150px; height: 200px; }
+      .hero-portrait { width: 175px; height: 232px; margin-right: 12px; }
     }
     @media (max-width: 640px) {
-      .hero-name-row2 { flex-direction: column; }
-      .hero-portrait { display: none; }
+      .hero-topbar { flex-wrap: wrap; gap: 6px; }
+      .hero-name-row2 { flex-direction: row; align-items: flex-end; justify-content: space-between; }
+      .hero-portrait { width: 110px; height: 146px; margin-right: 0; }
       .hero-footer { flex-direction: column; align-items: flex-start; }
       .hero-scroll { display: none; }
       .hero-eyebrow-inline { display: none; }
@@ -369,11 +387,11 @@
       display: flex; align-items: baseline; gap: 12px; flex: 1;
     }
     .sn {
-      font-size: .65rem; font-weight: 700;
+      font-size: .85rem; font-weight: 700;
       color: var(--muted); letter-spacing: .12em;
     }
     .sl {
-      font-size: .7rem; font-weight: 700;
+      font-size: .9rem; font-weight: 700;
       color: var(--accent); letter-spacing: .14em;
       text-transform: uppercase;
     }
@@ -405,7 +423,7 @@
       display: inline-flex; align-items: center; gap: 8px;
       background: var(--accent); color: var(--bg);
       padding: 12px 28px; border-radius: 7px;
-      font-size: .85rem; font-weight: 700;
+      font-size: 1.05rem; font-weight: 700;
       text-decoration: none; letter-spacing: .03em;
       transition: transform .25s, box-shadow .25s;
     }
@@ -417,7 +435,7 @@
       display: inline-flex; align-items: center; gap: 8px;
       border: 1px solid var(--border); color: var(--text);
       padding: 12px 28px; border-radius: 7px;
-      font-size: .85rem; font-weight: 500;
+      font-size: 1.05rem; font-weight: 500;
       text-decoration: none;
       transition: border-color .25s, color .25s;
     }
@@ -431,13 +449,15 @@
       gap: 80px; align-items: start;
     }
     .about-text {
-      font-size: 1rem; color: var(--muted);
+      font-size: 1.2rem; color: var(--muted);
       line-height: 1.85; margin-bottom: 28px;
     }
     .about-text strong { color: var(--text); font-weight: 600; }
+    .about-text a { color: var(--text); text-decoration: underline; text-underline-offset: 2px; }
+    .about-text a:hover { color: var(--accent); }
     .about-tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .about-tag {
-      font-size: .74rem; font-weight: 500;
+      font-size: .94rem; font-weight: 500;
       padding: 5px 14px; border-radius: 4px;
       background: var(--card); border: 1px solid var(--border);
       color: var(--muted);
@@ -450,7 +470,7 @@
     .about-stat strong {
       font-size: 2.2rem; font-weight: 900; color: var(--text); line-height: 1;
     }
-    .about-stat span { font-size: .8rem; color: var(--muted); }
+    .about-stat span { font-size: 1rem; color: var(--muted); }
     @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; gap: 48px; } }
 
     /* ════════════════════════════════════════
@@ -491,16 +511,42 @@
       box-shadow: 0 0 0 4px rgba(77,159,255,.15);
     }
     .tl-year {
-      font-size: .67rem; font-weight: 700;
+      font-size: .87rem; font-weight: 700;
       color: var(--accent); letter-spacing: .08em;
       text-transform: uppercase; margin-bottom: 6px;
     }
-    .tl-title { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
-    .tl-company { font-size: .8rem; color: var(--muted); margin-bottom: 12px; font-weight: 500; }
-    .tl-desc { font-size: .84rem; color: var(--muted); line-height: 1.8; margin-bottom: 14px; }
+    .tl-title { font-size: 1.25rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+    .tl-company { font-size: 1rem; color: var(--muted); margin-bottom: 12px; font-weight: 500; }
+    .tl-company a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+    .tl-company a:hover { color: var(--accent); }
+    .tl-desc { font-size: 1.04rem; color: var(--muted); line-height: 1.8; margin-bottom: 14px; }
+    .tl-desc ul { margin: 8px 0 4px; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px; }
+    .tl-desc ul li { font-size: 1rem; color: rgba(255,255,255,.6); display: flex; align-items: baseline; gap: 8px; line-height: 1.5; }
+    .tl-desc ul li::before { content: '›'; color: var(--accent); opacity: .7; flex-shrink: 0; }
+    /* 2-col bullets */
+    .tl-desc ul.tl-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; }
+    /* Staggered scroll reveal */
+    @keyframes tl-li-in { from { opacity: 0; transform: translateX(-6px); } to { opacity: 1; transform: none; } }
+    .tl-item.visible .tl-desc ul li { animation: tl-li-in .4s cubic-bezier(.16,1,.3,1) both; }
+    .tl-item.visible .tl-desc ul li:nth-child(1) { animation-delay: .08s; }
+    .tl-item.visible .tl-desc ul li:nth-child(2) { animation-delay: .14s; }
+    .tl-item.visible .tl-desc ul li:nth-child(3) { animation-delay: .20s; }
+    .tl-item.visible .tl-desc ul li:nth-child(4) { animation-delay: .26s; }
+    .tl-item.visible .tl-desc ul li:nth-child(5) { animation-delay: .32s; }
+    .tl-item.visible .tl-desc ul li:nth-child(6) { animation-delay: .38s; }
+    .tl-item.visible .tl-desc ul li:nth-child(7) { animation-delay: .44s; }
+    .tl-item.visible .tl-desc ul li:nth-child(8) { animation-delay: .50s; }
+    /* Stack tags */
+    .tl-stack-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 14px; }
+    .tl-stack-tag { font-size: .85rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(77,159,255,.22); border-radius: 4px; padding: 2px 8px; background: rgba(77,159,255,.07); }
+    /* 2-col layout experience */
+    .tl-two-cols { display: grid; grid-template-columns: 1fr auto; gap: 0 32px; align-items: start; }
+    .tl-col-side { min-width: 150px; padding-left: 24px; border-left: 1px solid var(--border); display: flex; flex-direction: column; justify-content: flex-start; }
+    .tl-col-side-label { font-size: .98rem; color: var(--muted); margin-bottom: 10px; line-height: 1.4; }
+    @media (max-width: 700px) { .tl-two-cols { grid-template-columns: 1fr; } .tl-col-side { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 12px; margin-top: 12px; } }
     .tl-tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .tl-tag {
-      font-size: .68rem; font-weight: 500;
+      font-size: .88rem; font-weight: 500;
       padding: 3px 10px; border-radius: 3px;
       background: var(--card); border: 1px solid var(--border);
       color: var(--muted);
@@ -519,37 +565,111 @@
     }
     #skills { overflow: hidden; padding-bottom: 80px; }
     .skills-scroll-rows {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
       margin-top: 56px;
-      max-width: 1200px;
-      padding: 0 40px;
-      margin-left: auto;
-      margin-right: auto;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
     }
+    .skills-marquee-row { overflow: hidden; }
+    .skills-marquee-track {
+      display: flex;
+      gap: 12px;
+      width: max-content;
+      animation: marquee-fwd 40s linear infinite;
+    }
+    .skills-marquee-row--rev .skills-marquee-track {
+      animation: marquee-rev 40s linear infinite;
+    }
+    .skills-scroll-rows:hover .skills-marquee-track {
+      animation-play-state: paused;
+    }
+    @keyframes marquee-fwd {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    @keyframes marquee-rev {
+      from { transform: translateX(-50%); }
+      to   { transform: translateX(0); }
+    }
+    /* ── Skill cards ── */
     .skill-scroll-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px; padding: 24px 22px;
-      display: flex; flex-direction: column; gap: 10px;
-      transition: border-color .3s, box-shadow .35s, transform .35s;
+      width: 450px; height: 350px; flex-shrink: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 20px; padding: 40px 48px; text-align: center;
+      background: #131926;
+      border: 1px solid rgba(77,159,255,.18);
+      border-radius: 18px;
+      position: relative; overflow: hidden;
+      transition: background .4s, border-color .4s;
       cursor: default;
     }
-    .skill-scroll-card:hover {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 1px var(--accent), 0 16px 40px rgba(77,159,255,.14);
-      transform: translateY(-3px);
+    .skill-scroll-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% -10%, rgba(77,159,255,.28) 0%, transparent 65%);
+      opacity: 0; transition: opacity .4s; pointer-events: none;
     }
+    .skill-scroll-card:hover {
+      background: #1a2438;
+      border-color: rgba(77,159,255,.55);
+    }
+    .skill-scroll-card:hover::before { opacity: 1; }
     .skill-scroll-card .sc-icon {
-      height: 46px; display: flex; align-items: center;
+      height: 80px; display: flex; align-items: center; justify-content: center;
     }
     .skill-scroll-card .sc-icon img,
-    .skill-scroll-card .sc-icon svg { height: 100%; max-width: 56px; filter: brightness(.85); }
+    .skill-scroll-card .sc-icon svg {
+      height: 100%; max-width: 160px; object-fit: contain;
+      filter: brightness(.8); transition: filter .35s, transform .4s cubic-bezier(.16,1,.3,1);
+    }
     .skill-scroll-card:hover .sc-icon img,
-    .skill-scroll-card:hover .sc-icon svg { filter: brightness(1.1); }
-    .skill-scroll-card h3 { font-size: .88rem; font-weight: 700; color: var(--text); margin: 0; }
-    .skill-scroll-card p  { font-size: .7rem; color: var(--muted); line-height: 1.55; margin: 0; }
+    .skill-scroll-card:hover .sc-icon svg { filter: brightness(1.3); transform: scale(1.08); }
+    .skill-scroll-card h3 { font-size: 1.6rem; font-weight: 700; color: var(--text); margin: 0; letter-spacing: -.01em; }
+    .skill-scroll-card p  { font-size: 1rem; color: var(--muted); line-height: 1.6; margin: 0; max-width: 320px; }
+
+    /* ════════════════════════════════════════
+       SKILLS — MOBILE SCROLL SNAP
+    ════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      #skills { overflow: visible; padding-bottom: 48px; }
+      .skills-section-inner { padding: 60px 0 32px; }
+      .skills-scroll-rows {
+        -webkit-mask-image: none;
+        mask-image: none;
+        gap: 12px;
+        overflow: visible;
+      }
+      .skills-marquee-row {
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 8px 24px 16px;
+      }
+      .skills-marquee-row::-webkit-scrollbar { display: none; }
+      .skills-marquee-track {
+        animation: none !important;
+        transform: none !important;
+        width: auto;
+        gap: 12px;
+        padding-right: 24px;
+      }
+      .skill-scroll-card {
+        width: 72vw;
+        max-width: 300px;
+        height: 260px;
+        padding: 28px 24px;
+        scroll-snap-align: start;
+      }
+      .skill-scroll-card[aria-hidden="true"] { display: none; }
+      .skill-scroll-card .sc-icon { height: 56px; }
+      .skill-scroll-card h3 { font-size: 1.25rem; }
+      .skill-scroll-card p  { font-size: .85rem; }
+    }
 
     /* ════════════════════════════════════════
        PORTFOLIO — BENTO 2026
@@ -565,7 +685,8 @@
       flex-direction: column;
       overflow: hidden;
       border-radius: 14px;
-      min-height: 260px;
+      min-height: 340px;
+      max-height: 340px;
       background: var(--card);
       border: 1px solid var(--border);
       text-decoration: none;
@@ -575,11 +696,37 @@
     }
     .pf-bento-card.visible { opacity: 1; transform: none; }
     .pf-bento-card:hover {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 1px var(--accent), 0 24px 56px rgba(77,159,255,.18);
+      border-color: rgba(77,159,255,.38);
+      box-shadow: 0 16px 48px rgba(77,159,255,.09), 0 2px 12px rgba(77,159,255,.06);
     }
-    .pf-bento--featured { grid-row: span 2; min-height: 520px; }
-    .pf-bento--wide { grid-column: span 2; min-height: 210px; }
+    /* Cursor glow + top line */
+    .pf-bento-card::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 1;
+      background: radial-gradient(circle 160px at var(--mx, 50%) var(--my, 50%),
+        rgba(77,159,255,.06) 0%, transparent 65%);
+      opacity: 0; transition: opacity .4s;
+      pointer-events: none;
+    }
+    .pf-bento-card:hover::before { opacity: 1; }
+    .pf-bento-card::after {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px; z-index: 3;
+      background: linear-gradient(90deg, transparent, rgba(77,159,255,.28) 50%, transparent);
+      transform: scaleX(0); transform-origin: center;
+      transition: transform .5s cubic-bezier(.16,1,.3,1);
+    }
+    .pf-bento-card:hover::after { transform: scaleX(1); }
+    /* Yellow variants pour freelance */
+    .pf-bento--freelance::before {
+      background: radial-gradient(circle 160px at var(--mx, 50%) var(--my, 50%),
+        rgba(251,191,36,.06) 0%, transparent 65%);
+    }
+    .pf-bento--freelance::after {
+      background: linear-gradient(90deg, transparent, rgba(251,191,36,.28) 50%, transparent);
+    }
+    .pf-bento--featured { grid-row: span 2; min-height: 700px; max-height: none; }
+    .pf-bento--wide { grid-column: span 2; min-height: 260px; max-height: 260px; }
 
     /* Image background */
     .pf-bento-img {
@@ -592,12 +739,16 @@
       transition: filter .7s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);
     }
     .pf-bento-card:hover .pf-bento-img img {
-      filter: brightness(.72) saturate(1.1);
+      filter: brightness(.62) saturate(1.05);
       transform: scale(1.05);
     }
     .pf-bento-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(6,10,18,.98) 0%, rgba(6,10,18,.45) 55%, rgba(6,10,18,.08) 100%);
+      background: linear-gradient(to top, rgba(6,10,18,.98) 0%, rgba(6,10,18,.55) 50%, rgba(6,10,18,.25) 100%);
+      transition: background .5s ease;
+    }
+    .pf-bento-card:hover .pf-bento-overlay {
+      background: linear-gradient(to top, rgba(6,10,18,.99) 0%, rgba(6,10,18,.82) 50%, rgba(6,10,18,.6) 100%);
     }
 
     /* Content layer */
@@ -612,7 +763,7 @@
       display: flex; justify-content: space-between; align-items: flex-start;
     }
     .pf-bento-num {
-      font-size: .6rem; font-weight: 700; letter-spacing: .15em;
+      font-size: .8rem; font-weight: 700; letter-spacing: .15em;
       color: rgba(255,255,255,.4);
       background: rgba(255,255,255,.07);
       border: 1px solid rgba(255,255,255,.1);
@@ -620,33 +771,32 @@
       backdrop-filter: blur(4px);
     }
     .pf-bento-link-icon {
-      width: 36px; height: 36px;
+      width: 46px; height: 46px;
       background: rgba(255,255,255,.07);
       border: 1px solid rgba(255,255,255,.1);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-size: .95rem; color: rgba(255,255,255,.55);
+      font-size: 1.2rem; color: rgba(255,255,255,.55);
       backdrop-filter: blur(4px);
       transition: background .35s, border-color .35s, color .35s, transform .4s cubic-bezier(.16,1,.3,1);
     }
     .pf-bento-card:hover .pf-bento-link-icon {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #fff;
+      background: rgba(77,159,255,.15);
+      border-color: rgba(77,159,255,.5);
+      color: var(--accent);
       transform: rotate(45deg);
     }
 
     /* Bottom info */
     .pf-bento-info { margin-top: auto; }
     .pf-bento-cat {
-      font-size: .62rem; font-weight: 700; letter-spacing: .12em;
+      font-size: .82rem; font-weight: 700; letter-spacing: .12em;
       text-transform: uppercase; color: var(--accent);
       margin-bottom: 5px;
       opacity: 0; transform: translateY(8px);
       transition: opacity .35s .05s, transform .35s .05s;
     }
     .pf-bento-card:hover .pf-bento-cat { opacity: 1; transform: translateY(0); }
-    .pf-bento--featured .pf-bento-cat { opacity: 1; transform: none; }
     .pf-bento--wide .pf-bento-cat { opacity: 1; transform: none; }
 
     .pf-bento-title {
@@ -658,13 +808,12 @@
     .pf-bento--wide .pf-bento-title { font-size: clamp(1.2rem, 2.5vw, 1.9rem); }
 
     .pf-bento-desc {
-      font-size: .8rem; color: rgba(255,255,255,.5);
+      font-size: 1rem; color: rgba(255,255,255,.5);
       line-height: 1.6; margin-bottom: 12px;
       overflow: hidden; max-height: 0;
       transition: max-height .45s cubic-bezier(.16,1,.3,1), opacity .35s;
       opacity: 0;
     }
-    .pf-bento--featured .pf-bento-desc { max-height: 120px; opacity: 1; }
     .pf-bento--wide .pf-bento-desc { max-height: 80px; opacity: 1; }
     .pf-bento-card:hover .pf-bento-desc { max-height: 120px; opacity: 1; }
 
@@ -674,11 +823,10 @@
       transition: max-height .45s cubic-bezier(.16,1,.3,1), opacity .35s .05s;
       opacity: 0;
     }
-    .pf-bento--featured .pf-bento-tags { max-height: 80px; opacity: 1; }
     .pf-bento--wide .pf-bento-tags { max-height: 80px; opacity: 1; }
     .pf-bento-card:hover .pf-bento-tags { max-height: 80px; opacity: 1; }
     .pf-bento-tags span {
-      font-size: .62rem; font-weight: 600;
+      font-size: .82rem; font-weight: 600;
       padding: 3px 10px; border-radius: 20px;
       background: rgba(77,159,255,.1);
       border: 1px solid rgba(77,159,255,.2);
@@ -698,7 +846,7 @@
     }
     .pf-bento-card:hover .pf-bento-no-bg-inner { opacity: .3; }
     .pf-bento-no-bg-label {
-      font-size: .68rem; font-family: monospace; color: var(--accent);
+      font-size: .88rem; font-family: monospace; color: var(--accent);
       letter-spacing: .04em;
     }
     /* grid dots pattern on no-bg */
@@ -712,39 +860,40 @@
 
     /* ── Freelance vs Agence distinction ── */
     .pf-bento--freelance {
-      border-color: rgba(251,191,36,.4);
+      border-color: rgba(251,191,36,.12);
     }
     .pf-bento--freelance:hover {
-      border-color: #fbbf24;
-      box-shadow: 0 0 0 1px #fbbf24, 0 24px 56px rgba(251,191,36,.22);
+      border-color: rgba(251,191,36,.38);
+      box-shadow: 0 16px 48px rgba(251,191,36,.09), 0 2px 12px rgba(251,191,36,.06);
     }
     .pf-bento--freelance .pf-bento-cat { color: #fbbf24; }
     .pf-bento--freelance .pf-bento-link-icon {
-      border-color: rgba(251,191,36,.3);
+      border-color: rgba(251,191,36,.2);
     }
     .pf-bento--freelance:hover .pf-bento-link-icon {
-      background: #fbbf24;
-      border-color: #fbbf24;
+      background: rgba(251,191,36,.15);
+      border-color: rgba(251,191,36,.5);
+      color: #fbbf24;
     }
     .pf-bento--agency {
-      border-color: rgba(255,255,255,.07);
+      border-color: rgba(77,159,255,.12);
     }
     .pf-bento-badge {
-      font-size: .53rem; font-weight: 700; letter-spacing: .12em;
+      font-size: .73rem; font-weight: 700; letter-spacing: .12em;
       text-transform: uppercase;
       padding: 3px 9px; border-radius: 20px;
       backdrop-filter: blur(4px);
       white-space: nowrap;
     }
     .pf-bento-badge--freelance {
-      background: rgba(251,191,36,.12);
-      border: 1px solid rgba(251,191,36,.45);
-      color: #fbbf24;
+      background: rgba(251,191,36,.08);
+      border: 1px solid rgba(251,191,36,.28);
+      color: rgba(251,191,36,.85);
     }
     .pf-bento-badge--agency {
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.1);
-      color: rgba(255,255,255,.35);
+      background: rgba(77,159,255,.08);
+      border: 1px solid rgba(77,159,255,.25);
+      color: var(--accent);
     }
     .pf-bento-top-right {
       display: flex; align-items: center; gap: 8px;
@@ -767,7 +916,7 @@
       margin-bottom: 20px; color: var(--text);
     }
     .contact-sub {
-      font-size: .95rem; color: var(--muted);
+      font-size: 1.15rem; color: var(--muted);
       max-width: 480px; margin: 0 auto 40px;
       line-height: 1.8;
     }
@@ -783,10 +932,10 @@
       flex-wrap: wrap; gap: 16px;
       max-width: 1200px; margin: 0 auto;
     }
-    footer p { font-size: .76rem; color: var(--muted); }
+    footer p { font-size: .96rem; color: var(--muted); }
     .footer-links { display: flex; gap: 20px; }
     .footer-links a {
-      font-size: .76rem; color: var(--muted);
+      font-size: .96rem; color: var(--muted);
       text-decoration: none; transition: color .2s;
     }
     .footer-links a:hover { color: var(--accent); }
@@ -827,407 +976,7 @@
     /* ════════════════════════════════════════
        04 — CRAFT / FAIT MAIN
     ════════════════════════════════════════ */
-    .craft-lead {
-      max-width: 56ch;
-      color: var(--muted);
-      font-size: clamp(.9rem, 2vw, 1.05rem);
-      margin-bottom: 3rem;
-      line-height: 1.7;
-    }
-
-    .craft-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-    }
-    @media (max-width: 960px) {
-      .craft-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 540px) {
-      .craft-grid { grid-template-columns: 1fr; }
-      .craft-card--featured { grid-column: span 1 !important; }
-    }
-
-    .craft-card {
-      position: relative;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      opacity: 0;
-      transform: translateY(36px) scale(0.96);
-      transition: opacity .65s cubic-bezier(.16,1,.3,1),
-                  transform .65s cubic-bezier(.16,1,.3,1),
-                  box-shadow .4s, border-color .3s;
-      will-change: transform;
-    }
-    .craft-card.visible { opacity: 1; transform: translateY(0) scale(1); }
-    .craft-card:hover {
-      border-color: rgba(77,159,255,.35);
-      box-shadow: 0 20px 60px rgba(0,0,0,.45), 0 0 0 1px rgba(77,159,255,.1);
-    }
-
-    /* ── Featured : span 2 colonnes ── */
-    .craft-card--featured { grid-column: span 2; }
-
-    /* ── Radial glow qui suit le curseur ── */
-    .craft-card::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(circle 200px at var(--mx, 50%) var(--my, 50%),
-        rgba(77,159,255,.13) 0%, transparent 70%);
-      opacity: 0;
-      transition: opacity .35s;
-      pointer-events: none;
-      z-index: 0;
-      border-radius: inherit;
-    }
-    .craft-card:hover::before { opacity: 1; }
-
-    /* ── Top gradient line (s'étend du centre) ── */
-    .craft-card::after {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent 0%, rgba(77,159,255,.75) 50%, transparent 100%);
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: transform .5s cubic-bezier(.16,1,.3,1);
-      z-index: 2;
-    }
-    .craft-card:hover::after { transform: scaleX(1); }
-
-    /* ── Contenu au-dessus du glow ── */
-    .craft-demo, .craft-body { position: relative; z-index: 1; }
-
-    /* ── Demo zone plus haute sur les featured ── */
-    .craft-card--featured .craft-demo { height: 170px; }
-
-    /* ── demo areas ── */
-    .craft-demo {
-      height: 130px;
-      position: relative;
-      overflow: hidden;
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-    }
-
-    .craft-body {
-      padding: 1.2rem 1.3rem 1.4rem;
-    }
-    .craft-body h3 {
-      font-size: .95rem;
-      font-weight: 700;
-      margin-bottom: .35rem;
-      color: var(--text);
-    }
-    .craft-body p {
-      font-size: .8rem;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-    .craft-body p code {
-      font-size: .75rem;
-      color: var(--accent);
-      background: rgba(77,159,255,.1);
-      padding: .05em .35em;
-      border-radius: 3px;
-    }
-    .craft-tag {
-      display: inline-block;
-      font-size: .65rem;
-      font-weight: 600;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      background: rgba(77,159,255,.1);
-      border-radius: 4px;
-      padding: .2em .6em;
-      margin-bottom: .5rem;
-    }
-
-    /* ── 1. Cursor LERP demo ── */
-    .craft-demo--cursor .cd-dot {
-      width: 6px; height: 6px;
-      background: var(--accent);
-      border-radius: 50%;
-      position: absolute;
-      animation: cursor-dot-float 3s ease-in-out infinite;
-    }
-    .craft-demo--cursor .cd-ring {
-      width: 32px; height: 32px;
-      border: 1.5px solid var(--accent);
-      border-radius: 50%;
-      position: absolute;
-      opacity: .6;
-      animation: cursor-ring-chase 3s ease-in-out infinite;
-      animation-delay: .18s;
-    }
-    @keyframes cursor-dot-float {
-      0%   { transform: translate(-30px, 10px); }
-      30%  { transform: translate(25px, -18px); }
-      60%  { transform: translate(10px, 22px); }
-      100% { transform: translate(-30px, 10px); }
-    }
-    @keyframes cursor-ring-chase {
-      0%   { transform: translate(-30px, 10px); }
-      30%  { transform: translate(25px, -18px); }
-      60%  { transform: translate(10px, 22px); }
-      100% { transform: translate(-30px, 10px); }
-    }
-
-    /* ── 2. Zero-lib demo ── */
-    .craft-demo--zero {
-      flex-direction: column;
-      gap: .5rem;
-    }
-    .cd-zero-wrap {
-      display: flex; align-items: baseline; gap: .4rem;
-    }
-    .cd-zero-num {
-      font-size: 2.4rem;
-      font-weight: 900;
-      color: var(--accent);
-      line-height: 1;
-    }
-    .cd-zero-label {
-      font-size: .65rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: .06em;
-    }
-    .cd-zero-bars {
-      display: flex; gap: 4px; align-items: flex-end; height: 28px;
-    }
-    .cd-bar {
-      border-radius: 2px 2px 0 0;
-      display: flex; align-items: flex-end; justify-content: center;
-      overflow: hidden;
-      position: relative;
-    }
-    .cd-bar span {
-      font-size: .55rem; color: rgba(255,255,255,.5);
-      padding: 0 3px 2px; position: relative; z-index: 1;
-    }
-    .cd-bar--a {
-      width: 38px; height: 22px;
-      background: linear-gradient(to top, var(--accent), rgba(77,159,255,.4));
-      animation: bar-pulse 2.4s ease-in-out infinite;
-    }
-    .cd-bar--b {
-      width: 38px; height: 14px;
-      background: rgba(255,255,255,.08);
-      animation: bar-pulse 2.4s ease-in-out infinite .4s;
-    }
-    .cd-bar--c {
-      width: 38px; height: 10px;
-      background: rgba(255,255,255,.05);
-      animation: bar-pulse 2.4s ease-in-out infinite .8s;
-    }
-    @keyframes bar-pulse {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: .5; }
-    }
-
-    /* ── 3. clamp() demo ── */
-    .cd-clamp-text {
-      font-size: 3.6rem;
-      font-weight: 900;
-      line-height: 1;
-      color: var(--text);
-      animation: clamp-scale 3.5s ease-in-out infinite;
-    }
-    .cd-clamp-hint {
-      position: absolute;
-      bottom: 8px; left: 0; right: 0;
-      text-align: center;
-    }
-    .cd-clamp-hint span {
-      font-size: .58rem;
-      color: var(--accent);
-      font-family: monospace;
-      background: rgba(77,159,255,.08);
-      padding: .15em .5em;
-      border-radius: 3px;
-    }
-    @keyframes clamp-scale {
-      0%, 100% { font-size: 3.6rem; opacity: .6; }
-      50%       { font-size: 2rem;  opacity: 1; }
-    }
-
-    /* ── 4. IntersectionObserver demo ── */
-    .craft-demo--observer {
-      flex-direction: column;
-      gap: .5rem;
-    }
-    .cd-obs-viewport {
-      display: flex; flex-direction: column; gap: 5px; width: 80%;
-    }
-    .cd-obs-item {
-      height: 8px; border-radius: 4px;
-      background: var(--border);
-      overflow: hidden;
-      position: relative;
-    }
-    .cd-obs-item::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: var(--accent);
-      transform: scaleX(0);
-      transform-origin: left;
-      border-radius: 4px;
-    }
-    .cd-obs-item--a::after { animation: obs-reveal 3s ease-in-out infinite; }
-    .cd-obs-item--b::after { animation: obs-reveal 3s ease-in-out infinite .25s; width: 75%; }
-    .cd-obs-item--c::after { animation: obs-reveal 3s ease-in-out infinite .5s;  width: 55%; }
-    @keyframes obs-reveal {
-      0%, 15% { transform: scaleX(0); opacity: .3; }
-      40%, 80% { transform: scaleX(1); opacity: 1; }
-      100%    { transform: scaleX(0); opacity: .3; }
-    }
-    .cd-obs-label {
-      font-size: .58rem;
-      font-family: monospace;
-      color: var(--accent);
-      opacity: .7;
-    }
-
-    /* ── 5. i18n flip demo ── */
-    .craft-demo--i18n {
-      flex-direction: column;
-      gap: .4rem;
-    }
-    .cd-lang-flip {
-      position: relative;
-      width: 110px; height: 48px;
-      perspective: 300px;
-    }
-    .cd-lang-face {
-      position: absolute; inset: 0;
-      display: flex; align-items: center; gap: .6rem;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 0 .8rem;
-      backface-visibility: hidden;
-    }
-    .cd-lang-code {
-      font-size: .75rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-    .cd-lang-sample {
-      font-size: .8rem;
-      color: var(--text);
-    }
-    .cd-lang-fr {
-      animation: lang-flip-fr 4s ease-in-out infinite;
-    }
-    .cd-lang-en {
-      animation: lang-flip-en 4s ease-in-out infinite;
-    }
-    @keyframes lang-flip-fr {
-      0%, 40%  { transform: rotateY(0deg);   opacity: 1; }
-      45%, 95% { transform: rotateY(90deg);  opacity: 0; }
-      100%     { transform: rotateY(0deg);   opacity: 1; }
-    }
-    @keyframes lang-flip-en {
-      0%, 40%  { transform: rotateY(-90deg); opacity: 0; }
-      45%, 95% { transform: rotateY(0deg);  opacity: 1; }
-      100%     { transform: rotateY(-90deg); opacity: 0; }
-    }
-    .cd-lang-store {
-      font-size: .58rem;
-      color: var(--muted);
-    }
-    .cd-lang-store code {
-      font-size: .58rem;
-      color: var(--accent);
-    }
-
-    /* ── 6. CSS vars demo ── */
-    .craft-demo--vars { flex-direction: column; gap: .4rem; align-items: flex-start; padding: 0 1.4rem; }
-    .cd-vars-root {
-      font-size: .65rem;
-      font-family: monospace;
-      color: var(--muted);
-      margin-bottom: .15rem;
-    }
-    .cd-vars-root span { color: var(--accent); }
-    .cd-vars-list { display: flex; flex-direction: column; gap: 4px; }
-    .cd-var { display: flex; align-items: center; gap: .45rem; }
-    .cd-swatch {
-      width: 14px; height: 14px;
-      border-radius: 3px;
-      border: 1px solid rgba(255,255,255,.08);
-      flex-shrink: 0;
-      animation: swatch-pop 3s ease-in-out infinite;
-    }
-    .cd-var:nth-child(1) .cd-swatch { animation-delay: 0s; }
-    .cd-var:nth-child(2) .cd-swatch { animation-delay: .2s; }
-    .cd-var:nth-child(3) .cd-swatch { animation-delay: .4s; }
-    .cd-var:nth-child(4) .cd-swatch { animation-delay: .6s; }
-    @keyframes swatch-pop {
-      0%, 80%, 100% { transform: scale(1); }
-      40%           { transform: scale(1.3); }
-    }
-    .cd-var code { font-size: .62rem; color: var(--muted); font-family: monospace; }
-
-    /* ── 7. Grain demo ── */
-    .craft-demo--grain { position: relative; }
-    .cd-grain-svg {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-    }
-    .cd-grain-label {
-      position: relative; z-index: 2;
-      font-size: .7rem;
-      font-family: monospace;
-      color: rgba(255,255,255,.6);
-      background: rgba(0,0,0,.35);
-      padding: .25em .6em;
-      border-radius: 4px;
-      backdrop-filter: blur(2px);
-    }
-    .cd-grain-label code { color: var(--accent); font-size: .7rem; }
-
-    /* ── 8. Build size demo ── */
-    .craft-demo--build { flex-direction: column; gap: .6rem; padding: 0 1.4rem; width: 100%; }
-    .cd-build-compare { display: flex; flex-direction: column; gap: .55rem; width: 100%; }
-    .cd-build-item { display: flex; align-items: center; gap: .55rem; }
-    .cd-build-bar {
-      flex: 1;
-      height: 7px;
-      background: var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    .cd-build-fill {
-      display: block;
-      height: 100%;
-      border-radius: 4px;
-    }
-    .cd-build-tw .cd-build-fill {
-      width: 6%;
-      background: var(--accent);
-      animation: build-fill-tw 2.5s ease-out infinite;
-    }
-    .cd-build-fw .cd-build-fill {
-      width: 100%;
-      background: rgba(255,255,255,.15);
-      animation: build-fill-fw 2.5s ease-out infinite;
-    }
-    @keyframes build-fill-tw {
-      0%, 20% { width: 0; } 60%, 100% { width: 6%; }
-    }
-    @keyframes build-fill-fw {
-      0%, 20% { width: 0; } 60%, 100% { width: 100%; }
-    }
-    .cd-build-name { font-size: .62rem; color: var(--muted); white-space: nowrap; min-width: 68px; }
-    .cd-build-size { font-size: .62rem; color: var(--text); white-space: nowrap; min-width: 44px; text-align: right; }
-    .cd-build-tw .cd-build-name,
-    .cd-build-tw .cd-build-size { color: var(--accent); }
-    /* ════════════════════════════════════════
+/* ════════════════════════════════════════
        06 — EN PRODUCTION / TERRAIN — Matrix 2026
     ════════════════════════════════════════ */
     .terrain-section-inner {
@@ -1238,19 +987,22 @@
     .terrain-lead {
       max-width: 60ch;
       color: var(--muted);
-      font-size: clamp(.9rem, 2vw, 1.05rem);
+      font-size: clamp(1.1rem, 2vw, 1.25rem);
       margin-bottom: 3rem;
       line-height: 1.7;
     }
     .terrain-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1px;
       background: var(--border);
       border-radius: 16px;
       border: 1px solid var(--border);
       overflow: hidden;
       counter-reset: terrain-c;
+    }
+    @media (max-width: 900px) {
+      .terrain-grid { grid-template-columns: 1fr; }
     }
     .terrain-card {
       background: var(--card);
@@ -1317,7 +1069,7 @@
       padding: 2rem 2.5rem;
       background: linear-gradient(135deg, rgba(77,159,255,.05) 0%, var(--card) 60%);
     }
-    .terrain-card--hero .terrain-domain { font-size: 1.12rem; }
+    .terrain-card--hero .terrain-domain { font-size: 1.32rem; }
     .terrain-card--hero .terrain-list {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
@@ -1345,10 +1097,10 @@
     .terrain-icon svg { width: 18px; height: 18px; }
     .terrain-titles { display: flex; flex-direction: column; gap: 2px; }
     .terrain-domain {
-      font-size: .88rem; font-weight: 700; color: var(--text); line-height: 1.2;
+      font-size: 1.08rem; font-weight: 700; color: var(--text); line-height: 1.2;
     }
     .terrain-file {
-      font-size: .58rem; font-family: monospace;
+      font-size: .78rem; font-family: monospace;
       color: var(--accent); opacity: .7; display: block;
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
@@ -1358,7 +1110,7 @@
       display: flex; flex-direction: column; gap: .32rem; margin-bottom: .95rem;
     }
     .terrain-list li {
-      font-size: .77rem; color: var(--muted);
+      font-size: .97rem; color: var(--muted);
       line-height: 1.4; display: flex; align-items: baseline; gap: .45rem;
       transition: color .2s, transform .25s cubic-bezier(.16,1,.3,1);
     }
@@ -1372,10 +1124,10 @@
     .terrain-card:hover .terrain-list li:nth-child(5) { transition-delay: 140ms; }
     .terrain-list li::before {
       content: '›'; color: var(--accent);
-      font-size: .9rem; opacity: .55; flex-shrink: 0; line-height: 1;
+      font-size: 1.1rem; opacity: .55; flex-shrink: 0; line-height: 1;
     }
     .terrain-list li code {
-      font-size: .68rem; color: var(--accent);
+      font-size: .88rem; color: var(--accent);
       background: rgba(77,159,255,.1);
       padding: .02em .32em; border-radius: 3px; font-family: monospace;
     }
@@ -1385,7 +1137,7 @@
       padding-top: .75rem; border-top: 1px solid var(--border);
     }
     .terrain-ftag {
-      font-size: .58rem; font-weight: 600; letter-spacing: .05em;
+      font-size: .78rem; font-weight: 600; letter-spacing: .05em;
       text-transform: uppercase; color: var(--muted);
       border: 1px solid var(--border); border-radius: 4px;
       padding: .18em .52em;
@@ -1408,22 +1160,31 @@
 ══════════════════════════════════════ -->
 <header id="main-header">
   <div class="nav-inner">
-    <a href="#" class="nav-logo">LP</a>
+    <a href="#" class="nav-logo">
+      <svg width="46" height="42" viewBox="0 0 46 42" fill="none" stroke="#4d9fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+        <!-- Shared vertical stem -->
+        <line x1="9" y1="4" x2="9" y2="38"/>
+        <!-- L crossbar -->
+        <line x1="9" y1="38" x2="24" y2="38"/>
+        <!-- P bowl (arc from top of stem, loops right and back to midpoint) -->
+        <path d="M9 4 C9 4 38 4 38 15 C38 26 9 26 9 26" fill="none"/>
+      </svg>
+    </a>
 
     <nav class="nav-links" id="nav-desktop">
       <a href="#about"      class="nav-link" data-translate="nav.about">À propos</a>
       <a href="#experience" class="nav-link" data-translate="nav.experience">Expérience</a>
       <a href="#skills"     class="nav-link" data-translate="nav.skills">Compétences</a>
-      <a href="#craft"      class="nav-link" data-translate="nav.craft">Fait main</a>
       <a href="#portfolio"  class="nav-link" data-translate="nav.portfolio">Portfolio</a>
       <a href="#terrain"    class="nav-link" data-translate="nav.terrain">En production</a>
       <a href="#contact"    class="nav-link" data-translate="nav.contact">Contact</a>
-      <a href="cv.html" target="_blank" class="nav-cv" data-translate="nav.cv">CV ↓</a>
-      <div class="nav-langs">
-        <button class="lang-btn" data-lang="fr" onclick="changeLanguage('fr')">FR</button>
-        <button class="lang-btn" data-lang="en" onclick="changeLanguage('en')">EN</button>
-      </div>
+      <!-- <a href="cv.html" target="_blank" class="nav-cv" data-translate="nav.cv">CV ↓</a> -->
     </nav>
+
+    <div class="nav-langs">
+      <button class="lang-btn" data-lang="fr" onclick="changeLanguage('fr')">FR</button>
+      <button class="lang-btn" data-lang="en" onclick="changeLanguage('en')">EN</button>
+    </div>
 
     <button id="menu-btn" aria-label="Menu">
       <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -1436,7 +1197,6 @@
     <a href="#about"      data-translate="nav.about">À propos</a>
     <a href="#experience" data-translate="nav.experience">Expérience</a>
     <a href="#skills"     data-translate="nav.skills">Compétences</a>
-    <a href="#craft"      data-translate="nav.craft">Fait main</a>
     <a href="#portfolio"  data-translate="nav.portfolio">Portfolio</a>
     <a href="#terrain"    data-translate="nav.terrain">En production</a>
     <a href="#contact"    data-translate="nav.contact">Contact</a>
@@ -1493,7 +1253,7 @@
           </div>
           <!-- Portrait photo -->
           <div class="hero-portrait">
-            <img src="uploads/photo.jpg" alt="Laurence Pirard"
+            <img src="uploads/image_portfolio.jpeg" alt="Laurence Pirard"
               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
             <div class="pp" style="display:none;">
               <span>LP</span>
@@ -1514,7 +1274,7 @@
           </svg>
         </a>
         <a href="#contact" class="btn-ghost" data-translate="hero.ctaContact">Me contacter</a>
-        <a href="cv.html" target="_blank" class="btn-ghost" data-translate="hero.ctaCV">CV ↓</a>
+        <!-- <a href="cv.html" target="_blank" class="btn-ghost" data-translate="hero.ctaCV">CV ↓</a> -->
       </div>
     </div>
 
@@ -1547,40 +1307,29 @@
           Développeuse web front-end basée à Bruxelles. Spécialisée <strong>WordPress, TailwindCSS, JavaScript et PHP</strong>,
           je transforme vos idées en sites web performants, mobile first et accessibles — de la maquette à la mise en ligne.
         </p>
-        <p class="about-text" style="margin-bottom:28px" data-translate="sections.aboutText2">
-          Je travaille chez <strong>Paf! Design</strong> et je mène des projets freelance en parallèle pour élargir mes compétences
-          et explorer de nouvelles technologies. Ce qui me motive : les projets où chaque détail compte, et où le code au service du design
-          crée quelque chose de vraiment utile.
-        </p>
-        <div class="about-tags">
-          <span class="about-tag" data-translate="about.tagResponsive">Responsive Design</span>
-          <span class="about-tag" data-translate="about.tagUxUi">UX / UI</span>
-          <span class="about-tag" data-translate="about.tagPerformance">Performance</span>
-          <span class="about-tag">WordPress</span>
-          <span class="about-tag">TailwindCSS</span>
-        </div>
       </div>
       <div class="about-details">
         <div class="about-stat">
           <strong>5+</strong>
           <span data-translate="about.stat1">ans d'expérience en développement web</span>
         </div>
+     
         <div class="about-stat">
+          <strong>2020</strong>
+          <span data-translate="about.stat3">Diplômée en tant que Web Developer — EPFC, Bruxelles</span>
+        </div>
+           <div class="about-stat">
           <strong>7 300+</strong>
-          <span data-translate="about.statCoffee">☕</span>
+          <span data-translate="about.statCoffee" style="font-size: 1.6rem;"></span>
         </div>
-        <div class="about-stat">
-          <strong>BES</strong>
-          <span data-translate="about.stat3">Web Developer — EPFC, Bruxelles</span>
-        </div>
-        <div style="margin-top:8px">
+        <!-- <div style="margin-top:8px">
           <a href="cv.html" target="_blank" class="btn-primary" style="display:inline-flex" data-translate="about.downloadCV">
             Télécharger mon CV
             <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
             </svg>
           </a>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -1603,19 +1352,19 @@
 
     <div class="tl-item" data-delay="0">
       <div class="tl-dot"></div>
-      <p class="tl-year" data-translate="experience.date1">2023 – Présent</p>
-      <h3 class="tl-title" data-translate="experience.title1">Développeuse Web Freelance</h3>
-      <p class="tl-company" data-translate="experience.company1">Indépendante · Bruxelles</p>
+      <p class="tl-year" data-translate="experience.date1"></p>
+      <h3 class="tl-title" data-translate="experience.title1"></h3>
+      <p class="tl-company" data-translate="experience.company1"></p>
       <p class="tl-desc" data-translate="experience.desc1">
         Conception et développement de sites web sur mesure. Gestion complète des projets :
         découverte, maquette, intégration, déploiement, maintenance. Je mène aussi des projets
         personnels pour explorer de nouvelles technologies et garder une veille active.
       </p>
-      <div class="tl-tags">
-        <span class="tl-tag">WordPress</span>
-        <span class="tl-tag">TailwindCSS</span>
-        <span class="tl-tag">JavaScript</span>
-        <span class="tl-tag">Responsive</span>
+      <div class="tl-stack-tags">
+        <span class="tl-stack-tag">WordPress</span>
+        <span class="tl-stack-tag">TailwindCSS</span>
+        <span class="tl-stack-tag">JavaScript</span>
+        <span class="tl-stack-tag">Responsive</span>
       </div>
     </div>
 
@@ -1623,22 +1372,9 @@
       <div class="tl-dot"></div>
       <p class="tl-year" data-translate="experience.date2">Juil. 2021 – Présent</p>
       <h3 class="tl-title" data-translate="experience.title2">Développeuse Web</h3>
-      <p class="tl-company" data-translate="experience.company2">Paf! Design · Bruxelles</p>
-      <p class="tl-desc" data-translate="experience.desc2">
-        Développement de sites WordPress (thèmes custom, ACF), Drupal et Craft CMS en agence.
-        Projets pour Hospel Notaire, l'ONG Memisa (multilingue FR/EN/NL) et d'autres clients
-        institutionnels. Sous-traitance pour Europcar (webmastering). Outils : Atlassian, Contentful.
-      </p>
-      <div class="tl-tags">
-        <span class="tl-tag">WordPress</span>
-        <span class="tl-tag">ACF</span>
-        <span class="tl-tag">WooCommerce</span>
-        <span class="tl-tag">WPML</span>
-        <span class="tl-tag">SCSS / Gulp</span>
-        <span class="tl-tag">Swiper</span>
-        <span class="tl-tag">Drupal</span>
-        <span class="tl-tag">Craft CMS</span>
-        <span class="tl-tag">Contentful</span>
+      <p class="tl-company" data-translate="experience.company2"><a href="https://pafdesign.be/" target="_blank" rel="noopener noreferrer">Paf! Design</a> · Bruxelles</p>
+      <div class="tl-desc" data-translate="experience.desc2">
+        Développement de thèmes WordPress sur-mesure.
       </div>
     </div>
 
@@ -1651,11 +1387,11 @@
         Stage en entreprise dans le cadre de la formation EPFC. Intégration HTML/CSS, JavaScript
         et travail sur des projets web réels dans un contexte professionnel.
       </p>
-      <div class="tl-tags">
-        <span class="tl-tag">HTML / CSS</span>
-        <span class="tl-tag">JavaScript</span>
-        <span class="tl-tag">PHP</span>
-        <span class="tl-tag">WordPress</span>
+      <div class="tl-stack-tags">
+        <span class="tl-stack-tag">HTML / CSS</span>
+        <span class="tl-stack-tag">JavaScript</span>
+        <span class="tl-stack-tag">PHP</span>
+        <span class="tl-stack-tag">WordPress</span>
       </div>
     </div>
 
@@ -1674,10 +1410,9 @@
         <p class="tl-year" data-translate="formation.date1">Diplômée 2020 · Grande distinction</p>
         <h3 class="tl-title" data-translate="formation.title1">BES Web Developer</h3>
         <p class="tl-company" data-translate="formation.school1">EPFC · Bruxelles</p>
-        <p class="tl-desc" data-translate="formation.desc1">
-          Formation certifiante en développement web. HTML5/CSS3, JavaScript, PHP, jQuery,
-          WordPress, Bootstrap, bases de données, Photoshop/Illustrator.
-        </p>
+        <div class="tl-desc" data-translate="formation.desc1">
+          Formation certifiante en développement web.
+        </div>
       </div>
     </div>
   </div>
@@ -1698,223 +1433,115 @@
     </div>
   </div>
 
-  <!-- Grille 2 colonnes -->
+  <!-- 2 lignes marquee -->
   <div class="skills-scroll-rows" aria-label="Compétences techniques">
 
-    <div class="skill-scroll-card">
-      <div class="sc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML5"></div>
-      <h3>HTML5</h3><p data-translate="skills.htmlDesc">Sémantique, accessibilité, structure solide.</p>
+    <!-- Ligne 1 → -->
+    <div class="skills-marquee-row">
+      <div class="skills-marquee-track">
+        <div class="skill-scroll-card">
+          <div class="sc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML5"></div>
+          <h3>HTML5</h3><p data-translate="skills.htmlDesc">Sémantique, accessibilité, structure solide.</p>
+        </div>
+        <div class="skill-scroll-card">
+          <div class="sc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS3"></div>
+          <h3>CSS3 / SCSS</h3><p data-translate="skills.scssDesc">Architecture SCSS modulaire, media-queries et composants réutilisables.</p>
+        </div>
+        <div class="skill-scroll-card">
+          <div class="sc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript"></div>
+          <h3>JavaScript</h3><p data-translate="skills.jsDesc">Vanilla JS, jQuery, GSAP, Swiper, scripts sur mesure.</p>
+        </div>
+        <div class="skill-scroll-card">
+          <div class="sc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" alt="PHP"></div>
+          <h3>PHP</h3><p data-translate="skills.phpDesc">Templates WordPress, shortcodes, AJAX, sorties sécurisées.</p>
+        </div>
+        <div class="skill-scroll-card">
+          <div class="sc-icon" style="color:#38bdf8"><svg viewBox="0 0 38 31" fill="currentColor" style="height:70px;width:200px"><path d="M25.517 0C18.712 0 14.46 3.382 12.758 10.146c2.552-3.382 5.529-4.65 8.931-3.805 1.941.482 3.329 1.882 4.864 3.432 2.502 2.524 5.398 5.445 11.722 5.445 6.804 0 11.057-3.382 12.758-10.146-2.552 3.382-5.529 4.65-8.931 3.805-1.941-.482-3.329-1.882-4.864-3.432C34.736 2.92 31.841 0 25.517 0zM12.758 15.218C5.954 15.218 1.701 18.6 0 25.364c2.552-3.382 5.529-4.65 8.931-3.805 1.941.482 3.329 1.882 4.864 3.432 2.502 2.524 5.398 5.445 11.722 5.445 6.804 0 11.057-3.382 12.758-10.146-2.552 3.382-5.529 4.65-8.931 3.805-1.941-.482-3.329-1.882-4.864-3.432-2.502-2.524-5.398-5.445-11.722-5.445z"/></svg></div>
+          <h3>TailwindCSS</h3><p data-translate="skills.tailwindDesc">Utility-first, prototypage rapide, cohérence garantie.</p>
+        </div>
+        <div class="skill-scroll-card">
+          <div class="sc-icon"><img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" style="display:none;height:44px;width:44px;fill:currentColor"><path d="M13.6052 0.923525C16.1432 0.923525 18.6137 1.67953 20.7062 3.09703C22.7447 4.47403 24.3512 6.41803 25.3097 8.68603C26.9837 12.6415 26.5382 17.164 24.1352 20.7145C22.7582 22.753 20.8142 24.3595 18.5462 25.318C14.5907 26.992 10.0682 26.5465 6.51772 24.1435C4.47922 22.7665 2.87272 20.8225 1.91422 18.5545C0.240225 14.599 0.685725 10.0765 3.08872 6.52603C4.46572 4.48753 6.40973 2.88103 8.67772 1.92253C10.2302 1.26103 11.9177 0.923525 13.6052 0.923525ZM13.6052 0.113525C6.15322 0.113525 0.105225 6.16153 0.105225 13.6135C0.105225 21.0655 6.15322 27.1135 13.6052 27.1135C21.0572 27.1135 27.1052 21.0655 27.1052 13.6135C27.1052 6.16153 21.0572 0.113525 13.6052 0.113525Z"/><path d="M2.36011 13.6133C2.36011 17.9198 4.81711 21.8618 8.70511 23.7383L3.33211 9.03684C2.68411 10.4813 2.36011 12.0338 2.36011 13.6133ZM21.2061 13.0463C21.2061 11.6558 20.7066 10.6973 20.2746 9.94134C19.8426 9.18534 19.1676 8.22684 19.1676 7.30884C19.1676 6.39084 19.9506 5.31084 21.0576 5.31084H21.2061C16.6296 1.11234 9.51511 1.42284 5.31661 6.01284C4.91161 6.45834 4.53361 6.93084 4.20961 7.43034H4.93861C6.11311 7.43034 7.93561 7.28184 7.93561 7.28184C8.54311 7.24134 8.61061 8.13234 8.00311 8.21334C8.00311 8.21334 7.39561 8.28084 6.72061 8.32134L10.8111 20.5118L13.2681 13.1273L11.5131 8.32134C10.9056 8.28084 10.3386 8.21334 10.3386 8.21334C9.73111 8.17284 9.79861 7.25484 10.4061 7.28184C10.4061 7.28184 12.2691 7.43034 13.3626 7.43034C14.4561 7.43034 16.3596 7.28184 16.3596 7.28184C16.9671 7.24134 17.0346 8.13234 16.4271 8.21334C16.4271 8.21334 15.8196 8.28084 15.1446 8.32134L19.2081 20.4173L20.3691 16.7453C20.8821 15.1388 21.1926 14.0048 21.1926 13.0328L21.2061 13.0463ZM13.7946 14.5853L10.4196 24.3998C12.6876 25.0613 15.1041 25.0073 17.3316 24.2243L17.2506 24.0758L13.7946 14.5853ZM23.4741 8.21334C23.5281 8.59134 23.5551 8.98284 23.5551 9.37434C23.5551 10.5218 23.3391 11.8043 22.7046 13.3973L19.2621 23.3333C24.5271 20.2688 26.4036 13.5593 23.4741 8.21334Z"/></svg></div>
+          <h3>WordPress</h3><p data-translate="skills.wpDesc">Thèmes custom, hooks/filters, templates PHP, post types, menus.</p>
+        </div>
+        <!-- duplicate for seamless loop -->
+        <div class="skill-scroll-card" aria-hidden="true">
+          <div class="sc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt=""></div>
+          <h3>HTML5</h3><p>Sémantique, accessibilité, structure solide.</p>
+        </div>
+        <div class="skill-scroll-card" aria-hidden="true">
+          <div class="sc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt=""></div>
+          <h3>CSS3 / SCSS</h3><p>Architecture SCSS modulaire, media-queries et composants réutilisables.</p>
+        </div>
+        <div class="skill-scroll-card" aria-hidden="true">
+          <div class="sc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt=""></div>
+          <h3>JavaScript</h3><p>Vanilla JS, jQuery, GSAP, Swiper, scripts sur mesure.</p>
+        </div>
+        <div class="skill-scroll-card" aria-hidden="true">
+          <div class="sc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" alt="PHP"></div>
+          <h3>PHP</h3><p>Templates WordPress, shortcodes, AJAX, sorties sécurisées.</p>
+        </div>
+        <div class="skill-scroll-card" aria-hidden="true">
+          <div class="sc-icon" style="color:#38bdf8"><svg viewBox="0 0 38 31" fill="currentColor" style="height:70px;width:200px"><path d="M25.517 0C18.712 0 14.46 3.382 12.758 10.146c2.552-3.382 5.529-4.65 8.931-3.805 1.941.482 3.329 1.882 4.864 3.432 2.502 2.524 5.398 5.445 11.722 5.445 6.804 0 11.057-3.382 12.758-10.146-2.552 3.382-5.529 4.65-8.931 3.805-1.941-.482-3.329-1.882-4.864-3.432C34.736 2.92 31.841 0 25.517 0zM12.758 15.218C5.954 15.218 1.701 18.6 0 25.364c2.552-3.382 5.529-4.65 8.931-3.805 1.941.482 3.329 1.882 4.864 3.432 2.502 2.524 5.398 5.445 11.722 5.445 6.804 0 11.057-3.382 12.758-10.146-2.552 3.382-5.529 4.65-8.931 3.805-1.941-.482-3.329-1.882-4.864-3.432-2.502-2.524-5.398-5.445-11.722-5.445z"/></svg></div>
+          <h3>TailwindCSS</h3><p>Utility-first, prototypage rapide, cohérence garantie.</p>
+        </div>
+        <div class="skill-scroll-card" aria-hidden="true">
+          <div class="sc-icon"><img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" style="display:none;height:44px;width:44px;fill:currentColor"><path d="M13.6052 0.923525C16.1432 0.923525 18.6137 1.67953 20.7062 3.09703C22.7447 4.47403 24.3512 6.41803 25.3097 8.68603C26.9837 12.6415 26.5382 17.164 24.1352 20.7145C22.7582 22.753 20.8142 24.3595 18.5462 25.318C14.5907 26.992 10.0682 26.5465 6.51772 24.1435C4.47922 22.7665 2.87272 20.8225 1.91422 18.5545C0.240225 14.599 0.685725 10.0765 3.08872 6.52603C4.46572 4.48753 6.40973 2.88103 8.67772 1.92253C10.2302 1.26103 11.9177 0.923525 13.6052 0.923525ZM13.6052 0.113525C6.15322 0.113525 0.105225 6.16153 0.105225 13.6135C0.105225 21.0655 6.15322 27.1135 13.6052 27.1135C21.0572 27.1135 27.1052 21.0655 27.1052 13.6135C27.1052 6.16153 21.0572 0.113525 13.6052 0.113525Z"/><path d="M2.36011 13.6133C2.36011 17.9198 4.81711 21.8618 8.70511 23.7383L3.33211 9.03684C2.68411 10.4813 2.36011 12.0338 2.36011 13.6133ZM21.2061 13.0463C21.2061 11.6558 20.7066 10.6973 20.2746 9.94134C19.8426 9.18534 19.1676 8.22684 19.1676 7.30884C19.1676 6.39084 19.9506 5.31084 21.0576 5.31084H21.2061C16.6296 1.11234 9.51511 1.42284 5.31661 6.01284C4.91161 6.45834 4.53361 6.93084 4.20961 7.43034H4.93861C6.11311 7.43034 7.93561 7.28184 7.93561 7.28184C8.54311 7.24134 8.61061 8.13234 8.00311 8.21334C8.00311 8.21334 7.39561 8.28084 6.72061 8.32134L10.8111 20.5118L13.2681 13.1273L11.5131 8.32134C10.9056 8.28084 10.3386 8.21334 10.3386 8.21334C9.73111 8.17284 9.79861 7.25484 10.4061 7.28184C10.4061 7.28184 12.2691 7.43034 13.3626 7.43034C14.4561 7.43034 16.3596 7.28184 16.3596 7.28184C16.9671 7.24134 17.0346 8.13234 16.4271 8.21334C16.4271 8.21334 15.8196 8.28084 15.1446 8.32134L19.2081 20.4173L20.3691 16.7453C20.8821 15.1388 21.1926 14.0048 21.1926 13.0328L21.2061 13.0463ZM13.7946 14.5853L10.4196 24.3998C12.6876 25.0613 15.1041 25.0073 17.3316 24.2243L17.2506 24.0758L13.7946 14.5853ZM23.4741 8.21334C23.5281 8.59134 23.5551 8.98284 23.5551 9.37434C23.5551 10.5218 23.3391 11.8043 22.7046 13.3973L19.2621 23.3333C24.5271 20.2688 26.4036 13.5593 23.4741 8.21334Z"/></svg></div>
+          <h3>WordPress</h3><p>Thèmes custom, hooks/filters, templates PHP, post types, menus.</p>
+        </div>
+      </div>
     </div>
-    <div class="skill-scroll-card">
-      <div class="sc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS3"></div>
-      <h3>CSS3 / SCSS</h3><p data-translate="skills.scssDesc">Architecture SCSS modulaire, media-queries et composants réutilisables.</p>
-    </div>
-    <div class="skill-scroll-card">
-      <div class="sc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript"></div>
-      <h3>JavaScript</h3><p data-translate="skills.jsDesc">Vanilla JS, jQuery, GSAP, Swiper, scripts sur mesure.</p>
-    </div>
-    <div class="skill-scroll-card">
-      <div class="sc-icon" style="color:#7b86c4"><svg viewBox="0 0 128 128" fill="currentColor" style="height:44px;width:auto"><path d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64 64-28.7 64-64S99.3 0 64 0zm0 114.7C36 114.7 13.3 92 13.3 64S36 13.3 64 13.3 114.7 36 114.7 64 92 114.7 64 114.7z" opacity=".2"/><path d="M38.5 56.3H44c3.7 0 6.4 2.5 6.4 6s-2.7 6.1-6.4 6.1h-3.2v6.8H38.5V56.3zm5.1 9.4c2 0 3.2-1.2 3.2-3.3s-1.2-3.3-3.2-3.3h-2.8v6.6h2.8zM54.1 56.3h5.5c3.7 0 6.4 2.5 6.4 6s-2.7 6.1-6.4 6.1h-3.2v6.8H54V56.3zm5.1 9.4c2 0 3.2-1.2 3.2-3.3s-1.2-3.3-3.2-3.3h-2.8v6.6H59V65.7zM69.2 56.3h3.3v15.1h7.9v3H69.2z"/></svg></div>
-      <h3>PHP</h3><p data-translate="skills.phpDesc">Templates WordPress, shortcodes, AJAX, sorties sécurisées.</p>
-    </div>
-    <div class="skill-scroll-card">
-      <div class="sc-icon" style="color:#38bdf8"><svg viewBox="0 0 54 14" fill="currentColor" style="height:28px;width:auto"><path d="M5.59 0C3.88 0 2.55.76 1.63 2.29.54 4.07 0 5.59 0 6.85c0 1.91 1.19 3.07 3.58 3.07 1.13 0 2.3-.54 3.52-1.62C8.33 7.22 9.18 6.4 9.73 5.8L12 3.2C10.74 1.07 8.54 0 5.59 0Zm8.22 3.67c.95 1.37 1.42 2.71 1.42 4.02 0 1.53-.56 2.83-1.67 3.92-1.11 1.09-2.42 1.63-3.92 1.63-1.48 0-2.7-.49-3.66-1.47l-.01-.01C7.93 12.59 9.8 13.5 12 13.5c2.1 0 3.86-.72 5.28-2.16 1.42-1.44 2.13-3.19 2.13-5.24 0-1.44-.44-2.8-1.31-4.08L16.22.22A8.4 8.4 0 0 0 12 0C9.32 0 7.1 1.07 5.85 3.22l2.45 2.63c.77-.88 1.6-1.53 2.5-1.94 1.12-.52 2.11-.52 2.96.08l.05.04Z"/></svg></div>
-      <h3>TailwindCSS</h3><p data-translate="skills.tailwindDesc">Utility-first, prototypage rapide, cohérence garantie.</p>
-    </div>
-    <div class="skill-scroll-card">
-      <div class="sc-icon" style="color:#a0a0c0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" style="height:44px;width:44px;fill:currentColor"><path d="M13.6052 0.923525C16.1432 0.923525 18.6137 1.67953 20.7062 3.09703C22.7447 4.47403 24.3512 6.41803 25.3097 8.68603C26.9837 12.6415 26.5382 17.164 24.1352 20.7145C22.7582 22.753 20.8142 24.3595 18.5462 25.318C14.5907 26.992 10.0682 26.5465 6.51772 24.1435C4.47922 22.7665 2.87272 20.8225 1.91422 18.5545C0.240225 14.599 0.685725 10.0765 3.08872 6.52603C4.46572 4.48753 6.40973 2.88103 8.67772 1.92253C10.2302 1.26103 11.9177 0.923525 13.6052 0.923525ZM13.6052 0.113525C6.15322 0.113525 0.105225 6.16153 0.105225 13.6135C0.105225 21.0655 6.15322 27.1135 13.6052 27.1135C21.0572 27.1135 27.1052 21.0655 27.1052 13.6135C27.1052 6.16153 21.0572 0.113525 13.6052 0.113525Z"/><path d="M2.36011 13.6133C2.36011 17.9198 4.81711 21.8618 8.70511 23.7383L3.33211 9.03684C2.68411 10.4813 2.36011 12.0338 2.36011 13.6133ZM21.2061 13.0463C21.2061 11.6558 20.7066 10.6973 20.2746 9.94134C19.8426 9.18534 19.1676 8.22684 19.1676 7.30884C19.1676 6.39084 19.9506 5.31084 21.0576 5.31084H21.2061C16.6296 1.11234 9.51511 1.42284 5.31661 6.01284C4.91161 6.45834 4.53361 6.93084 4.20961 7.43034H4.93861C6.11311 7.43034 7.93561 7.28184 7.93561 7.28184C8.54311 7.24134 8.61061 8.13234 8.00311 8.21334C8.00311 8.21334 7.39561 8.28084 6.72061 8.32134L10.8111 20.5118L13.2681 13.1273L11.5131 8.32134C10.9056 8.28084 10.3386 8.21334 10.3386 8.21334C9.73111 8.17284 9.79861 7.25484 10.4061 7.28184C10.4061 7.28184 12.2691 7.43034 13.3626 7.43034C14.4561 7.43034 16.3596 7.28184 16.3596 7.28184C16.9671 7.24134 17.0346 8.13234 16.4271 8.21334C16.4271 8.21334 15.8196 8.28084 15.1446 8.32134L19.2081 20.4173L20.3691 16.7453C20.8821 15.1388 21.1926 14.0048 21.1926 13.0328L21.2061 13.0463ZM13.7946 14.5853L10.4196 24.3998C12.6876 25.0613 15.1041 25.0073 17.3316 24.2243L17.2506 24.0758L13.7946 14.5853ZM23.4741 8.21334C23.5281 8.59134 23.5551 8.98284 23.5551 9.37434C23.5551 10.5218 23.3391 11.8043 22.7046 13.3973L19.2621 23.3333C24.5271 20.2688 26.4036 13.5593 23.4741 8.21334Z"/></svg></div>
-      <h3>WordPress</h3><p data-translate="skills.wpDesc">Thèmes custom, hooks/filters, templates PHP, post types, menus.</p>
-    </div>
-    <div class="skill-scroll-card">
-      <div class="sc-icon" style="color:#00b9ae"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="height:44px;width:auto"><rect x="3" y="5" width="18" height="3" rx="1"/><rect x="3" y="10.5" width="18" height="3" rx="1"/><rect x="3" y="16" width="11" height="3" rx="1"/></svg></div>
-      <h3>ACF</h3><p data-translate="skills.acfDesc">Champs personnalisés, flexible content, galeries et options pages.</p>
-    </div>
-    <div class="skill-scroll-card">
-      <div class="sc-icon" style="color:#96588a"><svg viewBox="0 0 24 24" fill="currentColor" style="height:44px;width:auto"><path d="M1.858 9.177c.33-.758.846-1.372 1.547-1.842L6.5 5.5l1 4-3 .5-2.642 3.677c-.03-.63.03-1.27.03-1.93 0-.19.36-1.81-.03-2.57zM21.5 6.5l-3.105 1.835c.7.47 1.216 1.084 1.547 1.842.39.76.03 2.38.03 2.57 0 .66.06 1.3.03 1.93L17.5 11l-3-.5 1-4 3.105-1.335A5.5 5.5 0 0 1 21.5 6.5zm-9.5 9.5l-2.5 4.5 2.5 1 2.5-1L12 16zm0-13A9 9 0 0 0 3 12c0 2.85 1.33 5.39 3.415 7.07L9 16.5l3 1 3-1 2.585 2.57A9 9 0 0 0 21 12a9 9 0 0 0-9-9zm0 2a7 7 0 0 1 7 7 7 7 0 0 1-7 7 7 7 0 0 1-7-7 7 7 0 0 1 7-7z"/></svg></div>
-      <h3>WooCommerce</h3><p data-translate="skills.wooDesc">E-commerce WordPress — templates, hooks et personnalisation avancée.</p>
-    </div>
-    <div class="skill-scroll-card">
-      <div class="sc-icon" style="color:#009fda"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="height:44px;width:auto"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 0 1 0 18M12 3a13 13 0 0 0 0 18"/></svg></div>
-      <h3>WPML</h3><p data-translate="skills.wpmlDesc">Sites multilingues FR/EN/NL, requêtes WPML-aware, colonnes suffixées.</p>
-    </div>
-    <div class="skill-scroll-card">
-      <div class="sc-icon" style="color:#4945ff"><svg viewBox="0 0 32 32" fill="currentColor" style="height:40px;width:auto"><path d="M25.28 13.544a7.33 7.33 0 0 0-1.583-4.036 7.267 7.267 0 0 0-3.52-2.45 7.32 7.32 0 0 0-4.199-.032 7.28 7.28 0 0 0-3.564 2.373A7.3 7.3 0 0 0 10.875 13a7.29 7.29 0 0 0 .49 4.195 7.32 7.32 0 0 0 2.584 3.38v3.018a1.332 1.332 0 0 0 .39.943c.25.25.59.39.943.39h3.436a1.335 1.335 0 0 0 1.333-1.333v-3.018a7.32 7.32 0 0 0 3.83-4.285 7.3 7.3 0 0 0 .399-2.746zM18.718 19.2a1.333 1.333 0 0 0-.785 1.218v2.374h-2.586V20.42a1.333 1.333 0 0 0-.785-1.218 5.002 5.002 0 0 1-2.897-5.337 5 5 0 0 1 9.95.77 5.002 5.002 0 0 1-2.897 4.566z"/></svg></div>
-      <h3>Strapi</h3><p data-translate="skills.strapiDesc">CMS headless — API REST & contenu flexible.</p>
-    </div>
-    <div class="skill-scroll-card">
-      <div class="sc-icon" style="color:#a0a0c0"><svg viewBox="0 0 36 42" style="height:44px;fill:none;stroke:currentColor;stroke-width:1.5"><path d="M18,0 L36,10.4981014 L36,31.5018986 L18,42 L0,31.5018986 L0,10.4981014 L18,0 Z M2,11.6926791 L2,30.3073209 L18,39.6389666 L34,30.3073209 L34,11.6926791 L18,2.36103344 L2,11.6926791 Z"/><polyline points="26 21 21 23.59 21 24 26 24 26 28 10 28 10 24 15 24 15 23.563 10 21 10 16 18 20.297 26 16"/></svg></div>
-      <h3>Drupal / Craft</h3><p data-translate="skills.kirbyDesc">CMS robustes pour projets complexes.</p>
+
+    <!-- Ligne 2 ← -->
+    <div class="skills-marquee-row skills-marquee-row--rev">
+      <div class="skills-marquee-track">
+        <div class="skill-scroll-card">
+          <div class="sc-icon" style="color:#00b9ae"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="height:44px;width:auto"><rect x="3" y="5" width="18" height="3" rx="1"/><rect x="3" y="10.5" width="18" height="3" rx="1"/><rect x="3" y="16" width="11" height="3" rx="1"/></svg></div>
+          <h3>ACF</h3><p data-translate="skills.acfDesc">Champs personnalisés, flexible content, galeries et options pages.</p>
+        </div>
+        <div class="skill-scroll-card">
+          <div class="sc-icon"><img src="https://cdn.simpleicons.org/woocommerce/96588a" alt="WooCommerce"></div>
+          <h3>WooCommerce</h3><p data-translate="skills.wooDesc">E-commerce WordPress — templates, hooks et personnalisation avancée.</p>
+        </div>
+        <div class="skill-scroll-card">
+          <div class="sc-icon"><img src="uploads/wpml-logo-png_seeklogo-339746.png" alt="WPML"></div>
+          <h3>WPML</h3><p data-translate="skills.wpmlDesc">Sites multilingues FR/EN/NL, requêtes WPML-aware, colonnes suffixées.</p>
+        </div>
+        <div class="skill-scroll-card">
+          <div class="sc-icon"><img src="https://cdn.simpleicons.org/strapi/4945FF" alt="Strapi"></div>
+          <h3>Strapi</h3><p data-translate="skills.strapiDesc">CMS headless — API REST & contenu flexible.</p>
+        </div>
+        <div class="skill-scroll-card">
+          <div class="sc-icon"><img src="https://cdn.simpleicons.org/drupal/0678BE" alt="Drupal"></div>
+          <h3>Drupal / Craft</h3><p data-translate="skills.kirbyDesc">CMS robustes pour projets complexes.</p>
+        </div>
+        <!-- duplicate for seamless loop -->
+        <div class="skill-scroll-card" aria-hidden="true">
+          <div class="sc-icon" style="color:#00b9ae"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="height:44px;width:auto"><rect x="3" y="5" width="18" height="3" rx="1"/><rect x="3" y="10.5" width="18" height="3" rx="1"/><rect x="3" y="16" width="11" height="3" rx="1"/></svg></div>
+          <h3>ACF</h3><p>Champs personnalisés, flexible content, galeries et options pages.</p>
+        </div>
+        <div class="skill-scroll-card" aria-hidden="true">
+          <div class="sc-icon"><img src="https://cdn.simpleicons.org/woocommerce/96588a" alt="WooCommerce"></div>
+          <h3>WooCommerce</h3><p>E-commerce WordPress — templates, hooks et personnalisation avancée.</p>
+        </div>
+        <div class="skill-scroll-card" aria-hidden="true">
+          <div class="sc-icon"><img src="uploads/wpml-logo-png_seeklogo-339746.png" alt="WPML"></div>
+          <h3>WPML</h3><p>Sites multilingues FR/EN/NL, requêtes WPML-aware, colonnes suffixées.</p>
+        </div>
+        <div class="skill-scroll-card" aria-hidden="true">
+          <div class="sc-icon"><img src="https://cdn.simpleicons.org/strapi/4945FF" alt="Strapi"></div>
+          <h3>Strapi</h3><p>CMS headless — API REST & contenu flexible.</p>
+        </div>
+        <div class="skill-scroll-card" aria-hidden="true">
+          <div class="sc-icon"><img src="https://cdn.simpleicons.org/drupal/0678BE" alt="Drupal"></div>
+          <h3>Drupal / Craft</h3><p>CMS robustes pour projets complexes.</p>
+        </div>
+      </div>
     </div>
 
   </div>
 </section>
 
 
-<!-- ══════════════════════════════════════
-     04 — FAIT MAIN
-══════════════════════════════════════ -->
-<section id="craft" class="section fade-slide-up">
-  <div class="section-head">
-    <div class="section-num-label">
-      <span class="sn">04</span>
-      <span class="sl" data-translate="sections.craftTitle">Fait main</span>
-    </div>
-    <div class="section-line"></div>
-    <div class="sn-wm" aria-hidden>04</div>
-  </div>
-
-  <p class="craft-lead" data-translate="sections.craftLead">Ce site est lui-même une démonstration. Voici les techniques qui l'animent.</p>
-
-  <div class="craft-grid">
-
-    <!-- 1 — Curseur LERP -->
-    <div class="craft-card craft-card--featured" data-craft-index="0">
-      <div class="craft-demo craft-demo--cursor" aria-hidden="true">
-        <div class="cd-dot"></div>
-        <div class="cd-ring"></div>
-      </div>
-      <div class="craft-body">
-        <div class="craft-tag" data-translate="craft.card1tag">Vanilla JS</div>
-        <h3 data-translate="craft.card1title">Curseur magnétique</h3>
-        <p data-translate="craft.card1desc">Anneau fluide avec interpolation LERP et <code>requestAnimationFrame</code>.</p>
-      </div>
-    </div>
-
-    <!-- 2 — Zéro framework -->
-    <div class="craft-card" data-craft-index="1">
-      <div class="craft-demo craft-demo--zero" aria-hidden="true">
-        <div class="cd-zero-wrap">
-          <span class="cd-zero-num">0</span>
-          <span class="cd-zero-label" data-translate="craft.zeroDeps">dépendances JS</span>
-        </div>
-        <div class="cd-zero-bars">
-          <div class="cd-bar cd-bar--a"><span>this</span></div>
-          <div class="cd-bar cd-bar--b"><span>gsap</span></div>
-          <div class="cd-bar cd-bar--c"><span>framer</span></div>
-        </div>
-      </div>
-      <div class="craft-body">
-        <div class="craft-tag" data-translate="craft.card2tag">CSS + JS</div>
-        <h3 data-translate="craft.card2title">Zéro librairie</h3>
-        <p data-translate="craft.card2desc">Animations 100% CSS natif et JS pur — aucune dépendance d'animation.</p>
-      </div>
-    </div>
-
-    <!-- 3 — clamp() -->
-    <div class="craft-card" data-craft-index="2">
-      <div class="craft-demo craft-demo--clamp" aria-hidden="true">
-        <div class="cd-clamp-text">Aa</div>
-        <div class="cd-clamp-hint"><span>clamp(1rem, 4vw, 3rem)</span></div>
-      </div>
-      <div class="craft-body">
-        <div class="craft-tag" data-translate="craft.card3tag">CSS clamp()</div>
-        <h3 data-translate="craft.card3title">Typographie fluide</h3>
-        <p data-translate="craft.card3desc">Tailles adaptées sans breakpoints grâce à <code>clamp()</code>.</p>
-      </div>
-    </div>
-
-    <!-- 4 — IntersectionObserver -->
-    <div class="craft-card" data-craft-index="3">
-      <div class="craft-demo craft-demo--observer" aria-hidden="true">
-        <div class="cd-obs-viewport">
-          <div class="cd-obs-item cd-obs-item--a"></div>
-          <div class="cd-obs-item cd-obs-item--b"></div>
-          <div class="cd-obs-item cd-obs-item--c"></div>
-        </div>
-        <div class="cd-obs-label">IntersectionObserver</div>
-      </div>
-      <div class="craft-body">
-        <div class="craft-tag" data-translate="craft.card4tag">Web API</div>
-        <h3 data-translate="craft.card4title">Scroll intelligent</h3>
-        <p data-translate="craft.card4desc"><code>IntersectionObserver</code> pour déclencher chaque animation au bon moment.</p>
-      </div>
-    </div>
-
-    <!-- 5 — i18n -->
-    <div class="craft-card craft-card--featured" data-craft-index="4">
-      <div class="craft-demo craft-demo--i18n" aria-hidden="true">
-        <div class="cd-lang-flip">
-          <div class="cd-lang-face cd-lang-fr">
-            <span class="cd-lang-code">FR</span>
-            <span class="cd-lang-sample">Bonjour&nbsp;!</span>
-          </div>
-          <div class="cd-lang-face cd-lang-en">
-            <span class="cd-lang-code">EN</span>
-            <span class="cd-lang-sample">Hello!</span>
-          </div>
-        </div>
-        <div class="cd-lang-store"><code>localStorage</code></div>
-      </div>
-      <div class="craft-body">
-        <div class="craft-tag" data-translate="craft.card5tag">i18n</div>
-        <h3 data-translate="craft.card5title">Bilingue natif</h3>
-        <p data-translate="craft.card5desc">Système FR/EN maison avec <code>localStorage</code> — zéro rechargement.</p>
-      </div>
-    </div>
-
-    <!-- 6 — CSS variables -->
-    <div class="craft-card" data-craft-index="5">
-      <div class="craft-demo craft-demo--vars" aria-hidden="true">
-        <div class="cd-vars-root"><span>:root</span> &#123;</div>
-        <div class="cd-vars-list">
-          <div class="cd-var"><div class="cd-swatch" style="background:#080c14"></div><code>--bg</code></div>
-          <div class="cd-var"><div class="cd-swatch" style="background:#131926"></div><code>--card</code></div>
-          <div class="cd-var"><div class="cd-swatch" style="background:#4d9fff"></div><code>--accent</code></div>
-          <div class="cd-var"><div class="cd-swatch" style="background:#e8eef8"></div><code>--text</code></div>
-        </div>
-      </div>
-      <div class="craft-body">
-        <div class="craft-tag" data-translate="craft.card6tag">CSS Custom Props</div>
-        <h3 data-translate="craft.card6title">Variables CSS</h3>
-        <p data-translate="craft.card6desc">Thème complet piloté par <code>:root</code>, modifiable d'une seule ligne.</p>
-      </div>
-    </div>
-
-    <!-- 7 — SVG feTurbulence -->
-    <div class="craft-card" data-craft-index="6">
-      <div class="craft-demo craft-demo--grain" aria-hidden="true">
-        <svg class="cd-grain-svg" xmlns="http://www.w3.org/2000/svg">
-          <filter id="craft-grain">
-            <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch"/>
-            <feColorMatrix type="saturate" values="0"/>
-            <feBlend in="SourceGraphic" mode="overlay"/>
-          </filter>
-          <rect width="100%" height="100%" filter="url(#craft-grain)" opacity="0.22"/>
-        </svg>
-        <div class="cd-grain-label"><code>feTurbulence</code></div>
-      </div>
-      <div class="craft-body">
-        <div class="craft-tag" data-translate="craft.card7tag">SVG Filter</div>
-        <h3 data-translate="craft.card7title">Texture organique</h3>
-        <p data-translate="craft.card7desc">Bruit de grain vivant généré en pur SVG via <code>feTurbulence</code>.</p>
-      </div>
-    </div>
-
-    <!-- 8 — Build léger -->
-    <div class="craft-card" data-craft-index="7">
-      <div class="craft-demo craft-demo--build" aria-hidden="true">
-        <div class="cd-build-compare">
-          <div class="cd-build-item cd-build-tw">
-            <div class="cd-build-name">Tailwind v3</div>
-            <div class="cd-build-bar"><span class="cd-build-fill"></span></div>
-            <div class="cd-build-size">~6 KB</div>
-          </div>
-          <div class="cd-build-item cd-build-fw">
-            <div class="cd-build-name">Bootstrap 5</div>
-            <div class="cd-build-bar"><span class="cd-build-fill"></span></div>
-            <div class="cd-build-size">~160 KB</div>
-          </div>
-        </div>
-      </div>
-      <div class="craft-body">
-        <div class="craft-tag" data-translate="craft.card8tag">Tailwind v3</div>
-        <h3 data-translate="craft.card8title">Build léger</h3>
-        <p data-translate="craft.card8desc">CSS compilé uniquement pour les classes utilisées — 0 superflu.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
 
 <!-- ══════════════════════════════════════
      05 — PORTFOLIO
@@ -1947,7 +1574,7 @@
         </div>
         <div class="pf-bento-info">
           <div class="pf-bento-cat" data-translate="portfolio.chiroCat">Vitrine · WordPress</div>
-          <h3 class="pf-bento-title" data-translate="portfolio.chiroTitle">Chiropracteur</h3>
+          <h3 class="pf-bento-title">chiropracteur-mons.be</h3>
           <p class="pf-bento-desc" data-translate="portfolio.chiroDesc">Site responsive pour un cabinet à Mons — rapide, accessible et pensé pour les conversions.</p>
           <div class="pf-bento-tags">
             <span>WordPress</span><span>Responsive</span>
@@ -1972,7 +1599,7 @@
         </div>
         <div class="pf-bento-info">
           <div class="pf-bento-cat" data-translate="portfolio.hospelCat">Agence · WordPress</div>
-          <h3 class="pf-bento-title" data-translate="portfolio.hospelTitle">Notaire Hospel</h3>
+          <h3 class="pf-bento-title">hospel-notaire.be</h3>
           <p class="pf-bento-desc" data-translate="portfolio.hospelDesc">Thème WordPress custom chez Paf! — build Tailwind via Laravel Mix, carousel Swiper, champs ACF et intégration Google Maps.</p>
           <div class="pf-bento-tags">
             <span>WordPress</span><span>ACF</span><span>TailwindCSS</span><span>Laravel Mix</span><span>Swiper</span><span>PHP</span>
@@ -1997,7 +1624,7 @@
         </div>
         <div class="pf-bento-info">
           <div class="pf-bento-cat" data-translate="portfolio.memisaCat">ONG · Multilingue</div>
-          <h3 class="pf-bento-title" data-translate="portfolio.memisaTitle">Memisa</h3>
+          <h3 class="pf-bento-title">memisa.be</h3>
           <p class="pf-bento-desc" data-translate="portfolio.memisaDesc">Site FR/EN/NL pour l'ONG Memisa, réalisé chez Paf! — WPML, responsive, accessibilité.</p>
           <div class="pf-bento-tags">
             <span>WordPress</span><span>WPML</span><span>Multilingue</span>
@@ -2007,17 +1634,13 @@
     </a>
 
     <!-- 04 — Les Poulettes (wide, no photo) -->
-    <a href="https://poulettes.laurencepirard.be/" target="_blank" class="pf-bento-card pf-bento--wide pf-bento--freelance portfolio-card" data-index="3" rel="noopener noreferrer">
-      <div class="pf-bento-no-bg">
-        <div class="pf-bento-no-bg-inner">
-          <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="none" viewBox="0 0 24 24" stroke="#fbbf24" stroke-width=".8">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3C8 3 5 6 5 9c0 2.5 1.5 4.5 3.5 5.5L8 18h8l-.5-3.5C17.5 13.5 19 11.5 19 9c0-3-3-6-7-6z"/>
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 18v2a1 1 0 001 1h4a1 1 0 001-1v-2"/>
-          </svg>
-          <span class="pf-bento-no-bg-label" style="color:#fbbf24">poulettes.laurencepirard.be</span>
-        </div>
+  
+
+        <!-- <a href="https://lespoulettes.laurencepirard.be/" target="_blank" class="pf-bento-card pf-bento--freelance portfolio-card" data-index="2" rel="noopener noreferrer">
+      <div class="pf-bento-img">
+        <img src="uploads/lespoulettes.png" alt="lespoulettes" loading="lazy" onerror="this.parentElement.style.background='#0f1826'">
+        <div class="pf-bento-overlay"></div>
       </div>
-      <div class="pf-bento-overlay" style="background:linear-gradient(135deg, rgba(6,10,18,.7) 0%, rgba(6,10,18,.3) 100%)"></div>
       <div class="pf-bento-content">
         <div class="pf-bento-top">
           <span class="pf-bento-num">04</span>
@@ -2028,14 +1651,14 @@
         </div>
         <div class="pf-bento-info">
           <div class="pf-bento-cat" data-translate="portfolio.poulettesCat">Perso · Headless CMS</div>
-          <h3 class="pf-bento-title" data-translate="portfolio.poulettesTitle">Les Poulettes</h3>
+          <h3 class="pf-bento-title">lespoulettes.laurencepirard.be</h3>
           <p class="pf-bento-desc" data-translate="portfolio.poulettesDesc">E-commerce de A à Z — Strapi (headless), Vercel et Render. Exploration d'un stack moderne hors agence.</p>
           <div class="pf-bento-tags">
             <span>Strapi</span><span>Vercel</span><span>Render</span><span>Headless</span>
           </div>
         </div>
       </div>
-    </a>
+    </a> -->
 
   </div>
 </section>
@@ -2058,204 +1681,81 @@
 
     <div class="terrain-grid">
 
-      <!-- 1 — WordPress avancé -->
-      <div class="terrain-card terrain-card--hero" data-terrain-index="0">
+      <!-- 1 — WordPress & PHP -->
+      <div class="terrain-card" data-terrain-index="1">
         <div class="terrain-card-head">
           <div class="terrain-icon">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zM3.6 12c0-1.01.173-1.98.487-2.885L7.37 19.77A8.42 8.42 0 0 1 3.6 12zm8.4 8.4a8.368 8.368 0 0 1-2.41-.356l2.56-7.44 2.622 7.185a.37.37 0 0 0 .028.054 8.39 8.39 0 0 1-2.8.557zm1.161-12.285c.507-.027.964-.08.964-.08.454-.054.4-.72-.054-.694 0 0-1.364.107-2.244.107-.827 0-2.218-.107-2.218-.107-.454-.026-.508.666-.054.693 0 0 .43.054.884.08l1.313 3.598-1.844 5.527-3.067-9.125c.507-.027.964-.08.964-.08.454-.054.4-.72-.054-.694 0 0-1.364.107-2.244.107-.158 0-.344-.004-.54-.01A8.4 8.4 0 0 1 12 3.6a8.374 8.374 0 0 1 5.97 2.494c-.037-.002-.073-.006-.112-.006-.827 0-1.414.72-1.414 1.494 0 .694.4 1.28.827 1.974.32.56.694 1.28.694 2.32 0 .72-.277 1.554-.64 2.72l-.84 2.8-3.044-9.081zm3.828 11.127-.027-.053-2.674-7.32c.448-1.146.596-2.063.596-2.882 0-.296-.02-.573-.054-.833A8.402 8.402 0 0 1 20.4 12a8.392 8.392 0 0 1-3.41 6.742z"/></svg>
           </div>
           <div class="terrain-titles">
-            <span class="terrain-domain" data-translate="terrain.card1title">WordPress avancé</span>
-            <span class="terrain-file">functions.php · wp-config.php</span>
+            <span class="terrain-domain" data-translate="terrain.card1title">WordPress & PHP</span>
+            <span class="terrain-file">functions.php · single.php · ACF</span>
           </div>
         </div>
         <ul class="terrain-list">
           <li data-translate="terrain.card1li1">Thèmes custom de A à Z</li>
-          <li data-translate="terrain.card1li2">Hooks, actions, filters</li>
-          <li data-translate="terrain.card1li3">Custom post types & taxonomies</li>
-          <li data-translate="terrain.card1li4"><code>wp_enqueue</code>, menus, widgets</li>
-          <li data-translate="terrain.card1li5">Développement multisite</li>
+          <li data-translate="terrain.card1li2">Hooks, actions, filters, custom post types</li>
+          <li data-translate="terrain.card1li3">ACF — Flexible Content, Repeater, Options</li>
+          <li data-translate="terrain.card1li4">WooCommerce & Formidable Forms</li>
+          <li data-translate="terrain.card1li5">WPML — sites FR / EN / NL</li>
         </ul>
         <div class="terrain-footer-tags">
           <span class="terrain-ftag">PHP</span>
           <span class="terrain-ftag">WordPress</span>
-          <span class="terrain-ftag">Paf! Design</span>
-        </div>
-      </div>
-
-      <!-- 2 — PHP & Templates -->
-      <div class="terrain-card" data-terrain-index="1">
-        <div class="terrain-card-head">
-          <div class="terrain-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          </div>
-          <div class="terrain-titles">
-            <span class="terrain-domain" data-translate="terrain.card2title">PHP & Templates</span>
-            <span class="terrain-file">single.php · template-biens.php</span>
-          </div>
-        </div>
-        <ul class="terrain-list">
-          <li data-translate="terrain.card2li1">Templates page, single, archive</li>
-          <li data-translate="terrain.card2li2">Boucle WP & <code>WP_Query</code> sur mesure</li>
-          <li data-translate="terrain.card2li3">Shortcodes & endpoints AJAX</li>
-          <li data-translate="terrain.card2li4"><code>esc_html</code>, <code>esc_url</code>, <code>esc_attr</code></li>
-          <li data-translate="terrain.card2li5">Contrôles conditionnels & includes</li>
-        </ul>
-        <div class="terrain-footer-tags">
-          <span class="terrain-ftag">PHP</span>
-          <span class="terrain-ftag">WordPress</span>
-          <span class="terrain-ftag">MySQL</span>
-        </div>
-      </div>
-
-      <!-- 3 — ACF & Contenu flexible -->
-      <div class="terrain-card" data-terrain-index="2">
-        <div class="terrain-card-head">
-          <div class="terrain-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="3" rx="1"/><rect x="3" y="10.5" width="18" height="3" rx="1"/><rect x="3" y="16" width="11" height="3" rx="1"/></svg>
-          </div>
-          <div class="terrain-titles">
-            <span class="terrain-domain" data-translate="terrain.card3title">ACF & Contenu flexible</span>
-            <span class="terrain-file">layout-engine.php · footer.php</span>
-          </div>
-        </div>
-        <ul class="terrain-list">
-          <li data-translate="terrain.card3li1"><code>get_field()</code> / <code>the_field()</code></li>
-          <li data-translate="terrain.card3li2">Flexible Content (sections modulaires)</li>
-          <li data-translate="terrain.card3li3">Repeater, galeries d'images</li>
-          <li data-translate="terrain.card3li4">Options pages & champs conditionnels</li>
-          <li data-translate="terrain.card3li5"><code>wp_get_attachment_image()</code></li>
-        </ul>
-        <div class="terrain-footer-tags">
           <span class="terrain-ftag">ACF</span>
-          <span class="terrain-ftag">WordPress</span>
-          <span class="terrain-ftag">Hospel · Chiropracteur</span>
+          <span class="terrain-ftag">WooCommerce</span>
         </div>
       </div>
 
-      <!-- 4 — Front-end JS riche -->
-      <div class="terrain-card" data-terrain-index="3">
+      <!-- 2 — Front-end & CSS -->
+      <div class="terrain-card" data-terrain-index="2">
         <div class="terrain-card-head">
           <div class="terrain-icon">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0z" fill="none"/><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
           </div>
           <div class="terrain-titles">
-            <span class="terrain-domain" data-translate="terrain.card4title">Front-end JS riche</span>
-            <span class="terrain-file">tpl-section_swiper.php · main.js</span>
+            <span class="terrain-domain" data-translate="terrain.card2title">Front-end & CSS</span>
+            <span class="terrain-file">main.js · gulpfile.js · style.scss</span>
           </div>
         </div>
         <ul class="terrain-list">
-          <li data-translate="terrain.card4li1">jQuery, GSAP + ScrollMagic</li>
-          <li data-translate="terrain.card4li2">Swiper, Owl Carousel</li>
-          <li data-translate="terrain.card4li3">Magnific Popup / fslightbox</li>
-          <li data-translate="terrain.card4li4">Lottie (animations SVG web)</li>
-          <li data-translate="terrain.card4li5">Google Maps + MarkerClusterer</li>
+          <li data-translate="terrain.card2li1">GSAP + ScrollMagic, jQuery</li>
+          <li data-translate="terrain.card2li2">Swiper, Lottie, Google Maps</li>
+          <li data-translate="terrain.card2li3">SCSS modulaire (partials, mixins)</li>
+          <li data-translate="terrain.card2li4">TailwindCSS — utility first</li>
+          <li data-translate="terrain.card2li5">Pipeline npm + Gulp / Laravel Mix</li>
         </ul>
         <div class="terrain-footer-tags">
           <span class="terrain-ftag">JS</span>
           <span class="terrain-ftag">GSAP</span>
-          <span class="terrain-ftag">Swiper</span>
-          <span class="terrain-ftag">Lottie</span>
+          <span class="terrain-ftag">SCSS</span>
+          <span class="terrain-ftag">Tailwind</span>
         </div>
       </div>
 
-      <!-- 5 — E-commerce & Formulaires -->
-      <div class="terrain-card" data-terrain-index="4">
-        <div class="terrain-card-head">
-          <div class="terrain-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-          </div>
-          <div class="terrain-titles">
-            <span class="terrain-domain" data-translate="terrain.card5title">E-commerce & Formulaires</span>
-            <span class="terrain-file">woocommerce/ · formidable/</span>
-          </div>
-        </div>
-        <ul class="terrain-list">
-          <li data-translate="terrain.card5li1">WooCommerce — templates & hooks</li>
-          <li data-translate="terrain.card5li2">Formidable Forms (logique métier)</li>
-          <li data-translate="terrain.card5li3">Système inscriptions/événements custom</li>
-          <li data-translate="terrain.card5li4">Tables MySQL sur mesure (<code>Rh00PCm_*</code>)</li>
-          <li data-translate="terrain.card5li5">Validation & traitement serveur</li>
-        </ul>
-        <div class="terrain-footer-tags">
-          <span class="terrain-ftag">WooCommerce</span>
-          <span class="terrain-ftag">MySQL</span>
-          <span class="terrain-ftag">PHP</span>
-        </div>
-      </div>
-
-      <!-- 6 — Build & Architecture SCSS -->
-      <div class="terrain-card" data-terrain-index="5">
+      <!-- 3 — Outils & Process -->
+      <div class="terrain-card" data-terrain-index="3">
         <div class="terrain-card-head">
           <div class="terrain-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/><line x1="12" y1="22" x2="12" y2="15.5"/><polyline points="22 8.5 12 15.5 2 8.5"/></svg>
           </div>
           <div class="terrain-titles">
-            <span class="terrain-domain" data-translate="terrain.card6title">Build & Architecture CSS</span>
-            <span class="terrain-file">gulpfile.js · webpack.mix.js</span>
+            <span class="terrain-domain" data-translate="terrain.card3title">Outils & Process</span>
+            <span class="terrain-file">Git · Drupal · Craft CMS</span>
           </div>
         </div>
         <ul class="terrain-list">
-          <li data-translate="terrain.card6li1">SCSS modulaire (partials, mixins, variables)</li>
-          <li data-translate="terrain.card6li2">Pipeline npm + Gulp → <code>style.css</code></li>
-          <li data-translate="terrain.card6li3">Laravel Mix + TailwindCSS</li>
-          <li data-translate="terrain.card6li4">Assets compilés & optimisés (<code>assets/</code>)</li>
-          <li data-translate="terrain.card6li5">Media-queries & composants réutilisables</li>
+          <li data-translate="terrain.card3li1">Git — workflow feature branches</li>
+          <li data-translate="terrain.card3li2">Drupal & Craft CMS (agence)</li>
+          <li data-translate="terrain.card3li3">SEO — Yoast, structure sémantique</li>
+          <li data-translate="terrain.card3li4">Google Maps API, intégrations tierces</li>
+          <li data-translate="terrain.card3li5">Performance, accessibilité, sécurité WP</li>
         </ul>
         <div class="terrain-footer-tags">
-          <span class="terrain-ftag">SCSS</span>
-          <span class="terrain-ftag">Gulp</span>
-          <span class="terrain-ftag">Tailwind</span>
-          <span class="terrain-ftag">npm</span>
-        </div>
-      </div>
-
-      <!-- 7 — Multilingue & WPML -->
-      <div class="terrain-card" data-terrain-index="6">
-        <div class="terrain-card-head">
-          <div class="terrain-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 010 18M12 3a13 13 0 000 18"/></svg>
-          </div>
-          <div class="terrain-titles">
-            <span class="terrain-domain" data-translate="terrain.card7title">Multilingue & WPML</span>
-            <span class="terrain-file">functions.php · page.php</span>
-          </div>
-        </div>
-        <ul class="terrain-list">
-          <li data-translate="terrain.card7li1">Sites FR / EN / NL avec WPML</li>
-          <li data-translate="terrain.card7li2">Requêtes WPML-aware (post_meta)</li>
-          <li data-translate="terrain.card7li3">Colonnes suffixées par langue</li>
-          <li data-translate="terrain.card7li4"><code>__()</code> / <code>_e()</code> WordPress</li>
-          <li data-translate="terrain.card7li5">Structure sémantique & SEO multilingue</li>
-        </ul>
-        <div class="terrain-footer-tags">
-          <span class="terrain-ftag">WPML</span>
-          <span class="terrain-ftag">Memisa FR/EN/NL</span>
-        </div>
-      </div>
-
-      <!-- 8 — Intégrations & Sécurité -->
-      <div class="terrain-card" data-terrain-index="7">
-        <div class="terrain-card-head">
-          <div class="terrain-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <div class="terrain-titles">
-            <span class="terrain-domain" data-translate="terrain.card8title">Intégrations & Sécurité</span>
-            <span class="terrain-file">wp-config.php · functions.php</span>
-          </div>
-        </div>
-        <ul class="terrain-list">
-          <li data-translate="terrain.card8li1">Google Maps API & ShareThis</li>
-          <li data-translate="terrain.card8li2">Modals & overlays (<code>hs-overlay</code>)</li>
-          <li data-translate="terrain.card8li3">Gestion <code>wp-config.php</code> (constantes, clés)</li>
-          <li data-translate="terrain.card8li4">Sessions & chiffrement AES (formulaires)</li>
-          <li data-translate="terrain.card8li5">Yoast SEO, plugins & performance</li>
-        </ul>
-        <div class="terrain-footer-tags">
-          <span class="terrain-ftag">Sécurité</span>
-          <span class="terrain-ftag">Google Maps</span>
-          <span class="terrain-ftag">Yoast</span>
+          <span class="terrain-ftag">Git</span>
+          <span class="terrain-ftag">Drupal</span>
+          <span class="terrain-ftag">SEO</span>
+          <span class="terrain-ftag">APIs</span>
         </div>
       </div>
 
@@ -2275,7 +1775,7 @@
     </div>
     <p class="contact-headline" data-translate="sections.contactTitle">Un projet en tête ?</p>
     <p class="contact-sub" data-translate="sections.contactText">
-      Disponible pour des missions freelance.
+      Je suis disponible pour des missions freelance.
     </p>
     <div class="contact-btns">
       <a href="mailto:laurencewebdev@gmail.com" class="btn-primary" data-translate="contact.sendEmail">
@@ -2290,7 +1790,7 @@
         </svg>
         LinkedIn
       </a>
-      <a href="cv.html" target="_blank" class="btn-ghost" data-translate="contact.downloadCV">CV ↓</a>
+      <!-- <a href="cv.html" target="_blank" class="btn-ghost" data-translate="contact.downloadCV">CV ↓</a> -->
     </div>
   </section>
 
