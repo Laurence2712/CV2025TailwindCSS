@@ -237,14 +237,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuBtn    = document.getElementById('menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
 
-  if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-    mobileMenu.addEventListener('click', e => {
-      if (e.target.tagName === 'A' || e.target.classList.contains('lang-btn')) {
-        mobileMenu.classList.remove('open');
-      }
-    });
+  const menuOverlay = document.getElementById('menu-overlay');
 
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    menuOverlay && menuOverlay.classList.remove('open');
+  }
+
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      menuOverlay && menuOverlay.classList.toggle('open', isOpen);
+    });
+    mobileMenu.addEventListener('click', e => {
+      if (e.target.tagName === 'A' || e.target.classList.contains('lang-btn')) closeMenu();
+    });
+    menuOverlay && menuOverlay.addEventListener('click', closeMenu);
   }
 
   /* ════════════════════════════════════════
