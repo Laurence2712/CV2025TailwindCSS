@@ -81,6 +81,7 @@ const translations = {
       tag3Institutional: "Stage"
     },
     skills: {
+      swipeHint: "Glisse pour explorer",
       ariaPrev: "Compétence précédente",
       ariaNext: "Compétence suivante",
       htmlDesc: "Sémantique, accessibilité, structure solide.",
@@ -238,8 +239,8 @@ const translations = {
       stat1label: "years of experience",
       stat1: "years of web development experience",
       statCoffeeNum: "7,300+",
-      statCoffeeLabel: "coffees — 4 a day for 5 years",
-      statCoffee: "coffees — 4 a day for 5 years",
+      statCoffeeLabel: "",
+      statCoffee: "☕",
       stat3: "Graduated as a Web Developer — EPFC, Brussels",
       locationLabel: "Brussels, Belgium",
       locationSub: "Europe · UTC+1",
@@ -268,6 +269,7 @@ const translations = {
       tag3Institutional: "Internship"
     },
     skills: {
+      swipeHint: "Swipe to explore",
       ariaPrev: "Previous skill",
       ariaNext: "Next skill",
       htmlDesc: "Semantics, accessibility, solid structure.",
