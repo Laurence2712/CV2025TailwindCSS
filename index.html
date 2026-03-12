@@ -415,6 +415,11 @@
       0%, 100% { opacity: .35; -webkit-text-stroke-color: var(--border); }
       50%       { opacity: .75; -webkit-text-stroke-color: rgba(77,159,255,.3); }
     }
+    .section-head:hover .sn-wm {
+      animation-play-state: paused;
+      opacity: 1; -webkit-text-stroke-color: rgba(77,159,255,.4);
+      transition: opacity .3s, -webkit-text-stroke-color .3s;
+    }
 
     /* bg-light deprecated — all sections use dark theme */
     .bg-light {
