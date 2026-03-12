@@ -31,13 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
       el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
     });
 
-    // Ring "link" sur les cartes portfolio
+    // Ring subtil sur les lignes portfolio
     document.querySelectorAll('.portfolio-card, .pf-row').forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        ring.classList.remove('hovered');
-        ring.classList.add('link-hovered');
-      });
-      el.addEventListener('mouseleave', () => ring.classList.remove('link-hovered'));
+      el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
+      el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
     });
   }
 
