@@ -1,41 +1,87 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ════════════════════════════════════════
-     1. CURSOR RING avec lerp
+     1. CURSOR FILAMENT — canvas trail
   ════════════════════════════════════════ */
-  const ring = document.getElementById('cursor-ring');
-  const dot  = document.getElementById('cursor-dot');
+  const canvas = document.getElementById('cursor-canvas');
 
-  if (ring && dot && window.innerWidth > 768) {
-    let mx = window.innerWidth / 2, my = window.innerHeight / 2;
-    let rx = mx, ry = my;
+  if (canvas && window.innerWidth > 768) {
+    const ctx = canvas.getContext('2d');
+    const N   = 18;   // nombre de points du filament
+    const LF  = 0.14; // facteur LERP (plus petit = plus trainant)
+
+    let mouse = { x: -300, y: -300 };
+    let hovered = false;
+
+    const pts = Array.from({ length: N }, () => ({ x: -300, y: -300 }));
+
+    function resize() {
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
 
     document.addEventListener('mousemove', e => {
-      mx = e.clientX;
-      my = e.clientY;
-      // Le dot suit instantanément
-      dot.style.transform = `translate(${mx - 3}px, ${my - 3}px)`;
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+
+    // Masquer le curseur natif sur desktop
+    document.documentElement.style.cursor = 'none';
+    document.querySelectorAll('a, button').forEach(el => {
+      el.style.cursor = 'none';
+      el.addEventListener('mouseenter', () => { hovered = true; });
+      el.addEventListener('mouseleave', () => { hovered = false; });
     });
 
     const lerp = (a, b, t) => a + (b - a) * t;
+
     (function tick() {
-      rx = lerp(rx, mx, 0.1);
-      ry = lerp(ry, my, 0.1);
-      ring.style.transform = `translate(${rx - 20}px, ${ry - 20}px)`;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Mettre à jour les points avec LERP chaîné
+      pts[0].x = lerp(pts[0].x, mouse.x, LF);
+      pts[0].y = lerp(pts[0].y, mouse.y, LF);
+      for (let i = 1; i < N; i++) {
+        pts[i].x = lerp(pts[i].x, pts[i - 1].x, LF);
+        pts[i].y = lerp(pts[i].y, pts[i - 1].y, LF);
+      }
+
+      // Couleur selon état hover
+      const accent = hovered ? '255,255,255' : '77,159,255';
+
+      // Filament — ligne lissée avec quadraticCurveTo
+      ctx.beginPath();
+      ctx.moveTo(mouse.x, mouse.y);
+      for (let i = 0; i < N - 1; i++) {
+        const mx2 = (pts[i].x + pts[i + 1].x) / 2;
+        const my2 = (pts[i].y + pts[i + 1].y) / 2;
+        ctx.quadraticCurveTo(pts[i].x, pts[i].y, mx2, my2);
+      }
+      ctx.quadraticCurveTo(pts[N - 2].x, pts[N - 2].y, pts[N - 1].x, pts[N - 1].y);
+
+      const grad = ctx.createLinearGradient(mouse.x, mouse.y, pts[N - 1].x, pts[N - 1].y);
+      grad.addColorStop(0,   `rgba(${accent}, ${hovered ? 0.9 : 0.75})`);
+      grad.addColorStop(0.4, `rgba(${accent}, 0.25)`);
+      grad.addColorStop(1,   `rgba(${accent}, 0)`);
+      ctx.strokeStyle = grad;
+      ctx.lineWidth   = hovered ? 1.8 : 1.2;
+      ctx.lineCap     = 'round';
+      ctx.lineJoin    = 'round';
+      ctx.stroke();
+
+      // Point de tête
+      const glow = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, hovered ? 10 : 5);
+      glow.addColorStop(0,   `rgba(${accent}, ${hovered ? 1 : 0.9})`);
+      glow.addColorStop(1,   `rgba(${accent}, 0)`);
+      ctx.beginPath();
+      ctx.arc(mouse.x, mouse.y, hovered ? 10 : 5, 0, Math.PI * 2);
+      ctx.fillStyle = glow;
+      ctx.fill();
+
       requestAnimationFrame(tick);
     })();
-
-    // Agrandir le ring sur les liens / boutons
-    document.querySelectorAll('a, button').forEach(el => {
-      el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
-      el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
-    });
-
-    // Ring subtil sur les lignes portfolio
-    document.querySelectorAll('.portfolio-card, .pf-row').forEach(el => {
-      el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
-      el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
-    });
   }
 
   /* ════════════════════════════════════════
