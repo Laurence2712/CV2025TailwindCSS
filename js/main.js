@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (canvas && window.innerWidth > 768) {
     const ctx = canvas.getContext('2d');
-    const N   = 18;   // nombre de points du filament
-    const LF  = 0.14; // facteur LERP (plus petit = plus trainant)
+    const N   = 8;    // nombre de points du filament
+    const LF  = 0.45; // facteur LERP (plus grand = plus rapide)
 
     let mouse = { x: -300, y: -300 };
     let hovered = false;
