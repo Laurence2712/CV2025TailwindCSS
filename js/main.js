@@ -199,30 +199,16 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.skill-card').forEach((el, i) => {
     el.style.transitionDelay = (i * 80) + 'ms';
   });
-  /* Skill grid — stagger + filter */
-  document.querySelectorAll('.sk-card').forEach((el, i) => {
-    el.style.transitionDelay = (i * 60) + 'ms';
+  /* Skill rows — stagger reveal */
+  document.querySelectorAll('.sk-row').forEach((el, i) => {
+    el.style.transitionDelay = (i * 100) + 'ms';
   });
   const skillObs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       entry.target.classList.toggle('sk-visible', entry.isIntersecting);
     });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.sk-card').forEach(el => skillObs.observe(el));
-
-  /* Skill filters */
-  document.querySelectorAll('.sk-filter').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.sk-filter').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const f = btn.dataset.skFilter;
-      document.querySelectorAll('.sk-card').forEach((card, i) => {
-        const match = f === 'all' || card.dataset.skCat === f;
-        card.classList.toggle('sk-hidden', !match);
-        card.style.transitionDelay = match ? (i * 50) + 'ms' : '0ms';
-      });
-    });
-  });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.sk-row').forEach(el => skillObs.observe(el));
 
   /* ════════════════════════════════════════
      6. CRAFT CARDS — stagger bidirectionnel
