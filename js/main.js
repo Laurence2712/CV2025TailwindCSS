@@ -140,28 +140,22 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ════════════════════════════════════════
-     3. FADE-SLIDE-UP (sections)
+     3. FADE-SLIDE-UP (sections) — bidirectionnel
   ════════════════════════════════════════ */
-  const sectionObs = new IntersectionObserver((entries, obs) => {
+  const sectionObs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        obs.unobserve(entry.target);
-      }
+      entry.target.classList.toggle('visible', entry.isIntersecting);
     });
   }, { threshold: 0.1 });
 
   document.querySelectorAll('.fade-slide-up').forEach(el => sectionObs.observe(el));
 
   /* ════════════════════════════════════════
-     3b. ABOUT — element reveals
+     3b. ABOUT + éléments — bidirectionnel
   ════════════════════════════════════════ */
-  const abObs = new IntersectionObserver((entries, obs) => {
+  const abObs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('ab-visible');
-        obs.unobserve(entry.target);
-      }
+      entry.target.classList.toggle('ab-visible', entry.isIntersecting);
     });
   }, { threshold: 0.15 });
 
@@ -200,29 +194,29 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ════════════════════════════════════════
-     5. SKILL CARDS — stagger
+     5. SKILL CARDS — stagger bidirectionnel
   ════════════════════════════════════════ */
-  const skillObs = new IntersectionObserver((entries, obs) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-        obs.unobserve(entry.target);
-      }
+  document.querySelectorAll('.skill-card').forEach((el, i) => {
+    el.style.transitionDelay = (i * 80) + 'ms';
+  });
+  const skillObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      entry.target.classList.toggle('visible', entry.isIntersecting);
     });
   }, { threshold: 0.15 });
 
   document.querySelectorAll('.skill-card').forEach(el => skillObs.observe(el));
 
   /* ════════════════════════════════════════
-     6. CRAFT CARDS — stagger
+     6. CRAFT CARDS — stagger bidirectionnel
   ════════════════════════════════════════ */
-  const craftObs = new IntersectionObserver((entries, obs) => {
+  document.querySelectorAll('.craft-card').forEach(el => {
+    const delay = parseInt(el.dataset.craftIndex || 0) * 90;
+    el.style.transitionDelay = delay + 'ms';
+  });
+  const craftObs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const delay = parseInt(entry.target.dataset.craftIndex || 0) * 90;
-        setTimeout(() => entry.target.classList.add('visible'), delay);
-        obs.unobserve(entry.target);
-      }
+      entry.target.classList.toggle('visible', entry.isIntersecting);
     });
   }, { threshold: 0.1 });
 
@@ -249,30 +243,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ════════════════════════════════════════
-     7. TERRAIN CARDS — stagger
+     7. TERRAIN CARDS — stagger bidirectionnel
   ════════════════════════════════════════ */
-  const terrainObs = new IntersectionObserver((entries, obs) => {
+  document.querySelectorAll('.terrain-card').forEach(el => {
+    const delay = parseInt(el.dataset.terrainIndex || 0) * 75;
+    el.style.transitionDelay = delay + 'ms';
+  });
+  const terrainObs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const delay = parseInt(entry.target.dataset.terrainIndex || 0) * 75;
-        setTimeout(() => entry.target.classList.add('visible'), delay);
-        obs.unobserve(entry.target);
-      }
+      entry.target.classList.toggle('visible', entry.isIntersecting);
     });
   }, { threshold: 0.08 });
 
   document.querySelectorAll('.terrain-card').forEach(el => terrainObs.observe(el));
 
   /* ════════════════════════════════════════
-     8. PORTFOLIO CARDS — stagger
+     8. PORTFOLIO CARDS — stagger bidirectionnel
   ════════════════════════════════════════ */
-  const portfolioObs = new IntersectionObserver((entries, obs) => {
+  document.querySelectorAll('.portfolio-card').forEach(el => {
+    const delay = parseInt(el.dataset.index || 0) * 120;
+    el.style.transitionDelay = delay + 'ms';
+  });
+  const portfolioObs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const delay = parseInt(entry.target.dataset.index || 0) * 120;
-        setTimeout(() => entry.target.classList.add('visible'), delay);
-        obs.unobserve(entry.target);
-      }
+      entry.target.classList.toggle('visible', entry.isIntersecting);
     });
   }, { threshold: 0.1 });
 
