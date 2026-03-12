@@ -222,6 +222,29 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.portfolio-card').forEach(el => portfolioObs.observe(el));
 
   /* ════════════════════════════════════════
+     8b. PORTFOLIO FILTERS
+  ════════════════════════════════════════ */
+  const pfFilters = document.querySelectorAll('.pf-filter');
+  const pfRows    = document.querySelectorAll('.pf-list .pf-row');
+
+  pfFilters.forEach(btn => {
+    btn.addEventListener('click', () => {
+      pfFilters.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+      pfRows.forEach(row => {
+        const match =
+          filter === 'all' ||
+          (filter === 'freelance' && row.classList.contains('pf-row--freelance')) ||
+          (filter === 'agency'    && row.classList.contains('pf-row--agency'))    ||
+          (filter === 'personal'  && row.classList.contains('pf-row--personal'));
+        row.classList.toggle('pf-hidden', !match);
+      });
+    });
+  });
+
+  /* ════════════════════════════════════════
      7. MENU MOBILE
   ════════════════════════════════════════ */
   const menuBtn    = document.getElementById('menu-btn');

@@ -146,6 +146,9 @@ const translations = {
       card3li5: "Performance, accessibilité, sécurité WP"
     },
     portfolio: {
+      filterAll: "Tous",
+      filterFreelance: "Freelance",
+      filterAgency: "Agence",
       chiroType: "Site professionnel",
       chiroTitle: "Chiropracteur",
       chiroDesc: "Site réalisé pour un chiropracteur à Mons",
@@ -336,6 +339,9 @@ const translations = {
       card3li5: "Performance, accessibility, WP security"
     },
     portfolio: {
+      filterAll: "All",
+      filterFreelance: "Freelance",
+      filterAgency: "Agency",
       chiroType: "Professional Website",
       chiroTitle: "Chiropractor",
       chiroDesc: "Website created for a chiropractor in Mons",

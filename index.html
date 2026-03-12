@@ -729,6 +729,30 @@
     /* ════════════════════════════════════════
        PORTFOLIO — LISTE ÉDITORIALE 2026
     ════════════════════════════════════════ */
+    /* FILTERS */
+    .pf-filters {
+      display: flex; gap: 8px; margin-bottom: 40px;
+    }
+    .pf-filter {
+      font-size: .65rem; letter-spacing: .1em; text-transform: uppercase;
+      padding: 7px 16px; border-radius: 20px; cursor: pointer;
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.4); background: transparent;
+      transition: color .25s, border-color .25s, background .25s;
+    }
+    .pf-filter:hover {
+      color: rgba(255,255,255,.75); border-color: rgba(255,255,255,.25);
+    }
+    .pf-filter.active {
+      color: #fff; border-color: rgba(255,255,255,.35);
+      background: rgba(255,255,255,.07);
+    }
+
+    /* filtered-out rows */
+    .pf-row.pf-hidden {
+      display: none;
+    }
+
     .pf-list { display: flex; flex-direction: column; }
 
     .pf-row {
@@ -1530,6 +1554,12 @@
     </div>
     <div class="section-line"></div>
     <div class="sn-wm" aria-hidden>05</div>
+  </div>
+
+  <div class="pf-filters" role="group" aria-label="Filtrer les projets">
+    <button class="pf-filter active" data-filter="all"    data-translate="portfolio.filterAll">Tous</button>
+    <button class="pf-filter"        data-filter="freelance" data-translate="portfolio.filterFreelance">Freelance</button>
+    <button class="pf-filter"        data-filter="agency"    data-translate="portfolio.filterAgency">Agence</button>
   </div>
 
   <div class="pf-list">
