@@ -581,160 +581,64 @@
     @media (max-width: 600px) { .timeline { padding-left: 32px; } .tl-dot { left: -27px; } }
 
     /* ════════════════════════════════════════
-       SKILLS
+       SKILLS — GRILLE FILTRÉE
     ════════════════════════════════════════ */
-    /* Skills — scrolling rows */
-    .skills-section-inner {
-      max-width: 1200px; margin: 0 auto;
-      padding: 100px 40px 48px;
-    }
-    #skills { overflow: hidden; padding-bottom: 80px; }
-    #skills .skills-section-inner { padding-left: 40px; padding-right: 40px; }
-    .skills-scroll-rows {
-      margin-top: 56px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
-      mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
-    }
-    .skills-marquee-row { overflow: hidden; }
-    .skills-marquee-track {
-      display: flex;
-      gap: 12px;
-      width: max-content;
-      animation: marquee-fwd 40s linear infinite;
-    }
-    .skills-marquee-row--rev .skills-marquee-track {
-      animation: marquee-rev 40s linear infinite;
-    }
-    .skills-scroll-rows:hover .skills-marquee-track {
-      animation-play-state: paused;
-    }
-    @keyframes marquee-fwd {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-    @keyframes marquee-rev {
-      from { transform: translateX(-50%); }
-      to   { transform: translateX(0); }
-    }
-    /* ── Skill cards ── */
-    .skill-scroll-card {
-      width: 280px; height: 240px; flex-shrink: 0;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 14px; padding: 28px 32px; text-align: center;
-      background: #131926;
-      border: 1px solid rgba(77,159,255,.18);
-      border-radius: 16px;
-      position: relative; overflow: hidden;
-      transition: background .4s, border-color .4s;
-      cursor: default;
-    }
-    .skill-scroll-card::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 50% -10%, rgba(77,159,255,.28) 0%, transparent 65%);
-      opacity: 0; transition: opacity .4s; pointer-events: none;
-    }
-    .skill-scroll-card:hover {
-      background: #1a2438;
-      border-color: rgba(77,159,255,.55);
-    }
-    .skill-scroll-card:hover::before { opacity: 1; }
-    .skill-scroll-card .sc-icon {
-      height: 52px; display: flex; align-items: center; justify-content: center;
-    }
-    .skill-scroll-card .sc-icon img,
-    .skill-scroll-card .sc-icon svg {
-      height: 100%; max-width: 100px; object-fit: contain;
-      filter: brightness(.8); transition: filter .35s, transform .4s cubic-bezier(.16,1,.3,1);
-    }
-    .skill-scroll-card:hover .sc-icon img,
-    .skill-scroll-card:hover .sc-icon svg { filter: brightness(1.3); transform: scale(1.08); }
-    .skill-scroll-card h3 { font-size: .75rem; font-weight: 700; color: var(--text); margin: 0; letter-spacing: -.01em; }
-    .skill-scroll-card p  { font-size: .75rem; color: var(--muted); line-height: 1.5; margin: 0; max-width: 220px; }
+    .skills-section-inner { max-width: 1200px; margin: 0 auto; padding: 100px 40px; }
 
-    /* ════════════════════════════════════════
-       SKILLS — MOBILE SCROLL SNAP
-    ════════════════════════════════════════ */
-    @media (max-width: 768px) {
-      #skills { overflow: visible; padding-bottom: 48px; }
-      .skills-section-inner { padding: 60px 0 32px; }
-      .skills-scroll-rows {
-        -webkit-mask-image: none;
-        mask-image: none;
-        gap: 12px;
-        overflow: visible;
-      }
-      .skills-marquee-row {
-        overflow-x: auto;
-        overflow-y: hidden;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        padding: 8px 24px 16px;
-      }
-      .skills-marquee-row::-webkit-scrollbar { display: none; }
-      .skills-marquee-track {
-        animation: none !important;
-        transform: none !important;
-        width: auto;
-        gap: 12px;
-        padding-right: 24px;
-      }
-      .skill-scroll-card {
-        width: 68vw;
-        max-width: 240px;
-        height: 200px;
-        padding: 22px 20px;
-        scroll-snap-align: start;
-      }
-      .skill-scroll-card[aria-hidden="true"] { display: none; }
-      .skill-scroll-card .sc-icon { height: 40px; }
-      .skill-scroll-card h3 { font-size: .9rem; }
-      .skill-scroll-card p  { font-size: .65rem; }
+    .sk-filters {
+      display: flex; gap: 8px; margin: 40px 0 36px; flex-wrap: wrap;
+    }
+    .sk-filter {
+      font-size: .65rem; letter-spacing: .1em; text-transform: uppercase;
+      padding: 7px 16px; border-radius: 20px; cursor: pointer;
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.4); background: transparent;
+      transition: color .25s, border-color .25s, background .25s;
+    }
+    .sk-filter:hover { color: rgba(255,255,255,.75); border-color: rgba(255,255,255,.25); }
+    .sk-filter.active { color: #fff; border-color: rgba(255,255,255,.35); background: rgba(255,255,255,.07); }
+
+    .sk-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 14px;
     }
 
-    /* Swipe hint — mobile only */
-    .swipe-hint {
-      display: none;
+    .sk-card {
+      display: flex; flex-direction: column; gap: 14px;
+      padding: 22px 20px; border-radius: 14px;
+      background: #0f1520;
+      border: 1px solid rgba(255,255,255,.07);
+      opacity: 0; transform: translateY(22px);
+      transition: opacity .5s cubic-bezier(.16,1,.3,1),
+                  transform .5s cubic-bezier(.16,1,.3,1),
+                  border-color .3s, background .3s;
     }
+    .sk-card.sk-visible { opacity: 1; transform: none; }
+    .sk-card.sk-hidden { display: none; }
+    .sk-card:hover { background: #161f30; border-color: rgba(77,159,255,.3); }
+
+    .sk-logo {
+      width: 40px; height: 40px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .sk-logo img, .sk-logo svg {
+      max-width: 40px; max-height: 40px;
+      width: auto; height: auto; object-fit: contain;
+      filter: brightness(.7);
+      transition: filter .3s, transform .35s cubic-bezier(.16,1,.3,1);
+    }
+    .sk-card:hover .sk-logo img,
+    .sk-card:hover .sk-logo svg { filter: brightness(1.2); transform: scale(1.1); }
+
+    .sk-name { font-size: .78rem; font-weight: 700; color: var(--text); letter-spacing: -.01em; }
+    .sk-desc { font-size: .7rem; color: var(--muted); line-height: 1.55; }
+
     @media (max-width: 768px) {
-      .swipe-hint {
-        display: flex; align-items: center; justify-content: center;
-        margin: 20px auto 0;
-        opacity: 0; animation: swipe-hint-in .6s ease .8s forwards;
-      }
-      /* Track */
-      .swipe-track {
-        position: relative;
-        width: 64px; height: 4px;
-        background: rgba(77,159,255,.15);
-        border-radius: 2px;
-      }
-      /* Dot */
-      .swipe-track::after {
-        content: '';
-        position: absolute; top: 50%; left: 0;
-        width: 16px; height: 16px;
-        background: var(--accent);
-        border-radius: 50%;
-        transform: translateY(-50%);
-        box-shadow: 0 0 8px rgba(77,159,255,.5);
-        animation: swipe-dot 1.8s cubic-bezier(.45,0,.55,1) 1.4s infinite;
-      }
-      @keyframes swipe-hint-in {
-        from { opacity: 0; transform: translateY(6px); }
-        to   { opacity: 1; transform: none; }
-      }
-      @keyframes swipe-dot {
-        0%   { left: 0; }
-        45%  { left: calc(100% - 16px); }
-        55%  { left: calc(100% - 16px); }
-        100% { left: 0; }
-      }
+      .sk-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .sk-card { padding: 18px 16px; gap: 10px; }
+      .sk-name { font-size: .75rem; }
+      .sk-desc { display: none; }
     }
 
     /* ════════════════════════════════════════
@@ -1438,117 +1342,68 @@
     </div>
   </div>
 
-  <!-- 2 lignes marquee -->
-  <div class="skills-scroll-rows" aria-label="Compétences techniques">
+  <div class="sk-filters ab-reveal ab-reveal--left">
+    <button class="sk-filter active" data-sk-filter="all"      data-translate="skills.filterAll">Tous</button>
+    <button class="sk-filter"        data-sk-filter="frontend" data-translate="skills.filterFrontend">Frontend</button>
+    <button class="sk-filter"        data-sk-filter="cms"      data-translate="skills.filterCMS">CMS & PHP</button>
+    <button class="sk-filter"        data-sk-filter="headless" data-translate="skills.filterHeadless">Headless</button>
+  </div>
 
-    <!-- Ligne 1 → -->
-    <div class="skills-marquee-row">
-      <div class="skills-marquee-track">
-        <div class="skill-scroll-card">
-          <div class="sc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML5"></div>
-          <h3>HTML5</h3><p data-translate="skills.htmlDesc">Sémantique, accessibilité, structure solide.</p>
-        </div>
-        <div class="skill-scroll-card">
-          <div class="sc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS3"></div>
-          <h3>CSS3 / SCSS</h3><p data-translate="skills.scssDesc">Architecture SCSS modulaire, media-queries et composants réutilisables.</p>
-        </div>
-        <div class="skill-scroll-card">
-          <div class="sc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript"></div>
-          <h3>JavaScript</h3><p data-translate="skills.jsDesc">Vanilla JS, jQuery, GSAP, Swiper, scripts sur mesure.</p>
-        </div>
-        <div class="skill-scroll-card">
-          <div class="sc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" alt="PHP"></div>
-          <h3>PHP</h3><p data-translate="skills.phpDesc">Templates WordPress, shortcodes, AJAX, sorties sécurisées.</p>
-        </div>
-        <div class="skill-scroll-card">
-          <div class="sc-icon" style="color:#38bdf8"><svg viewBox="0 0 38 31" fill="currentColor" style="height:52px;width:auto;max-width:100px"><path d="M25.517 0C18.712 0 14.46 3.382 12.758 10.146c2.552-3.382 5.529-4.65 8.931-3.805 1.941.482 3.329 1.882 4.864 3.432 2.502 2.524 5.398 5.445 11.722 5.445 6.804 0 11.057-3.382 12.758-10.146-2.552 3.382-5.529 4.65-8.931 3.805-1.941-.482-3.329-1.882-4.864-3.432C34.736 2.92 31.841 0 25.517 0zM12.758 15.218C5.954 15.218 1.701 18.6 0 25.364c2.552-3.382 5.529-4.65 8.931-3.805 1.941.482 3.329 1.882 4.864 3.432 2.502 2.524 5.398 5.445 11.722 5.445 6.804 0 11.057-3.382 12.758-10.146-2.552 3.382-5.529 4.65-8.931 3.805-1.941-.482-3.329-1.882-4.864-3.432-2.502-2.524-5.398-5.445-11.722-5.445z"/></svg></div>
-          <h3>TailwindCSS</h3><p data-translate="skills.tailwindDesc">Utility-first, prototypage rapide, cohérence garantie.</p>
-        </div>
-        <div class="skill-scroll-card">
-          <div class="sc-icon"><img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" style="display:none;height:44px;width:44px;fill:currentColor"><path d="M13.6052 0.923525C16.1432 0.923525 18.6137 1.67953 20.7062 3.09703C22.7447 4.47403 24.3512 6.41803 25.3097 8.68603C26.9837 12.6415 26.5382 17.164 24.1352 20.7145C22.7582 22.753 20.8142 24.3595 18.5462 25.318C14.5907 26.992 10.0682 26.5465 6.51772 24.1435C4.47922 22.7665 2.87272 20.8225 1.91422 18.5545C0.240225 14.599 0.685725 10.0765 3.08872 6.52603C4.46572 4.48753 6.40973 2.88103 8.67772 1.92253C10.2302 1.26103 11.9177 0.923525 13.6052 0.923525ZM13.6052 0.113525C6.15322 0.113525 0.105225 6.16153 0.105225 13.6135C0.105225 21.0655 6.15322 27.1135 13.6052 27.1135C21.0572 27.1135 27.1052 21.0655 27.1052 13.6135C27.1052 6.16153 21.0572 0.113525 13.6052 0.113525Z"/><path d="M2.36011 13.6133C2.36011 17.9198 4.81711 21.8618 8.70511 23.7383L3.33211 9.03684C2.68411 10.4813 2.36011 12.0338 2.36011 13.6133ZM21.2061 13.0463C21.2061 11.6558 20.7066 10.6973 20.2746 9.94134C19.8426 9.18534 19.1676 8.22684 19.1676 7.30884C19.1676 6.39084 19.9506 5.31084 21.0576 5.31084H21.2061C16.6296 1.11234 9.51511 1.42284 5.31661 6.01284C4.91161 6.45834 4.53361 6.93084 4.20961 7.43034H4.93861C6.11311 7.43034 7.93561 7.28184 7.93561 7.28184C8.54311 7.24134 8.61061 8.13234 8.00311 8.21334C8.00311 8.21334 7.39561 8.28084 6.72061 8.32134L10.8111 20.5118L13.2681 13.1273L11.5131 8.32134C10.9056 8.28084 10.3386 8.21334 10.3386 8.21334C9.73111 8.17284 9.79861 7.25484 10.4061 7.28184C10.4061 7.28184 12.2691 7.43034 13.3626 7.43034C14.4561 7.43034 16.3596 7.28184 16.3596 7.28184C16.9671 7.24134 17.0346 8.13234 16.4271 8.21334C16.4271 8.21334 15.8196 8.28084 15.1446 8.32134L19.2081 20.4173L20.3691 16.7453C20.8821 15.1388 21.1926 14.0048 21.1926 13.0328L21.2061 13.0463ZM13.7946 14.5853L10.4196 24.3998C12.6876 25.0613 15.1041 25.0073 17.3316 24.2243L17.2506 24.0758L13.7946 14.5853ZM23.4741 8.21334C23.5281 8.59134 23.5551 8.98284 23.5551 9.37434C23.5551 10.5218 23.3391 11.8043 22.7046 13.3973L19.2621 23.3333C24.5271 20.2688 26.4036 13.5593 23.4741 8.21334Z"/></svg></div>
-          <h3>WordPress</h3><p data-translate="skills.wpDesc">Thèmes custom, hooks/filters, templates PHP, post types, menus.</p>
-        </div>
-        <!-- duplicate for seamless loop -->
-        <div class="skill-scroll-card" aria-hidden="true">
-          <div class="sc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt=""></div>
-          <h3>HTML5</h3><p>Sémantique, accessibilité, structure solide.</p>
-        </div>
-        <div class="skill-scroll-card" aria-hidden="true">
-          <div class="sc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt=""></div>
-          <h3>CSS3 / SCSS</h3><p>Architecture SCSS modulaire, media-queries et composants réutilisables.</p>
-        </div>
-        <div class="skill-scroll-card" aria-hidden="true">
-          <div class="sc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt=""></div>
-          <h3>JavaScript</h3><p>Vanilla JS, jQuery, GSAP, Swiper, scripts sur mesure.</p>
-        </div>
-        <div class="skill-scroll-card" aria-hidden="true">
-          <div class="sc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" alt="PHP"></div>
-          <h3>PHP</h3><p>Templates WordPress, shortcodes, AJAX, sorties sécurisées.</p>
-        </div>
-        <div class="skill-scroll-card" aria-hidden="true">
-          <div class="sc-icon" style="color:#38bdf8"><svg viewBox="0 0 38 31" fill="currentColor" style="height:52px;width:auto;max-width:100px"><path d="M25.517 0C18.712 0 14.46 3.382 12.758 10.146c2.552-3.382 5.529-4.65 8.931-3.805 1.941.482 3.329 1.882 4.864 3.432 2.502 2.524 5.398 5.445 11.722 5.445 6.804 0 11.057-3.382 12.758-10.146-2.552 3.382-5.529 4.65-8.931 3.805-1.941-.482-3.329-1.882-4.864-3.432C34.736 2.92 31.841 0 25.517 0zM12.758 15.218C5.954 15.218 1.701 18.6 0 25.364c2.552-3.382 5.529-4.65 8.931-3.805 1.941.482 3.329 1.882 4.864 3.432 2.502 2.524 5.398 5.445 11.722 5.445 6.804 0 11.057-3.382 12.758-10.146-2.552 3.382-5.529 4.65-8.931 3.805-1.941-.482-3.329-1.882-4.864-3.432-2.502-2.524-5.398-5.445-11.722-5.445z"/></svg></div>
-          <h3>TailwindCSS</h3><p>Utility-first, prototypage rapide, cohérence garantie.</p>
-        </div>
-        <div class="skill-scroll-card" aria-hidden="true">
-          <div class="sc-icon"><img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" style="display:none;height:44px;width:44px;fill:currentColor"><path d="M13.6052 0.923525C16.1432 0.923525 18.6137 1.67953 20.7062 3.09703C22.7447 4.47403 24.3512 6.41803 25.3097 8.68603C26.9837 12.6415 26.5382 17.164 24.1352 20.7145C22.7582 22.753 20.8142 24.3595 18.5462 25.318C14.5907 26.992 10.0682 26.5465 6.51772 24.1435C4.47922 22.7665 2.87272 20.8225 1.91422 18.5545C0.240225 14.599 0.685725 10.0765 3.08872 6.52603C4.46572 4.48753 6.40973 2.88103 8.67772 1.92253C10.2302 1.26103 11.9177 0.923525 13.6052 0.923525ZM13.6052 0.113525C6.15322 0.113525 0.105225 6.16153 0.105225 13.6135C0.105225 21.0655 6.15322 27.1135 13.6052 27.1135C21.0572 27.1135 27.1052 21.0655 27.1052 13.6135C27.1052 6.16153 21.0572 0.113525 13.6052 0.113525Z"/><path d="M2.36011 13.6133C2.36011 17.9198 4.81711 21.8618 8.70511 23.7383L3.33211 9.03684C2.68411 10.4813 2.36011 12.0338 2.36011 13.6133ZM21.2061 13.0463C21.2061 11.6558 20.7066 10.6973 20.2746 9.94134C19.8426 9.18534 19.1676 8.22684 19.1676 7.30884C19.1676 6.39084 19.9506 5.31084 21.0576 5.31084H21.2061C16.6296 1.11234 9.51511 1.42284 5.31661 6.01284C4.91161 6.45834 4.53361 6.93084 4.20961 7.43034H4.93861C6.11311 7.43034 7.93561 7.28184 7.93561 7.28184C8.54311 7.24134 8.61061 8.13234 8.00311 8.21334C8.00311 8.21334 7.39561 8.28084 6.72061 8.32134L10.8111 20.5118L13.2681 13.1273L11.5131 8.32134C10.9056 8.28084 10.3386 8.21334 10.3386 8.21334C9.73111 8.17284 9.79861 7.25484 10.4061 7.28184C10.4061 7.28184 12.2691 7.43034 13.3626 7.43034C14.4561 7.43034 16.3596 7.28184 16.3596 7.28184C16.9671 7.24134 17.0346 8.13234 16.4271 8.21334C16.4271 8.21334 15.8196 8.28084 15.1446 8.32134L19.2081 20.4173L20.3691 16.7453C20.8821 15.1388 21.1926 14.0048 21.1926 13.0328L21.2061 13.0463ZM13.7946 14.5853L10.4196 24.3998C12.6876 25.0613 15.1041 25.0073 17.3316 24.2243L17.2506 24.0758L13.7946 14.5853ZM23.4741 8.21334C23.5281 8.59134 23.5551 8.98284 23.5551 9.37434C23.5551 10.5218 23.3391 11.8043 22.7046 13.3973L19.2621 23.3333C24.5271 20.2688 26.4036 13.5593 23.4741 8.21334Z"/></svg></div>
-          <h3>WordPress</h3><p>Thèmes custom, hooks/filters, templates PHP, post types, menus.</p>
-        </div>
-      </div>
+  <div class="sk-grid">
+
+    <!-- FRONTEND -->
+    <div class="sk-card" data-sk-cat="frontend">
+      <div class="sk-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML5"></div>
+      <div><div class="sk-name">HTML5</div><p class="sk-desc" data-translate="skills.htmlDesc">Sémantique, accessibilité, structure solide.</p></div>
+    </div>
+    <div class="sk-card" data-sk-cat="frontend">
+      <div class="sk-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS3 / SCSS"></div>
+      <div><div class="sk-name">CSS3 / SCSS</div><p class="sk-desc" data-translate="skills.cssDesc">Animations, Grid, Flexbox — des interfaces qui respirent.</p></div>
+    </div>
+    <div class="sk-card" data-sk-cat="frontend">
+      <div class="sk-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript"></div>
+      <div><div class="sk-name">JavaScript</div><p class="sk-desc" data-translate="skills.jsDesc">Vanilla JS, jQuery, GSAP, Swiper, scripts sur mesure.</p></div>
+    </div>
+    <div class="sk-card" data-sk-cat="frontend">
+      <div class="sk-logo" style="color:#38bdf8"><svg viewBox="0 0 38 31" fill="currentColor"><path d="M25.517 0C18.712 0 14.46 3.382 12.758 10.146c2.552-3.382 5.529-4.65 8.931-3.805 1.941.482 3.329 1.882 4.864 3.432 2.502 2.524 5.398 5.445 11.722 5.445 6.804 0 11.057-3.382 12.758-10.146-2.552 3.382-5.529 4.65-8.931 3.805-1.941-.482-3.329-1.882-4.864-3.432C34.736 2.92 31.841 0 25.517 0zM12.758 15.218C5.954 15.218 1.701 18.6 0 25.364c2.552-3.382 5.529-4.65 8.931-3.805 1.941.482 3.329 1.882 4.864 3.432 2.502 2.524 5.398 5.445 11.722 5.445 6.804 0 11.057-3.382 12.758-10.146-2.552 3.382-5.529 4.65-8.931 3.805-1.941-.482-3.329-1.882-4.864-3.432-2.502-2.524-5.398-5.445-11.722-5.445z"/></svg></div>
+      <div><div class="sk-name">TailwindCSS</div><p class="sk-desc" data-translate="skills.tailwindDesc">Utility-first, prototypage rapide, cohérence garantie.</p></div>
     </div>
 
-    <!-- Ligne 2 ← -->
-    <div class="skills-marquee-row skills-marquee-row--rev">
-      <div class="skills-marquee-track">
-        <div class="skill-scroll-card">
-          <div class="sc-icon" style="color:#00b9ae"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="height:44px;width:auto"><rect x="3" y="5" width="18" height="3" rx="1"/><rect x="3" y="10.5" width="18" height="3" rx="1"/><rect x="3" y="16" width="11" height="3" rx="1"/></svg></div>
-          <h3>ACF</h3><p data-translate="skills.acfDesc">Champs personnalisés, flexible content, galeries et options pages.</p>
-        </div>
-        <div class="skill-scroll-card">
-          <div class="sc-icon"><img src="https://cdn.simpleicons.org/woocommerce/96588a" alt="WooCommerce"></div>
-          <h3>WooCommerce</h3><p data-translate="skills.wooDesc">E-commerce WordPress — templates, hooks et personnalisation avancée.</p>
-        </div>
-        <div class="skill-scroll-card">
-          <div class="sc-icon"><img src="uploads/wpml-logo-png_seeklogo-339746.png" alt="WPML"></div>
-          <h3>WPML</h3><p data-translate="skills.wpmlDesc">Sites multilingues FR/EN/NL, requêtes WPML-aware, colonnes suffixées.</p>
-        </div>
-        <div class="skill-scroll-card">
-          <div class="sc-icon"><img src="https://cdn.simpleicons.org/strapi/4945FF" alt="Strapi"></div>
-          <h3>Strapi</h3><p data-translate="skills.strapiDesc">CMS headless — API REST & contenu flexible.</p>
-        </div>
-        <div class="skill-scroll-card">
-          <div class="sc-icon"><img src="https://cdn.simpleicons.org/drupal/0678BE" alt="Drupal"></div>
-          <h3>Drupal / Craft</h3><p data-translate="skills.kirbyDesc">CMS robustes pour projets complexes.</p>
-        </div>
-        <!-- duplicate for seamless loop -->
-        <div class="skill-scroll-card" aria-hidden="true">
-          <div class="sc-icon" style="color:#00b9ae"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="height:44px;width:auto"><rect x="3" y="5" width="18" height="3" rx="1"/><rect x="3" y="10.5" width="18" height="3" rx="1"/><rect x="3" y="16" width="11" height="3" rx="1"/></svg></div>
-          <h3>ACF</h3><p>Champs personnalisés, flexible content, galeries et options pages.</p>
-        </div>
-        <div class="skill-scroll-card" aria-hidden="true">
-          <div class="sc-icon"><img src="https://cdn.simpleicons.org/woocommerce/96588a" alt="WooCommerce"></div>
-          <h3>WooCommerce</h3><p>E-commerce WordPress — templates, hooks et personnalisation avancée.</p>
-        </div>
-        <div class="skill-scroll-card" aria-hidden="true">
-          <div class="sc-icon"><img src="uploads/wpml-logo-png_seeklogo-339746.png" alt="WPML"></div>
-          <h3>WPML</h3><p>Sites multilingues FR/EN/NL, requêtes WPML-aware, colonnes suffixées.</p>
-        </div>
-        <div class="skill-scroll-card" aria-hidden="true">
-          <div class="sc-icon"><img src="https://cdn.simpleicons.org/strapi/4945FF" alt="Strapi"></div>
-          <h3>Strapi</h3><p>CMS headless — API REST & contenu flexible.</p>
-        </div>
-        <div class="skill-scroll-card" aria-hidden="true">
-          <div class="sc-icon"><img src="https://cdn.simpleicons.org/drupal/0678BE" alt="Drupal"></div>
-          <h3>Drupal / Craft</h3><p>CMS robustes pour projets complexes.</p>
-        </div>
-      </div>
+    <!-- CMS & PHP -->
+    <div class="sk-card" data-sk-cat="cms">
+      <div class="sk-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" alt="PHP"></div>
+      <div><div class="sk-name">PHP</div><p class="sk-desc" data-translate="skills.phpDesc">Templates WordPress, shortcodes, AJAX, sorties sécurisées.</p></div>
+    </div>
+    <div class="sk-card" data-sk-cat="cms">
+      <div class="sk-logo"><img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress"></div>
+      <div><div class="sk-name">WordPress</div><p class="sk-desc" data-translate="skills.wpDesc">Thèmes custom, hooks/filters, templates PHP, post types, menus.</p></div>
+    </div>
+    <div class="sk-card" data-sk-cat="cms">
+      <div class="sk-logo" style="color:#00b9ae"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="3" rx="1"/><rect x="3" y="10.5" width="18" height="3" rx="1"/><rect x="3" y="16" width="11" height="3" rx="1"/></svg></div>
+      <div><div class="sk-name">ACF</div><p class="sk-desc" data-translate="skills.acfDesc">Champs personnalisés, flexible content, galeries et options pages.</p></div>
+    </div>
+    <div class="sk-card" data-sk-cat="cms">
+      <div class="sk-logo"><img src="https://cdn.simpleicons.org/woocommerce/96588a" alt="WooCommerce"></div>
+      <div><div class="sk-name">WooCommerce</div><p class="sk-desc" data-translate="skills.wooDesc">E-commerce WordPress — templates, hooks et personnalisation avancée.</p></div>
+    </div>
+    <div class="sk-card" data-sk-cat="cms">
+      <div class="sk-logo"><img src="uploads/wpml-logo-png_seeklogo-339746.png" alt="WPML"></div>
+      <div><div class="sk-name">WPML</div><p class="sk-desc" data-translate="skills.wpmlDesc">Sites multilingues FR/EN/NL, requêtes WPML-aware, colonnes suffixées.</p></div>
+    </div>
+
+    <!-- HEADLESS -->
+    <div class="sk-card" data-sk-cat="headless">
+      <div class="sk-logo"><img src="https://cdn.simpleicons.org/strapi/4945FF" alt="Strapi"></div>
+      <div><div class="sk-name">Strapi</div><p class="sk-desc" data-translate="skills.strapiDesc">CMS headless — API REST & contenu flexible.</p></div>
+    </div>
+    <div class="sk-card" data-sk-cat="headless">
+      <div class="sk-logo"><img src="https://cdn.simpleicons.org/drupal/0678BE" alt="Drupal"></div>
+      <div><div class="sk-name">Drupal / Craft</div><p class="sk-desc" data-translate="skills.kirbyDesc">CMS robustes pour projets complexes.</p></div>
     </div>
 
   </div>
 
-  <div class="swipe-hint" aria-hidden="true">
-    <div class="swipe-track"></div>
   </div>
-
 </section>
 
 

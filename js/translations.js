@@ -82,9 +82,10 @@ const translations = {
       tag3Institutional: "Stage"
     },
     skills: {
-      swipeHint: "Glisse pour explorer",
-      ariaPrev: "Compétence précédente",
-      ariaNext: "Compétence suivante",
+      filterAll: "Tous",
+      filterFrontend: "Frontend",
+      filterCMS: "CMS & PHP",
+      filterHeadless: "Headless",
       htmlDesc: "Sémantique, accessibilité, structure solide.",
       cssDesc: "Animations, Grid, Flexbox — des interfaces qui respirent.",
       scssDesc: "Architecture SCSS modulaire, compilation via Gulp/NPM, media-queries et composants réutilisables.",
@@ -275,9 +276,10 @@ const translations = {
       tag3Institutional: "Internship"
     },
     skills: {
-      swipeHint: "Swipe to explore",
-      ariaPrev: "Previous skill",
-      ariaNext: "Next skill",
+      filterAll: "All",
+      filterFrontend: "Frontend",
+      filterCMS: "CMS & PHP",
+      filterHeadless: "Headless",
       htmlDesc: "Semantics, accessibility, solid structure.",
       cssDesc: "Animations, Grid, Flexbox — interfaces that breathe.",
       scssDesc: "Modular SCSS architecture, Gulp/NPM compilation, media-queries and reusable components.",
