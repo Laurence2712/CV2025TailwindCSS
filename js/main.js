@@ -154,6 +154,20 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.fade-slide-up').forEach(el => sectionObs.observe(el));
 
   /* ════════════════════════════════════════
+     3b. ABOUT — element reveals
+  ════════════════════════════════════════ */
+  const abObs = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('ab-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.ab-reveal').forEach(el => abObs.observe(el));
+
+  /* ════════════════════════════════════════
      4. TIMELINE BIDIRECTIONNELLE
   ════════════════════════════════════════ */
   const timelineLine = document.getElementById('timelineLine');
