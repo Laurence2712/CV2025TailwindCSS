@@ -409,7 +409,11 @@
       -webkit-text-stroke: 1px var(--border);
       line-height: 1;
       pointer-events: none; user-select: none;
-      opacity: 0.5;
+      animation: sn-wm-pulse 4s ease-in-out infinite;
+    }
+    @keyframes sn-wm-pulse {
+      0%, 100% { opacity: .35; -webkit-text-stroke-color: var(--border); }
+      50%       { opacity: .75; -webkit-text-stroke-color: rgba(77,159,255,.3); }
     }
 
     /* bg-light deprecated — all sections use dark theme */
