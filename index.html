@@ -832,6 +832,20 @@
       border-color: rgba(251,191,36,.5); color: #fbbf24; background: rgba(251,191,36,.1);
     }
 
+    /* PERSONAL / WIP row */
+    .pf-row--personal { cursor: default; }
+    .pf-row--personal:hover .pf-row-title { transform: none; }
+    .pf-row--personal:hover .pf-row-cat,
+    .pf-row--personal:hover .pf-row-desc { transform: none; }
+    .pf-row-badge--wip {
+      font-size: .6rem; letter-spacing: .08em; text-transform: uppercase;
+      padding: 4px 9px; border-radius: 20px;
+      border: 1px solid rgba(250,204,21,.4);
+      color: #facc15; background: rgba(250,204,21,.08);
+      white-space: nowrap;
+    }
+    .pf-row--personal::before { display: none; }
+
     /* IMAGE REVEAL depuis la droite */
     .pf-row-img {
       position: absolute; right: 0; top: 0; bottom: 0; width: 360px;
@@ -1538,7 +1552,7 @@
       <div class="pf-row-body">
         <h3 class="pf-row-title">hospel-notaire.be</h3>
         <div class="pf-row-meta">
-          <span class="pf-row-cat" data-translate="portfolio.hospelCat">Agence · WordPress</span>
+          <span class="pf-row-cat" data-translate="portfolio.hospelCat">Agence</span>
           <div class="pf-row-tags"><span>WordPress</span><span>ACF</span><span>TailwindCSS</span><span>Swiper</span><span>PHP</span></div>
         </div>
         <p class="pf-row-desc" data-translate="portfolio.hospelDesc">Thème WordPress custom chez Paf! — build Tailwind via Laravel Mix, carousel Swiper, champs ACF et intégration Google Maps.</p>
@@ -1562,7 +1576,7 @@
         <h3 class="pf-row-title">memisa.be</h3>
         <div class="pf-row-meta">
           <span class="pf-row-cat" data-translate="portfolio.memisaCat">ONG · Multilingue</span>
-          <div class="pf-row-tags"><span>WordPress</span><span>WPML</span><span>Multilingue</span></div>
+          <div class="pf-row-tags"><span>WordPress</span><span>WPML</span></div>
         </div>
         <p class="pf-row-desc" data-translate="portfolio.memisaDesc">Site FR/EN/NL pour l'ONG Memisa, réalisé chez Paf! — WPML, responsive, accessibilité.</p>
       </div>
@@ -1577,6 +1591,22 @@
         <div class="pf-row-img-fade"></div>
       </div>
     </a>
+
+    <!-- 04 — Les Poulettes -->
+    <div class="pf-row pf-row--personal portfolio-card" data-index="3">
+      <span class="pf-row-num">04</span>
+      <div class="pf-row-body">
+        <h3 class="pf-row-title" data-translate="portfolio.poulettesTitle">Les Poulettes</h3>
+        <div class="pf-row-meta">
+          <span class="pf-row-cat" data-translate="portfolio.poulettesCat">Perso · Headless CMS</span>
+          <div class="pf-row-tags"><span>Strapi</span><span>JavaScript</span><span>Vercel</span><span>Render</span></div>
+        </div>
+        <p class="pf-row-desc" data-translate="portfolio.poulettesDesc">E-commerce de A à Z — Strapi (headless), Vercel et Render. Exploration d'un stack moderne hors agence.</p>
+      </div>
+      <div class="pf-row-right">
+        <span class="pf-row-badge pf-row-badge--wip" data-translate="portfolio.wipBadge">En cours</span>
+      </div>
+    </div>
 
   </div>
 </section>

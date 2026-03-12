@@ -162,6 +162,7 @@ const translations = {
       poulettesTitle: "Les Poulettes",
       poulettesDesc: "E-commerce de A à Z — Strapi (headless), Vercel et Render. Exploration d'un stack moderne hors agence.",
       poulettesCat: "Perso · Headless CMS",
+      wipBadge: "En cours",
       tags: {
         professional: "Professionnel",
         responsive: "Responsive",
@@ -351,6 +352,7 @@ const translations = {
       poulettesTitle: "Les Poulettes",
       poulettesDesc: "E-commerce from scratch — Strapi (headless), Vercel and Render. Exploring a modern stack outside the agency.",
       poulettesCat: "Personal · Headless CMS",
+      wipBadge: "In progress",
       tags: {
         professional: "Professional",
         responsive: "Responsive",
