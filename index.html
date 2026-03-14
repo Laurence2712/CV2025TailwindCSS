@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title data-translate="pageTitle">Laurence Pirard — Front-End Developer</title>
+  <title data-translate="pageTitle"></title>
   <meta name="description" content="Laurence Pirard — Front-End Developer based in Brussels. WordPress, TailwindCSS, JavaScript, PHP." />
-  <!-- Open Graph -->
+  
   <meta property="og:type"        content="website" />
   <meta property="og:url"         content="https://laurence2712.github.io/CV2025TailwindCSS/" />
   <meta property="og:title"       content="Laurence Pirard — Front-End Developer" />
@@ -42,9 +42,7 @@
       color: var(--text);
       line-height: 1.65;
       overflow-x: hidden;
-      cursor: none;
     }
-    @media (max-width: 768px) { body { cursor: auto; } }
 
     /* ════════════════════════════════════════
        SCROLLBAR
@@ -57,12 +55,6 @@
     /* ════════════════════════════════════════
        CURSOR RING
     ════════════════════════════════════════ */
-    #cursor-canvas {
-      position: fixed; inset: 0; z-index: 9998;
-      pointer-events: none; width: 100%; height: 100%;
-    }
-    @media (max-width: 768px) { #cursor-canvas { display: none; } }
-    @media (max-width: 768px) { * { cursor: auto !important; } }
 
     /* ════════════════════════════════════════
        LINE REVEAL — .rc / .rl
@@ -362,6 +354,7 @@
     }
     @media (max-width: 640px) {
       .hero-topbar { flex-wrap: wrap; gap: 6px; }
+      .hero-name-line { font-size: clamp(48px, 13vw, 72px); white-space: nowrap; }
       .hero-name-row2 { flex-direction: row; align-items: flex-end; justify-content: space-between; }
       .hero-portrait { width: 110px; height: 146px; margin-right: 0; }
       .hero-footer { flex-direction: column; align-items: flex-start; }
@@ -561,9 +554,9 @@
     .tl-item.visible .tl-desc ul li:nth-child(6) { animation-delay: .38s; }
     .tl-item.visible .tl-desc ul li:nth-child(7) { animation-delay: .44s; }
     .tl-item.visible .tl-desc ul li:nth-child(8) { animation-delay: .50s; }
-    /* Stack tags */
-    .tl-stack-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 14px; }
-    .tl-stack-tag { font-size: .65rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: rgba(255,255,255,.55); border: 1px solid rgba(255,255,255,.12); border-radius: 4px; padding: 2px 7px; background: rgba(255,255,255,.04); }
+    /* Stack line */
+    .tl-stack-line { font-size: .75rem; color: rgba(255,255,255,.35); margin: 6px 0 0; line-height: 1.6; }
+    .tl-stack-line strong { color: rgba(255,255,255,.5); font-weight: 500; }
     /* 2-col layout experience */
     .tl-two-cols { display: grid; grid-template-columns: 1fr auto; gap: 0 32px; align-items: start; }
     .tl-col-side { min-width: 150px; padding-left: 24px; border-left: 1px solid var(--border); display: flex; flex-direction: column; justify-content: flex-start; }
@@ -581,73 +574,77 @@
     @media (max-width: 600px) { .timeline { padding-left: 32px; } .tl-dot { left: -27px; } }
 
     /* ════════════════════════════════════════
-       SKILLS — RANGÉES PAR CATÉGORIE
+       SKILLS — MARQUEE AUTOMATIQUE
     ════════════════════════════════════════ */
-    .skills-section-inner { max-width: 1200px; margin: 0 auto; padding: 100px 40px; }
+    .skills-section-inner { max-width: 1200px; margin: 0 auto; padding: 100px 40px 20px; }
 
-    .sk-rows { display: flex; flex-direction: column; margin-top: 48px; }
-
-    .sk-row {
-      display: grid; grid-template-columns: 140px 1fr;
-      align-items: flex-start; gap: 32px;
-      padding: 32px 0;
-      border-bottom: 1px solid rgba(255,255,255,.06);
-      opacity: 0; transform: translateY(18px);
-      transition: opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1);
+    /* Marquee slider */
+    .skills-scroll-rows {
+      margin-bottom: 32px; overflow: hidden;
+      display: flex; flex-direction: column; gap: 16px;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
     }
-    .sk-row:first-child { border-top: 1px solid rgba(255,255,255,.06); }
-    .sk-row.sk-visible { opacity: 1; transform: none; }
-
-    .sk-row-label {
-      font-size: .65rem; font-weight: 700; letter-spacing: .12em;
-      text-transform: uppercase; color: rgba(255,255,255,.3);
-      padding-top: 10px; line-height: 1;
+    .skills-marquee-row { overflow: hidden; }
+    .skills-marquee-track {
+      display: flex; gap: 16px; width: max-content;
+      animation: marquee-fwd 40s linear infinite;
     }
+    .skills-marquee-row--rev .skills-marquee-track { animation: marquee-rev 40s linear infinite; }
+    .skills-scroll-rows:hover .skills-marquee-track { animation-play-state: paused; }
+    @keyframes marquee-fwd { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @keyframes marquee-rev { from { transform: translateX(-50%); } to { transform: translateX(0); } }
 
-    .sk-items {
-      display: flex; flex-wrap: wrap; gap: 8px;
-    }
-
-    .sk-item {
-      display: flex; align-items: center; gap: 10px;
-      padding: 8px 14px; border-radius: 10px;
-      border: 1px solid rgba(255,255,255,.07);
-      background: rgba(255,255,255,.02);
+    .skill-card {
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: flex-start; gap: 14px;
+      width: 260px; flex-shrink: 0;
+      padding: 32px 24px; text-align: center;
+      background: #0f1520; border: 1px solid rgba(255,255,255,.07);
+      border-radius: 16px; position: relative; overflow: hidden;
+      transition: border-color .3s, background .3s;
       cursor: default;
-      transition: border-color .25s, background .25s, transform .3s cubic-bezier(.16,1,.3,1);
     }
-    .sk-item:hover {
-      border-color: rgba(77,159,255,.3);
-      background: rgba(77,159,255,.05);
-      transform: translateY(-2px);
+    .skill-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% -10%, rgba(77,159,255,.2) 0%, transparent 65%);
+      opacity: 0; transition: opacity .35s; pointer-events: none;
     }
+    .skill-card:hover { background: #161f30; border-color: rgba(77,159,255,.3); }
+    .skill-card:hover::before { opacity: 1; }
 
-    .sk-logo {
-      width: 22px; height: 22px; flex-shrink: 0;
+    .sc-icon {
+      width: 56px; height: 56px; flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
     }
-    .sk-logo img, .sk-logo svg {
-      max-width: 22px; max-height: 22px;
+    .sc-icon img, .sc-icon svg {
+      max-width: 56px; max-height: 56px;
       width: auto; height: auto; object-fit: contain;
-      filter: brightness(.7);
-      transition: filter .3s;
+      filter: brightness(.75);
+      transition: filter .3s, transform .35s cubic-bezier(.16,1,.3,1);
     }
-    .sk-item:hover .sk-logo img,
-    .sk-item:hover .sk-logo svg { filter: brightness(1.3); }
-
-    .sk-name {
-      font-size: .75rem; font-weight: 600;
-      color: rgba(255,255,255,.7); white-space: nowrap;
-      transition: color .25s;
-    }
-    .sk-item:hover .sk-name { color: #fff; }
+    .skill-card:hover .sc-icon img,
+    .skill-card:hover .sc-icon svg { filter: brightness(1.25); transform: scale(1.1); }
+    .skill-card h3 { font-size: .82rem; font-weight: 700; color: var(--text); margin: 0; }
+    .skill-card p  { font-size: .7rem; color: var(--muted); line-height: 1.6; margin: 0; }
 
     @media (max-width: 768px) {
-      .sk-row { grid-template-columns: 1fr; gap: 16px; padding: 24px 0; }
-      .sk-row-label { padding-top: 0; }
-      .sk-items { gap: 6px; }
-      .sk-item { padding: 7px 12px; }
-      .sk-name { font-size: .72rem; }
+      .skills-scroll-rows { -webkit-mask-image: none; mask-image: none; }
+      .skills-marquee-row {
+        overflow-x: auto; scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch; scrollbar-width: none;
+        padding: 8px 20px 16px;
+      }
+      .skills-marquee-row::-webkit-scrollbar { display: none; }
+      .skills-marquee-track {
+        animation: none !important; transform: none !important;
+        width: auto; padding-right: 20px;
+      }
+      .skill-card {
+        width: 70vw; max-width: 260px;
+        scroll-snap-align: start; padding: 24px 20px;
+      }
+      .skill-card[aria-hidden="true"] { display: none; }
     }
 
     /* ════════════════════════════════════════
@@ -780,14 +777,9 @@
       border-color: rgba(251,191,36,.5); color: #fbbf24; background: rgba(251,191,36,.1);
     }
 
-    /* PERSONAL / WIP row */
-    .pf-row--personal { cursor: default; opacity: .6; }
-    .pf-row--personal .pf-row-cat { color: #fbbf24; }
-    .pf-row--personal:hover { opacity: .75; }
-    .pf-row--personal:hover .pf-row-title { transform: none; color: rgba(255,255,255,.75); }
-    .pf-row--personal:hover .pf-row-cat,
-    .pf-row--personal:hover .pf-row-desc { transform: none; }
-    .pf-row--personal::before { display: none; }
+    /* WIP row — pas de lien, pas de sweep */
+    .pf-row--wip { cursor: default; }
+    .pf-row--wip::before { display: none; }
     /* WIP indicator — point clignotant + texte */
     .pf-wip {
       display: flex; align-items: center; gap: 7px;
@@ -835,17 +827,42 @@
     /* ════════════════════════════════════════
        CONTACT
     ════════════════════════════════════════ */
+    .contact-inner {
+      max-width: 1200px; margin: 0 auto;
+    }
+    .contact-photo {
+      position: relative; border-radius: 20px; overflow: hidden;
+      aspect-ratio: 3/4; opacity: 0; transform: translateX(-32px);
+      transition: opacity .8s ease, transform .8s cubic-bezier(.16,1,.3,1);
+    }
+    .contact-photo.ct-visible { opacity: 1; transform: none; }
+    .contact-photo img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(.7) saturate(.6);
+      transition: filter .5s, transform .5s cubic-bezier(.16,1,.3,1);
+    }
+    .contact-photo:hover img { filter: brightness(.85) saturate(.8); transform: scale(1.03); }
+    .contact-photo::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(8,12,20,.6) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .contact-content { opacity: 0; transform: translateY(24px); transition: opacity .7s ease .15s, transform .7s cubic-bezier(.16,1,.3,1) .15s; }
+    .contact-content.ct-visible { opacity: 1; transform: none; }
     .contact-headline {
-      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
       font-weight: 900; line-height: 1.1;
       margin-bottom: 20px; color: var(--text);
     }
     .contact-sub {
       font-size: .95rem; color: var(--muted);
-      max-width: 480px; margin: 0 auto 40px;
-      line-height: 1.8;
+      margin-bottom: 40px; line-height: 1.8;
     }
-    .contact-btns { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+    .contact-btns { display: flex; flex-wrap: wrap; gap: 14px; }
+    @media (max-width: 768px) {
+      .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+      .contact-photo { aspect-ratio: 4/3; max-height: 280px; }
+    }
 
     /* ════════════════════════════════════════
        FOOTER
@@ -1074,33 +1091,28 @@
 </head>
 <body>
 
-<!-- Curseur filament -->
-<canvas id="cursor-canvas"></canvas>
 
-<!-- ══════════════════════════════════════
-     NAVIGATION
-══════════════════════════════════════ -->
 <header id="main-header">
   <div class="nav-inner">
     <a href="#" class="nav-logo">
       <svg width="46" height="42" viewBox="0 0 46 42" fill="none" stroke="#4d9fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-        <!-- Shared vertical stem -->
+        
         <line x1="9" y1="4" x2="9" y2="38"/>
-        <!-- L crossbar -->
+        
         <line x1="9" y1="38" x2="24" y2="38"/>
-        <!-- P bowl (arc from top of stem, loops right and back to midpoint) -->
+        
         <path d="M9 4 C9 4 38 4 38 15 C38 26 9 26 9 26" fill="none"/>
       </svg>
     </a>
 
     <nav class="nav-links" id="nav-desktop">
-      <a href="#about"      class="nav-link" data-translate="nav.about">À propos</a>
-      <a href="#experience" class="nav-link" data-translate="nav.experience">Expérience</a>
-      <a href="#skills"     class="nav-link" data-translate="nav.skills">Compétences</a>
-      <a href="#portfolio"  class="nav-link" data-translate="nav.portfolio">Portfolio</a>
-      <a href="#terrain"    class="nav-link" data-translate="nav.terrain">En production</a>
-      <a href="#contact"    class="nav-link" data-translate="nav.contact">Contact</a>
-      <!-- <a href="cv.html" target="_blank" class="nav-cv" data-translate="nav.cv">CV ↓</a> -->
+      <a href="#about"      class="nav-link" data-translate="nav.about"></a>
+      <a href="#experience" class="nav-link" data-translate="nav.experience"></a>
+      <a href="#skills"     class="nav-link" data-translate="nav.skills"></a>
+      <a href="#portfolio"  class="nav-link" data-translate="nav.portfolio"></a>
+      <a href="#terrain"    class="nav-link" data-translate="nav.terrain"></a>
+      <a href="#contact"    class="nav-link" data-translate="nav.contact"></a>
+      
     </nav>
 
     <div class="nav-langs">
@@ -1116,21 +1128,19 @@
   </div>
 
   <div id="mobile-menu">
-    <a href="#about"      data-translate="nav.about">À propos</a>
-    <a href="#experience" data-translate="nav.experience">Expérience</a>
-    <a href="#skills"     data-translate="nav.skills">Compétences</a>
-    <a href="#portfolio"  data-translate="nav.portfolio">Portfolio</a>
-    <a href="#terrain"    data-translate="nav.terrain">En production</a>
-    <a href="#contact"    data-translate="nav.contact">Contact</a>
+    <a href="#about"      data-translate="nav.about"></a>
+    <a href="#experience" data-translate="nav.experience"></a>
+    <a href="#skills"     data-translate="nav.skills"></a>
+    <a href="#portfolio"  data-translate="nav.portfolio"></a>
+    <a href="#terrain"    data-translate="nav.terrain"></a>
+    <a href="#contact"    data-translate="nav.contact"></a>
   </div>
 </header>
 <div id="menu-overlay"></div>
 
-<!-- ══════════════════════════════════════
-     HERO — ÉDITORIAL
-══════════════════════════════════════ -->
+
 <section id="hero">
-  <!-- Grain texture -->
+  
   <svg class="hero-noise" xmlns="http://www.w3.org/2000/svg">
     <filter id="noise-f">
       <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" stitchTiles="stitch"/>
@@ -1141,20 +1151,20 @@
 
   <div class="hero-wrap">
 
-    <!-- Top bar : statut + localisation -->
+
     <div class="hero-topbar reveal-group">
       <div class="hero-status">
         <span class="status-pulse" aria-hidden></span>
         <div class="rc">
-          <span class="rl" data-translate="hero.available">Disponible pour missions freelance</span>
+          <span class="rl" data-translate="hero.available"></span>
         </div>
       </div>
       <div class="hero-meta-right rc">
-        <span class="rl" data-translate="hero.location">Bruxelles · 2026</span>
+        <span class="rl" data-translate="hero.location"></span>
       </div>
     </div>
 
-    <!-- Nom massif -->
+
     <div class="hero-body">
       <div class="hero-name-block reveal-group">
         <div class="hero-name-row1">
@@ -1162,14 +1172,14 @@
             <span class="hl" style="--i:0">L</span><span class="hl" style="--i:1">a</span><span class="hl" style="--i:2">u</span><span class="hl" style="--i:3">r</span><span class="hl" style="--i:4">e</span><span class="hl" style="--i:5">n</span><span class="hl" style="--i:6">c</span><span class="hl" style="--i:7">e</span>
           </div>
           <span class="hero-eyebrow-inline rc">
-            <span class="rl" style="display:inline-block" data-translate="hero.eyebrow">Front-End Developer</span>
+            <span class="rl" style="display:inline-block" data-translate="hero.eyebrow"></span>
           </span>
         </div>
         <div class="hero-name-row2">
           <div class="hero-name-line">
             <span class="hl" style="--i:9">P</span><span class="hl" style="--i:10">i</span><span class="hl" style="--i:11">r</span><span class="hl" style="--i:12">a</span><span class="hl" style="--i:13">r</span><span class="hl" style="--i:14">d</span>
           </div>
-          <!-- Portrait photo -->
+          
           <div class="hero-portrait">
             <img src="uploads/image_portfolio.jpeg" alt="Laurence Pirard"
               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
@@ -1182,38 +1192,34 @@
       </div>
     </div>
 
-    <!-- CTA -->
+
     <div class="hero-footer reveal-group">
       <div class="hero-ctas">
         <a href="#portfolio" class="btn-primary" data-translate="hero.ctaProjects">
-          Voir mes projets
           <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
           </svg>
         </a>
-        <a href="#contact" class="btn-ghost" data-translate="hero.ctaContact">Me contacter</a>
-        <!-- <a href="cv.html" target="_blank" class="btn-ghost" data-translate="hero.ctaCV">CV ↓</a> -->
+        <a href="#contact" class="btn-ghost" data-translate="hero.ctaContact"></a>
+        
       </div>
     </div>
 
-    <!-- Indicateur de scroll -->
+
     <div class="hero-scroll" aria-hidden>
       <div class="scroll-line-anim"></div>
-      <span data-translate="hero.scrollHint">scroll</span>
+      <span data-translate="hero.scrollHint"></span>
     </div>
 
   </div>
 </section>
 
 
-<!-- ══════════════════════════════════════
-     01 — À PROPOS
-══════════════════════════════════════ -->
 <section id="about" class="section fade-slide-up">
     <div class="section-head">
       <div class="section-num-label">
         <span class="sn">01</span>
-        <span class="sl" data-translate="sections.aboutTitle">À propos</span>
+        <span class="sl" data-translate="sections.aboutTitle"></span>
       </div>
       <div class="section-line"></div>
       <div class="sn-wm" aria-hidden>01</div>
@@ -1221,45 +1227,33 @@
 
     <div class="about-grid">
       <div>
-        <p class="about-text ab-reveal ab-reveal--left" data-translate="sections.aboutText">
-          Front-End Developer basée à Bruxelles. Spécialisée <strong>WordPress, TailwindCSS, JavaScript et PHP</strong>,
-          je transforme vos idées en sites web performants, mobile first et accessibles — de la maquette à la mise en ligne.
-        </p>
+        <p class="about-text ab-reveal ab-reveal--left" data-translate="sections.aboutText"></p>
       </div>
       <div class="about-details">
         <div class="about-stat ab-reveal" style="--ab-delay:0ms">
           <strong>5+</strong>
-          <span data-translate="about.stat1">ans d'expérience en développement web</span>
+          <span data-translate="about.stat1"></span>
         </div>
 
         <div class="about-stat ab-reveal" style="--ab-delay:120ms">
           <strong>2020</strong>
-          <span data-translate="about.stat3">Diplômée en tant que Web Developer — EPFC, Bruxelles</span>
+          <span data-translate="about.stat3"></span>
         </div>
            <div class="about-stat ab-reveal" style="--ab-delay:240ms">
           <strong>7 300+</strong>
           <span data-translate="about.statCoffee" style="font-size: 1.6rem;"></span>
         </div>
-        <!-- <div style="margin-top:8px">
-          <a href="cv.html" target="_blank" class="btn-primary" style="display:inline-flex" data-translate="about.downloadCV">
-            Télécharger mon CV
-            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-            </svg>
-          </a>
-        </div> -->
+        
       </div>
     </div>
   </section>
 
-<!-- ══════════════════════════════════════
-     02 — EXPÉRIENCE
-══════════════════════════════════════ -->
+
 <section id="experience" class="section">
   <div class="section-head fade-slide-up">
     <div class="section-num-label">
       <span class="sn">02</span>
-      <span class="sl" data-translate="sections.experienceTitle">Expérience</span>
+      <span class="sl" data-translate="sections.experienceTitle"></span>
     </div>
     <div class="section-line"></div>
     <div class="sn-wm" aria-hidden>02</div>
@@ -1273,147 +1267,182 @@
       <p class="tl-year" data-translate="experience.date1"></p>
       <h3 class="tl-title" data-translate="experience.title1"></h3>
       <p class="tl-company" data-translate="experience.company1"></p>
-      <p class="tl-desc" data-translate="experience.desc1">
-        Conception et développement de sites web sur mesure. Gestion complète des projets :
-        découverte, maquette, intégration, déploiement, maintenance. Je mène aussi des projets
-        personnels pour explorer de nouvelles technologies et garder une veille active.
-      </p>
-      <div class="tl-stack-tags">
-        <span class="tl-stack-tag">WordPress</span>
-        <span class="tl-stack-tag">TailwindCSS</span>
-        <span class="tl-stack-tag">JavaScript</span>
-        <span class="tl-stack-tag">Responsive</span>
-      </div>
+      <p class="tl-desc" data-translate="experience.desc1"></p>
     </div>
 
     <div class="tl-item" data-delay="150">
       <div class="tl-dot"></div>
-      <p class="tl-year" data-translate="experience.date2">Juil. 2021 – Présent</p>
-      <h3 class="tl-title" data-translate="experience.title2">Front-End Developer</h3>
-      <p class="tl-company" data-translate="experience.company2"><a href="https://pafdesign.be/" target="_blank" rel="noopener noreferrer">Paf! Design</a> · Bruxelles</p>
-      <div class="tl-desc" data-translate="experience.desc2">
-        Développement de thèmes WordPress sur-mesure.
-      </div>
+      <p class="tl-year" data-translate="experience.date2"></p>
+      <h3 class="tl-title" data-translate="experience.title2"></h3>
+      <p class="tl-company" data-translate="experience.company2"><a href="https://pafdesign.be/" target="_blank" rel="noopener noreferrer">Paf! Design</a></p>
+      <div class="tl-desc" data-translate="experience.desc2"></div>
     </div>
 
     <div class="tl-item" data-delay="300">
       <div class="tl-dot"></div>
-      <p class="tl-year" data-translate="experience.date3">Oct. 2018 – Jan. 2019 · Stage</p>
-      <h3 class="tl-title" data-translate="experience.title3">Front-End Developer Intern</h3>
-      <p class="tl-company" data-translate="experience.company3">MFM Digital · Bruxelles</p>
-      <p class="tl-desc" data-translate="experience.desc3">
-        Stage en entreprise dans le cadre de la formation EPFC. Intégration HTML/CSS, JavaScript
-        et travail sur des projets web réels dans un contexte professionnel.
-      </p>
-      <div class="tl-stack-tags">
-        <span class="tl-stack-tag">HTML / CSS</span>
-        <span class="tl-stack-tag">JavaScript</span>
-        <span class="tl-stack-tag">PHP</span>
-        <span class="tl-stack-tag">WordPress</span>
-      </div>
+      <p class="tl-year" data-translate="experience.date3"></p>
+      <h3 class="tl-title" data-translate="experience.title3"></h3>
+      <p class="tl-company" data-translate="experience.company3"></p>
+      <p class="tl-desc" data-translate="experience.desc3"></p>
+      <p class="tl-stack-line"><strong>Technologies</strong> — HTML · CSS · JavaScript · PHP · WordPress</p>
     </div>
 
   </div>
 
-  <!-- Formation -->
+
   <div style="margin-top:56px">
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:32px">
       <span class="sn">↳</span>
-      <span class="sl" data-translate="formation.sectionLabel">Formation</span>
+      <span class="sl" data-translate="formation.sectionLabel"></span>
       <div class="section-line"></div>
     </div>
     <div class="timeline" style="padding-left:48px">
       <div class="tl-item">
         <div class="tl-dot"></div>
-        <p class="tl-year" data-translate="formation.date1">Diplômée 2020 · Grande distinction</p>
-        <h3 class="tl-title" data-translate="formation.title1">BES Web Developer</h3>
-        <p class="tl-company" data-translate="formation.school1">EPFC · Bruxelles</p>
-        <div class="tl-desc" data-translate="formation.desc1">
-          Formation certifiante en développement web.
-        </div>
+        <p class="tl-year" data-translate="formation.date1"></p>
+        <h3 class="tl-title" data-translate="formation.title1"></h3>
+        <p class="tl-company" data-translate="formation.school1"></p>
+        <div class="tl-desc" data-translate="formation.desc1"></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     03 — COMPÉTENCES
-══════════════════════════════════════ -->
+
 <section id="skills">
   <div class="skills-section-inner fade-slide-up">
     <div class="section-head">
       <div class="section-num-label">
         <span class="sn">03</span>
-        <span class="sl" data-translate="sections.skillsTitle">Compétences</span>
+        <span class="sl" data-translate="sections.skillsTitle"></span>
       </div>
       <div class="section-line"></div>
       <div class="sn-wm" aria-hidden>03</div>
     </div>
   </div>
 
-  <div class="sk-rows">
+  <div class="skills-scroll-rows">
 
-    <!-- FRONTEND -->
-    <div class="sk-row">
-      <div class="sk-row-label" data-translate="skills.filterFrontend">Frontend</div>
-      <div class="sk-items">
-        <div class="sk-item">
-          <div class="sk-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML5"></div>
-          <span class="sk-name">HTML5</span>
+
+    <div class="skills-marquee-row">
+      <div class="skills-marquee-track">
+        <div class="skill-card">
+          <div class="sc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML5"></div>
+          <h3>HTML5</h3>
+          <p>Balisage sémantique, accessibilité et bonnes pratiques W3C.</p>
         </div>
-        <div class="sk-item">
-          <div class="sk-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS / SCSS"></div>
-          <span class="sk-name">CSS / SCSS</span>
+        <div class="skill-card">
+          <div class="sc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS / SCSS"></div>
+          <h3>CSS / SCSS</h3>
+          <p>Architecture SCSS modulaire, media-queries et composants réutilisables.</p>
         </div>
-        <div class="sk-item">
-          <div class="sk-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript"></div>
-          <span class="sk-name">JavaScript</span>
+        <div class="skill-card">
+          <div class="sc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript"></div>
+          <h3>JavaScript</h3>
+          <p>Vanilla JS, jQuery, GSAP, Swiper, logique d'interaction et scripts sur mesure.</p>
         </div>
-        <div class="sk-item">
-          <div class="sk-logo" style="color:#38bdf8"><svg viewBox="0 0 38 31" fill="currentColor"><path d="M25.517 0C18.712 0 14.46 3.382 12.758 10.146c2.552-3.382 5.529-4.65 8.931-3.805 1.941.482 3.329 1.882 4.864 3.432 2.502 2.524 5.398 5.445 11.722 5.445 6.804 0 11.057-3.382 12.758-10.146-2.552 3.382-5.529 4.65-8.931 3.805-1.941-.482-3.329-1.882-4.864-3.432C34.736 2.92 31.841 0 25.517 0zM12.758 15.218C5.954 15.218 1.701 18.6 0 25.364c2.552-3.382 5.529-4.65 8.931-3.805 1.941.482 3.329 1.882 4.864 3.432 2.502 2.524 5.398 5.445 11.722 5.445 6.804 0 11.057-3.382 12.758-10.146-2.552 3.382-5.529 4.65-8.931 3.805-1.941-.482-3.329-1.882-4.864-3.432-2.502-2.524-5.398-5.445-11.722-5.445z"/></svg></div>
-          <span class="sk-name">TailwindCSS</span>
+        <div class="skill-card">
+          <div class="sc-icon" style="color:#38bdf8"><svg viewBox="0 0 38 31" fill="currentColor"><path d="M25.517 0C18.712 0 14.46 3.382 12.758 10.146c2.552-3.382 5.529-4.65 8.931-3.805 1.941.482 3.329 1.882 4.864 3.432 2.502 2.524 5.398 5.445 11.722 5.445 6.804 0 11.057-3.382 12.758-10.146-2.552 3.382-5.529 4.65-8.931 3.805-1.941-.482-3.329-1.882-4.864-3.432C34.736 2.92 31.841 0 25.517 0zM12.758 15.218C5.954 15.218 1.701 18.6 0 25.364c2.552-3.382 5.529-4.65 8.931-3.805 1.941.482 3.329 1.882 4.864 3.432 2.502 2.524 5.398 5.445 11.722 5.445 6.804 0 11.057-3.382 12.758-10.146-2.552 3.382-5.529 4.65-8.931 3.805-1.941-.482-3.329-1.882-4.864-3.432-2.502-2.524-5.398-5.445-11.722-5.445z"/></svg></div>
+          <h3>TailwindCSS</h3>
+          <p>Utility-first, prototypage rapide, cohérence garantie.</p>
+        </div>
+        <div class="skill-card">
+          <div class="sc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" alt="PHP"></div>
+          <h3>PHP</h3>
+          <p>Templates WordPress, shortcodes, AJAX, sécurisation des sorties.</p>
+        </div>
+        <div class="skill-card">
+          <div class="sc-icon"><img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress"></div>
+          <h3>WordPress</h3>
+          <p>Thèmes custom, hooks, templates PHP, custom post types, menus.</p>
+        </div>
+        
+        <div class="skill-card" aria-hidden="true">
+          <div class="sc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML5"></div>
+          <h3>HTML5</h3>
+          <p>Balisage sémantique, accessibilité et bonnes pratiques W3C.</p>
+        </div>
+        <div class="skill-card" aria-hidden="true">
+          <div class="sc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS / SCSS"></div>
+          <h3>CSS / SCSS</h3>
+          <p>Architecture SCSS modulaire, media-queries et composants réutilisables.</p>
+        </div>
+        <div class="skill-card" aria-hidden="true">
+          <div class="sc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript"></div>
+          <h3>JavaScript</h3>
+          <p>Vanilla JS, jQuery, GSAP, Swiper, logique d'interaction et scripts sur mesure.</p>
+        </div>
+        <div class="skill-card" aria-hidden="true">
+          <div class="sc-icon" style="color:#38bdf8"><svg viewBox="0 0 38 31" fill="currentColor"><path d="M25.517 0C18.712 0 14.46 3.382 12.758 10.146c2.552-3.382 5.529-4.65 8.931-3.805 1.941.482 3.329 1.882 4.864 3.432 2.502 2.524 5.398 5.445 11.722 5.445 6.804 0 11.057-3.382 12.758-10.146-2.552 3.382-5.529 4.65-8.931 3.805-1.941-.482-3.329-1.882-4.864-3.432C34.736 2.92 31.841 0 25.517 0zM12.758 15.218C5.954 15.218 1.701 18.6 0 25.364c2.552-3.382 5.529-4.65 8.931-3.805 1.941.482 3.329 1.882 4.864 3.432 2.502 2.524 5.398 5.445 11.722 5.445 6.804 0 11.057-3.382 12.758-10.146-2.552 3.382-5.529 4.65-8.931 3.805-1.941-.482-3.329-1.882-4.864-3.432-2.502-2.524-5.398-5.445-11.722-5.445z"/></svg></div>
+          <h3>TailwindCSS</h3>
+          <p>Utility-first, prototypage rapide, cohérence garantie.</p>
+        </div>
+        <div class="skill-card" aria-hidden="true">
+          <div class="sc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" alt="PHP"></div>
+          <h3>PHP</h3>
+          <p>Templates WordPress, shortcodes, AJAX, sécurisation des sorties.</p>
+        </div>
+        <div class="skill-card" aria-hidden="true">
+          <div class="sc-icon"><img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress"></div>
+          <h3>WordPress</h3>
+          <p>Thèmes custom, hooks, templates PHP, custom post types, menus.</p>
         </div>
       </div>
     </div>
 
-    <!-- CMS & PHP -->
-    <div class="sk-row">
-      <div class="sk-row-label" data-translate="skills.filterCMS">CMS & PHP</div>
-      <div class="sk-items">
-        <div class="sk-item">
-          <div class="sk-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" alt="PHP"></div>
-          <span class="sk-name">PHP</span>
-        </div>
-        <div class="sk-item">
-          <div class="sk-logo"><img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress"></div>
-          <span class="sk-name">WordPress</span>
-        </div>
-        <div class="sk-item">
-          <div class="sk-logo" style="color:#00b9ae"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="3" rx="1"/><rect x="3" y="10.5" width="18" height="3" rx="1"/><rect x="3" y="16" width="11" height="3" rx="1"/></svg></div>
-          <span class="sk-name">ACF</span>
-        </div>
-        <div class="sk-item">
-          <div class="sk-logo"><img src="https://cdn.simpleicons.org/woocommerce/96588a" alt="WooCommerce"></div>
-          <span class="sk-name">WooCommerce</span>
-        </div>
-        <div class="sk-item">
-          <div class="sk-logo"><img src="uploads/wpml-logo-png_seeklogo-339746.png" alt="WPML"></div>
-          <span class="sk-name">WPML</span>
-        </div>
-      </div>
-    </div>
 
-    <!-- HEADLESS -->
-    <div class="sk-row">
-      <div class="sk-row-label" data-translate="skills.filterHeadless">Headless</div>
-      <div class="sk-items">
-        <div class="sk-item">
-          <div class="sk-logo"><img src="https://cdn.simpleicons.org/strapi/4945FF" alt="Strapi"></div>
-          <span class="sk-name">Strapi</span>
+    <div class="skills-marquee-row skills-marquee-row--rev">
+      <div class="skills-marquee-track">
+        <div class="skill-card">
+          <div class="sc-icon" style="color:#00b9ae"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="3" rx="1"/><rect x="3" y="10.5" width="18" height="3" rx="1"/><rect x="3" y="16" width="11" height="3" rx="1"/></svg></div>
+          <h3>ACF</h3>
+          <p>Champs personnalisés, flexible content, options pages.</p>
         </div>
-        <div class="sk-item">
-          <div class="sk-logo"><img src="https://cdn.simpleicons.org/drupal/0678BE" alt="Drupal"></div>
-          <span class="sk-name">Drupal / Craft</span>
+        <div class="skill-card">
+          <div class="sc-icon"><img src="https://cdn.simpleicons.org/woocommerce/96588a" alt="WooCommerce"></div>
+          <h3>WooCommerce</h3>
+          <p>E-commerce WordPress — templates, hooks et personnalisation avancée.</p>
+        </div>
+        <div class="skill-card">
+          <div class="sc-icon"><img src="uploads/wpml-logo-png_seeklogo-339746.png" alt="WPML"></div>
+          <h3>WPML</h3>
+          <p>Sites multilingues FR/EN/NL, requêtes WPML-aware, colonnes suffixées.</p>
+        </div>
+        <div class="skill-card">
+          <div class="sc-icon"><img src="https://cdn.simpleicons.org/strapi/4945FF" alt="Strapi"></div>
+          <h3>Strapi</h3>
+          <p>CMS headless — API REST & contenu flexible.</p>
+        </div>
+        <div class="skill-card">
+          <div class="sc-icon"><img src="https://cdn.simpleicons.org/drupal/0678BE" alt="Drupal"></div>
+          <h3>Drupal / Craft</h3>
+          <p>CMS robustes pour projets complexes.</p>
+        </div>
+        
+        <div class="skill-card" aria-hidden="true">
+          <div class="sc-icon" style="color:#00b9ae"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="3" rx="1"/><rect x="3" y="10.5" width="18" height="3" rx="1"/><rect x="3" y="16" width="11" height="3" rx="1"/></svg></div>
+          <h3>ACF</h3>
+          <p>Champs personnalisés, flexible content, options pages.</p>
+        </div>
+        <div class="skill-card" aria-hidden="true">
+          <div class="sc-icon"><img src="https://cdn.simpleicons.org/woocommerce/96588a" alt="WooCommerce"></div>
+          <h3>WooCommerce</h3>
+          <p>E-commerce WordPress — templates, hooks et personnalisation avancée.</p>
+        </div>
+        <div class="skill-card" aria-hidden="true">
+          <div class="sc-icon"><img src="uploads/wpml-logo-png_seeklogo-339746.png" alt="WPML"></div>
+          <h3>WPML</h3>
+          <p>Sites multilingues FR/EN/NL, requêtes WPML-aware, colonnes suffixées.</p>
+        </div>
+        <div class="skill-card" aria-hidden="true">
+          <div class="sc-icon"><img src="https://cdn.simpleicons.org/strapi/4945FF" alt="Strapi"></div>
+          <h3>Strapi</h3>
+          <p>CMS headless — API REST & contenu flexible.</p>
+        </div>
+        <div class="skill-card" aria-hidden="true">
+          <div class="sc-icon"><img src="https://cdn.simpleicons.org/drupal/0678BE" alt="Drupal"></div>
+          <h3>Drupal / Craft</h3>
+          <p>CMS robustes pour projets complexes.</p>
         </div>
       </div>
     </div>
@@ -1424,38 +1453,37 @@
 </section>
 
 
-
-<!-- ══════════════════════════════════════
-     05 — PORTFOLIO
-══════════════════════════════════════ -->
 <section id="portfolio" class="section fade-slide-up">
   <div class="section-head">
     <div class="section-num-label">
-      <span class="sn">05</span>
-      <span class="sl" data-translate="sections.portfolioTitle">Portfolio</span>
+      <span class="sn">04</span>
+      <span class="sl" data-translate="sections.portfolioTitle"></span>
     </div>
     <div class="section-line"></div>
-    <div class="sn-wm" aria-hidden>05</div>
+    <div class="sn-wm" aria-hidden>04</div>
   </div>
 
+  <p class="section-lead" data-translate="sections.portfolioLead"></p>
+
   <div class="pf-filters ab-reveal ab-reveal--left" role="group" aria-label="Filtrer les projets">
-    <button class="pf-filter active" data-filter="all"    data-translate="portfolio.filterAll">Tous</button>
-    <button class="pf-filter"        data-filter="freelance" data-translate="portfolio.filterFreelance">Freelance</button>
-    <button class="pf-filter"        data-filter="agency"    data-translate="portfolio.filterAgency">Agence</button>
+    <button class="pf-filter active" data-filter="all"    data-translate="portfolio.filterAll"></button>
+    <button class="pf-filter"        data-filter="freelance" data-translate="portfolio.filterFreelance"></button>
+    <button class="pf-filter"        data-filter="agency"    data-translate="portfolio.filterAgency"></button>
   </div>
 
   <div class="pf-list">
 
-    <!-- 01 — Chiropracteur Mons -->
+
     <a href="https://chiropracteur-mons.be/" target="_blank" class="pf-row pf-row--freelance portfolio-card" data-index="0" rel="noopener noreferrer">
       <span class="pf-row-num">01</span>
       <div class="pf-row-body">
         <h3 class="pf-row-title">chiropracteur-mons.be</h3>
         <div class="pf-row-meta">
-          <span class="pf-row-cat" data-translate="portfolio.chiroCat">Vitrine · WordPress</span>
-          <div class="pf-row-tags"><span>WordPress</span><span>PHP</span><span>Responsive</span></div>
+          <span class="pf-row-cat" data-translate="portfolio.chiroCat"></span>
+          <div class="pf-row-tags"><span>WordPress</span><span>Elementor</span><span>CSS</span>
+<span>Responsive</span><span>PHP</span></div>
         </div>
-        <p class="pf-row-desc" data-translate="portfolio.chiroDesc">Site responsive pour un cabinet à Mons — rapide, accessible et pensé pour les conversions.</p>
+        <p class="pf-row-desc" data-translate="portfolio.chiroDesc"></p>
       </div>
       <div class="pf-row-right">
         <span class="pf-row-badge pf-row-badge--freelance">Freelance</span>
@@ -1469,16 +1497,18 @@
       </div>
     </a>
 
-    <!-- 02 — Hospel Notaire -->
+
     <a href="https://hospel-notaire.be/" target="_blank" class="pf-row pf-row--agency portfolio-card" data-index="1" rel="noopener noreferrer">
       <span class="pf-row-num">02</span>
       <div class="pf-row-body">
         <h3 class="pf-row-title">hospel-notaire.be</h3>
         <div class="pf-row-meta">
-          <span class="pf-row-cat" data-translate="portfolio.hospelCat">Agence</span>
-          <div class="pf-row-tags"><span>WordPress</span><span>ACF</span><span>TailwindCSS</span><span>PHP</span><span>Responsive</span></div>
-        </div>
-        <p class="pf-row-desc" data-translate="portfolio.hospelDesc">Thème WordPress custom chez Paf! — build Tailwind via Laravel Mix, carousel Swiper, champs ACF et intégration Google Maps.</p>
+          <span class="pf-row-cat" data-translate="portfolio.hospelCat"></span>
+<div class="pf-row-tags">
+  <span>WordPress</span><span>PHP</span><span>ACF</span>
+  <span>Tailwind</span><span>Swiper</span><span>Laravel Mix</span>
+</div>        </div>
+        <p class="pf-row-desc" data-translate="portfolio.hospelDesc"></p>
       </div>
       <div class="pf-row-right">
         <span class="pf-row-badge pf-row-badge--agency">Agence</span>
@@ -1492,16 +1522,18 @@
       </div>
     </a>
 
-    <!-- 03 — Memisa -->
+
     <a href="https://memisa.be/fr/" target="_blank" class="pf-row pf-row--agency portfolio-card" data-index="2" rel="noopener noreferrer">
       <span class="pf-row-num">03</span>
       <div class="pf-row-body">
         <h3 class="pf-row-title">memisa.be</h3>
         <div class="pf-row-meta">
-          <span class="pf-row-cat" data-translate="portfolio.memisaCat">ONG · Multilingue</span>
-          <div class="pf-row-tags"><span>WordPress</span><span>ACF</span><span>WPML</span><span>Responsive</span></div>
-        </div>
-        <p class="pf-row-desc" data-translate="portfolio.memisaDesc">Site FR/EN/NL pour l'ONG Memisa, réalisé chez Paf! — WPML, responsive, accessibilité.</p>
+          <span class="pf-row-cat" data-translate="portfolio.memisaCat"></span>
+<div class="pf-row-tags">
+  <span>WordPress</span><span>ACF</span><span>WPML</span>
+  <span>PHP</span><span>Multilangue</span>
+</div>        </div>
+        <p class="pf-row-desc" data-translate="portfolio.memisaDesc"></p>
       </div>
       <div class="pf-row-right">
         <span class="pf-row-badge pf-row-badge--agency">Agence</span>
@@ -1515,22 +1547,45 @@
       </div>
     </a>
 
-    <!-- 04 — Les Poulettes -->
-    <div class="pf-row pf-row--personal pf-row--freelance portfolio-card" data-index="3">
+
+    <a href="https://www.chateaudecourriere.be/" target="_blank" class="pf-row pf-row--agency portfolio-card" data-index="3" rel="noopener noreferrer">
       <span class="pf-row-num">04</span>
       <div class="pf-row-body">
-        <h3 class="pf-row-title" data-translate="portfolio.poulettesTitle">Les Poulettes</h3>
+        <h3 class="pf-row-title">chateaudecourriere.be</h3>
         <div class="pf-row-meta">
-          <span class="pf-row-cat" data-translate="portfolio.poulettesCat">Headless CMS</span>
-          <div class="pf-row-tags"><span>Strapi</span><span>JavaScript</span><span>Vercel</span><span>Render</span><span>E-commerce</span><span>Responsive</span></div>
+          <span class="pf-row-cat" data-translate="portfolio.courriererCat"></span>
+          <div class="pf-row-tags"><span>WordPress</span><span>PHP</span><span>ACF</span><span>jQuery</span><span>CSS</span></div>
         </div>
-        <p class="pf-row-desc" data-translate="portfolio.poulettesDesc">E-commerce de A à Z — Strapi (headless), Vercel et Render. Exploration d'un stack moderne hors agence.</p>
+        <p class="pf-row-desc" data-translate="portfolio.courriereDesc"></p>
+      </div>
+      <div class="pf-row-right">
+        <span class="pf-row-badge pf-row-badge--agency">Agence</span>
+        <span class="pf-row-arrow" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </div>
+      <div class="pf-row-img">
+        <img src="uploads/courriere.jpg" alt="Château de Courrière" loading="lazy">
+        <div class="pf-row-img-fade"></div>
+      </div>
+    </a>
+
+
+    <div class="pf-row pf-row--wip pf-row--freelance portfolio-card" data-index="4">
+      <span class="pf-row-num">05</span>
+      <div class="pf-row-body">
+        <h3 class="pf-row-title" data-translate="portfolio.poulettesTitle"></h3>
+        <div class="pf-row-meta">
+          <span class="pf-row-cat" data-translate="portfolio.poulettesCat"></span>
+          <div class="pf-row-tags"><span>Strapi</span><span>Remix</span><span>Vercel</span><span>Render</span><span>E-commerce</span><span>TypeScript</span></div>
+        </div>
+        <p class="pf-row-desc" data-translate="portfolio.poulettesDesc"></p>
       </div>
       <div class="pf-row-right">
         <span class="pf-row-badge pf-row-badge--freelance">Freelance</span>
         <span class="pf-wip">
           <span class="pf-wip-dot"></span>
-          <span data-translate="portfolio.wipBadge">En cours</span>
+          <span data-translate="portfolio.wipBadge"></span>
         </span>
       </div>
     </div>
@@ -1538,142 +1593,39 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     06 — EN PRODUCTION
-══════════════════════════════════════ -->
-<section id="terrain">
-  <div class="terrain-section-inner fade-slide-up">
-    <div class="section-head">
-      <div class="section-num-label">
-        <span class="sn">06</span>
-        <span class="sl" data-translate="sections.terrainTitle">En production</span>
+
+<section id="contact" class="section fade-slide-up">
+  <div class="contact-inner">
+    <div class="contact-content">
+      <div class="section-head">
+        <div class="section-num-label">
+          <span class="sn">05</span>
+          <span class="sl" data-translate="nav.contact"></span>
+        </div>
+        <div class="section-line"></div>
+        <div class="sn-wm" aria-hidden>05</div>
       </div>
-      <div class="section-line"></div>
-      <div class="sn-wm" aria-hidden>06</div>
-    </div>
-
-    <p class="terrain-lead" data-translate="sections.terrainLead">Compétences issues de projets réels — clients, agence et explorations personnelles.</p>
-
-    <div class="terrain-grid">
-
-      <!-- 1 — WordPress & PHP -->
-      <div class="terrain-card" data-terrain-index="1">
-        <div class="terrain-card-head">
-          <div class="terrain-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zM3.6 12c0-1.01.173-1.98.487-2.885L7.37 19.77A8.42 8.42 0 0 1 3.6 12zm8.4 8.4a8.368 8.368 0 0 1-2.41-.356l2.56-7.44 2.622 7.185a.37.37 0 0 0 .028.054 8.39 8.39 0 0 1-2.8.557zm1.161-12.285c.507-.027.964-.08.964-.08.454-.054.4-.72-.054-.694 0 0-1.364.107-2.244.107-.827 0-2.218-.107-2.218-.107-.454-.026-.508.666-.054.693 0 0 .43.054.884.08l1.313 3.598-1.844 5.527-3.067-9.125c.507-.027.964-.08.964-.08.454-.054.4-.72-.054-.694 0 0-1.364.107-2.244.107-.158 0-.344-.004-.54-.01A8.4 8.4 0 0 1 12 3.6a8.374 8.374 0 0 1 5.97 2.494c-.037-.002-.073-.006-.112-.006-.827 0-1.414.72-1.414 1.494 0 .694.4 1.28.827 1.974.32.56.694 1.28.694 2.32 0 .72-.277 1.554-.64 2.72l-.84 2.8-3.044-9.081zm3.828 11.127-.027-.053-2.674-7.32c.448-1.146.596-2.063.596-2.882 0-.296-.02-.573-.054-.833A8.402 8.402 0 0 1 20.4 12a8.392 8.392 0 0 1-3.41 6.742z"/></svg>
-          </div>
-          <div class="terrain-titles">
-            <span class="terrain-domain" data-translate="terrain.card1title">WordPress & PHP</span>
-            <span class="terrain-file">functions.php · single.php · ACF</span>
-          </div>
-        </div>
-        <ul class="terrain-list">
-          <li data-translate="terrain.card1li1">Thèmes custom de A à Z</li>
-          <li data-translate="terrain.card1li2">Hooks, actions, filters, custom post types</li>
-          <li data-translate="terrain.card1li3">ACF — Flexible Content, Repeater, Options</li>
-          <li data-translate="terrain.card1li4">WooCommerce & Formidable Forms</li>
-          <li data-translate="terrain.card1li5">WPML — sites FR / EN / NL</li>
-        </ul>
-        <div class="terrain-footer-tags">
-          <span class="terrain-ftag">PHP</span>
-          <span class="terrain-ftag">WordPress</span>
-          <span class="terrain-ftag">ACF</span>
-          <span class="terrain-ftag">WooCommerce</span>
-        </div>
+      <p class="contact-headline" data-translate="sections.contactTitle"></p>
+      <p class="contact-sub" data-translate="sections.contactText"></p>
+      <div class="contact-btns">
+        <a href="mailto:laurencewebdev@gmail.com" class="btn-primary" data-translate="contact.sendEmail">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/laurence-pirard-2069a7ba/" target="_blank" class="btn-ghost" data-translate="contact.linkedin">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.762s.784-1.762 1.75-1.762 1.75.79 1.75 1.762-.783 1.762-1.75 1.762zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+        </a>
       </div>
-
-      <!-- 2 — Front-end & CSS -->
-      <div class="terrain-card" data-terrain-index="2">
-        <div class="terrain-card-head">
-          <div class="terrain-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0z" fill="none"/><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
-          </div>
-          <div class="terrain-titles">
-            <span class="terrain-domain" data-translate="terrain.card2title">Front-end & CSS</span>
-            <span class="terrain-file">main.js · gulpfile.js · style.scss</span>
-          </div>
-        </div>
-        <ul class="terrain-list">
-          <li data-translate="terrain.card2li1">GSAP + ScrollMagic, jQuery</li>
-          <li data-translate="terrain.card2li2">Swiper, Lottie, Google Maps</li>
-          <li data-translate="terrain.card2li3">SCSS modulaire (partials, mixins)</li>
-          <li data-translate="terrain.card2li4">TailwindCSS — utility first</li>
-          <li data-translate="terrain.card2li5">Pipeline npm + Gulp / Laravel Mix</li>
-        </ul>
-        <div class="terrain-footer-tags">
-          <span class="terrain-ftag">JS</span>
-          <span class="terrain-ftag">GSAP</span>
-          <span class="terrain-ftag">SCSS</span>
-          <span class="terrain-ftag">Tailwind</span>
-        </div>
-      </div>
-
-      <!-- 3 — Outils & Process -->
-      <div class="terrain-card" data-terrain-index="3">
-        <div class="terrain-card-head">
-          <div class="terrain-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/><line x1="12" y1="22" x2="12" y2="15.5"/><polyline points="22 8.5 12 15.5 2 8.5"/></svg>
-          </div>
-          <div class="terrain-titles">
-            <span class="terrain-domain" data-translate="terrain.card3title">Outils & Process</span>
-            <span class="terrain-file">Git · Drupal · Craft CMS</span>
-          </div>
-        </div>
-        <ul class="terrain-list">
-          <li data-translate="terrain.card3li1">Git — workflow feature branches</li>
-          <li data-translate="terrain.card3li2">Drupal & Craft CMS (agence)</li>
-          <li data-translate="terrain.card3li3">SEO — Yoast, structure sémantique</li>
-          <li data-translate="terrain.card3li4">Google Maps API, intégrations tierces</li>
-          <li data-translate="terrain.card3li5">Performance, accessibilité, sécurité WP</li>
-        </ul>
-        <div class="terrain-footer-tags">
-          <span class="terrain-ftag">Git</span>
-          <span class="terrain-ftag">Drupal</span>
-          <span class="terrain-ftag">SEO</span>
-          <span class="terrain-ftag">APIs</span>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     07 — CONTACT
-══════════════════════════════════════ -->
-<section id="contact" class="section fade-slide-up" style="text-align:center">
-    <div class="section-head" style="justify-content:center">
-      <div class="section-num-label" style="flex:none;justify-content:center">
-        <span class="sn">07</span>
-        <span class="sl" data-translate="nav.contact">Contact</span>
-      </div>
-    </div>
-    <p class="contact-headline" data-translate="sections.contactTitle">Un projet en tête ?</p>
-    <p class="contact-sub" data-translate="sections.contactText">
-      Je suis disponible pour des missions freelance.
-    </p>
-    <div class="contact-btns">
-      <a href="mailto:laurencewebdev@gmail.com" class="btn-primary" data-translate="contact.sendEmail">
-        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
-        </svg>
-        laurencewebdev@gmail.com
-      </a>
-      <a href="https://www.linkedin.com/in/laurence-pirard-2069a7ba/" target="_blank" class="btn-ghost" data-translate="contact.linkedin">
-        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.762s.784-1.762 1.75-1.762 1.75.79 1.75 1.762-.783 1.762-1.75 1.762zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-        </svg>
-        LinkedIn
-      </a>
-      <!-- <a href="cv.html" target="_blank" class="btn-ghost" data-translate="contact.downloadCV">CV ↓</a> -->
-    </div>
-  </section>
 
-<!-- ══════════════════════════════════════
-     FOOTER
-══════════════════════════════════════ -->
 <footer>
-  <p data-translate="footer.copyright">© 2026 Laurence Pirard — Front-End Developer</p>
+  <p data-translate="footer.copyright"></p>
   <div class="footer-links">
     <a href="https://github.com/Laurence2712" target="_blank" aria-label="GitHub">
       <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
@@ -1693,7 +1645,7 @@
   </div>
 </footer>
 
-<!-- Retour en haut -->
+
 <button id="scroll-top" aria-label="Retour en haut">
   <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
     <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5"/>
