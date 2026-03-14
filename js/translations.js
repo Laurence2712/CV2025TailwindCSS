@@ -86,6 +86,7 @@ const translations = {
       filterFrontend: "Frontend",
       filterCMS: "CMS & PHP",
       filterHeadless: "Headless",
+      filterTools: "Outils",
       htmlDesc: "Sémantique, accessibilité, structure solide.",
       cssDesc: "Animations, Grid, Flexbox — des interfaces qui respirent.",
       scssDesc: "Architecture SCSS modulaire, compilation via Gulp/NPM, media-queries et composants réutilisables.",
@@ -140,11 +141,11 @@ const translations = {
       card2li4: "TailwindCSS — utility first",
       card2li5: "Pipeline npm + Gulp / Laravel Mix",
       card3title: "Outils & Process",
-      card3li1: "Git — workflow feature branches",
-      card3li2: "Drupal & Craft CMS (agence)",
-      card3li3: "SEO — Yoast, structure sémantique",
-      card3li4: "Google Maps API, intégrations tierces",
-      card3li5: "Performance, accessibilité, sécurité WP"
+      card3li1: "Git & GitLab — workflow feature branches",
+      card3li2: "Tower — client Git visuel (Mac)",
+      card3li3: "VSCode — éditeur principal, extensions, snippets",
+      card3li4: "Drupal & Craft CMS (agence)",
+      card3li5: "SEO — Yoast, structure sémantique"
     },
     portfolio: {
       filterAll: "Tous",
@@ -280,6 +281,7 @@ const translations = {
       filterFrontend: "Frontend",
       filterCMS: "CMS & PHP",
       filterHeadless: "Headless",
+      filterTools: "Tools",
       htmlDesc: "Semantics, accessibility, solid structure.",
       cssDesc: "Animations, Grid, Flexbox — interfaces that breathe.",
       scssDesc: "Modular SCSS architecture, Gulp/NPM compilation, media-queries and reusable components.",
@@ -334,11 +336,11 @@ const translations = {
       card2li4: "TailwindCSS — utility first",
       card2li5: "npm + Gulp / Laravel Mix pipeline",
       card3title: "Tools & Process",
-      card3li1: "Git — feature branch workflow",
-      card3li2: "Drupal & Craft CMS (agency)",
-      card3li3: "SEO — Yoast, semantic structure",
-      card3li4: "Google Maps API, third-party integrations",
-      card3li5: "Performance, accessibility, WP security"
+      card3li1: "Git & GitLab — feature branch workflow",
+      card3li2: "Tower — visual Git client (Mac)",
+      card3li3: "VSCode — main editor, extensions, snippets",
+      card3li4: "Drupal & Craft CMS (agency)",
+      card3li5: "SEO — Yoast, semantic structure"
     },
     portfolio: {
       filterAll: "All",
