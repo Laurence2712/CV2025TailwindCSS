@@ -1,6 +1,6 @@
 const translations = {
   fr: {
-    pageTitle: "Laurence Pirard — Front-End Developer",
+    pageTitle: "Laurence Pirard — Full Stack Developer",
     nav: {
       about: "À propos",
       experience: "Expérience",
@@ -14,7 +14,7 @@ const translations = {
     hero: {
       available: "Disponible pour des collaborations",
       location: "Bruxelles · 2026",
-      eyebrow: "Front-End Developer· Bruxelles, Belgique",
+      eyebrow: "Full Stack Developer· Bruxelles, Belgique",
       subtitle: "Vous cherchez une développeuse web ?",
       subtitle2: "",
       ctaProjects: "Voir mes projets",
@@ -24,7 +24,7 @@ const translations = {
     },
     sections: {
       aboutTitle: "À propos",
-      aboutText: "Front-End Developer basée à Bruxelles. Spécialisée <strong>WordPress, TailwindCSS, JavaScript et PHP</strong>, je transforme vos idées en sites web performants, accessibles et mobile first — de la maquette à la mise en ligne.",
+      aboutText: "Full Stack Developer basée à Bruxelles. Spécialisée <strong>WordPress, TailwindCSS, JavaScript et PHP</strong>, je transforme vos idées en sites web performants, accessibles et mobile first — de la maquette à la mise en ligne.",
       experienceTitle: "Parcours",
       experienceSubtitle: "De la formation à l'indépendance",
       skillsTitle: "Compétences",
@@ -69,11 +69,11 @@ const translations = {
     },
     experience: {
       date1: "2023 – Présent",
-      title1: "Front-End Developer Indépendante",
+      title1: "Full Stack Developer Indépendante",
       company1: "<span style=\"color:var(--accent)\">Indépendante complémentaire · Bruxelles</span>",
       desc1: "Conception et développement de sites web sur mesure. Gestion complète des projets : découverte, maquette, intégration, déploiement, maintenance.<p class=\"tl-stack-line\" style=\"margin-top:12px\"><strong>Technologies</strong> — WordPress · Elementor · CSS · Responsive · PHP · Strapi · Remix · Vercel · Render · TypeScript</p>",
       date2: "Juil. 2021 – Présent",
-      title2: "Front-End Developer",
+      title2: "Full Stack Developer",
       company2: "<span style=\"color:var(--accent)\"><a href=\"https://pafdesign.be/\" target=\"_blank\" rel=\"noopener noreferrer\">Paf! Design</a> · Bruxelles</span>",
       desc2: "Développement de thèmes WordPress sur-mesure et maintenance de l'ensemble des sites en production : mises à jour WordPress, compatibilité et migrations PHP, ajout, modification et suppression de blocs ACF, correctifs et évolutions continues.<p class=\"tl-stack-line\" style=\"margin-top:12px\"><strong>Technologies</strong> — PHP · WordPress · Hooks &amp; filters · ACF Flexible Content · WPML · WooCommerce · JavaScript · TailwindCSS · SCSS · Swiper · Lightbox · Laravel Mix</p><p class=\"tl-stack-line\" style=\"margin-top:8px\"><strong>Versioning</strong> — Git · GitLab · Tower</p><p class=\"tl-stack-line\" style=\"margin-top:8px\"><strong>Outils</strong> — VSCode · Sequel Ace · Gulp · NPM</p><p class=\"tl-desc\" style=\"margin-top:14px\">Webmastering — Europcar</p><p class=\"tl-stack-line\"><strong>Outils</strong> — Atlassian · Contentful · Jira</p>",
       date3: "Oct. 2018 – Jan. 2019 · Stage",
@@ -185,7 +185,7 @@ const translations = {
       downloadCV: "Mon CV"
     },
     footer: {
-      jobTitle: "Front-End Developer",
+      jobTitle: "Full Stack Developer",
       servicesTitle: "Services",
       serviceDev: "Développement Web",
       serviceWp: "WordPress",
@@ -194,11 +194,11 @@ const translations = {
       contactTitle: "Contact",
       location: "Bruxelles, Belgique",
       followTitle: "Suivez-moi",
-      copyright: "© 2026 Laurence Pirard — Front-End Developer"
+      copyright: "© 2026 Laurence Pirard — Full Stack Developer"
     }
   },
   en: {
-    pageTitle: "Laurence Pirard — Front-End Developer",
+    pageTitle: "Laurence Pirard — Full Stack Developer",
     nav: {
       about: "About",
       experience: "Experience",
@@ -212,7 +212,7 @@ const translations = {
     hero: {
       available: "Available for collaborations",
       location: "Brussels · 2026",
-      eyebrow: "Front-End Developer · Brussels, Belgium",
+      eyebrow: "Full Stack Developer · Brussels, Belgium",
       subtitle: "Looking for a web developer?",
       subtitle2: "",
       ctaProjects: "View my projects",
@@ -222,7 +222,7 @@ const translations = {
     },
     sections: {
       aboutTitle: "About",
-      aboutText: "Front-End Developer based in Brussels. Specialising in <strong>WordPress, TailwindCSS, JavaScript and PHP</strong>, I turn ideas into high-performing, accessible and mobile-first websites — from wireframe to launch.",
+      aboutText: "Full Stack Developer based in Brussels. Specialising in <strong>WordPress, TailwindCSS, JavaScript and PHP</strong>, I turn ideas into high-performing, accessible and mobile-first websites — from wireframe to launch.",
       experienceTitle: "Journey",
       experienceSubtitle: "From training to freelance",
       skillsTitle: "Skills",
@@ -268,11 +268,11 @@ const translations = {
     },
     experience: {
       date1: "2023 – Present",
-      title1: "Freelance Front-End Developer",
+      title1: "Freelance Full Stack Developer",
       company1: "<span style=\"color:var(--accent)\">Self-employed · Brussels</span>",
       desc1: "Custom website design and development. Full project ownership: discovery, wireframing, integration, deployment and maintenance.<p class=\"tl-stack-line\" style=\"margin-top:12px\"><strong>Technologies</strong> — WordPress · Elementor · CSS · Responsive · PHP · Strapi · Remix · Vercel · Render · TypeScript</p>",
       date2: "Jul. 2021 – Present",
-      title2: "Front-End Developer",
+      title2: "Full Stack Developer",
       company2: "<span style=\"color:var(--accent)\"><a href=\"https://pafdesign.be/\" target=\"_blank\" rel=\"noopener noreferrer\">Paf! Design</a> · Brussels</span>",
       desc2: "Custom WordPress theme development and maintenance of all live sites: WordPress updates, PHP compatibility and migrations, adding, editing and removing ACF blocks, ongoing fixes and improvements.<p class=\"tl-stack-line\" style=\"margin-top:12px\"><strong>Technologies</strong> — PHP · WordPress · Hooks &amp; filters · ACF Flexible Content · WPML · WooCommerce · JavaScript · TailwindCSS · SCSS · Swiper · Lightbox · Laravel Mix</p><p class=\"tl-stack-line\" style=\"margin-top:8px\"><strong>Versioning</strong> — Git · GitLab · Tower</p><p class=\"tl-stack-line\" style=\"margin-top:8px\"><strong>Tools</strong> — VSCode · Sequel Ace · Gulp · NPM</p><p class=\"tl-desc\" style=\"margin-top:14px\">Webmastering — Europcar</p><p class=\"tl-stack-line\"><strong>Tools</strong> — Atlassian · Contentful · Jira</p>",
       date3: "Oct. 2018 – Jan. 2019 · Internship",
@@ -384,7 +384,7 @@ const translations = {
       downloadCV: "My Resume"
     },
     footer: {
-      jobTitle: "Front-End Developer",
+      jobTitle: "Full Stack Developer",
       servicesTitle: "Services",
       serviceDev: "Web Development",
       serviceWp: "WordPress",
@@ -393,7 +393,7 @@ const translations = {
       contactTitle: "Contact",
       location: "Brussels, Belgium",
       followTitle: "Follow me",
-      copyright: "© 2026 Laurence Pirard — Front-End Developer"
+      copyright: "© 2026 Laurence Pirard — Full Stack Developer"
     }
   }
 };
