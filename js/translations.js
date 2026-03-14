@@ -12,7 +12,7 @@ const translations = {
       cv: "CV"
     },
     hero: {
-      available: "Disponible pour missions freelance",
+      available: "Disponible pour des collaborations",
       location: "Bruxelles · 2026",
       eyebrow: "Front-End Developer· Bruxelles, Belgique",
       subtitle: "Vous cherchez une développeuse web ?",
@@ -39,7 +39,7 @@ const translations = {
       terrainLead: "Compétences issues de projets réels — clients, agence et explorations personnelles.",
       portfolioTitle: "Portfolio",
       contactTitle: "Un projet en tête ?",
-      contactText: "Disponible pour des missions freelance."
+      contactText: "Disponible pour des collaborations."
     },
     about: {
       tagResponsive: "Responsive Design",
@@ -207,7 +207,7 @@ const translations = {
       cv: "Resume"
     },
     hero: {
-      available: "Available for freelance missions",
+      available: "Open to collaborations",
       location: "Brussels · 2026",
       eyebrow: "Front-End Developer · Brussels, Belgium",
       subtitle: "Looking for a web developer?",
@@ -235,7 +235,7 @@ const translations = {
       terrainLead: "Skills from real projects — clients, agency work and personal exploration.",
       portfolioTitle: "Portfolio",
       contactTitle: "Got a project in mind?",
-      contactText: "Available for freelance missions."
+      contactText: "Open to collaborations."
     },
     about: {
       tagResponsive: "Responsive Design",
