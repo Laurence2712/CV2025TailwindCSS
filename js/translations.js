@@ -148,6 +148,7 @@ const translations = {
       card3li5: "SEO — Yoast, structure sémantique"
     },
     portfolio: {
+      intro: "Entre agence et indépendance — projets développés chez Paf! Design ou en missions freelance.",
       filterAll: "Tous",
       filterFreelance: "Freelance",
       filterAgency: "Agence",
@@ -343,6 +344,7 @@ const translations = {
       card3li5: "SEO — Yoast, semantic structure"
     },
     portfolio: {
+      intro: "Between agency and independence — projects built at Paf! Design or as a freelance developer.",
       filterAll: "All",
       filterFreelance: "Freelance",
       filterAgency: "Agency",
