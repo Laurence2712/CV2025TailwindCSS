@@ -405,6 +405,7 @@ function changeLanguage(lang) {
     localStorage.setItem('preferredLanguage', lang);
     updateTexts(lang);
     updateLanguageButtons(lang);
+    updateCVLinks(lang);
   } catch (error) {
     console.error('Error changing language:', error);
   }
@@ -439,6 +440,14 @@ function updateTexts(lang) {
     } catch (error) {
       console.error('Error updating text for element:', element, error);
     }
+  });
+}
+
+// Fonction pour mettre à jour les liens CV selon la langue
+function updateCVLinks(lang) {
+  const cvFile = lang === 'en' ? 'uploads/laurence_pirard_26_en.pdf' : 'uploads/laurence_pirard_26.pdf';
+  document.querySelectorAll('[data-cv]').forEach(link => {
+    link.href = cvFile;
   });
 }
 
