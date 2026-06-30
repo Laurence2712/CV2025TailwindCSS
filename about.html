@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-translate="pages.aboutTitle">Laurence Pirard — À propos</title>
+  <meta name="description" content="Laurence Pirard — Full Stack Developer basée à Bruxelles. Spécialisée WordPress, TailwindCSS, JavaScript et PHP." />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://laurencepirard.be/about.html" />
+  <meta property="og:title"       content="Laurence Pirard — À propos" />
+  <meta property="og:description" content="Full Stack Developer basée à Bruxelles. WordPress, TailwindCSS, JavaScript, PHP — mobile first." />
+  <meta property="og:image"       content="https://laurencepirard.be/uploads/image_portfolio.jpeg" />
+  <meta name="robots"             content="index, follow" />
+  <meta name="author"             content="Laurence Pirard" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 42' fill='none' stroke='%234e7da6' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='9' y1='4' x2='9' y2='38'/%3E%3Cline x1='9' y1='38' x2='24' y2='38'/%3E%3Cpath d='M9 4 C9 4 38 4 38 15 C38 26 9 26 9 26' fill='none'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/all.min.v5.css">
+</head>
+<body>
+
+<header id="main-header">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg width="46" height="42" viewBox="0 0 46 42" fill="none" stroke="#4e7da6" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+        <line x1="9" y1="4" x2="9" y2="38"/>
+        <line x1="9" y1="38" x2="24" y2="38"/>
+        <path d="M9 4 C9 4 38 4 38 15 C38 26 9 26 9 26" fill="none"/>
+      </svg>
+    </a>
+
+    <nav class="nav-links" id="nav-desktop">
+      <a href="projet.html"    class="nav-link" data-translate="nav.works"></a>
+      <a href="about.html"   class="nav-link nav-link--active" data-translate="nav.about"></a>
+      <a href="#contact"     class="nav-link" data-translate="nav.contact"></a>
+    </nav>
+
+    <div class="nav-langs">
+      <button class="lang-btn" data-lang="fr" onclick="changeLanguage('fr')">FR</button>
+      <button class="lang-btn" data-lang="en" onclick="changeLanguage('en')">EN</button>
+    </div>
+
+    <button id="menu-btn" aria-label="Menu">
+      <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu">
+    <div class="menu-orb" aria-hidden="true"></div>
+    <a href="projet.html"    data-translate="nav.works"></a>
+    <a href="about.html"   data-translate="nav.about"></a>
+    <a href="#contact"     data-translate="nav.contact"></a>
+  </div>
+</header>
+<div id="menu-overlay"></div>
+
+
+<div class="page-hero">
+  <h1 class="page-hero-title" data-parallax="0.07" data-translate="pages.aboutHero"></h1>
+  <div class="page-hero-sub">
+    <span data-translate="about.metaRole"></span>
+    <span data-translate="about.metaLocation"></span>
+  </div>
+</div>
+
+
+<section id="about" class="section">
+  <div class="about-wrap">
+    <p class="about-text" data-translate="sections.aboutText"></p>
+    <div class="about-stats-row">
+      <div class="about-stat">
+        <span data-translate="about.stat1"></span>
+        <strong data-count="5" data-suffix="+">5+</strong>
+      </div>
+      <div class="about-stat">
+        <span data-translate="about.stat3"></span>
+        <strong data-count="2020" data-count-from="2015">2020</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="exp-pin-wrap">
+<section id="experience">
+  <div class="section-head fade-slide-up">
+    <div class="section-num-label">
+      <span class="sl" data-translate="sections.experienceTitle"></span>
+    </div>
+  </div>
+
+  <div class="tl-layout">
+
+    <!-- Navigation gauche -->
+    <nav class="tl-nav" aria-label="Parcours">
+      <div class="tl-nav-track"></div>
+      <div class="tl-nav-fill"></div>
+
+      <button class="tl-nav-item tl-item--freelance tl-nav-item--active" data-panel="0">
+        <span class="tl-nav-dot"></span>
+        <div class="tl-nav-meta">
+          <span class="tl-nav-year" data-translate="experience.date1"></span>
+          <span class="tl-badge tl-badge--freelance" data-translate="experience.badge1"></span>
+        </div>
+      </button>
+
+      <button class="tl-nav-item tl-item--agency" data-panel="1">
+        <span class="tl-nav-dot"></span>
+        <div class="tl-nav-meta">
+          <span class="tl-nav-year" data-translate="experience.date2"></span>
+          <span class="tl-badge tl-badge--agency" data-translate="experience.badge2"></span>
+        </div>
+      </button>
+
+      <button class="tl-nav-item tl-item--education" data-panel="2">
+        <span class="tl-nav-dot"></span>
+        <div class="tl-nav-meta">
+          <span class="tl-nav-year" data-translate="formation.date1"></span>
+          <span class="tl-badge tl-badge--education" data-translate="formation.badge1"></span>
+        </div>
+      </button>
+
+      <button class="tl-nav-item tl-item--education" data-panel="3">
+        <span class="tl-nav-dot"></span>
+        <div class="tl-nav-meta">
+          <span class="tl-nav-year" data-translate="formation.date2"></span>
+          <span class="tl-badge tl-badge--education" data-translate="formation.badge2"></span>
+        </div>
+      </button>
+
+      <button class="tl-nav-item tl-item--work" data-panel="4">
+        <span class="tl-nav-dot"></span>
+        <div class="tl-nav-meta">
+          <span class="tl-nav-year" data-translate="decathlon.date"></span>
+          <span class="tl-badge" style="color:#34d399;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3)" data-translate="decathlon.badge"></span>
+        </div>
+      </button>
+    </nav>
+
+    <!-- Panneaux de contenu -->
+    <div class="tl-panels">
+
+      <div class="tl-panel tl-item--freelance tl-panel--active" id="tl-panel-0">
+        <div class="tl-panel-meta">
+          <span class="tl-badge tl-badge--freelance tl-panel-badge" data-translate="experience.badge1"></span>
+          <span class="tl-panel-date" data-translate="experience.date1"></span>
+        </div>
+        <h3 class="tl-title" data-translate="experience.title1"></h3>
+        <p class="tl-company" data-translate="experience.company1"></p>
+        <p class="tl-desc" data-translate="experience.desc1"></p>
+        <div class="tl-tags-wrap">
+          <div class="tl-tag-group">
+            <span class="tl-tag-label">Technologies</span>
+            <span class="tl-tag">WordPress</span>
+            <span class="tl-tag">Elementor</span>
+            <span class="tl-tag">PHP</span>
+            <span class="tl-tag">CSS</span>
+            <span class="tl-tag">TypeScript</span>
+            <span class="tl-tag">Strapi</span>
+            <span class="tl-tag">Remix</span>
+            <span class="tl-tag">Vercel</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-panel tl-item--agency" id="tl-panel-1">
+        <div class="tl-panel-meta">
+          <span class="tl-badge tl-badge--agency tl-panel-badge" data-translate="experience.badge2"></span>
+          <span class="tl-panel-date" data-translate="experience.date2"></span>
+        </div>
+        <h3 class="tl-title" data-translate="experience.title2"></h3>
+        <p class="tl-company" data-translate="experience.company2"></p>
+        <div class="tl-desc" data-translate="experience.desc2a"></div>
+        <div class="tl-tags-wrap">
+          <div class="tl-tag-group">
+            <span class="tl-tag-label">Technologies</span>
+            <span class="tl-tag">PHP</span>
+            <span class="tl-tag">WordPress</span>
+            <span class="tl-tag">ACF</span>
+            <span class="tl-tag">WPML</span>
+            <span class="tl-tag">WooCommerce</span>
+            <span class="tl-tag">JavaScript</span>
+            <span class="tl-tag">TailwindCSS</span>
+            <span class="tl-tag">SCSS</span>
+            <span class="tl-tag">Swiper</span>
+          </div>
+          <div class="tl-tag-group">
+            <span class="tl-tag-label">Versioning</span>
+            <span class="tl-tag">Git</span>
+            <span class="tl-tag">GitLab</span>
+            <span class="tl-tag">Tower</span>
+          </div>
+          <div class="tl-tag-group">
+            <span class="tl-tag-label">Outils</span>
+            <span class="tl-tag">VSCode</span>
+            <span class="tl-tag">Sequel Ace</span>
+            <span class="tl-tag">Gulp</span>
+            <span class="tl-tag">NPM</span>
+          </div>
+        </div>
+        <h3 class="tl-title tl-title--sub">Webmastering</h3>
+        <p class="tl-company tl-company--accent">Europcar / Goldcar</p>
+        <div class="tl-desc" data-translate="experience.desc2b"></div>
+        <div class="tl-tags-wrap">
+          <div class="tl-tag-group">
+            <span class="tl-tag-label">Outils</span>
+            <span class="tl-tag">Contentful</span>
+            <span class="tl-tag">Jira</span>
+            <span class="tl-tag">Phrase</span>
+            <span class="tl-tag">Google Sheets</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-panel tl-item--education" id="tl-panel-2">
+        <div class="tl-panel-meta">
+          <span class="tl-badge tl-badge--education tl-panel-badge" data-translate="formation.badge1"></span>
+          <span class="tl-panel-date" data-translate="formation.date1"></span>
+        </div>
+        <h3 class="tl-title" data-translate="formation.title1"></h3>
+        <p class="tl-company" data-translate="formation.school1"></p>
+        <div class="tl-desc" data-translate="formation.desc1"></div>
+        <div class="tl-tags-wrap">
+          <div class="tl-tag-group">
+            <span class="tl-tag-label">Technologies</span>
+            <span class="tl-tag">HTML5</span>
+            <span class="tl-tag">CSS3</span>
+            <span class="tl-tag">JavaScript</span>
+            <span class="tl-tag">PHP</span>
+            <span class="tl-tag">jQuery</span>
+            <span class="tl-tag">WordPress</span>
+            <span class="tl-tag">Bootstrap</span>
+            <span class="tl-tag">MySQL</span>
+            <span class="tl-tag">Twig</span>
+          </div>
+          <div class="tl-tag-group">
+            <span class="tl-tag-label">Frameworks</span>
+            <span class="tl-tag">Symfony</span>
+            <span class="tl-tag">CakePHP</span>
+            <span class="tl-tag">VueJS</span>
+          </div>
+          <div class="tl-tag-group">
+            <span class="tl-tag-label">Versioning</span>
+            <span class="tl-tag">Git</span>
+            <span class="tl-tag">GitHub</span>
+          </div>
+        </div>
+        <div class="tl-panel-meta">
+          <span class="tl-badge tl-badge--stage tl-panel-badge" data-translate="experience.badge3"></span>
+          <span class="tl-panel-date" data-translate="experience.date3"></span>
+        </div>
+        <h3 class="tl-title tl-title--sub" data-translate="experience.title3"></h3>
+        <p class="tl-company" data-translate="experience.company3"></p>
+        <p class="tl-desc" data-translate="experience.desc3"></p>
+        <div class="tl-tags-wrap">
+          <div class="tl-tag-group">
+            <span class="tl-tag-label">Technologies</span>
+            <span class="tl-tag">HTML</span>
+            <span class="tl-tag">CSS</span>
+            <span class="tl-tag">JavaScript</span>
+            <span class="tl-tag">PHP</span>
+            <span class="tl-tag">WordPress</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-panel tl-item--education" id="tl-panel-3">
+        <div class="tl-panel-meta">
+          <span class="tl-badge tl-badge--education tl-panel-badge" data-translate="formation.badge2"></span>
+          <span class="tl-panel-date" data-translate="formation.date2"></span>
+        </div>
+        <h3 class="tl-title" data-translate="formation.title2"></h3>
+        <p class="tl-company" data-translate="formation.school2"></p>
+        <div class="tl-desc" data-translate="formation.desc2"></div>
+      </div>
+
+      <div class="tl-panel tl-item--work" id="tl-panel-4">
+        <div class="tl-panel-meta">
+          <span class="tl-badge tl-panel-badge" style="color:#34d399;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3)" data-translate="decathlon.badge"></span>
+          <span class="tl-panel-date" data-translate="decathlon.date"></span>
+        </div>
+        <h3 class="tl-title" data-translate="decathlon.title"></h3>
+        <p class="tl-company" data-translate="decathlon.company"></p>
+        <div class="tl-desc" data-translate="decathlon.desc"></div>
+      </div>
+
+    </div>
+    <div class="tl-scroll-hint" aria-hidden="true">
+      <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+      </svg>
+    </div>
+  </div>
+</section>
+</div>
+
+
+<div class="skills-pin-wrap">
+<section id="skills">
+  <div class="skills-section-inner">
+    <div class="section-head fade-slide-up" data-parallax="0.07">
+      <div class="section-num-label">
+        <span class="sl" data-translate="sections.skillsTitle"></span>
+      </div>
+    </div>
+
+    <div class="sk-groups">
+      <div class="sk-group">
+        <span class="sk-group-label">Front-end</span>
+        <div class="sk-tags">
+          <span class="sk-tag">HTML5</span>
+          <span class="sk-tag">CSS / SCSS</span>
+          <span class="sk-tag">JavaScript</span>
+          <span class="sk-tag">TypeScript</span>
+          <span class="sk-tag">TailwindCSS</span>
+          <span class="sk-tag">jQuery</span>
+          <span class="sk-tag">GSAP</span>
+          <span class="sk-tag">Swiper</span>
+        </div>
+      </div>
+
+      <div class="sk-group">
+        <span class="sk-group-label">Back-end</span>
+        <div class="sk-tags">
+          <span class="sk-tag">PHP</span>
+          <span class="sk-tag">MySQL</span>
+          <span class="sk-tag">Remix</span>
+        </div>
+      </div>
+
+      <div class="sk-group">
+        <span class="sk-group-label">CMS &amp; Plugins</span>
+        <div class="sk-tags">
+          <span class="sk-tag">WordPress</span>
+          <span class="sk-tag">ACF</span>
+          <span class="sk-tag">WooCommerce</span>
+          <span class="sk-tag">WPML</span>
+          <span class="sk-tag">Elementor</span>
+          <span class="sk-tag">Contentful</span>
+          <span class="sk-tag">Strapi</span>
+          <span class="sk-tag">Drupal</span>
+        </div>
+      </div>
+
+      <div class="sk-group">
+        <span class="sk-group-label">Versioning &amp; Outils</span>
+        <div class="sk-tags">
+          <span class="sk-tag">Git</span>
+          <span class="sk-tag">GitLab</span>
+          <span class="sk-tag">Tower</span>
+          <span class="sk-tag">npm</span>
+          <span class="sk-tag">Gulp</span>
+          <span class="sk-tag">Figma</span>
+          <span class="sk-tag">VSCode</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-content">
+      <h2 class="contact-big-title" data-translate="sections.contactTitle"></h2>
+      <a href="mailto:laurencewebdev@gmail.com" class="contact-email-big">
+        <span class="contact-email-icon" aria-hidden="true">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+          </svg>
+        </span>
+        laurencewebdev@gmail.com
+      </a>
+      <p class="contact-sub" data-translate="sections.contactText"></p>
+      <div class="contact-actions">
+        <a href="uploads/laurence_pirard_26.pdf" download data-cv="true" class="btn-ghost" data-translate="contact.downloadCV">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /.skills-pin-wrap -->
+
+<footer>
+  <p data-translate="footer.copyright"></p>
+  <div class="footer-links">
+    <a href="https://github.com/Laurence2712" target="_blank" aria-label="GitHub">
+      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.809 1.305 3.493.998.108-.776.417-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.095 8.199-11.411 0-6.627-5.373-12-12-12z"/>
+      </svg>
+    </a>
+    <a href="https://www.linkedin.com/in/laurence-pirard-2069a7ba/" target="_blank" aria-label="LinkedIn">
+      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.762s.784-1.762 1.75-1.762 1.75.79 1.75 1.762-.783 1.762-1.75 1.762zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+      </svg>
+    </a>
+    <a href="mailto:laurencewebdev@gmail.com" aria-label="Email">
+      <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+      </svg>
+    </a>
+  </div>
+</footer>
+
+<button id="scroll-top" aria-label="Retour en haut">
+  <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5"/>
+  </svg>
+</button>
+
+<script src="js/bundle.min.js"></script>
+</body>
+</html>

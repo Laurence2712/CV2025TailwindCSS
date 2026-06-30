@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-translate="pages.projectsTitle">Laurence Pirard — Projets</title>
+  <meta name="description" content="Tous les projets de Laurence Pirard — Full Stack Developer. WordPress, TailwindCSS, JavaScript, PHP." />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://laurencepirard.be/projet.html" />
+  <meta property="og:title"       content="Laurence Pirard — Travaux" />
+  <meta property="og:description" content="Full Stack Developer basée à Bruxelles. WordPress, TailwindCSS, JavaScript, PHP — mobile first." />
+  <meta property="og:image"       content="https://laurencepirard.be/uploads/image_portfolio.jpeg" />
+  <meta name="robots"             content="index, follow" />
+  <meta name="author"             content="Laurence Pirard" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 42' fill='none' stroke='%234e7da6' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='9' y1='4' x2='9' y2='38'/%3E%3Cline x1='9' y1='38' x2='24' y2='38'/%3E%3Cpath d='M9 4 C9 4 38 4 38 15 C38 26 9 26 9 26' fill='none'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/all.min.v5.css">
+</head>
+<body>
+
+<header id="main-header">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg width="46" height="42" viewBox="0 0 46 42" fill="none" stroke="#4e7da6" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+        <line x1="9" y1="4" x2="9" y2="38"/>
+        <line x1="9" y1="38" x2="24" y2="38"/>
+        <path d="M9 4 C9 4 38 4 38 15 C38 26 9 26 9 26" fill="none"/>
+      </svg>
+    </a>
+
+    <nav class="nav-links" id="nav-desktop">
+      <a href="projet.html"    class="nav-link nav-link--active" data-translate="nav.works"></a>
+      <a href="about.html"   class="nav-link" data-translate="nav.about"></a>
+      <a href="about.html#contact" class="nav-link" data-translate="nav.contact"></a>
+    </nav>
+
+    <div class="nav-langs">
+      <button class="lang-btn" data-lang="fr" onclick="changeLanguage('fr')">FR</button>
+      <button class="lang-btn" data-lang="en" onclick="changeLanguage('en')">EN</button>
+    </div>
+
+    <button id="menu-btn" aria-label="Menu">
+      <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu">
+    <div class="menu-orb" aria-hidden="true"></div>
+    <a href="projet.html"          data-translate="nav.works"></a>
+    <a href="about.html"         data-translate="nav.about"></a>
+    <a href="about.html#contact" data-translate="nav.contact"></a>
+  </div>
+</header>
+<div id="menu-overlay"></div>
+
+
+<main class="wk-page">
+
+  <div class="wk-hero">
+    <h1 class="wk-big-title" data-parallax="0.07" data-translate="pages.projectsHero"></h1>
+    <div class="wk-hero-meta">
+      <span data-translate="pages.projectsCount">12 projets</span>
+      <span data-translate="pages.projectsType">Freelance &amp; Agence</span>
+      <span>Bruxelles</span>
+    </div>
+  </div>
+
+
+  <div class="wk-filters" id="wk-filters">
+    <button class="wk-filter active" data-filter="all"><span data-translate="filter.all"></span><span class="wk-filter-count">12</span></button>
+    <button class="wk-filter" data-filter="freelance"><span data-translate="filter.freelance"></span><span class="wk-filter-count">3</span></button>
+    <button class="wk-filter" data-filter="agency"><span data-translate="filter.agency"></span><span class="wk-filter-count">9</span></button>
+  </div>
+
+  <div class="wk-list">
+
+    <div class="wk-row" data-type="freelance" data-url="https://chiropracteur-mons.be/">
+      <div class="wk-info">
+        <div class="wk-meta">
+          <span class="wk-num">01</span>
+          <span class="wk-badge wk-badge--freelance">Freelance</span>
+        </div>
+        <h2 class="wk-title">Chiropracteur Mons</h2>
+        <p class="wk-desc" data-translate="portfolio.chiroDesc"></p>
+        <div class="wk-tags">
+          <span>WordPress</span><span>Elementor</span><span>CSS</span><span>Responsive</span><span>PHP</span>
+        </div>
+        <a href="https://chiropracteur-mons.be/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
+          Voir le site <svg width="12" height="12" fill="none" viewBox="0 0 14 14"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="wk-img-col">
+        <img src="uploads/chiro.webp" alt="Chiropracteur Mons" loading="lazy">
+      </div>
+    </div>
+
+    <div class="wk-row" data-type="agency" data-url="https://hospel-notaire.be/">
+      <div class="wk-info">
+        <div class="wk-meta">
+          <span class="wk-num">02</span>
+          <span class="wk-badge wk-badge--agency">Agence</span>
+        </div>
+        <h2 class="wk-title">Notaire Hospel</h2>
+        <p class="wk-desc" data-translate="portfolio.hospelDesc"></p>
+        <div class="wk-tags">
+          <span>WordPress</span><span>PHP</span><span>ACF</span><span>TailwindCSS</span><span>Swiper</span>
+        </div>
+        <a href="https://hospel-notaire.be/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
+          Voir le site <svg width="12" height="12" fill="none" viewBox="0 0 14 14"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="wk-img-col">
+        <img src="uploads/hospel.webp" alt="Hospel Notaire" loading="lazy">
+      </div>
+    </div>
+
+    <div class="wk-row" data-type="agency" data-url="https://memisa.be/fr/">
+      <div class="wk-info">
+        <div class="wk-meta">
+          <span class="wk-num">03</span>
+          <span class="wk-badge wk-badge--agency">Agence</span>
+        </div>
+        <h2 class="wk-title">Memisa</h2>
+        <p class="wk-desc" data-translate="portfolio.memisaDesc"></p>
+        <div class="wk-tags">
+          <span>WordPress</span><span>ACF</span><span>WPML</span><span>PHP</span><span>GSAP</span><span>jQuery</span><span>Multilangue</span>
+        </div>
+        <a href="https://memisa.be/fr/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
+          Voir le site <svg width="12" height="12" fill="none" viewBox="0 0 14 14"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="wk-img-col">
+        <img src="uploads/memisa.webp" alt="Memisa" loading="lazy">
+      </div>
+    </div>
+
+    <div class="wk-row" data-type="agency" data-url="https://www.chateaudecourriere.be/">
+      <div class="wk-info">
+        <div class="wk-meta">
+          <span class="wk-num">04</span>
+          <span class="wk-badge wk-badge--agency">Agence</span>
+        </div>
+        <h2 class="wk-title">Château de Courrière</h2>
+        <p class="wk-desc" data-translate="portfolio.courriereDesc"></p>
+        <div class="wk-tags">
+          <span>WordPress</span><span>PHP</span><span>ACF</span><span>jQuery</span><span>CSS</span>
+        </div>
+        <a href="https://www.chateaudecourriere.be/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
+          Voir le site <svg width="12" height="12" fill="none" viewBox="0 0 14 14"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="wk-img-col">
+        <img src="uploads/courriere.webp" alt="Château de Courrière" loading="lazy">
+      </div>
+    </div>
+
+    <div class="wk-row" data-type="agency" data-url="https://venues.be/">
+      <div class="wk-info">
+        <div class="wk-meta">
+          <span class="wk-num">05</span>
+          <span class="wk-badge wk-badge--agency">Agence</span>
+        </div>
+        <h2 class="wk-title">Brussels Special Venues</h2>
+        <p class="wk-desc" data-translate="portfolio.venuesDesc"></p>
+        <div class="wk-tags">
+          <span>WordPress</span><span>PHP</span><span>ACF</span><span>CSS</span><span>jQuery</span>
+        </div>
+        <a href="https://venues.be/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
+          Voir le site <svg width="12" height="12" fill="none" viewBox="0 0 14 14"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="wk-img-col">
+        <img src="uploads/venues.webp" alt="Venues.be" loading="lazy">
+      </div>
+    </div>
+
+    <div class="wk-row" data-type="agency" data-url="https://deviensspiecialiste.be/">
+      <div class="wk-info">
+        <div class="wk-meta">
+          <span class="wk-num">06</span>
+          <span class="wk-badge wk-badge--agency">Agence</span>
+        </div>
+        <h2 class="wk-title">SPIE Belgium</h2>
+        <p class="wk-desc" data-translate="portfolio.dsDesc"></p>
+        <div class="wk-tags">
+          <span>GSAP</span><span>Swiper</span><span>jQuery</span><span>CSS</span><span>Nginx</span>
+        </div>
+        <a href="https://deviensspiecialiste.be/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
+          Voir le site <svg width="12" height="12" fill="none" viewBox="0 0 14 14"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="wk-img-col">
+        <img src="uploads/deviensspiecialiste.webp" alt="Deviens Spécialiste" loading="lazy">
+      </div>
+    </div>
+
+    <div class="wk-row" data-type="freelance" data-url="https://raymonddelepierre.com/">
+      <div class="wk-info">
+        <div class="wk-meta">
+          <span class="wk-num">07</span>
+          <span class="wk-badge wk-badge--freelance">Freelance</span>
+        </div>
+        <h2 class="wk-title">Raymond Delepierre</h2>
+        <p class="wk-desc" data-translate="portfolio.rdDesc"></p>
+        <div class="wk-tags">
+          <span>WordPress</span><span>Maintenance</span><span>PHP</span><span>CSS</span>
+        </div>
+        <a href="https://raymonddelepierre.com/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
+          Voir le site <svg width="12" height="12" fill="none" viewBox="0 0 14 14"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="wk-img-col">
+        <img src="uploads/raymonddelepierre.webp" alt="Raymond Delepierre" loading="lazy">
+      </div>
+    </div>
+
+    <div class="wk-row" data-type="freelance" data-url="https://theccoach.be/">
+      <div class="wk-info">
+        <div class="wk-meta">
+          <span class="wk-num">08</span>
+          <span class="wk-badge wk-badge--freelance">Freelance</span>
+        </div>
+        <h2 class="wk-title">The C Coach</h2>
+        <p class="wk-desc" data-translate="portfolio.tccDesc"></p>
+        <div class="wk-tags">
+          <span>WordPress</span><span>Maintenance</span><span>PHP</span><span>CSS</span>
+        </div>
+        <a href="https://theccoach.be/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
+          Voir le site <svg width="12" height="12" fill="none" viewBox="0 0 14 14"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="wk-img-col">
+        <img src="uploads/theccoach.webp" alt="The C Coach" loading="lazy">
+      </div>
+    </div>
+
+    <div class="wk-row" data-type="agency" data-url="https://intotheblue.be/bruxelles/">
+      <div class="wk-info">
+        <div class="wk-meta">
+          <span class="wk-num">09</span>
+          <span class="wk-badge wk-badge--agency">Agence</span>
+        </div>
+        <h2 class="wk-title">Into The Blue</h2>
+        <p class="wk-desc" data-translate="portfolio.itbDesc"></p>
+        <div class="wk-tags">
+          <span>WordPress</span><span>PHP</span><span>ACF</span><span>CSS</span><span>jQuery</span>
+        </div>
+        <a href="https://intotheblue.be/bruxelles/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
+          Voir le site <svg width="12" height="12" fill="none" viewBox="0 0 14 14"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="wk-img-col">
+        <img src="uploads/intotheblue.webp" alt="Into The Blue" loading="lazy">
+      </div>
+    </div>
+
+    <div class="wk-row" data-type="agency" data-url="https://platformawards.eu/">
+      <div class="wk-info">
+        <div class="wk-meta">
+          <span class="wk-num">10</span>
+          <span class="wk-badge wk-badge--agency">Agence</span>
+        </div>
+        <h2 class="wk-title">Platform Awards</h2>
+        <p class="wk-desc" data-translate="portfolio.paDesc"></p>
+        <div class="wk-tags">
+          <span>WordPress</span><span>PHP</span><span>ACF</span><span>CSS</span><span>jQuery</span>
+        </div>
+        <a href="https://platformawards.eu/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
+          Voir le site <svg width="12" height="12" fill="none" viewBox="0 0 14 14"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="wk-img-col">
+        <img src="uploads/platformawards.webp" alt="Platform Awards" loading="lazy">
+      </div>
+    </div>
+
+    <div class="wk-row" data-type="agency" data-url="https://intothewildfestival.be/">
+      <div class="wk-info">
+        <div class="wk-meta">
+          <span class="wk-num">11</span>
+          <span class="wk-badge wk-badge--agency">Agence</span>
+        </div>
+        <h2 class="wk-title">Into The Wild Festival</h2>
+        <p class="wk-desc" data-translate="portfolio.itwDesc"></p>
+        <div class="wk-tags">
+          <span>WordPress</span><span>PHP</span><span>ACF</span><span>CSS</span><span>jQuery</span>
+        </div>
+        <a href="https://intothewildfestival.be/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
+          Voir le site <svg width="12" height="12" fill="none" viewBox="0 0 14 14"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="wk-img-col">
+        <img src="uploads/intothewildfestival.webp" alt="Into The Wild Festival" loading="lazy">
+      </div>
+    </div>
+
+    <div class="wk-row" data-type="agency" data-url="https://w-e-b.be/">
+      <div class="wk-info">
+        <div class="wk-meta">
+          <span class="wk-num">12</span>
+          <span class="wk-badge wk-badge--agency">Agence</span>
+        </div>
+        <h2 class="wk-title">Warehouses Estates Belgium</h2>
+        <p class="wk-desc" data-translate="portfolio.webDesc"></p>
+        <div class="wk-tags">
+          <span>WordPress</span><span>PHP</span><span>ACF</span><span>CSS</span><span>jQuery</span>
+        </div>
+        <a href="https://w-e-b.be/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
+          Voir le site <svg width="12" height="12" fill="none" viewBox="0 0 14 14"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="wk-img-col">
+        <img src="uploads/web-be.webp" alt="W-E-B" loading="lazy">
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- ══ PROJECT MODAL ══ -->
+<div id="wk-modal" class="wk-modal" aria-hidden="true" role="dialog">
+  <div class="wk-modal-bd"></div>
+  <div class="wk-modal-panel">
+    <button class="wk-modal-close" aria-label="Fermer">
+      <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    <div class="wk-modal-inner">
+      <div class="wk-modal-head">
+        <div class="wk-modal-meta">
+          <span class="wk-modal-num"></span>
+          <span class="wk-modal-badge"></span>
+        </div>
+        <h2 class="wk-modal-title"></h2>
+        <div class="wk-modal-tags"></div>
+      </div>
+      <div class="wk-modal-img-wrap">
+        <img class="wk-modal-img" src="" alt="" loading="lazy">
+      </div>
+      <div class="wk-modal-body">
+        <p class="wk-modal-desc"></p>
+        <a class="wk-modal-link" href="" target="_blank" rel="noopener noreferrer">
+          Voir le site
+          <svg width="13" height="13" fill="none" viewBox="0 0 14 14"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<footer>
+  <p data-translate="footer.copyright"></p>
+  <div class="footer-links">
+    <a href="https://github.com/Laurence2712" target="_blank" aria-label="GitHub">
+      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.809 1.305 3.493.998.108-.776.417-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.095 8.199-11.411 0-6.627-5.373-12-12-12z"/>
+      </svg>
+    </a>
+    <a href="https://www.linkedin.com/in/laurence-pirard-2069a7ba/" target="_blank" aria-label="LinkedIn">
+      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.762s.784-1.762 1.75-1.762 1.75.79 1.75 1.762-.783 1.762-1.75 1.762zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+      </svg>
+    </a>
+    <a href="mailto:laurencewebdev@gmail.com" aria-label="Email">
+      <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+      </svg>
+    </a>
+  </div>
+</footer>
+
+<button id="scroll-top" aria-label="Retour en haut">
+  <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5"/>
+  </svg>
+</button>
+
+<script src="js/bundle.min.js"></script>
+</body>
+</html>

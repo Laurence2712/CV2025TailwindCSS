@@ -1,88 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ════════════════════════════════════════
-     1. CURSOR FILAMENT — canvas trail
-  ════════════════════════════════════════ */
-  const canvas = document.getElementById('cursor-canvas');
-
-  if (canvas && window.innerWidth > 768) {
-    const ctx = canvas.getContext('2d');
-    const N   = 8;    // nombre de points du filament
-    const LF  = 0.45; // facteur LERP (plus grand = plus rapide)
-
-    let mouse = { x: -300, y: -300 };
-    let hovered = false;
-
-    const pts = Array.from({ length: N }, () => ({ x: -300, y: -300 }));
-
-    function resize() {
-      canvas.width  = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    resize();
-    window.addEventListener('resize', resize);
-
-    document.addEventListener('mousemove', e => {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
-    });
-
-    // Masquer le curseur natif sur desktop
-    document.documentElement.style.cursor = 'none';
-    document.querySelectorAll('a, button').forEach(el => {
-      el.style.cursor = 'none';
-      el.addEventListener('mouseenter', () => { hovered = true; });
-      el.addEventListener('mouseleave', () => { hovered = false; });
-    });
-
-    const lerp = (a, b, t) => a + (b - a) * t;
-
-    (function tick() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // Mettre à jour les points avec LERP chaîné
-      pts[0].x = lerp(pts[0].x, mouse.x, LF);
-      pts[0].y = lerp(pts[0].y, mouse.y, LF);
-      for (let i = 1; i < N; i++) {
-        pts[i].x = lerp(pts[i].x, pts[i - 1].x, LF);
-        pts[i].y = lerp(pts[i].y, pts[i - 1].y, LF);
-      }
-
-      // Couleur selon état hover
-      const accent = hovered ? '255,255,255' : '77,159,255';
-
-      // Filament — ligne lissée avec quadraticCurveTo
-      ctx.beginPath();
-      ctx.moveTo(mouse.x, mouse.y);
-      for (let i = 0; i < N - 1; i++) {
-        const mx2 = (pts[i].x + pts[i + 1].x) / 2;
-        const my2 = (pts[i].y + pts[i + 1].y) / 2;
-        ctx.quadraticCurveTo(pts[i].x, pts[i].y, mx2, my2);
-      }
-      ctx.quadraticCurveTo(pts[N - 2].x, pts[N - 2].y, pts[N - 1].x, pts[N - 1].y);
-
-      const grad = ctx.createLinearGradient(mouse.x, mouse.y, pts[N - 1].x, pts[N - 1].y);
-      grad.addColorStop(0,   `rgba(${accent}, ${hovered ? 0.9 : 0.75})`);
-      grad.addColorStop(0.4, `rgba(${accent}, 0.25)`);
-      grad.addColorStop(1,   `rgba(${accent}, 0)`);
-      ctx.strokeStyle = grad;
-      ctx.lineWidth   = hovered ? 1.8 : 1.2;
-      ctx.lineCap     = 'round';
-      ctx.lineJoin    = 'round';
-      ctx.stroke();
-
-      // Point de tête
-      const glow = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, hovered ? 10 : 5);
-      glow.addColorStop(0,   `rgba(${accent}, ${hovered ? 1 : 0.9})`);
-      glow.addColorStop(1,   `rgba(${accent}, 0)`);
-      ctx.beginPath();
-      ctx.arc(mouse.x, mouse.y, hovered ? 10 : 5, 0, Math.PI * 2);
-      ctx.fillStyle = glow;
-      ctx.fill();
-
-      requestAnimationFrame(tick);
-    })();
-  }
 
   /* ════════════════════════════════════════
      2. LINE REVEALS — .reveal-group > .rl
@@ -162,53 +79,140 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.ab-reveal').forEach(el => abObs.observe(el));
 
   /* ════════════════════════════════════════
+     3c. SKILLS GROUPED TAGS — stagger reveal
+  ════════════════════════════════════════ */
+  const skGroups = document.querySelector('.sk-groups');
+  if (skGroups) {
+    document.querySelectorAll('.sk-tag').forEach((tag, i) => {
+      tag.style.setProperty('--sk-i', i);
+    });
+    const skObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          skGroups.classList.add('sk-in');
+          skObs.disconnect();
+        }
+      });
+    }, { threshold: 0.08 });
+    skObs.observe(skGroups);
+  }
+
+  /* ════════════════════════════════════════
+     3d. STATS COUNT-UP
+  ════════════════════════════════════════ */
+  const countObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseInt(el.dataset.count);
+      const from   = parseInt(el.dataset.countFrom || 0);
+      const suffix = el.dataset.suffix || '';
+      const fmt    = el.dataset.format === 'space';
+      const duration = target > 1000 ? 3200 : 2000;
+      const start = performance.now();
+      function tick(now) {
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        const val = Math.round(from + eased * (target - from));
+        el.textContent = (fmt ? val.toLocaleString('fr-BE') : val) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+        else el.textContent = (fmt ? target.toLocaleString('fr-BE') : target) + suffix;
+      }
+      requestAnimationFrame(tick);
+      countObs.unobserve(el);
+    });
+  }, { threshold: 0.6 });
+
+  document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
+
+  /* ════════════════════════════════════════
      4. TIMELINE BIDIRECTIONNELLE
   ════════════════════════════════════════ */
-  const timelineLine = document.getElementById('timelineLine');
   const tlItems = document.querySelectorAll('.tl-item');
-  const timelineSection = document.getElementById('timeline');
+  tlItems.forEach(item => {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          item.classList.add('visible');
+        } else {
+          item.classList.remove('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+    obs.observe(item);
+  });
 
-  if (timelineLine && tlItems.length && timelineSection) {
-    function updateTimelineProgress() {
-      const rect = timelineSection.getBoundingClientRect();
-      const progress = Math.max(0, Math.min(1, (window.innerHeight * 0.7 - rect.top) / rect.height));
-      timelineLine.style.setProperty('--progress', progress);
-    }
-    window.addEventListener('scroll', updateTimelineProgress, { passive: true });
-    updateTimelineProgress();
+  /* ════════════════════════════════════════
+     4b. TIMELINE — STICKY SCROLL-DRIVEN
+  ════════════════════════════════════════ */
+  const expWrap    = document.querySelector('.exp-pin-wrap');
+  const tlNavItems = document.querySelectorAll('.tl-nav-item');
+  const tlPanels   = document.querySelectorAll('.tl-panel');
+  const tlNavFill  = document.querySelector('.tl-nav-fill');
 
-    tlItems.forEach(item => {
-      const obs = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            item.classList.add('visible');
-            item.classList.remove('from-above');
-          } else {
-            item.classList.remove('visible');
-            item.classList.toggle('from-above', entry.boundingClientRect.top < 0);
-          }
-        });
-      }, { threshold: 0.2 });
-      obs.observe(item);
-    });
+  const tlPanelsWrap = document.querySelector('.tl-panels');
+
+  if (expWrap && tlPanels.length) {
+    const count = tlPanels.length;
+    let currentIdx = -1;
+
+    const checkPanelScroll = panel => {
+      if (!panel || !tlPanelsWrap) return;
+      const atBottom = panel.scrollHeight - panel.scrollTop <= panel.clientHeight + 8;
+      tlPanelsWrap.classList.toggle('tl-at-bottom', atBottom);
+    };
+
+    const switchPanel = idx => {
+      if (idx === currentIdx) return;
+      tlPanels.forEach((p, i) => {
+        if (i === idx) {
+          p.classList.remove('tl-panel--out');
+          p.classList.add('tl-panel--visible');
+          p.onscroll = () => checkPanelScroll(p);
+          checkPanelScroll(p);
+        } else if (i === currentIdx) {
+          p.classList.remove('tl-panel--visible');
+          p.classList.add('tl-panel--out');
+          p.onscroll = null;
+          setTimeout(() => p.classList.remove('tl-panel--out'), 600);
+        }
+      });
+      tlNavItems.forEach((n, i) => n.classList.toggle('tl-nav-item--active', i === idx));
+      currentIdx = idx;
+    };
+
+    const updateExp = () => {
+      if (window.innerWidth <= 768) return;
+      const rect = expWrap.getBoundingClientRect();
+      const wrapH = expWrap.offsetHeight;
+      const vh = window.innerHeight;
+      const scrolled = Math.max(0, -rect.top);
+      const total = wrapH - vh;
+      const progress = Math.max(0, Math.min(1, scrolled / total));
+
+      const idx = Math.min(count - 1, Math.floor(progress * count));
+      switchPanel(idx);
+
+      if (tlNavFill) {
+        tlNavFill.style.height = (progress * 100) + '%';
+      }
+    };
+
+    window.addEventListener('scroll', updateExp, { passive: true });
+    window.addEventListener('resize', updateExp, { passive: true });
+    if (window.innerWidth > 768) switchPanel(0);
+    updateExp();
   }
 
   /* ════════════════════════════════════════
      5. SKILL CARDS — stagger bidirectionnel
   ════════════════════════════════════════ */
-  document.querySelectorAll('.skill-card').forEach((el, i) => {
-    el.style.transitionDelay = (i * 80) + 'ms';
-  });
-  /* Skill rows — stagger reveal */
-  document.querySelectorAll('.sk-row').forEach((el, i) => {
-    el.style.transitionDelay = (i * 100) + 'ms';
-  });
   const skillObs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       entry.target.classList.toggle('sk-visible', entry.isIntersecting);
     });
   }, { threshold: 0.15 });
-  document.querySelectorAll('.sk-row').forEach(el => skillObs.observe(el));
+  document.querySelectorAll('.skill-card:not([aria-hidden])').forEach(el => skillObs.observe(el));
 
   /* ════════════════════════════════════════
      6. CRAFT CARDS — stagger bidirectionnel
@@ -261,42 +265,82 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.terrain-card').forEach(el => terrainObs.observe(el));
 
   /* ════════════════════════════════════════
-     8. PORTFOLIO CARDS — stagger bidirectionnel
+     8. PORTFOLIO — SCROLL HORIZONTAL
   ════════════════════════════════════════ */
-  document.querySelectorAll('.portfolio-card').forEach(el => {
-    const delay = parseInt(el.dataset.index || 0) * 120;
-    el.style.transitionDelay = delay + 'ms';
-  });
-  const portfolioObs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      entry.target.classList.toggle('visible', entry.isIntersecting);
-    });
-  }, { threshold: 0.1 });
+  const pfOuter = document.getElementById('pfOuter');
+  const pfTrack = document.getElementById('pfTrack');
+  const pfBar   = document.getElementById('pfBar');
 
-  document.querySelectorAll('.portfolio-card').forEach(el => portfolioObs.observe(el));
+  if (pfOuter && pfTrack && window.innerWidth > 900) {
+    let scrollMax = 0;
+
+    function initPf() {
+      scrollMax = pfTrack.scrollWidth - window.innerWidth;
+      pfOuter.style.height = (scrollMax + window.innerHeight) + 'px';
+    }
+
+    function updatePf() {
+      const rect = pfOuter.getBoundingClientRect();
+      const outerH = pfOuter.offsetHeight - window.innerHeight;
+      if (outerH <= 0) return;
+      const p = Math.max(0, Math.min(1, -rect.top / outerH));
+      pfTrack.style.transform = `translateX(${-p * scrollMax}px)`;
+      if (pfBar) pfBar.style.width = (p * 100) + '%';
+    }
+
+    window.addEventListener('load', () => { initPf(); updatePf(); });
+    window.addEventListener('scroll', updatePf, { passive: true });
+    window.addEventListener('resize', () => { initPf(); updatePf(); });
+    initPf();
+    updatePf();
+  }
+
 
   /* ════════════════════════════════════════
-     8b. PORTFOLIO FILTERS
+     WORK PAGE — PARALLAX IMAGES
   ════════════════════════════════════════ */
-  const pfFilters = document.querySelectorAll('.pf-filter');
-  const pfRows    = document.querySelectorAll('.pf-list .pf-row');
+  const wkImgs = document.querySelectorAll('.wk-img-col img');
+  if (wkImgs.length) {
+    const updateWkParallax = () => {
+      const vh = window.innerHeight;
+      wkImgs.forEach(img => {
+        const col = img.closest('.wk-img-col');
+        const rect = col.getBoundingClientRect();
+        if (rect.bottom < 0 || rect.top > vh) return;
+        const progress = (vh - rect.top) / (vh + rect.height);
+        const offset = (progress - 0.5) * 70;
+        img.style.transform = `translateY(${offset}px)`;
+      });
+    };
+    window.addEventListener('scroll', updateWkParallax, { passive: true });
+    updateWkParallax();
+  }
 
-  pfFilters.forEach(btn => {
-    btn.addEventListener('click', () => {
-      pfFilters.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+  /* ════════════════════════════════════════
+     WORK PAGE FILTERS
+  ════════════════════════════════════════ */
+  const wkFilters = document.querySelectorAll('.wk-filter');
+  const wkTypedRows = document.querySelectorAll('.wk-row[data-type]');
 
-      const filter = btn.dataset.filter;
-      pfRows.forEach(row => {
-        const match =
-          filter === 'all' ||
-          (filter === 'freelance' && row.classList.contains('pf-row--freelance')) ||
-          (filter === 'agency'    && row.classList.contains('pf-row--agency'))    ||
-          (filter === 'personal'  && row.classList.contains('pf-row--personal'));
-        row.classList.toggle('pf-hidden', !match);
+  if (wkFilters.length && wkTypedRows.length) {
+    wkFilters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        wkFilters.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        wkTypedRows.forEach(row => {
+          const match = filter === 'all' || row.dataset.type === filter;
+          row.classList.toggle('wk-row--hidden', !match);
+          if (match) {
+            row.classList.remove('wk-row--in');
+            requestAnimationFrame(() => requestAnimationFrame(() => row.classList.add('wk-row--in')));
+          } else {
+            row.classList.remove('wk-row--in');
+          }
+        });
       });
     });
-  });
+  }
 
   /* ════════════════════════════════════════
      7. MENU MOBILE
@@ -339,12 +383,148 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.getElementById('main-header');
   if (header) {
     let lastY = window.scrollY;
-    window.addEventListener('scroll', () => {
-      if (window.innerWidth >= 768) return;
+    const updateNav = () => {
       const y = window.scrollY;
+      header.classList.toggle('nav-scrolled', y > 40);
       header.classList.toggle('header-hidden', y > lastY && y > 80);
       lastY = y;
-    }, { passive: true });
+    };
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+  }
+
+  /* ════════════════════════════════════════
+     9. PROJECT MODAL — work.html
+  ════════════════════════════════════════ */
+  const wkModal   = document.getElementById('wk-modal');
+  const wkList    = document.querySelector('.wk-list');
+
+  if (wkModal && wkList) {
+    const panel    = wkModal.querySelector('.wk-modal-panel');
+    const bd       = wkModal.querySelector('.wk-modal-bd');
+    const closeBtn = wkModal.querySelector('.wk-modal-close');
+    const mNum     = wkModal.querySelector('.wk-modal-num');
+    const mBadge   = wkModal.querySelector('.wk-modal-badge');
+    const mTitle   = wkModal.querySelector('.wk-modal-title');
+    const mTags    = wkModal.querySelector('.wk-modal-tags');
+    const mImg     = wkModal.querySelector('.wk-modal-img');
+    const mDesc    = wkModal.querySelector('.wk-modal-desc');
+    const mLink    = wkModal.querySelector('.wk-modal-link');
+
+    const mAnimEls = [
+      wkModal.querySelector('.wk-modal-head'),
+      wkModal.querySelector('.wk-modal-img-wrap'),
+      wkModal.querySelector('.wk-modal-body')
+    ];
+
+    function resetInnerAnim() {
+      mAnimEls.forEach(el => { if (el) el.style.cssText = ''; });
+    }
+
+    function openModal(row) {
+      const url      = row.dataset.url || '#';
+      const title    = row.querySelector('.wk-title')?.textContent || '';
+      const numEl    = row.querySelector('.wk-num');
+      const badgeEl  = row.querySelector('.wk-badge');
+      const descEl   = row.querySelector('.wk-desc');
+      const imgEl    = row.querySelector('.wk-img-col img');
+      const tagEls   = row.querySelectorAll('.wk-tags span');
+
+      // Reset inner animations instantly so they replay
+      mAnimEls.forEach(el => {
+        if (!el) return;
+        el.style.transition = 'none';
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(18px)';
+      });
+
+      mNum.textContent   = numEl?.textContent || '';
+      mTitle.textContent = title;
+      mDesc.textContent  = descEl?.textContent || '';
+      mImg.src           = imgEl?.src || '';
+      mImg.alt           = title;
+      mLink.href         = url;
+
+      mBadge.textContent = badgeEl?.textContent || '';
+      mBadge.className   = 'wk-modal-badge';
+      if (badgeEl?.classList.contains('wk-badge--freelance')) mBadge.classList.add('wk-modal-badge--freelance');
+      else if (badgeEl?.classList.contains('wk-badge--agency')) mBadge.classList.add('wk-modal-badge--agency');
+      else mBadge.classList.add('wk-modal-badge--wip');
+
+      mTags.innerHTML = '';
+      tagEls.forEach(t => {
+        const s = document.createElement('span');
+        s.textContent = t.textContent;
+        mTags.appendChild(s);
+      });
+
+      wkModal.setAttribute('aria-hidden', 'false');
+      wkModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      panel.scrollTop = 0;
+      const mInner = wkModal.querySelector('.wk-modal-inner');
+      if (mInner) mInner.scrollTop = 0;
+
+      // Re-enable transitions after a frame so CSS takes over
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        mAnimEls.forEach(el => { if (el) el.style.cssText = ''; });
+      }));
+    }
+
+    function closeModal() {
+      // Instantly hide inner content — panel animation handles the visual close
+      mAnimEls.forEach(el => {
+        if (!el) return;
+        el.style.transition = 'none';
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(18px)';
+      });
+      wkModal.classList.remove('open');
+      wkModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      setTimeout(resetInnerAnim, 450);
+    }
+
+    wkList.addEventListener('click', e => {
+      const row = e.target.closest('.wk-row');
+      if (!row) return;
+      if (e.target.closest('.wk-cta')) return; // let the link open normally
+      openModal(row);
+    });
+
+    bd.addEventListener('click', closeModal);
+    closeBtn.addEventListener('click', closeModal);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  }
+
+  /* ════════════════════════════════════════
+     PARALLAX ENGINE — [data-parallax]
+  ════════════════════════════════════════ */
+  if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const pxItems = [];
+    document.querySelectorAll('[data-parallax]').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      pxItems.push({
+        el,
+        speed: parseFloat(el.dataset.parallax) || 0.1,
+        cy: rect.top + window.scrollY + rect.height / 2
+      });
+    });
+    if (pxItems.length) {
+      let pxTick = false;
+      const runPx = () => {
+        const half = window.innerHeight / 2;
+        pxItems.forEach(({ el, speed, cy }) => {
+          const offset = (window.scrollY + half - cy) * speed;
+          el.style.transform = `translateY(${offset}px)`;
+        });
+        pxTick = false;
+      };
+      window.addEventListener('scroll', () => {
+        if (!pxTick) { pxTick = true; requestAnimationFrame(runPx); }
+      }, { passive: true });
+      runPx();
+    }
   }
 
 });

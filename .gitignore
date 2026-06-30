@@ -1,0 +1,18 @@
+node_modules/
+
+# Originaux remplacés par des WebP — gardés en local mais pas en repo
+uploads/chiro.jpg
+uploads/courriere.jpg
+uploads/hospel.jpg
+uploads/memisa.jpg
+uploads/deviensspiecialiste.png
+uploads/intotheblue.png
+uploads/intothewildfestival.png
+uploads/lespoulettes.png
+uploads/platformawards.png
+uploads/raymonddelepierre.png
+uploads/theccoach.png
+uploads/venues.png
+uploads/web-be.png
+
+.DS_Store
