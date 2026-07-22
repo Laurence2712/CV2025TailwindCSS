@@ -251,7 +251,7 @@ const translations = {
       aboutHero: "À <em>propos</em>",
       projectsTitle: "Laurence Pirard — Projets",
       projectsHero: "<em>Projets</em>",
-      projectsCount: "12 projets",
+      projectsCount: "13 projets",
       projectsType: "Freelance & Agence"
     }
   },
@@ -508,7 +508,7 @@ const translations = {
       aboutHero: "<em>About</em>",
       projectsTitle: "Laurence Pirard — Projects",
       projectsHero: "<em>Projects</em>",
-      projectsCount: "12 projects",
+      projectsCount: "13 projects",
       projectsType: "Freelance & Agency"
     }
   }
