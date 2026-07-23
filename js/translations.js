@@ -300,7 +300,7 @@ const translations = {
       portfolioLead: "A selection of sites I've worked on — at Paf! Design agency or as a freelancer.",
       contactTitle: "Let's work together.",
       contactText: "Available for collaborations — agency or freelance.",
-      contactWedding: "Open to partnerships with wedding planners."
+      contactWedding: "Open to collaborations with wedding planners."
     },
     filter: {
       all: "All",
