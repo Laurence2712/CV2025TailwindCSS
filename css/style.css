@@ -1275,8 +1275,15 @@
     .contact-email-big:hover .contact-email-icon { border-color: var(--accent); color: var(--accent); }
     .contact-sub {
       font-size: .92rem; color: var(--muted);
-      margin-bottom: 36px; line-height: 1.8; max-width: 52ch;
+      margin-bottom: 12px; line-height: 1.8; max-width: 52ch;
     }
+    .contact-wedding {
+      font-size: .78rem; font-style: italic;
+      color: rgba(122,137,158,.6);
+      letter-spacing: .03em;
+      margin-bottom: 36px;
+    }
+    .contact-wedding::before { content: '♡ '; font-style: normal; color: var(--accent); opacity: .5; }
     .contact-actions { display: flex; flex-wrap: wrap; gap: 14px; }
     @media (max-width: 768px) {
       .contact-big-title { margin-bottom: 36px; }
