@@ -41,7 +41,7 @@ const translations = {
       portfolioTitle: "Portfolio",
       portfolioLead: "Une sélection de sites sur lesquels j'ai travaillé — en agence chez Paf! Design ou en freelance.",
       contactTitle: "Travaillons ensemble.",
-      contactText: "Disponible pour des collaborations — agence ou freelance."
+      contactText: "Disponible pour des collaborations — agence ou freelance. Collaboration avec wedding planners bienvenue."
     },
     filter: {
       all: "Tous",
@@ -298,7 +298,7 @@ const translations = {
       portfolioTitle: "Portfolio",
       portfolioLead: "A selection of sites I've worked on — at Paf! Design agency or as a freelancer.",
       contactTitle: "Let's work together.",
-      contactText: "Available for collaborations — agency or freelance."
+      contactText: "Available for collaborations — agency or freelance. Open to partnerships with wedding planners."
     },
     filter: {
       all: "All",
