@@ -79,7 +79,7 @@ const translations = {
       date2: "2012 – 2015",
       title2: "Éducatrice spécialisée en activités socio-sportives",
       school2: "<span style=\"color:var(--accent)\">Parnasse-ISEI · Bruxelles</span>",
-      desc2: "Diplômée avec distinction — juin 2015.<ul><li><strong>Ouagadougou, Burkina Faso</strong>Stage au sein de l'association <a href=\"https://www.keoogo.org/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--accent)\">KEOOGO</a>, accompagnement d'enfants de la rue (2014-2015)</li><li><strong>Woluwe-Saint-Lambert</strong>Stage à l'Institut Royal d'Accueil pour le Handicap Moteur · <a href=\"https://www.irahm.be/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--accent)\">IRAHM ASBL</a> (2013-2014)</li><li><strong>Louvain-la-Neuve</strong>Stage à l'<a href=\"https://www.sport-adeps.be/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--accent)\">Adeps</a> (2012-2013)</li></ul>"
+      desc2: "Diplômée avec distinction — juin 2015.<ul><li><strong>Ouagadougou, Burkina Faso</strong>Stage au sein de l'association <a href=\"https://www.keoogo.org/\" target=\"_blank\" rel=\"noopener noreferrer\">KEOOGO</a>, accompagnement d'enfants de la rue (2014-2015)</li><li><strong>Woluwe-Saint-Lambert</strong>Stage à l'Institut Royal d'Accueil pour le Handicap Moteur · <a href=\"https://www.irahm.be/\" target=\"_blank\" rel=\"noopener noreferrer\">IRAHM ASBL</a> (2013-2014)</li><li><strong>Louvain-la-Neuve</strong>Stage à l'<a href=\"https://www.sport-adeps.be/\" target=\"_blank\" rel=\"noopener noreferrer\">Adeps</a> (2012-2013)</li></ul>"
     },
     decathlon: {
       badge: "Emploi",
@@ -336,7 +336,7 @@ const translations = {
       date2: "2012 – 2015",
       title2: "Educator specialised in social & sports activities",
       school2: "<span style=\"color:var(--accent)\">Parnasse-ISEI · Brussels</span>",
-      desc2: "Graduated with distinction — June 2015.<ul><li><strong>Ouagadougou, Burkina Faso</strong>Internship with association <a href=\"https://www.keoogo.org/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--accent)\">KEOOGO</a>, supporting street children (2014-2015)</li><li><strong>Woluwe-Saint-Lambert</strong>Internship at the Institut Royal d'Accueil pour le Handicap Moteur · <a href=\"https://www.irahm.be/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--accent)\">IRAHM ASBL</a> (2013-2014)</li><li><strong>Louvain-la-Neuve</strong>Internship at <a href=\"https://www.sport-adeps.be/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--accent)\">Adeps</a> (2012-2013)</li></ul>"
+      desc2: "Graduated with distinction — June 2015.<ul><li><strong>Ouagadougou, Burkina Faso</strong>Internship with association <a href=\"https://www.keoogo.org/\" target=\"_blank\" rel=\"noopener noreferrer\">KEOOGO</a>, supporting street children (2014-2015)</li><li><strong>Woluwe-Saint-Lambert</strong>Internship at the Institut Royal d'Accueil pour le Handicap Moteur · <a href=\"https://www.irahm.be/\" target=\"_blank\" rel=\"noopener noreferrer\">IRAHM ASBL</a> (2013-2014)</li><li><strong>Louvain-la-Neuve</strong>Internship at <a href=\"https://www.sport-adeps.be/\" target=\"_blank\" rel=\"noopener noreferrer\">Adeps</a> (2012-2013)</li></ul>"
     },
     experience: {
       badge1: "Freelance",

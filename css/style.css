@@ -896,6 +896,14 @@
     .tl-desc ul li::before { content: '›'; color: var(--nc, var(--accent)); opacity: .7; position: absolute; left: 0; top: 0; }
     .tl-desc ul li strong { display: block; font-weight: 700; color: var(--text); margin-bottom: 2px; }
     .tl-desc ul.tl-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3px 24px; }
+    .tl-desc a {
+      color: var(--muted);
+      text-decoration: underline;
+      text-decoration-color: rgba(122,137,158,.35);
+      text-underline-offset: 3px;
+      transition: color .2s, text-decoration-color .2s;
+    }
+    .tl-desc a:hover { color: var(--text); text-decoration-color: rgba(44,61,82,.4); }
 
     .tl-tags-wrap {
       margin-top: 14px;
