@@ -217,6 +217,27 @@
     .sv-field textarea:focus { border-color: var(--accent); background: var(--card); }
     .sv-field textarea { min-height: 96px; }
 
+    .sv-field select {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 40px 14px 16px;
+      font-family: 'Poppins', sans-serif;
+      font-size: .78rem;
+      font-weight: 500;
+      color: var(--text);
+      width: 100%;
+      transition: border-color .2s, background .2s;
+      outline: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a899e' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      cursor: pointer;
+    }
+    .sv-field select:focus { border-color: var(--accent); background-color: var(--card); }
+    .sv-field select option { background: var(--surface); color: var(--text); }
+
     .sv-form-footer {
       grid-column: 1 / -1;
       display: flex;
@@ -421,6 +442,19 @@
       </div>
 
       <div class="sv-field sv-field--full">
+        <label for="sv-service" data-translate="services.formService"></label>
+        <select id="sv-service" name="service_interest" required>
+          <option value="" disabled selected data-fr="Choisissez un service…" data-en="Choose a service…">Choisissez un service…</option>
+          <option value="Site web sur mesure"        data-fr="Site web sur mesure"        data-en="Custom website">Site web sur mesure</option>
+          <option value="Thème WordPress sur mesure" data-fr="Thème WordPress sur mesure" data-en="Custom WordPress theme">Thème WordPress sur mesure</option>
+          <option value="Intégration depuis maquette" data-fr="Intégration depuis maquette" data-en="Design-to-code integration">Intégration depuis maquette</option>
+          <option value="Maintenance & évolution"    data-fr="Maintenance &amp; évolution" data-en="Maintenance &amp; improvements">Maintenance &amp; évolution</option>
+          <option value="Site de mariage"            data-fr="Site de mariage"            data-en="Wedding website">Site de mariage</option>
+          <option value="Autre"                      data-fr="Autre"                      data-en="Other">Autre</option>
+        </select>
+      </div>
+
+      <div class="sv-field sv-field--full">
         <label for="sv-q1" data-translate="services.formQ1"></label>
         <textarea id="sv-q1" name="project_desc" required
           placeholder="À quoi sert le site ? Qui est votre public cible ?"></textarea>
@@ -515,9 +549,10 @@
     msg.textContent = '';
 
     const params = {
-      from_name:    form.from_name.value.trim(),
-      from_email:   form.from_email.value.trim(),
-      project_desc: form.project_desc.value.trim(),
+      from_name:        form.from_name.value.trim(),
+      from_email:       form.from_email.value.trim(),
+      service_interest: form.service_interest.value,
+      project_desc:     form.project_desc.value.trim(),
       content_ready: form.content_ready.value.trim(),
       design_refs:  form.design_refs.value.trim(),
       hosting_info: form.hosting_info.value.trim(),
