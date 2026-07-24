@@ -198,7 +198,7 @@
 
     .sv-field input,
     .sv-field textarea {
-      background: rgba(255,255,255,.55);
+      background: #fff;
       border: 1px solid var(--border);
       border-radius: 10px;
       padding: 14px 16px;
@@ -207,18 +207,19 @@
       font-weight: 500;
       color: var(--text);
       width: 100%;
-      transition: border-color .2s, background .2s;
+      box-shadow: 0 4px 20px rgba(44,61,82,.07);
+      transition: border-color .2s, box-shadow .2s;
       outline: none;
       resize: vertical;
     }
     .sv-field input::placeholder,
     .sv-field textarea::placeholder { color: var(--border); font-weight: 400; }
     .sv-field input:focus,
-    .sv-field textarea:focus { border-color: var(--accent); background: rgba(255,255,255,.75); }
+    .sv-field textarea:focus { border-color: var(--accent); box-shadow: 0 4px 20px rgba(44,61,82,.12); }
     .sv-field textarea { min-height: 96px; }
 
     .sv-field select {
-      background: rgba(255,255,255,.55);
+      background: #fff;
       border: 1px solid var(--border);
       border-radius: 10px;
       padding: 14px 40px 14px 16px;
@@ -233,9 +234,10 @@
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a899e' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 16px center;
+      box-shadow: 0 4px 20px rgba(44,61,82,.07);
       cursor: pointer;
     }
-    .sv-field select:focus { border-color: var(--accent); background-color: rgba(255,255,255,.75); }
+    .sv-field select:focus { border-color: var(--accent); box-shadow: 0 4px 20px rgba(44,61,82,.12); background-color: #fff; }
     .sv-field select option { background: var(--surface); color: var(--text); }
 
     .sv-form-footer {
