@@ -150,106 +150,101 @@
       line-height: 1.65;
     }
 
-    /* ── Brief / Questions section ── */
-    .sv-brief {
+    /* ── Form section ── */
+    .sv-form-section {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 0 40px 80px;
+      padding: 56px 40px 100px;
+      border-top: 1px solid var(--border);
     }
 
-    .sv-brief-list {
+    .sv-form {
+      margin-top: 36px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .sv-field {
       display: flex;
       flex-direction: column;
-      gap: 0;
-      margin-top: 36px;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
+      gap: 8px;
     }
+    .sv-field--full { grid-column: 1 / -1; }
 
-    .sv-brief-item {
-      display: flex;
-      align-items: baseline;
-      gap: 20px;
-      padding: 22px 28px;
-      border-bottom: 1px solid var(--border);
-      background: var(--surface);
-      transition: background .15s;
-    }
-    .sv-brief-item:last-child { border-bottom: none; }
-    .sv-brief-item:hover { background: var(--card); }
-
-    .sv-brief-num {
-      font-size: .65rem;
+    .sv-field label {
+      font-size: .66rem;
       font-weight: 700;
-      letter-spacing: .12em;
-      color: var(--accent);
-      opacity: .6;
-      flex-shrink: 0;
-      min-width: 22px;
-    }
-
-    .sv-brief-q {
-      font-size: .8rem;
-      color: var(--text);
-      line-height: 1.6;
-      flex: 1;
-    }
-
-    .sv-brief-opt {
-      font-size: .62rem;
-      font-weight: 600;
-      letter-spacing: .08em;
+      letter-spacing: .1em;
       color: var(--muted);
-      background: rgba(122,137,158,.1);
-      border: 1px solid rgba(122,137,158,.2);
-      border-radius: 100px;
-      padding: 2px 9px;
-      flex-shrink: 0;
-    }
-
-    @media (max-width: 900px) {
-      .sv-brief { padding: 0 24px 60px; }
-      .sv-brief-item { padding: 18px 22px; gap: 14px; }
-    }
-    @media (max-width: 640px) {
-      .sv-brief { padding: 0 20px 48px; }
-      .sv-brief-item { padding: 16px 18px; flex-wrap: wrap; gap: 8px; }
-      .sv-brief-opt { align-self: flex-start; }
-    }
-
-    /* ── CTA section ── */
-    .sv-cta {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 40px 100px;
+      text-transform: uppercase;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 32px;
-      border-top: 1px solid var(--border);
-      padding-top: 56px;
+      gap: 8px;
     }
 
-    .sv-cta-text { display: flex; flex-direction: column; gap: 4px; }
-
-    .sv-cta-title {
-      font-size: clamp(1.2rem, 2.5vw, 1.7rem);
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .sv-cta-sub {
-      font-size: .82rem;
+    .sv-opt-badge {
+      font-size: .58rem;
+      font-weight: 600;
+      letter-spacing: .06em;
       color: var(--muted);
+      background: rgba(122,137,158,.1);
+      border: 1px solid rgba(122,137,158,.18);
+      border-radius: 100px;
+      padding: 1px 8px;
+      text-transform: none;
+      opacity: .7;
     }
+
+    .sv-field input,
+    .sv-field textarea {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-family: 'Poppins', sans-serif;
+      font-size: .78rem;
+      font-weight: 500;
+      color: var(--text);
+      width: 100%;
+      transition: border-color .2s, background .2s;
+      outline: none;
+      resize: vertical;
+    }
+    .sv-field input::placeholder,
+    .sv-field textarea::placeholder { color: var(--border); font-weight: 400; }
+    .sv-field input:focus,
+    .sv-field textarea:focus { border-color: var(--accent); background: var(--card); }
+    .sv-field textarea { min-height: 96px; }
+
+    .sv-form-footer {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .sv-form-msg {
+      font-size: .75rem;
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity .3s;
+      pointer-events: none;
+    }
+    .sv-form-msg.sv-success { color: #34d399; opacity: 1; }
+    .sv-form-msg.sv-error   { color: #f87171; opacity: 1; }
 
     /* ── Responsive ── */
     @media (max-width: 900px) {
       .sv-grid { grid-template-columns: 1fr; padding: 0 24px 60px; }
       .sv-steps { grid-template-columns: 1fr 1fr; }
       .sv-process { padding: 0 24px 60px; }
-      .sv-cta { padding: 48px 24px 80px; flex-direction: column; align-items: flex-start; }
+      .sv-form-section { padding: 48px 24px 80px; }
+      .sv-form { grid-template-columns: 1fr; }
+      .sv-field--full { grid-column: 1; }
+      .sv-form-footer { flex-direction: column; align-items: flex-start; }
     }
 
     @media (max-width: 640px) {
@@ -257,7 +252,7 @@
       .sv-card { padding: 28px 22px; }
       .sv-steps { grid-template-columns: 1fr; gap: 32px; }
       .sv-process { padding: 0 20px 48px; }
-      .sv-cta { padding: 40px 20px 72px; }
+      .sv-form-section { padding: 40px 20px 72px; }
     }
   </style>
 </head>
@@ -406,39 +401,60 @@
     </div>
   </div>
 
-  <!-- Questions types -->
-  <div class="sv-brief fade-slide-up">
-    <p class="sv-section-label" data-translate="services.briefTitle"></p>
-    <h2 class="sv-section-title" data-translate="services.briefSubtitle"></h2>
+  <!-- Formulaire de contact -->
+  <div class="sv-form-section fade-slide-up">
+    <p class="sv-section-label" data-translate="services.formTitle"></p>
+    <h2 class="sv-section-title" data-translate="services.formSubtitle"></h2>
 
-    <div class="sv-brief-list">
-      <div class="sv-brief-item">
-        <span class="sv-brief-num">01</span>
-        <p class="sv-brief-q" data-translate="services.brief1"></p>
-      </div>
-      <div class="sv-brief-item">
-        <span class="sv-brief-num">02</span>
-        <p class="sv-brief-q" data-translate="services.brief2"></p>
-      </div>
-      <div class="sv-brief-item">
-        <span class="sv-brief-num">03</span>
-        <p class="sv-brief-q" data-translate="services.brief3"></p>
-      </div>
-      <div class="sv-brief-item">
-        <span class="sv-brief-num">04</span>
-        <p class="sv-brief-q" data-translate="services.brief4"></p>
-        <span class="sv-brief-opt" data-translate="services.brief4opt"></span>
-      </div>
-    </div>
-  </div>
+    <form class="sv-form" id="sv-contact-form" novalidate>
 
-  <!-- CTA -->
-  <div class="sv-cta fade-slide-up">
-    <div class="sv-cta-text">
-      <p class="sv-cta-title" data-translate="services.ctaTitle"></p>
-      <p class="sv-cta-sub" data-translate="services.ctaText"></p>
-    </div>
-    <a href="about.html#contact" class="btn-primary" data-translate="services.ctaButton"></a>
+      <div class="sv-field">
+        <label for="sv-name" data-translate="services.formName"></label>
+        <input type="text" id="sv-name" name="from_name" required
+          placeholder="Marie Dupont" autocomplete="name">
+      </div>
+
+      <div class="sv-field">
+        <label for="sv-email" data-translate="services.formEmail"></label>
+        <input type="email" id="sv-email" name="from_email" required
+          placeholder="marie@exemple.be" autocomplete="email">
+      </div>
+
+      <div class="sv-field sv-field--full">
+        <label for="sv-q1" data-translate="services.formQ1"></label>
+        <textarea id="sv-q1" name="project_desc" required
+          placeholder="À quoi sert le site ? Qui est votre public cible ?"></textarea>
+      </div>
+
+      <div class="sv-field sv-field--full">
+        <label for="sv-q2" data-translate="services.formQ2"></label>
+        <textarea id="sv-q2" name="content_ready"
+          placeholder="Textes, images, logo… Décrivez ce que vous avez déjà."></textarea>
+      </div>
+
+      <div class="sv-field sv-field--full">
+        <label for="sv-q3" data-translate="services.formQ3"></label>
+        <textarea id="sv-q3" name="design_refs"
+          placeholder="Partagez 2–3 URLs de sites que vous aimez."></textarea>
+      </div>
+
+      <div class="sv-field sv-field--full">
+        <label for="sv-q4">
+          <span data-translate="services.formQ4"></span>
+          <span class="sv-opt-badge" data-translate="services.formOpt"></span>
+        </label>
+        <textarea id="sv-q4" name="hosting_info" style="min-height:72px"
+          placeholder="Avez-vous déjà un hébergeur ou un nom de domaine ?"></textarea>
+      </div>
+
+      <div class="sv-form-footer">
+        <button type="submit" class="btn-primary" id="sv-submit">
+          <span data-translate="services.formSubmit">Envoyer</span>
+        </button>
+        <p class="sv-form-msg" id="sv-msg"></p>
+      </div>
+
+    </form>
   </div>
 
 </main>
@@ -473,5 +489,57 @@
 </button>
 
 <script src="js/bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  // ── EmailJS config ──────────────────────────────────────
+  // 1. Crée un compte sur https://www.emailjs.com
+  // 2. Ajoute un service Gmail → copie le Service ID ici
+  // 3. Crée un template → copie le Template ID ici
+  // 4. Compte > API Keys → copie la Public Key ici
+  const EJS_PUBLIC_KEY  = 'VOTRE_PUBLIC_KEY';
+  const EJS_SERVICE_ID  = 'VOTRE_SERVICE_ID';
+  const EJS_TEMPLATE_ID = 'VOTRE_TEMPLATE_ID';
+  // ────────────────────────────────────────────────────────
+
+  emailjs.init({ publicKey: EJS_PUBLIC_KEY });
+
+  document.getElementById('sv-contact-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const form    = e.target;
+    const btn     = document.getElementById('sv-submit');
+    const msg     = document.getElementById('sv-msg');
+    const lang    = localStorage.getItem('preferredLanguage') || 'fr';
+    const t       = translations[lang].services;
+
+    btn.disabled = true;
+    btn.querySelector('span').textContent = t.formSending;
+    msg.className = 'sv-form-msg';
+    msg.textContent = '';
+
+    const params = {
+      from_name:    form.from_name.value.trim(),
+      from_email:   form.from_email.value.trim(),
+      project_desc: form.project_desc.value.trim(),
+      content_ready: form.content_ready.value.trim(),
+      design_refs:  form.design_refs.value.trim(),
+      hosting_info: form.hosting_info.value.trim(),
+    };
+
+    try {
+      await emailjs.send(EJS_SERVICE_ID, EJS_TEMPLATE_ID, params);
+      msg.textContent = t.formSuccess;
+      msg.classList.add('sv-success');
+      form.reset();
+    } catch (err) {
+      msg.textContent = t.formError;
+      msg.classList.add('sv-error');
+      console.error('EmailJS error:', err);
+    } finally {
+      btn.disabled = false;
+      btn.querySelector('span').textContent = t.formSubmit;
+    }
+  });
+</script>
 </body>
 </html>
