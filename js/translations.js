@@ -10,7 +10,8 @@ const translations = {
       terrain: "En production",
       contact: "Contact",
       cv: "CV",
-      works: "Projets"
+      works: "Projets",
+      services: "Services"
     },
     hero: {
       available: "Disponible pour des collaborations",
@@ -253,7 +254,44 @@ const translations = {
       projectsTitle: "Laurence Pirard — Projets",
       projectsHero: "<em>Projets</em>",
       projectsCount: "13 projets",
-      projectsType: "Freelance & Agence"
+      projectsType: "Freelance & Agence",
+      servicesTitle: "Laurence Pirard — Services",
+      servicesHero: "<em>Services</em>"
+    },
+    services: {
+      metaTagline: "Full Stack Developer · Bruxelles",
+      s1title: "Site web sur mesure",
+      s1desc: "De la page blanche au site en ligne — conception, intégration, déploiement et suivi. Chaque projet est pensé mobile first, accessible et rapide.",
+      s1tags: ["HTML / CSS / JS", "TailwindCSS", "Design responsive", "Mobile first"],
+      s2title: "Thème WordPress sur mesure",
+      s2desc: "Thème développé de A à Z sans constructeur de page. ACF, types de contenu personnalisés, hooks et filtres — une base solide, maintenable et performante.",
+      s2tags: ["WordPress", "PHP", "ACF", "WooCommerce", "WPML"],
+      s3title: "Intégration depuis maquette",
+      s3desc: "Figma, XD ou simple brief — je transforme votre design en code propre, fidèle au pixel et cohérent sur tous les écrans.",
+      s3tags: ["Figma", "HTML / CSS", "TailwindCSS", "Responsive"],
+      s4title: "Maintenance & évolution",
+      s4desc: "Mises à jour WordPress & plugins, corrections, ajouts de fonctionnalités et optimisations techniques. Site suivi, sécurisé et toujours à jour.",
+      s4tags: ["WordPress", "PHP", "Sécurité", "Performance"],
+      s5title: "Site de mariage",
+      s5desc: "Template entièrement personnalisé — formulaire RSVP avec EmailJS, confirmation automatique par mail, collecte des réponses par email et Google Drive partageable.",
+      s5tags: ["HTML / CSS / JS", "EmailJS", "Google Drive API", "100% personnalisable"],
+      approachTitle: "Comment je travaille",
+      approachSubtitle: "Un processus clair, de la première conversation à la mise en ligne.",
+      step1num: "01",
+      step1title: "Découverte",
+      step1desc: "On discute de votre projet, vos objectifs et vos contraintes. Je pose les bonnes questions pour comprendre ce dont vous avez vraiment besoin.",
+      step2num: "02",
+      step2title: "Conception",
+      step2desc: "Structure, contenu, références visuelles. On aligne le cap avant de toucher au code.",
+      step3num: "03",
+      step3title: "Développement",
+      step3desc: "Intégration propre, mobile first, testée sur plusieurs écrans. Vous voyez l'avancement en temps réel.",
+      step4num: "04",
+      step4title: "Mise en ligne",
+      step4desc: "Déploiement, configuration serveur, redirections. Votre site est en ligne et prêt à accueillir des visiteurs.",
+      ctaTitle: "Un projet en tête ?",
+      ctaText: "Parlons-en.",
+      ctaButton: "Contactez-moi"
     }
   },
   en: {
@@ -267,7 +305,8 @@ const translations = {
       terrain: "In the field",
       contact: "Contact",
       cv: "Resume",
-      works: "Projects"
+      works: "Projects",
+      services: "Services"
     },
     hero: {
       available: "Available for collaborations",
@@ -511,7 +550,44 @@ const translations = {
       projectsTitle: "Laurence Pirard — Projects",
       projectsHero: "<em>Projects</em>",
       projectsCount: "13 projects",
-      projectsType: "Freelance & Agency"
+      projectsType: "Freelance & Agency",
+      servicesTitle: "Laurence Pirard — Services",
+      servicesHero: "<em>Services</em>"
+    },
+    services: {
+      metaTagline: "Full Stack Developer · Brussels",
+      s1title: "Custom website",
+      s1desc: "From blank page to live site — design, integration, deployment and follow-up. Every project is built mobile first, accessible and fast.",
+      s1tags: ["HTML / CSS / JS", "TailwindCSS", "Responsive design", "Mobile first"],
+      s2title: "Custom WordPress theme",
+      s2desc: "Theme built from scratch without a page builder. ACF, custom post types, hooks and filters — a solid, maintainable and performant foundation.",
+      s2tags: ["WordPress", "PHP", "ACF", "WooCommerce", "WPML"],
+      s3title: "Design-to-code integration",
+      s3desc: "Figma, XD or a simple brief — I turn your design into clean, pixel-faithful code that holds across every screen.",
+      s3tags: ["Figma", "HTML / CSS", "TailwindCSS", "Responsive"],
+      s4title: "Maintenance & improvements",
+      s4desc: "WordPress & plugin updates, bug fixes, new features and technical optimisations. Your site stays up to date, secure and running smoothly.",
+      s4tags: ["WordPress", "PHP", "Security", "Performance"],
+      s5title: "Wedding website",
+      s5desc: "Fully personalised template — RSVP form with EmailJS, automatic confirmation email, responses collected by email and in a shareable Google Drive.",
+      s5tags: ["HTML / CSS / JS", "EmailJS", "Google Drive API", "100% customisable"],
+      approachTitle: "How I work",
+      approachSubtitle: "A clear process, from first conversation to launch.",
+      step1num: "01",
+      step1title: "Discovery",
+      step1desc: "We talk about your project, your goals and your constraints. I ask the right questions to understand what you actually need.",
+      step2num: "02",
+      step2title: "Design",
+      step2desc: "Structure, content, visual references. We align on direction before touching any code.",
+      step3num: "03",
+      step3title: "Development",
+      step3desc: "Clean integration, mobile first, tested across multiple screens. You see progress in real time.",
+      step4num: "04",
+      step4title: "Launch",
+      step4desc: "Deployment, server configuration, redirects. Your site is live and ready to welcome visitors.",
+      ctaTitle: "Have a project in mind?",
+      ctaText: "Let's talk.",
+      ctaButton: "Contact me"
     }
   }
 };
@@ -534,6 +610,10 @@ window.changeLanguage = changeLanguage;
 
 // Fonction de mise à jour des textes
 function updateTexts(lang) {
+  document.querySelectorAll('[data-fr][data-en]').forEach(el => {
+    el.textContent = el.dataset[lang] || el.dataset.fr;
+  });
+
   const elements = document.querySelectorAll('[data-translate]');
 
   elements.forEach(element => {
