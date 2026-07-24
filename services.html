@@ -150,6 +150,74 @@
       line-height: 1.65;
     }
 
+    /* ── Brief / Questions section ── */
+    .sv-brief {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 40px 80px;
+    }
+
+    .sv-brief-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 36px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .sv-brief-item {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      padding: 22px 28px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      transition: background .15s;
+    }
+    .sv-brief-item:last-child { border-bottom: none; }
+    .sv-brief-item:hover { background: var(--card); }
+
+    .sv-brief-num {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      color: var(--accent);
+      opacity: .6;
+      flex-shrink: 0;
+      min-width: 22px;
+    }
+
+    .sv-brief-q {
+      font-size: .8rem;
+      color: var(--text);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .sv-brief-opt {
+      font-size: .62rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      color: var(--muted);
+      background: rgba(122,137,158,.1);
+      border: 1px solid rgba(122,137,158,.2);
+      border-radius: 100px;
+      padding: 2px 9px;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 900px) {
+      .sv-brief { padding: 0 24px 60px; }
+      .sv-brief-item { padding: 18px 22px; gap: 14px; }
+    }
+    @media (max-width: 640px) {
+      .sv-brief { padding: 0 20px 48px; }
+      .sv-brief-item { padding: 16px 18px; flex-wrap: wrap; gap: 8px; }
+      .sv-brief-opt { align-self: flex-start; }
+    }
+
     /* ── CTA section ── */
     .sv-cta {
       max-width: 1100px;
@@ -334,6 +402,32 @@
         <span class="sv-step-num" data-translate="services.step4num"></span>
         <h3 class="sv-step-title" data-translate="services.step4title"></h3>
         <p class="sv-step-desc" data-translate="services.step4desc"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Questions types -->
+  <div class="sv-brief fade-slide-up">
+    <p class="sv-section-label" data-translate="services.briefTitle"></p>
+    <h2 class="sv-section-title" data-translate="services.briefSubtitle"></h2>
+
+    <div class="sv-brief-list">
+      <div class="sv-brief-item">
+        <span class="sv-brief-num">01</span>
+        <p class="sv-brief-q" data-translate="services.brief1"></p>
+      </div>
+      <div class="sv-brief-item">
+        <span class="sv-brief-num">02</span>
+        <p class="sv-brief-q" data-translate="services.brief2"></p>
+      </div>
+      <div class="sv-brief-item">
+        <span class="sv-brief-num">03</span>
+        <p class="sv-brief-q" data-translate="services.brief3"></p>
+      </div>
+      <div class="sv-brief-item">
+        <span class="sv-brief-num">04</span>
+        <p class="sv-brief-q" data-translate="services.brief4"></p>
+        <span class="sv-brief-opt" data-translate="services.brief4opt"></span>
       </div>
     </div>
   </div>
