@@ -449,6 +449,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mBadge.className   = 'wk-modal-badge';
       if (badgeEl?.classList.contains('wk-badge--freelance')) mBadge.classList.add('wk-modal-badge--freelance');
       else if (badgeEl?.classList.contains('wk-badge--agency')) mBadge.classList.add('wk-modal-badge--agency');
+      else if (badgeEl?.classList.contains('wk-badge--personal')) mBadge.classList.add('wk-modal-badge--personal');
       else mBadge.classList.add('wk-modal-badge--wip');
 
       mTags.innerHTML = '';

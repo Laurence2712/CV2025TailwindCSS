@@ -48,7 +48,8 @@ const translations = {
     filter: {
       all: "Tous",
       freelance: "Freelance",
-      agency: "Agence"
+      agency: "Agence",
+      personal: "Projets perso"
     },
     about: {
       tagResponsive: "Responsive Design",
@@ -181,6 +182,7 @@ const translations = {
       filterAll: "Tous",
       filterFreelance: "Freelance",
       filterAgency: "Agence",
+      filterPersonal: "Projets perso",
       chiroType: "Site professionnel",
       chiroTitle: "Chiropracteur",
       chiroDesc: "Conception et développement du site sur mesure — découverte, maquette, intégration, déploiement et maintenance.",
@@ -219,6 +221,10 @@ const translations = {
       venuesTitle: "Venues.be",
       venuesDesc: "Thème WordPress sur mesure — plateforme belge de salles de réception avec recherche avancée et gestion de listings.",
       venuesCat: "Site vitrine",
+      meteoType: "Projet personnel",
+      meteoTitle: "Météo en direct",
+      meteoDesc: "Application météo en temps réel développée avec React et Vite, connectée à l'API OpenWeatherMap. Conditions actuelles, prévisions 24h et 7 jours, géolocalisation automatique, villes favorites, détails UV et lever/coucher du soleil — interface épurée, rapide et sans publicité.",
+      meteoCat: "App météo temps réel",
       poulettesType: "Projet personnel",
       poulettesTitle: "Les Poulettes",
       poulettesDesc: "E-commerce full-stack - Remix SSR, Strapi headless, paiement Stripe, multilingue. Stack moderne pensé de A à Z hors agence.",
@@ -253,7 +259,7 @@ const translations = {
       aboutHero: "À <em>propos</em>",
       projectsTitle: "Laurence Pirard — Projets",
       projectsHero: "<em>Projets</em>",
-      projectsCount: "13 projets",
+      projectsCount: "14 projets",
       projectsType: "Freelance & Agence",
       servicesTitle: "Laurence Pirard — Services",
       servicesHero: "<em>Services</em>"
@@ -285,7 +291,7 @@ const translations = {
       formQ1: "Décrivez votre projet",
       formQ2: "Avez-vous déjà votre contenu ?",
       formQ3: "Références de design",
-      formQ4: "Hébergement & nom de domaine",
+      formQ4: "Avez-vous déjà un hébergement & un nom de domaine ?",
       formOpt: "optionnel",
       formSubmit: "Envoyer",
       formSending: "Envoi en cours…",
@@ -360,7 +366,8 @@ const translations = {
     filter: {
       all: "All",
       freelance: "Freelance",
-      agency: "Agency"
+      agency: "Agency",
+      personal: "Personal projects"
     },
     about: {
       tagResponsive: "Responsive Design",
@@ -493,6 +500,7 @@ const translations = {
       filterAll: "All",
       filterFreelance: "Freelance",
       filterAgency: "Agency",
+      filterPersonal: "Personal projects",
       chiroType: "Professional Website",
       chiroTitle: "Chiropractor",
       chiroDesc: "Full design and development — discovery, wireframe, integration, deployment and maintenance.",
@@ -531,6 +539,10 @@ const translations = {
       venuesTitle: "Venues.be",
       venuesDesc: "Custom WordPress theme — Belgian platform for reception venues and event spaces with advanced search and listing management.",
       venuesCat: "Showcase website",
+      meteoType: "Personal Project",
+      meteoTitle: "Live Weather",
+      meteoDesc: "Real-time weather app built with React and Vite, connected to the OpenWeatherMap API. Current conditions, 24h and 7-day forecasts, automatic geolocation, favourite cities, UV and sunrise/sunset details — clean, fast, ad-free interface.",
+      meteoCat: "Real-time weather app",
       poulettesType: "Personal Project",
       poulettesTitle: "Les Poulettes",
       poulettesDesc: "Full-stack e-commerce - Remix SSR, Strapi headless, Stripe payment, multilingual. Modern stack designed from A to Z without an agency.",
@@ -565,7 +577,7 @@ const translations = {
       aboutHero: "<em>About</em>",
       projectsTitle: "Laurence Pirard — Projects",
       projectsHero: "<em>Projects</em>",
-      projectsCount: "13 projects",
+      projectsCount: "14 projects",
       projectsType: "Freelance & Agency",
       servicesTitle: "Laurence Pirard — Services",
       servicesHero: "<em>Services</em>"
@@ -597,7 +609,7 @@ const translations = {
       formQ1: "Describe your project",
       formQ2: "Do you already have your content?",
       formQ3: "Design references",
-      formQ4: "Hosting & domain name",
+      formQ4: "Do you already have hosting & a domain name?",
       formOpt: "optional",
       formSubmit: "Send",
       formSending: "Sending…",

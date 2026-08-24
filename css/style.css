@@ -1644,6 +1644,7 @@
 }
 .wk-badge--freelance { color: #fbbf24; background: rgba(251,191,36,.08); border: 1px solid rgba(251,191,36,.22); }
 .wk-badge--agency    { color: #4e7da6; background: rgba(78,125,166,.08); border: 1px solid rgba(78,125,166,.22); }
+.wk-badge--personal  { color: #22c55e; background: rgba(34,197,94,.08); border: 1px solid rgba(34,197,94,.22); }
 .wk-badge--wip       { color: rgba(44,61,82,.35); background: rgba(44,61,82,.04); border: 1px solid rgba(44,61,82,.1); }
 
 .wk-title {
@@ -1801,6 +1802,7 @@
 }
 .wk-modal-badge--freelance { color: #fbbf24; background: rgba(251,191,36,.1); border: 1px solid rgba(251,191,36,.25); }
 .wk-modal-badge--agency    { color: #4e7da6; background: rgba(78,125,166,.1);  border: 1px solid rgba(78,125,166,.25); }
+.wk-modal-badge--personal  { color: #22c55e; background: rgba(34,197,94,.1);   border: 1px solid rgba(34,197,94,.25); }
 .wk-modal-badge--wip       { color: var(--muted); background: var(--card); border: 1px solid var(--border); }
 
 .wk-modal-title {
