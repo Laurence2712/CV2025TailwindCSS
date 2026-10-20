@@ -24,13 +24,13 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" onload="this.rel='stylesheet'" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap"></noscript>
-  <link rel="stylesheet" href="css/all.min.v6.css">
+  <link rel="stylesheet" href="css/all.min.v7.css">
   <style>
     /* ── Services page layout ── */
     .sv-page { min-height: 100vh; background: var(--bg); }
 
     .sv-grid {
-      max-width: 1100px;
+      max-width: var(--container);
       margin: 0 auto;
       padding: 0 40px 80px;
       display: grid;
@@ -48,9 +48,14 @@
       gap: 16px;
       position: relative;
       overflow: hidden;
-      transition: border-color .2s, transform .2s;
+      transition: background .3s, border-color .3s, box-shadow .3s, transform .3s;
     }
-    .sv-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .sv-card:hover {
+      background: #f6f4f1;
+      border-color: rgba(44,61,82,.14);
+      box-shadow: 0 12px 30px rgba(44,61,82,.06);
+      transform: translateY(-2px);
+    }
 
     .sv-card-num {
       font-size: .7rem;
@@ -106,19 +111,18 @@
       z-index: 1;
     }
     .sv-card-tags span {
-      font-size: .62rem;
-      font-weight: 600;
-      letter-spacing: .05em;
-      color: var(--accent);
-      background: rgba(78,125,166,.08);
-      border: 1px solid rgba(78,125,166,.2);
-      border-radius: 100px;
-      padding: 3px 10px;
+      font-size: .74rem;
+      font-weight: 500;
+      color: var(--text);
+      background: #fff;
+      border-radius: 8px;
+      padding: 5px 12px;
+      transition: background .3s;
     }
 
     /* ── Process section ── */
     .sv-process {
-      max-width: 1100px;
+      max-width: var(--container);
       margin: 0 auto;
       padding: 0 40px 80px;
     }
@@ -133,11 +137,12 @@
       opacity: .8;
     }
 
+    /* même typo que le titre « Des sites qui parlent d'eux-mêmes » (.pf-split-hook) */
     .sv-section-title {
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 8px;
+      font-size: clamp(1.5rem, 2.4vw, 2rem);
+      font-weight: 900; letter-spacing: -.03em; line-height: 1.1;
+      color: var(--text); white-space: pre-line;
+      margin-bottom: 40px;
     }
 
     .sv-section-sub {
@@ -209,11 +214,37 @@
 
     /* ── Form section ── */
     .sv-form-section {
-      max-width: 1100px;
+      max-width: var(--container);
       margin: 0 auto;
       padding: 56px 40px 100px;
       border-top: 1px solid var(--border);
     }
+
+    /* ── Process + formulaire côte à côte ── */
+    .sv-split {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--gutter) 100px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 0 96px;
+      align-items: start;
+    }
+    .sv-split .sv-process,
+    .sv-split .sv-form-section { max-width: none; margin: 0; padding: 0; border-top: 0; }
+    .sv-split .sv-section-title { white-space: normal; text-wrap: balance; }
+    /* étapes en liste verticale : numéro à gauche, texte à droite */
+    .sv-split .sv-steps { grid-template-columns: 1fr; gap: 32px; }
+    .sv-split .sv-steps::before { display: none; }
+    .sv-split .sv-step {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      column-gap: 16px; row-gap: 6px;
+      align-items: start;
+    }
+    .sv-split .sv-step-num { grid-row: span 2; }
+    .sv-split .sv-step-title,
+    .sv-split .sv-step-desc { grid-column: 2; }
 
     .sv-form {
       margin-top: 36px;
@@ -352,6 +383,7 @@
 
     /* ── Responsive ── */
     @media (max-width: 900px) {
+      .sv-split { grid-template-columns: 1fr; gap: 72px; padding: 0 24px 80px; }
       .sv-grid { grid-template-columns: 1fr; padding: 0 24px 60px; }
       .sv-steps { grid-template-columns: 1fr 1fr; }
       .sv-steps::before { top: .9rem; }
@@ -363,6 +395,8 @@
     }
 
     @media (max-width: 640px) {
+      .sv-split { padding: 0 20px 72px; }
+      .sv-split .sv-step { grid-template-columns: 52px 1fr; column-gap: 12px; }
       .sv-grid { padding: 0 20px 48px; gap: 16px; }
       .sv-card { padding: 28px 22px; }
       .sv-steps { grid-template-columns: 1fr; gap: 32px; }
@@ -479,6 +513,9 @@
 
   </div>
 
+  <!-- Process (gauche) + formulaire (droite) -->
+  <div class="sv-split">
+
   <!-- Process -->
   <div class="sv-process fade-slide-up">
     <p class="sv-section-label" data-translate="services.approachTitle"></p>
@@ -584,6 +621,8 @@
     </form>
   </div>
 
+  </div>
+
 </main>
 
 
@@ -618,7 +657,7 @@
   </svg>
 </button>
 
-<script src="js/bundle.min.js?v=6"></script>
+<script src="js/bundle.min.js?v=7"></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
   // ── EmailJS config ──────────────────────────────────────
