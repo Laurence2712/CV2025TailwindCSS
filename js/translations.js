@@ -26,7 +26,7 @@ const translations = {
     },
     sections: {
       aboutTitle: "À propos",
-      aboutText: "Développeuse web freelance à Bruxelles, <br>je crée des <strong>sites et des thèmes WordPress sur mesure</strong>, <br>de la maquette à la mise en ligne. <br>Des sites performants, accessibles et pensés mobile first.",
+      aboutText: "Développeuse web freelance à Bruxelles, <br>je crée des <strong>sites et des thèmes sur mesure</strong> <br>avec WordPress et Grav CMS, de la maquette à la mise en ligne. <br>Des sites performants, accessibles et pensés mobile first.",
       experienceTitle: "Parcours",
       experienceSubtitle: "De la formation à l'indépendance",
       skillsTitle: "Compétences",
@@ -42,7 +42,7 @@ const translations = {
       portfolioTitle: "Portfolio",
       portfolioLead: "Une sélection de sites sur lesquels j'ai travaillé — en agence ou en freelance.",
       contactTitle: "Travaillons ensemble.",
-      contactText: "Disponible pour des collaborations — agence ou freelance.",
+      contactText: "Un projet de site ? Parlons-en.",
       contactWedding: "Wedding planner ? Créons ensemble des sites de mariage à l'image de vos couples.",
       contactSign: "À très vite,"
     },
@@ -345,7 +345,7 @@ const translations = {
     },
     sections: {
       aboutTitle: "About",
-      aboutText: "Freelance web developer in Brussels, <br>I build <strong>custom websites and WordPress themes</strong>, <br>from mockup to launch. <br>Fast, accessible, mobile-first sites.",
+      aboutText: "Freelance web developer in Brussels, <br>I build <strong>custom websites and themes</strong> <br>with WordPress and Grav CMS, from mockup to launch. <br>Fast, accessible, mobile-first sites.",
       experienceTitle: "Journey",
       experienceSubtitle: "From training to freelance",
       skillsTitle: "Skills",
@@ -362,7 +362,7 @@ const translations = {
       portfolioTitle: "Portfolio",
       portfolioLead: "A selection of sites I've worked on — in an agency or as a freelancer.",
       contactTitle: "Let's work together.",
-      contactText: "Available for collaborations — agency or freelance.",
+      contactText: "Have a website project? Let's talk.",
       contactWedding: "Wedding planner? Let's create wedding websites together that truly reflect your couples.",
       contactSign: "Talk soon,"
     },
