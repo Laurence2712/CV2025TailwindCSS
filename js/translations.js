@@ -661,6 +661,12 @@ function updateTexts(lang) {
   document.querySelectorAll('[data-fr][data-en]').forEach(el => {
     el.textContent = el.dataset[lang] || el.dataset.fr;
   });
+  // attributs : data-fr-placeholder / data-fr-alt / data-fr-aria (+ équivalent -en)
+  [['placeholder', 'Placeholder'], ['alt', 'Alt'], ['aria-label', 'Aria']].forEach(([attr, suffix]) => {
+    document.querySelectorAll(`[data-fr-${suffix.toLowerCase()}]`).forEach(el => {
+      el.setAttribute(attr, el.dataset[lang + suffix] || el.dataset['fr' + suffix]);
+    });
+  });
 
   const elements = document.querySelectorAll('[data-translate]');
 

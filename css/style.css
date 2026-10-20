@@ -1832,10 +1832,10 @@
 }
 @media (max-width: 640px) {
   /* Page hero about */
-  .page-hero { padding: 88px 20px 24px; row-gap: 40px; }
+  .page-hero { padding: 112px 20px 24px; row-gap: 40px; }
 
   /* Projet hero — colonne unique, meta collée à droite, même haut que les autres pages */
-  .wk-hero { grid-template-columns: 1fr; gap: 12px; padding: 88px 20px 0; }
+  .wk-hero { grid-template-columns: 1fr; gap: 12px; padding: 112px 20px 0; }
   .wk-hero-meta { align-items: flex-end; text-align: right; align-self: flex-end; margin-left: auto; }
   .wk-hero-meta span { white-space: nowrap; }
 
@@ -1870,6 +1870,15 @@
    PERFORMANCE TÉLÉPHONE — pas de flou animé, pas de filtre sur les captures
 ══════════════════════════════════════ */
 @media (hover: none), (max-width: 900px) {
+  /* barre toujours opaque : le scroll inertiel retarde le passage en .nav-scrolled
+     et le contenu se voyait à travers */
+  #main-header { background: var(--bg); }
   .hero-orb, #mobile-menu .menu-orb { filter: none; animation: none; will-change: auto; }
   .wk-img-col img, .wk-mobile { filter: none; will-change: auto; }
+  /* contenu visible tout de suite : sur mobile, le scroll inertiel retarde
+     les observers et le contenu apparaissait en retard */
+  .fade-slide-up, .fade-slide-up .sl, .ab-reveal, .sk-tag,
+  .tl-title, .tl-company, .tl-desc, .tl-tags-wrap {
+    opacity: 1 !important; transform: none !important; transition: none !important;
+  }
 }
