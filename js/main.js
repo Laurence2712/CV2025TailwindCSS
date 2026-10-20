@@ -299,8 +299,10 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ════════════════════════════════════════
      WORK PAGE — PARALLAX IMAGES
   ════════════════════════════════════════ */
+  // Parallaxe coupée sur téléphone : coûteuse au scroll et sans intérêt au doigt
+  const lowPowerMotion = window.matchMedia('(hover: none), (max-width: 900px)').matches;
   const wkImgs = document.querySelectorAll('.wk-img-col img');
-  if (wkImgs.length) {
+  if (wkImgs.length && !lowPowerMotion) {
     const updateWkParallax = () => {
       const vh = window.innerHeight;
       wkImgs.forEach(img => {
@@ -419,7 +421,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ════════════════════════════════════════
      PARALLAX ENGINE — [data-parallax]
   ════════════════════════════════════════ */
-  if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+  if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches && !lowPowerMotion) {
     const pxItems = [];
     document.querySelectorAll('[data-parallax]').forEach(el => {
       const rect = el.getBoundingClientRect();

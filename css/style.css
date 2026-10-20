@@ -55,17 +55,12 @@
     #main-header {
       position: fixed; top: 0; left: 0; right: 0;
       background: transparent;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
       z-index: 100;
       transition: transform .35s cubic-bezier(.4,0,.2,1),
-                  background .4s ease,
-                  backdrop-filter .4s ease;
+                  background .4s ease;
     }
     #main-header.nav-scrolled {
       background: rgba(242,240,236,.97);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
     }
     .nav-inner {
       max-width: var(--container); margin: 0 auto;
@@ -121,8 +116,6 @@
     #mobile-menu {
       display: flex; flex-direction: column;
       background: rgba(242,240,236,.97);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       max-height: 0; overflow: hidden;
       padding: 0 0;
       transition: max-height .4s ease, padding .4s ease;
@@ -527,6 +520,8 @@
     }
 
     /* About — texte d'intro puis 3 chiffres clés sur une ligne */
+    /* l'intro suit directement le grand titre : pas de marge en double */
+    #about.section { padding-top: 0; }
     .about-wrap { display: flex; flex-direction: column; gap: 56px; }
     .about-text {
       max-width: 30em;
@@ -1831,7 +1826,7 @@
   .wk-img-col img { height: 140%; top: -20%; }
   .wk-mobile,
   .wk-row--flip .wk-mobile { left: 12px; right: auto; bottom: -24px; width: 24%; border-width: 4px; border-radius: 16px; }
-  .wk-filters { padding: 24px 20px 36px; }
+  .wk-filters { padding: 37px 20px 36px; }
   .skills-section-inner { padding: 60px 24px; }
   .terrain-section-inner { padding: 60px 24px; }
 }
@@ -1839,8 +1834,8 @@
   /* Page hero about */
   .page-hero { padding: 88px 20px 24px; row-gap: 40px; }
 
-  /* Projet hero — colonne unique, meta collée à droite */
-  .wk-hero { grid-template-columns: 1fr; gap: 12px; }
+  /* Projet hero — colonne unique, meta collée à droite, même haut que les autres pages */
+  .wk-hero { grid-template-columns: 1fr; gap: 12px; padding: 88px 20px 0; }
   .wk-hero-meta { align-items: flex-end; text-align: right; align-self: flex-end; margin-left: auto; }
   .wk-hero-meta span { white-space: nowrap; }
 
@@ -1869,4 +1864,12 @@
   .section-full { padding: 52px 20px; }
   .section-head { margin-bottom: 32px; }
   .skills-section-inner { padding: 48px 20px; }
+}
+
+/* ══════════════════════════════════════
+   PERFORMANCE TÉLÉPHONE — pas de flou animé, pas de filtre sur les captures
+══════════════════════════════════════ */
+@media (hover: none), (max-width: 900px) {
+  .hero-orb, #mobile-menu .menu-orb { filter: none; animation: none; will-change: auto; }
+  .wk-img-col img, .wk-mobile { filter: none; will-change: auto; }
 }
