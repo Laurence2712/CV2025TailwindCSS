@@ -26,7 +26,7 @@ const translations = {
     },
     sections: {
       aboutTitle: "À propos",
-      aboutText: "Développeuse web freelance à Bruxelles, je crée des <strong>sites et des thèmes WordPress sur mesure</strong>, de la maquette à la mise en ligne. Des sites performants, accessibles et pensés mobile first.",
+      aboutText: "Développeuse web freelance à Bruxelles, <br>je crée des <strong>sites et des thèmes WordPress sur mesure</strong>, <br>de la maquette à la mise en ligne. <br>Des sites performants, accessibles et pensés mobile first.",
       experienceTitle: "Parcours",
       experienceSubtitle: "De la formation à l'indépendance",
       skillsTitle: "Compétences",
@@ -43,7 +43,8 @@ const translations = {
       portfolioLead: "Une sélection de sites sur lesquels j'ai travaillé — en agence ou en freelance.",
       contactTitle: "Travaillons ensemble.",
       contactText: "Disponible pour des collaborations — agence ou freelance.",
-      contactWedding: "Ouverte aux collaborations avec des wedding planners."
+      contactWedding: "Wedding planner ? Créons ensemble des sites de mariage à l'image de vos couples.",
+      contactSign: "À très vite,"
     },
     filter: {
       all: "Tous",
@@ -60,8 +61,7 @@ const translations = {
       downloadCV: "Télécharger mon CV",
       stat1num: "5+",
       stat1label: "ans d'expérience",
-      stat1: "ans d'expérience web",
-      stat2: "projets réalisés",
+      stat1: "ans d'expérience · freelance & agence",
       statCoffeeNum: "7 300+",
       statCoffeeLabel: "cafés bus en prod",
       statCoffee: "☕",
@@ -99,7 +99,7 @@ const translations = {
       date1: "2023 – Présent",
       title1: "Développeuse web freelance",
       company1: "<span style=\"color:var(--accent)\">Indépendante · Bruxelles</span>",
-      desc1: "Sites web et thèmes WordPress sur mesure, création de maquettes et intégration, maintenance et évolution — pour indépendants, associations et PME. Un seul interlocuteur, de la première conversation à la mise en ligne.",
+      desc1: "Sites web et thèmes sur mesure avec WordPress et Grav CMS, création de maquettes et intégration, maintenance et évolution — pour indépendants, associations et PME. Un seul interlocuteur, de la première conversation à la mise en ligne.",
       servicesLink: "Voir mes services",
       date2: "2021 – 2026",
       title2: "Full Stack Developer",
@@ -345,7 +345,7 @@ const translations = {
     },
     sections: {
       aboutTitle: "About",
-      aboutText: "Freelance web developer in Brussels, I build <strong>custom websites and WordPress themes</strong>, from mockup to launch. Fast, accessible, mobile-first sites.",
+      aboutText: "Freelance web developer in Brussels, <br>I build <strong>custom websites and WordPress themes</strong>, <br>from mockup to launch. <br>Fast, accessible, mobile-first sites.",
       experienceTitle: "Journey",
       experienceSubtitle: "From training to freelance",
       skillsTitle: "Skills",
@@ -363,7 +363,8 @@ const translations = {
       portfolioLead: "A selection of sites I've worked on — in an agency or as a freelancer.",
       contactTitle: "Let's work together.",
       contactText: "Available for collaborations — agency or freelance.",
-      contactWedding: "Open to collaborations with wedding planners."
+      contactWedding: "Wedding planner? Let's create wedding websites together that truly reflect your couples.",
+      contactSign: "Talk soon,"
     },
     filter: {
       all: "All",
@@ -380,8 +381,7 @@ const translations = {
       downloadCV: "Download my Resume",
       stat1num: "5+",
       stat1label: "years of experience",
-      stat1: "years in web development",
-      stat2: "projects delivered",
+      stat1: "years of experience · freelance & agency",
       statCoffeeNum: "7,300+",
       statCoffeeLabel: "coffees down in prod",
       statCoffee: "☕",
@@ -412,7 +412,7 @@ const translations = {
       date1: "2023 – Present",
       title1: "Freelance Web Developer",
       company1: "<span style=\"color:var(--accent)\">Self-employed · Brussels</span>",
-      desc1: "Custom websites and WordPress themes, mockup design and integration, maintenance and improvements — for independents, non-profits and small businesses. One point of contact, from first conversation to launch.",
+      desc1: "Custom websites and themes with WordPress and Grav CMS, mockup design and integration, maintenance and improvements — for independents, non-profits and small businesses. One point of contact, from first conversation to launch.",
       servicesLink: "See my services",
       date2: "2021 – 2026",
       title2: "Full Stack Developer",
