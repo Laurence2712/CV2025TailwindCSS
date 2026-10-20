@@ -9,6 +9,8 @@
   ExpiresByType text/css            "access plus 1 month"
   ExpiresByType application/javascript "access plus 1 month"
   ExpiresByType font/woff2          "access plus 1 year"
+  # Pages HTML : toujours revalidées, les mises à jour sont vues tout de suite
+  ExpiresByType text/html           "access plus 0 seconds"
 </IfModule>
 
 # Compression gzip
@@ -16,11 +18,23 @@
   AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
 </IfModule>
 
-# URL propre — pas d'index.html dans la barre d'adresse
 <IfModule mod_rewrite.c>
   RewriteEngine On
+
+  # Une seule adresse par page (SEO) : https, sans www
+  # (OVH : la détection HTTPS se fait par le port, méthode recommandée par OVH)
+  RewriteCond %{SERVER_PORT} ^80$ [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^(.*)$ https://laurencepirard.be/$1 [R=301,L]
+
+  # URL propre — pas d'index.html dans la barre d'adresse
   RewriteCond %{THE_REQUEST} /index\.html[\s?] [NC]
   RewriteRule ^index\.html$ / [R=301,L]
+
+  # /projet → /projet.html (OVH sert aussi la page sans .html : même contenu sous deux adresses)
+  # (on teste la requête d'origine : MultiViews a déjà réécrit le chemin)
+  RewriteCond %{THE_REQUEST} \s/(projet|services|about)/?[\s?] [NC]
+  RewriteRule ^ /%1.html [R=301,L]
 </IfModule>
 
 # Headers de sécurité

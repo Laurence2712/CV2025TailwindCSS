@@ -1,6 +1,6 @@
 const translations = {
   fr: {
-    pageTitle: "Laurence Pirard — Full Stack Developer",
+    pageTitle: "Développeuse web freelance à Bruxelles — Laurence Pirard",
     nav: {
       about: "À propos",
       experience: "Parcours",
@@ -14,9 +14,9 @@ const translations = {
       services: "Services"
     },
     hero: {
-      available: "Disponible pour des collaborations",
-      location: "Full Stack Developer · Bruxelles",
-      eyebrow: "Full Stack Developer · Bruxelles, Belgique",
+      available: "Disponible pour de nouveaux projets",
+      location: "Développeuse web freelance · Bruxelles",
+      eyebrow: "Développeuse web freelance · Bruxelles, Belgique",
       subtitle: "Vous cherchez une développeuse web ?",
       subtitle2: "",
       ctaProjects: "Voir mes projets",
@@ -245,7 +245,7 @@ const translations = {
       downloadCV: "Mon CV"
     },
     footer: {
-      jobTitle: "Full Stack Developer",
+      jobTitle: "Développeuse web freelance",
       servicesTitle: "Services",
       serviceDev: "Développement Web",
       serviceWp: "WordPress",
@@ -254,16 +254,16 @@ const translations = {
       contactTitle: "Contact",
       location: "Bruxelles, Belgique",
       followTitle: "Suivez-moi",
-      copyright: "© 2026 Laurence Pirard — Full Stack Developer"
+      copyright: "© 2026 Laurence Pirard — Développeuse web freelance"
     },
     pages: {
-      aboutTitle: "Laurence Pirard — À propos",
+      aboutTitle: "À propos — Laurence Pirard, développeuse web freelance",
       aboutHero: "À <em>propos</em>",
-      projectsTitle: "Laurence Pirard — Projets",
+      projectsTitle: "Projets web & WordPress — Laurence Pirard, Bruxelles",
       projectsHero: "<em>Projets</em>",
       projectsCount: "14 projets",
       projectsType: "Freelance & Agence",
-      servicesTitle: "Laurence Pirard — Services",
+      servicesTitle: "Sites & thèmes WordPress sur mesure — Laurence Pirard",
       servicesHero: "<em>Services</em>"
     },
     services: {
@@ -319,7 +319,7 @@ const translations = {
     }
   },
   en: {
-    pageTitle: "Laurence Pirard — Full Stack Developer",
+    pageTitle: "Freelance web developer in Brussels — Laurence Pirard",
     nav: {
       about: "About",
       experience: "Journey",
@@ -333,9 +333,9 @@ const translations = {
       services: "Services"
     },
     hero: {
-      available: "Available for collaborations",
-      location: "Full Stack Developer · Brussels",
-      eyebrow: "Full Stack Developer · Brussels, Belgium",
+      available: "Available for new projects",
+      location: "Freelance web developer · Brussels",
+      eyebrow: "Freelance web developer · Brussels, Belgium",
       subtitle: "Looking for a web developer?",
       subtitle2: "",
       ctaProjects: "View my projects",
@@ -565,7 +565,7 @@ const translations = {
       downloadCV: "My Resume"
     },
     footer: {
-      jobTitle: "Full Stack Developer",
+      jobTitle: "Freelance web developer",
       servicesTitle: "Services",
       serviceDev: "Web Development",
       serviceWp: "WordPress",
@@ -574,16 +574,16 @@ const translations = {
       contactTitle: "Contact",
       location: "Brussels, Belgium",
       followTitle: "Follow me",
-      copyright: "© 2026 Laurence Pirard — Full Stack Developer"
+      copyright: "© 2026 Laurence Pirard — Freelance web developer"
     },
     pages: {
-      aboutTitle: "Laurence Pirard — About",
+      aboutTitle: "About — Laurence Pirard, freelance web developer",
       aboutHero: "<em>About</em>",
-      projectsTitle: "Laurence Pirard — Projects",
+      projectsTitle: "Web & WordPress projects — Laurence Pirard, Brussels",
       projectsHero: "<em>Projects</em>",
       projectsCount: "14 projects",
       projectsType: "Freelance & Agency",
-      servicesTitle: "Laurence Pirard — Services",
+      servicesTitle: "Custom websites & WordPress themes — Laurence Pirard",
       servicesHero: "<em>Services</em>"
     },
     services: {
