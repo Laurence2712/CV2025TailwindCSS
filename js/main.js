@@ -322,6 +322,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const wkFilters = document.querySelectorAll('.wk-filter');
   const wkTypedRows = document.querySelectorAll('.wk-row[data-type]');
 
+  // Zigzag : une ligne visible sur deux a ses captures à gauche
+  const flipWkRows = () => {
+    let i = 0;
+    wkTypedRows.forEach(row => {
+      if (row.classList.contains('wk-row--hidden')) return;
+      row.classList.toggle('wk-row--flip', i++ % 2 === 1);
+    });
+  };
+  flipWkRows();
+
   if (wkFilters.length && wkTypedRows.length) {
     wkFilters.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -338,6 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
             row.classList.remove('wk-row--in');
           }
         });
+        flipWkRows();
       });
     });
   }
@@ -394,108 +405,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ════════════════════════════════════════
-     9. PROJECT MODAL — work.html
+     9. PROJECT ROWS — clic = ouvrir le site
   ════════════════════════════════════════ */
-  const wkModal   = document.getElementById('wk-modal');
-  const wkList    = document.querySelector('.wk-list');
-
-  if (wkModal && wkList) {
-    const panel    = wkModal.querySelector('.wk-modal-panel');
-    const bd       = wkModal.querySelector('.wk-modal-bd');
-    const closeBtn = wkModal.querySelector('.wk-modal-close');
-    const mNum     = wkModal.querySelector('.wk-modal-num');
-    const mBadge   = wkModal.querySelector('.wk-modal-badge');
-    const mTitle   = wkModal.querySelector('.wk-modal-title');
-    const mTags    = wkModal.querySelector('.wk-modal-tags');
-    const mImg     = wkModal.querySelector('.wk-modal-img');
-    const mDesc    = wkModal.querySelector('.wk-modal-desc');
-    const mLink    = wkModal.querySelector('.wk-modal-link');
-
-    const mAnimEls = [
-      wkModal.querySelector('.wk-modal-head'),
-      wkModal.querySelector('.wk-modal-img-wrap'),
-      wkModal.querySelector('.wk-modal-body')
-    ];
-
-    function resetInnerAnim() {
-      mAnimEls.forEach(el => { if (el) el.style.cssText = ''; });
-    }
-
-    function openModal(row) {
-      const url      = row.dataset.url || '#';
-      const title    = row.querySelector('.wk-title')?.textContent || '';
-      const numEl    = row.querySelector('.wk-num');
-      const badgeEl  = row.querySelector('.wk-badge');
-      const descEl   = row.querySelector('.wk-desc');
-      const imgEl    = row.querySelector('.wk-img-col img');
-      const tagEls   = row.querySelectorAll('.wk-tags span');
-
-      // Reset inner animations instantly so they replay
-      mAnimEls.forEach(el => {
-        if (!el) return;
-        el.style.transition = 'none';
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(18px)';
-      });
-
-      mNum.textContent   = numEl?.textContent || '';
-      mTitle.textContent = title;
-      mDesc.textContent  = descEl?.textContent || '';
-      mImg.src           = imgEl?.src || '';
-      mImg.alt           = title;
-      mLink.href         = url;
-
-      mBadge.textContent = badgeEl?.textContent || '';
-      mBadge.className   = 'wk-modal-badge';
-      if (badgeEl?.classList.contains('wk-badge--freelance')) mBadge.classList.add('wk-modal-badge--freelance');
-      else if (badgeEl?.classList.contains('wk-badge--agency')) mBadge.classList.add('wk-modal-badge--agency');
-      else if (badgeEl?.classList.contains('wk-badge--personal')) mBadge.classList.add('wk-modal-badge--personal');
-      else mBadge.classList.add('wk-modal-badge--wip');
-
-      mTags.innerHTML = '';
-      tagEls.forEach(t => {
-        const s = document.createElement('span');
-        s.textContent = t.textContent;
-        mTags.appendChild(s);
-      });
-
-      wkModal.setAttribute('aria-hidden', 'false');
-      wkModal.classList.add('open');
-      document.body.style.overflow = 'hidden';
-      panel.scrollTop = 0;
-      const mInner = wkModal.querySelector('.wk-modal-inner');
-      if (mInner) mInner.scrollTop = 0;
-
-      // Re-enable transitions after a frame so CSS takes over
-      requestAnimationFrame(() => requestAnimationFrame(() => {
-        mAnimEls.forEach(el => { if (el) el.style.cssText = ''; });
-      }));
-    }
-
-    function closeModal() {
-      // Instantly hide inner content — panel animation handles the visual close
-      mAnimEls.forEach(el => {
-        if (!el) return;
-        el.style.transition = 'none';
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(18px)';
-      });
-      wkModal.classList.remove('open');
-      wkModal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-      setTimeout(resetInnerAnim, 450);
-    }
-
+  const wkList = document.querySelector('.wk-list');
+  if (wkList) {
     wkList.addEventListener('click', e => {
       const row = e.target.closest('.wk-row');
-      if (!row) return;
-      if (e.target.closest('.wk-cta')) return; // let the link open normally
-      openModal(row);
+      if (!row || e.target.closest('.wk-cta')) return; // le lien s'ouvre normalement
+      if (row.dataset.url) window.open(row.dataset.url, '_blank', 'noopener');
     });
-
-    bd.addEventListener('click', closeModal);
-    closeBtn.addEventListener('click', closeModal);
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
   }
 
   /* ════════════════════════════════════════
