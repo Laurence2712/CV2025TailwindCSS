@@ -29,12 +29,12 @@
 
   # URL propre — pas d'index.html dans la barre d'adresse
   RewriteCond %{THE_REQUEST} /index\.html[\s?] [NC]
-  RewriteRule ^index\.html$ / [R=301,L]
+  RewriteRule ^index\.html$ https://laurencepirard.be/ [R=301,L]
 
   # /projet → /projet.html (OVH sert aussi la page sans .html : même contenu sous deux adresses)
   # (on teste la requête d'origine : MultiViews a déjà réécrit le chemin)
   RewriteCond %{THE_REQUEST} \s/(projet|services|about)/?[\s?] [NC]
-  RewriteRule ^ /%1.html [R=301,L]
+  RewriteRule ^ https://laurencepirard.be/%1.html [R=301,L]
 </IfModule>
 
 # Headers de sécurité
