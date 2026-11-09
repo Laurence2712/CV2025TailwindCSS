@@ -4,28 +4,42 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title data-translate="pages.servicesTitle">Sites &amp; thèmes WordPress sur mesure — Laurence Pirard</title>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VCVHKEFHWK"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-VCVHKEFHWK');
+    // Analytics chargé après la première interaction (ou 5 s après le chargement) : ne ralentit pas l'affichage
+    (function () {
+      var done = false, evts = ['scroll', 'pointerdown', 'keydown', 'touchstart'];
+      function load() {
+        if (done) return;
+        done = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-VCVHKEFHWK';
+        document.head.appendChild(s);
+      }
+      evts.forEach(function (e) { addEventListener(e, load, { once: true, passive: true }); });
+      addEventListener('load', function () { setTimeout(load, 5000); });
+    })();
   </script>
   <meta name="description" content="Sites web et thèmes WordPress sur mesure, création de maquettes et intégration, maintenance. Développeuse web freelance à Bruxelles : demandez votre devis." />
   <meta property="og:type"        content="website" />
   <meta property="og:url"         content="https://laurencepirard.be/services.html" />
   <meta property="og:title"       content="Sites &amp; thèmes WordPress sur mesure — Laurence Pirard" />
   <meta property="og:description" content="Sites web et thèmes WordPress sur mesure, création de maquettes et intégration, maintenance. Développeuse web freelance à Bruxelles : demandez votre devis." />
-  <meta property="og:image"       content="https://laurencepirard.be/uploads/image_portfolio.jpeg" />
+  <meta property="og:image"       content="https://laurencepirard.be/uploads/og-image.jpg" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt"    content="Laurence Pirard — développeuse web freelance à Bruxelles" />
   <link rel="canonical" href="https://laurencepirard.be/services.html" />
   <meta name="robots"             content="index, follow" />
   <meta name="author"             content="Laurence Pirard" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 42' fill='none' stroke='%234e7da6' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='9' y1='4' x2='9' y2='38'/%3E%3Cline x1='9' y1='38' x2='24' y2='38'/%3E%3Cpath d='M9 4 C9 4 38 4 38 15 C38 26 9 26 9 26' fill='none'/%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" onload="this.rel='stylesheet'" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap"></noscript>
-  <link rel="stylesheet" href="css/all.min.v11.css">
+  <link rel="preload" as="font" type="font/woff2" href="fonts/poppins-900.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="fonts/poppins-500.woff2" crossorigin>
+  <link rel="stylesheet" href="css/all.min.v12.css">
   <style>
     /* ── Services page layout ── */
     .sv-page { min-height: 100vh; background: var(--bg); }
@@ -63,7 +77,6 @@
       font-weight: 700;
       letter-spacing: .15em;
       color: var(--accent);
-      opacity: .7;
       position: relative;
       z-index: 1;
     }
@@ -135,7 +148,6 @@
       color: var(--accent);
       text-transform: uppercase;
       margin-bottom: 12px;
-      opacity: .8;
     }
 
     /* même typo que le titre « Des sites qui parlent d'eux-mêmes » (.pf-split-hook) */
@@ -189,7 +201,7 @@
     .sv-step-num {
       font-size: 2rem;
       font-weight: 900;
-      color: var(--border);
+      color: #8d897f;
       line-height: 1;
       transition: font-size .3s cubic-bezier(.16,1,.3,1), color .3s ease;
       display: inline-block;
@@ -282,7 +294,6 @@
       border-radius: 100px;
       padding: 1px 8px;
       text-transform: none;
-      opacity: .7;
     }
 
     .sv-field input,
@@ -414,7 +425,7 @@
 
 <header id="main-header">
   <div class="nav-inner">
-    <a href="/" class="nav-logo">
+    <a href="/" class="nav-logo" aria-label="Accueil" data-fr-aria="Accueil" data-en-aria="Home">
       <svg width="46" height="42" viewBox="0 0 46 42" fill="none" stroke="#4e7da6" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
         <line x1="9" y1="4" x2="9" y2="38"/>
         <line x1="9" y1="38" x2="24" y2="38"/>
@@ -423,10 +434,10 @@
     </a>
 
     <nav class="nav-links" id="nav-desktop">
-      <a href="projet.html"    class="nav-link" data-translate="nav.works"></a>
-      <a href="services.html" class="nav-link nav-link--active" data-translate="nav.services"></a>
-      <a href="about.html"   class="nav-link" data-translate="nav.about"></a>
-      <a href="about.html#contact" class="nav-link" data-translate="nav.contact"></a>
+      <a href="projet.html"    class="nav-link" data-translate="nav.works">Projets</a>
+      <a href="services.html" class="nav-link nav-link--active" data-translate="nav.services">Services</a>
+      <a href="about.html"   class="nav-link" data-translate="nav.about">À propos</a>
+      <a href="about.html#contact" class="nav-link" data-translate="nav.contact">Contact</a>
     </nav>
 
     <div class="nav-langs">
@@ -443,17 +454,17 @@
 
   <div id="mobile-menu">
     <div class="menu-orb" aria-hidden="true"></div>
-    <a href="projet.html"          data-translate="nav.works"></a>
-    <a href="services.html"       data-translate="nav.services"></a>
-    <a href="about.html"         data-translate="nav.about"></a>
-    <a href="about.html#contact" data-translate="nav.contact"></a>
+    <a href="projet.html"          data-translate="nav.works">Projets</a>
+    <a href="services.html"       data-translate="nav.services">Services</a>
+    <a href="about.html"         data-translate="nav.about">À propos</a>
+    <a href="about.html#contact" data-translate="nav.contact">Contact</a>
   </div>
 </header>
 <div id="menu-overlay"></div>
 
 
 <div class="page-hero">
-  <h1 class="page-hero-title" data-parallax="0.07" data-translate="pages.servicesHero"></h1>
+  <h1 class="page-hero-title" data-parallax="0.07" data-translate="pages.servicesHero"><em>Services</em></h1>
 </div>
 
 <main class="sv-page">
@@ -462,8 +473,8 @@
 
     <div class="sv-card fade-slide-up">
       <span class="sv-card-num">01</span>
-      <h2 class="sv-card-title" data-translate="services.s1title"></h2>
-      <p class="sv-card-desc" data-translate="services.s1desc"></p>
+      <h2 class="sv-card-title" data-translate="services.s1title">Site web sur mesure</h2>
+      <p class="sv-card-desc" data-translate="services.s1desc">De la page blanche au site en ligne — conception, intégration, déploiement et suivi. Chaque projet est pensé mobile first, accessible et rapide.</p>
       <div class="sv-card-tags">
         <span>HTML / CSS / JS</span><span>TailwindCSS</span><span>Grav CMS</span><span>Responsive</span><span>Mobile first</span>
       </div>
@@ -472,8 +483,8 @@
 
     <div class="sv-card fade-slide-up">
       <span class="sv-card-num">02</span>
-      <h2 class="sv-card-title" data-translate="services.s2title"></h2>
-      <p class="sv-card-desc" data-translate="services.s2desc"></p>
+      <h2 class="sv-card-title" data-translate="services.s2title">Thème WordPress sur mesure</h2>
+      <p class="sv-card-desc" data-translate="services.s2desc">Thème développé de A à Z sans constructeur de page. ACF, types de contenu personnalisés, hooks et filtres — une base solide, maintenable et performante.</p>
       <div class="sv-card-tags">
         <span>WordPress</span><span>PHP</span><span>ACF</span><span>WooCommerce</span><span>WPML</span>
       </div>
@@ -482,8 +493,8 @@
 
     <div class="sv-card fade-slide-up">
       <span class="sv-card-num">03</span>
-      <h2 class="sv-card-title" data-translate="services.s3title"></h2>
-      <p class="sv-card-desc" data-translate="services.s3desc"></p>
+      <h2 class="sv-card-title" data-translate="services.s3title">Création de maquette & intégration</h2>
+      <p class="sv-card-desc" data-translate="services.s3desc">Pas encore de design ? Je crée la maquette avec vous, puis je l'intègre en code propre, fidèle au pixel et cohérent sur tous les écrans. Vous avez déjà un Figma ou un XD ? Je pars de là.</p>
       <div class="sv-card-tags">
         <span>Figma</span><span>HTML / CSS</span><span>TailwindCSS</span><span>Responsive</span>
       </div>
@@ -492,8 +503,8 @@
 
     <div class="sv-card fade-slide-up">
       <span class="sv-card-num">04</span>
-      <h2 class="sv-card-title" data-translate="services.s4title"></h2>
-      <p class="sv-card-desc" data-translate="services.s4desc"></p>
+      <h2 class="sv-card-title" data-translate="services.s4title">Maintenance & évolution</h2>
+      <p class="sv-card-desc" data-translate="services.s4desc">Mises à jour WordPress & plugins, corrections, ajouts de fonctionnalités et optimisations techniques. Site suivi, sécurisé et toujours à jour.</p>
       <div class="sv-card-tags">
         <span>WordPress</span><span>PHP</span>
         <span class="sv-tag-i18n" data-fr="Sécurité" data-en="Security">Sécurité</span>
@@ -504,8 +515,8 @@
 
     <div class="sv-card fade-slide-up">
       <span class="sv-card-num">05</span>
-      <h2 class="sv-card-title" data-translate="services.s5title"></h2>
-      <p class="sv-card-desc" data-translate="services.s5desc"></p>
+      <h2 class="sv-card-title" data-translate="services.s5title">Site de mariage</h2>
+      <p class="sv-card-desc" data-translate="services.s5desc">Template entièrement personnalisé — formulaire de confirmation de présence avec EmailJS, confirmation automatique par mail, collecte des réponses par email et Google Drive partageable.</p>
       <div class="sv-card-tags">
         <span>HTML / CSS / JS</span><span>EmailJS</span><span>Google Drive API</span>
         <span class="sv-tag-i18n" data-fr="100% personnalisable" data-en="100% customisable">100% personnalisable</span>
@@ -520,54 +531,56 @@
 
   <!-- Process -->
   <div class="sv-process fade-slide-up">
-    <p class="sv-section-label" data-translate="services.approachTitle"></p>
-    <h2 class="sv-section-title" data-translate="services.approachSubtitle"></h2>
+    <p class="sv-section-label" data-translate="services.approachTitle">Comment je travaille</p>
+    <h2 class="sv-section-title" data-translate="services.approachSubtitle">Un processus clair, de la première
+conversation à la mise en ligne.</h2>
 
     <div class="sv-steps">
       <div class="sv-step">
-        <span class="sv-step-num" data-translate="services.step1num"></span>
-        <h3 class="sv-step-title" data-translate="services.step1title"></h3>
-        <p class="sv-step-desc" data-translate="services.step1desc"></p>
+        <span class="sv-step-num" data-translate="services.step1num">01</span>
+        <h3 class="sv-step-title" data-translate="services.step1title">Découverte</h3>
+        <p class="sv-step-desc" data-translate="services.step1desc">On discute de votre projet, vos objectifs et vos contraintes. Je pose les bonnes questions pour comprendre ce dont vous avez vraiment besoin.</p>
       </div>
       <div class="sv-step">
-        <span class="sv-step-num" data-translate="services.step2num"></span>
-        <h3 class="sv-step-title" data-translate="services.step2title"></h3>
-        <p class="sv-step-desc" data-translate="services.step2desc"></p>
+        <span class="sv-step-num" data-translate="services.step2num">02</span>
+        <h3 class="sv-step-title" data-translate="services.step2title">Conception</h3>
+        <p class="sv-step-desc" data-translate="services.step2desc">Structure, contenu, références visuelles. On aligne le cap avant de toucher au code.</p>
       </div>
       <div class="sv-step">
-        <span class="sv-step-num" data-translate="services.step3num"></span>
-        <h3 class="sv-step-title" data-translate="services.step3title"></h3>
-        <p class="sv-step-desc" data-translate="services.step3desc"></p>
+        <span class="sv-step-num" data-translate="services.step3num">03</span>
+        <h3 class="sv-step-title" data-translate="services.step3title">Développement</h3>
+        <p class="sv-step-desc" data-translate="services.step3desc">Intégration propre, mobile first, testée sur plusieurs écrans. Vous voyez l'avancement en temps réel.</p>
       </div>
       <div class="sv-step">
-        <span class="sv-step-num" data-translate="services.step4num"></span>
-        <h3 class="sv-step-title" data-translate="services.step4title"></h3>
-        <p class="sv-step-desc" data-translate="services.step4desc"></p>
+        <span class="sv-step-num" data-translate="services.step4num">04</span>
+        <h3 class="sv-step-title" data-translate="services.step4title">Mise en ligne</h3>
+        <p class="sv-step-desc" data-translate="services.step4desc">Déploiement, configuration serveur, redirections. Votre site est en ligne et prêt à accueillir des visiteurs.</p>
       </div>
     </div>
   </div>
 
   <!-- Formulaire de contact -->
   <div class="sv-form-section fade-slide-up">
-    <p class="sv-section-label" data-translate="services.formTitle"></p>
-    <h2 class="sv-section-title" data-translate="services.formSubtitle"></h2>
+    <p class="sv-section-label" data-translate="services.formTitle">Un projet en tête ?</p>
+    <h2 class="sv-section-title" data-translate="services.formSubtitle">Remplissez ce formulaire et
+je vous réponds rapidement.</h2>
 
     <form class="sv-form" id="sv-contact-form" novalidate>
 
       <div class="sv-field">
-        <label for="sv-name" data-translate="services.formName"></label>
+        <label for="sv-name" data-translate="services.formName">Votre nom</label>
         <input type="text" id="sv-name" name="from_name" required
           placeholder="Laurence Pirard" autocomplete="name">
       </div>
 
       <div class="sv-field">
-        <label for="sv-email" data-translate="services.formEmail"></label>
+        <label for="sv-email" data-translate="services.formEmail">Votre email</label>
         <input type="email" id="sv-email" name="from_email" required
           placeholder="laurencewebdev@gmail.com" autocomplete="email">
       </div>
 
       <div class="sv-field sv-field--full">
-        <label for="sv-service" data-translate="services.formService"></label>
+        <label for="sv-service" data-translate="services.formService">Service qui vous intéresse</label>
         <select id="sv-service" name="service_interest" required>
           <option value="" disabled selected data-fr="Choisissez un service…" data-en="Choose a service…">Choisissez un service…</option>
           <option value="Site web sur mesure"        data-fr="Site web sur mesure"        data-en="Custom website">Site web sur mesure</option>
@@ -580,25 +593,25 @@
       </div>
 
       <div class="sv-field sv-field--full">
-        <label for="sv-q1" data-translate="services.formQ1"></label>
+        <label for="sv-q1" data-translate="services.formQ1">Décrivez votre projet</label>
         <textarea id="sv-q1" name="project_desc" required
           placeholder="À quoi sert le site ? Qui est votre public cible ?" data-fr-placeholder="À quoi sert le site ? Qui est votre public cible ?" data-en-placeholder="What is the site for? Who is your target audience?"></textarea>
       </div>
 
       <div class="sv-field sv-field--full">
-        <label for="sv-q2" data-translate="services.formQ2"></label>
+        <label for="sv-q2" data-translate="services.formQ2">Avez-vous déjà votre contenu ?</label>
         <textarea id="sv-q2" name="content_ready"
           placeholder="Textes, images, logo… Décrivez ce que vous avez déjà." data-fr-placeholder="Textes, images, logo… Décrivez ce que vous avez déjà." data-en-placeholder="Copy, images, logo… Tell me what you already have."></textarea>
       </div>
 
       <div class="sv-field sv-field--full">
-        <label for="sv-q3" data-translate="services.formQ3"></label>
+        <label for="sv-q3" data-translate="services.formQ3">Références de design</label>
         <textarea id="sv-q3" name="design_refs"
           placeholder="Partagez 2–3 URLs de sites que vous aimez." data-fr-placeholder="Partagez 2–3 URLs de sites que vous aimez." data-en-placeholder="Share 2–3 URLs of websites you like."></textarea>
       </div>
 
       <div class="sv-field sv-field--full">
-        <label data-translate="services.formQ4"></label>
+        <label data-translate="services.formQ4">Avez-vous déjà un hébergement & un nom de domaine ?</label>
         <div class="sv-radios">
           <label class="sv-radio">
             <input type="radio" name="hosting_yn" value="Oui"> <span data-fr="Oui" data-en="Yes">Oui</span>
@@ -629,7 +642,7 @@
 
 
 <footer>
-  <p data-translate="footer.copyright"></p>
+  <p data-translate="footer.copyright">© 2026 Laurence Pirard — Développeuse web freelance</p>
   <div class="footer-links">
     <a href="https://github.com/Laurence2712" target="_blank" aria-label="GitHub">
       <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
@@ -659,8 +672,7 @@
   </svg>
 </button>
 
-<script src="js/bundle.min.js?v=12"></script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="js/bundle.min.js?v=13"></script>
 <script>
   // ── EmailJS config ──────────────────────────────────────
   // 1. Crée un compte sur https://www.emailjs.com
@@ -672,7 +684,21 @@
   const EJS_TEMPLATE_ID = 'template_zesk6sw';
   // ────────────────────────────────────────────────────────
 
-  emailjs.init({ publicKey: EJS_PUBLIC_KEY });
+  // EmailJS n'est chargé que lorsqu'on commence à remplir le formulaire
+  let emailjsReady;
+  function loadEmailJS() {
+    if (!emailjsReady) {
+      emailjsReady = new Promise((resolve, reject) => {
+        const s = document.createElement('script');
+        s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+        s.onload = () => { emailjs.init({ publicKey: EJS_PUBLIC_KEY }); resolve(); };
+        s.onerror = () => { emailjsReady = null; reject(new Error('EmailJS non chargé')); };
+        document.head.appendChild(s);
+      });
+    }
+    return emailjsReady;
+  }
+  document.getElementById('sv-contact-form').addEventListener('focusin', () => loadEmailJS().catch(() => {}), { once: true });
 
   // Show hosting comment field only when "Oui" is selected
   document.querySelectorAll('[name="hosting_yn"]').forEach(radio => {
@@ -714,6 +740,7 @@
     };
 
     try {
+      await loadEmailJS();
       await emailjs.send(EJS_SERVICE_ID, EJS_TEMPLATE_ID, params);
       msg.textContent = t.formSuccess;
       msg.classList.add('sv-success');

@@ -297,26 +297,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ════════════════════════════════════════
-     WORK PAGE — PARALLAX IMAGES
+     PARALLAXE — désactivée sur téléphone
   ════════════════════════════════════════ */
   // Parallaxe coupée sur téléphone : coûteuse au scroll et sans intérêt au doigt
   const lowPowerMotion = window.matchMedia('(hover: none), (max-width: 900px)').matches;
-  const wkImgs = document.querySelectorAll('.wk-img-col img');
-  if (wkImgs.length && !lowPowerMotion) {
-    const updateWkParallax = () => {
-      const vh = window.innerHeight;
-      wkImgs.forEach(img => {
-        const col = img.closest('.wk-img-col');
-        const rect = col.getBoundingClientRect();
-        if (rect.bottom < 0 || rect.top > vh) return;
-        const progress = (vh - rect.top) / (vh + rect.height);
-        const offset = (progress - 0.5) * 70;
-        img.style.transform = `translateY(${offset}px)`;
-      });
-    };
-    window.addEventListener('scroll', updateWkParallax, { passive: true });
-    updateWkParallax();
-  }
 
   /* ════════════════════════════════════════
      WORK PAGE FILTERS

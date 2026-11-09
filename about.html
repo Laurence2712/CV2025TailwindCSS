@@ -4,34 +4,48 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title data-translate="pages.aboutTitle">À propos — Laurence Pirard, développeuse web freelance</title>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VCVHKEFHWK"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-VCVHKEFHWK');
+    // Analytics chargé après la première interaction (ou 5 s après le chargement) : ne ralentit pas l'affichage
+    (function () {
+      var done = false, evts = ['scroll', 'pointerdown', 'keydown', 'touchstart'];
+      function load() {
+        if (done) return;
+        done = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-VCVHKEFHWK';
+        document.head.appendChild(s);
+      }
+      evts.forEach(function (e) { addEventListener(e, load, { once: true, passive: true }); });
+      addEventListener('load', function () { setTimeout(load, 5000); });
+    })();
   </script>
   <meta name="description" content="Parcours de Laurence Pirard, développeuse web à Bruxelles : freelance et agence (Paf! Design), WordPress, Grav CMS, PHP et JavaScript. Diplômée EPFC 2020." />
   <meta property="og:type"        content="website" />
   <meta property="og:url"         content="https://laurencepirard.be/about.html" />
   <meta property="og:title"       content="À propos — Laurence Pirard, développeuse web freelance" />
   <meta property="og:description" content="Parcours de Laurence Pirard, développeuse web à Bruxelles : freelance et agence (Paf! Design), WordPress, Grav CMS, PHP et JavaScript. Diplômée EPFC 2020." />
-  <meta property="og:image"       content="https://laurencepirard.be/uploads/image_portfolio.jpeg" />
+  <meta property="og:image"       content="https://laurencepirard.be/uploads/og-image.jpg" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt"    content="Laurence Pirard — développeuse web freelance à Bruxelles" />
   <link rel="canonical" href="https://laurencepirard.be/about.html" />
   <meta name="robots"             content="index, follow" />
   <meta name="author"             content="Laurence Pirard" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 42' fill='none' stroke='%234e7da6' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='9' y1='4' x2='9' y2='38'/%3E%3Cline x1='9' y1='38' x2='24' y2='38'/%3E%3Cpath d='M9 4 C9 4 38 4 38 15 C38 26 9 26 9 26' fill='none'/%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&family=Caveat:wght@500&display=swap" onload="this.rel='stylesheet'" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&family=Caveat:wght@500&display=swap"></noscript>
-  <link rel="stylesheet" href="css/all.min.v11.css">
+  <link rel="preload" as="font" type="font/woff2" href="fonts/poppins-900.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="fonts/poppins-500.woff2" crossorigin>
+  <link rel="stylesheet" href="css/all.min.v12.css">
 </head>
 <body>
 
 <header id="main-header">
   <div class="nav-inner">
-    <a href="/" class="nav-logo">
+    <a href="/" class="nav-logo" aria-label="Accueil" data-fr-aria="Accueil" data-en-aria="Home">
       <svg width="46" height="42" viewBox="0 0 46 42" fill="none" stroke="#4e7da6" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
         <line x1="9" y1="4" x2="9" y2="38"/>
         <line x1="9" y1="38" x2="24" y2="38"/>
@@ -40,10 +54,10 @@
     </a>
 
     <nav class="nav-links" id="nav-desktop">
-      <a href="projet.html"    class="nav-link" data-translate="nav.works"></a>
-      <a href="services.html" class="nav-link" data-translate="nav.services"></a>
-      <a href="about.html"   class="nav-link nav-link--active" data-translate="nav.about"></a>
-      <a href="#contact"     class="nav-link" data-translate="nav.contact"></a>
+      <a href="projet.html"    class="nav-link" data-translate="nav.works">Projets</a>
+      <a href="services.html" class="nav-link" data-translate="nav.services">Services</a>
+      <a href="about.html"   class="nav-link nav-link--active" data-translate="nav.about">À propos</a>
+      <a href="#contact"     class="nav-link" data-translate="nav.contact">Contact</a>
     </nav>
 
     <div class="nav-langs">
@@ -60,30 +74,30 @@
 
   <div id="mobile-menu">
     <div class="menu-orb" aria-hidden="true"></div>
-    <a href="projet.html"    data-translate="nav.works"></a>
-    <a href="services.html" data-translate="nav.services"></a>
-    <a href="about.html"   data-translate="nav.about"></a>
-    <a href="#contact"     data-translate="nav.contact"></a>
+    <a href="projet.html"    data-translate="nav.works">Projets</a>
+    <a href="services.html" data-translate="nav.services">Services</a>
+    <a href="about.html"   data-translate="nav.about">À propos</a>
+    <a href="#contact"     data-translate="nav.contact">Contact</a>
   </div>
 </header>
 <div id="menu-overlay"></div>
 
 
 <div class="page-hero">
-  <h1 class="page-hero-title" data-parallax="0.07" data-translate="pages.aboutHero"></h1>
+  <h1 class="page-hero-title" data-parallax="0.07" data-translate="pages.aboutHero">À <em>propos</em></h1>
 </div>
 
 
 <section id="about" class="section">
   <div class="about-wrap">
-    <p class="about-text" data-translate="sections.aboutText"></p>
+    <p class="about-text" data-translate="sections.aboutText">Développeuse web freelance à Bruxelles, <br>je crée des <strong>sites et des thèmes sur mesure</strong> <br>avec WordPress et Grav CMS, de la maquette à la mise en ligne. <br>Des sites performants, accessibles et pensés mobile first.</p>
     <div class="about-stats-row">
       <div class="about-stat">
-        <span data-translate="about.stat1"></span>
+        <span data-translate="about.stat1">ans d'expérience · freelance & agence</span>
         <strong data-count="5" data-suffix="+">5+</strong>
       </div>
       <div class="about-stat">
-        <span data-translate="about.stat3"></span>
+        <span data-translate="about.stat3">diplômée Web Developer · EPFC</span>
         <strong data-count="2020" data-count-from="2015">2020</strong>
       </div>
     </div>
@@ -95,11 +109,11 @@
 <section id="experience">
   <div class="section-head section-head--cv fade-slide-up">
     <div class="section-num-label">
-      <span class="sl" data-translate="sections.experienceTitle"></span>
+      <h2 class="sl" data-translate="sections.experienceTitle">Parcours</h2>
     </div>
     <a href="uploads/laurence_pirard_26.pdf" download data-cv="true" class="btn-ghost">
       <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
-      <span data-translate="hero.ctaCV"></span>
+      <span data-translate="hero.ctaCV">Télécharger mon CV</span>
     </a>
   </div>
 
@@ -113,40 +127,40 @@
       <button class="tl-nav-item tl-item--freelance tl-nav-item--active" data-panel="0">
         <span class="tl-nav-dot"></span>
         <div class="tl-nav-meta">
-          <span class="tl-nav-year" data-translate="experience.date1"></span>
-          <span class="tl-badge tl-badge--freelance" data-translate="experience.badge1"></span>
+          <span class="tl-nav-year" data-translate="experience.date1">2023 – Présent</span>
+          <span class="tl-badge tl-badge--freelance" data-translate="experience.badge1">Freelance</span>
         </div>
       </button>
 
       <button class="tl-nav-item tl-item--agency" data-panel="1">
         <span class="tl-nav-dot"></span>
         <div class="tl-nav-meta">
-          <span class="tl-nav-year" data-translate="experience.date2"></span>
-          <span class="tl-badge tl-badge--agency" data-translate="experience.badge2"></span>
+          <span class="tl-nav-year" data-translate="experience.date2">2021 – 2026</span>
+          <span class="tl-badge tl-badge--agency" data-translate="experience.badge2">Agence</span>
         </div>
       </button>
 
       <button class="tl-nav-item tl-item--education" data-panel="2">
         <span class="tl-nav-dot"></span>
         <div class="tl-nav-meta">
-          <span class="tl-nav-year" data-translate="formation.date1"></span>
-          <span class="tl-badge tl-badge--education" data-translate="formation.badge1"></span>
+          <span class="tl-nav-year" data-translate="formation.date1">2018 – 2020</span>
+          <span class="tl-badge tl-badge--education" data-translate="formation.badge1">Formation</span>
         </div>
       </button>
 
       <button class="tl-nav-item tl-item--education" data-panel="3">
         <span class="tl-nav-dot"></span>
         <div class="tl-nav-meta">
-          <span class="tl-nav-year" data-translate="formation.date2"></span>
-          <span class="tl-badge tl-badge--education" data-translate="formation.badge2"></span>
+          <span class="tl-nav-year" data-translate="formation.date2">2012 – 2015</span>
+          <span class="tl-badge tl-badge--education" data-translate="formation.badge2">Formation</span>
         </div>
       </button>
 
       <button class="tl-nav-item tl-item--work" data-panel="4">
         <span class="tl-nav-dot"></span>
         <div class="tl-nav-meta">
-          <span class="tl-nav-year" data-translate="decathlon.date"></span>
-          <span class="tl-badge tl-badge--work" data-translate="decathlon.badge"></span>
+          <span class="tl-nav-year" data-translate="decathlon.date">2013 – 2021</span>
+          <span class="tl-badge tl-badge--work" data-translate="decathlon.badge">Emploi</span>
         </div>
       </button>
     </nav>
@@ -156,12 +170,12 @@
 
       <div class="tl-panel tl-item--freelance tl-panel--active" id="tl-panel-0">
         <div class="tl-panel-meta">
-          <span class="tl-badge tl-badge--freelance tl-panel-badge" data-translate="experience.badge1"></span>
-          <span class="tl-panel-date" data-translate="experience.date1"></span>
+          <span class="tl-badge tl-badge--freelance tl-panel-badge" data-translate="experience.badge1">Freelance</span>
+          <span class="tl-panel-date" data-translate="experience.date1">2023 – Présent</span>
         </div>
-        <h3 class="tl-title" data-translate="experience.title1"></h3>
-        <p class="tl-company" data-translate="experience.company1"></p>
-        <p class="tl-desc" data-translate="experience.desc1"></p>
+        <h3 class="tl-title" data-translate="experience.title1">Développeuse web freelance</h3>
+        <p class="tl-company" data-translate="experience.company1"><span style="color:var(--accent)">Indépendante · Bruxelles</span></p>
+        <p class="tl-desc" data-translate="experience.desc1">Sites web et thèmes sur mesure avec WordPress et Grav CMS, création de maquettes et intégration, maintenance et évolution — pour indépendants, associations et PME. Un seul interlocuteur, de la première conversation à la mise en ligne.</p>
         <div class="tl-tags-wrap">
           <div class="tl-tag-group">
             <span class="tl-tag-label">Technologies</span>
@@ -176,19 +190,19 @@
           </div>
         </div>
         <a href="services.html" class="tl-link">
-          <span data-translate="experience.servicesLink"></span>
+          <span data-translate="experience.servicesLink">Voir mes services</span>
           <svg class="tl-link-arrow" width="12" height="12" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
 
       <div class="tl-panel tl-item--agency" id="tl-panel-1">
         <div class="tl-panel-meta">
-          <span class="tl-badge tl-badge--agency tl-panel-badge" data-translate="experience.badge2"></span>
-          <span class="tl-panel-date" data-translate="experience.date2"></span>
+          <span class="tl-badge tl-badge--agency tl-panel-badge" data-translate="experience.badge2">Agence</span>
+          <span class="tl-panel-date" data-translate="experience.date2">2021 – 2026</span>
         </div>
-        <h3 class="tl-title" data-translate="experience.title2"></h3>
-        <p class="tl-company" data-translate="experience.company2"></p>
-        <div class="tl-desc" data-translate="experience.desc2a"></div>
+        <h3 class="tl-title" data-translate="experience.title2">Full Stack Developer</h3>
+        <p class="tl-company" data-translate="experience.company2"><span style="color:var(--accent)"><a href="https://pafdesign.be/" target="_blank" rel="noopener noreferrer">Paf! Design</a> · Bruxelles</span></p>
+        <div class="tl-desc" data-translate="experience.desc2a">Développement de thèmes WordPress sur-mesure et maintenance de l'ensemble des sites en production : mises à jour WordPress, compatibilité et migrations PHP, ajout, modification et suppression de blocs ACF, correctifs et évolutions continues.</div>
         <div class="tl-tags-wrap">
           <div class="tl-tag-group">
             <span class="tl-tag-label">Technologies</span>
@@ -202,7 +216,7 @@
         </div>
         <h3 class="tl-title tl-title--sub">Webmastering</h3>
         <p class="tl-company tl-company--accent">Europcar / Goldcar</p>
-        <div class="tl-desc" data-translate="experience.desc2b"></div>
+        <div class="tl-desc" data-translate="experience.desc2b"><ul><li>Contentful — Gestion de contenu multilingue : création, modification, publication sur environnements master &amp; development</li><li>Mise à jour des campagnes marketing</li><li>Suivi Jira &amp; maintenance technique</li><li>Livrables planifiés — respect des délais imposés</li></ul></div>
         <div class="tl-tags-wrap">
           <div class="tl-tag-group">
             <span class="tl-tag-label" data-fr="Outils" data-en="Tools">Outils</span>
@@ -215,12 +229,12 @@
 
       <div class="tl-panel tl-item--education" id="tl-panel-2">
         <div class="tl-panel-meta">
-          <span class="tl-badge tl-badge--education tl-panel-badge" data-translate="formation.badge1"></span>
-          <span class="tl-panel-date" data-translate="formation.date1"></span>
+          <span class="tl-badge tl-badge--education tl-panel-badge" data-translate="formation.badge1">Formation</span>
+          <span class="tl-panel-date" data-translate="formation.date1">2018 – 2020</span>
         </div>
-        <h3 class="tl-title" data-translate="formation.title1"></h3>
-        <p class="tl-company" data-translate="formation.school1"></p>
-        <div class="tl-desc" data-translate="formation.desc1"></div>
+        <h3 class="tl-title" data-translate="formation.title1">BES Web Developer</h3>
+        <p class="tl-company" data-translate="formation.school1"><span style="color:var(--accent)">EPFC · Bruxelles</span></p>
+        <div class="tl-desc" data-translate="formation.desc1">Formation certifiante en développement web — diplômée avec grande distinction, 2020.</div>
         <div class="tl-tags-wrap">
           <div class="tl-tag-group">
             <span class="tl-tag-label">Technologies</span>
@@ -233,11 +247,11 @@
           </div>
         </div>
         <div class="tl-panel-meta">
-          <span class="tl-panel-date" data-translate="experience.date3"></span>
+          <span class="tl-panel-date" data-translate="experience.date3">Oct. 2018 – Jan. 2019</span>
         </div>
-        <h3 class="tl-title tl-title--sub" data-translate="experience.title3"></h3>
-        <p class="tl-company" data-translate="experience.company3"></p>
-        <p class="tl-desc" data-translate="experience.desc3"></p>
+        <h3 class="tl-title tl-title--sub" data-translate="experience.title3">Stage en entreprise</h3>
+        <p class="tl-company" data-translate="experience.company3"><span style="color:var(--accent)"><a href="https://mfmdigital.com/" target="_blank" rel="noopener noreferrer">MFM Digital</a> · Bruxelles</span></p>
+        <p class="tl-desc" data-translate="experience.desc3">Stage dans le cadre de la formation EPFC. Intégration HTML/CSS, JavaScript et travail sur des projets web réels dans un contexte professionnel.</p>
         <div class="tl-tags-wrap">
           <div class="tl-tag-group">
             <span class="tl-tag-label">Technologies</span>
@@ -250,22 +264,22 @@
 
       <div class="tl-panel tl-item--education" id="tl-panel-3">
         <div class="tl-panel-meta">
-          <span class="tl-badge tl-badge--education tl-panel-badge" data-translate="formation.badge2"></span>
-          <span class="tl-panel-date" data-translate="formation.date2"></span>
+          <span class="tl-badge tl-badge--education tl-panel-badge" data-translate="formation.badge2">Formation</span>
+          <span class="tl-panel-date" data-translate="formation.date2">2012 – 2015</span>
         </div>
-        <h3 class="tl-title" data-translate="formation.title2"></h3>
-        <p class="tl-company" data-translate="formation.school2"></p>
-        <div class="tl-desc" data-translate="formation.desc2"></div>
+        <h3 class="tl-title" data-translate="formation.title2">Éducatrice spécialisée en activités socio-sportives</h3>
+        <p class="tl-company" data-translate="formation.school2"><span style="color:var(--accent)">Parnasse-ISEI · Bruxelles</span></p>
+        <div class="tl-desc" data-translate="formation.desc2">Diplômée avec distinction — juin 2015.<ul><li><strong>Ouagadougou, Burkina Faso</strong>Stage au sein de l'association <a href="https://www.keoogo.org/" target="_blank" rel="noopener noreferrer">KEOOGO</a>, accompagnement d'enfants de la rue (2014-2015)</li><li><strong>Woluwe-Saint-Lambert</strong>Stage à l'Institut Royal d'Accueil pour le Handicap Moteur · <a href="https://www.irahm.be/" target="_blank" rel="noopener noreferrer">IRAHM ASBL</a> (2013-2014)</li><li><strong>Louvain-la-Neuve</strong>Stage à l'<a href="https://www.sport-adeps.be/" target="_blank" rel="noopener noreferrer">Adeps</a> (2012-2013)</li></ul></div>
       </div>
 
       <div class="tl-panel tl-item--work" id="tl-panel-4">
         <div class="tl-panel-meta">
-          <span class="tl-badge tl-badge--work tl-panel-badge" data-translate="decathlon.badge"></span>
-          <span class="tl-panel-date" data-translate="decathlon.date"></span>
+          <span class="tl-badge tl-badge--work tl-panel-badge" data-translate="decathlon.badge">Emploi</span>
+          <span class="tl-panel-date" data-translate="decathlon.date">2013 – 2021</span>
         </div>
-        <h3 class="tl-title" data-translate="decathlon.title"></h3>
-        <p class="tl-company" data-translate="decathlon.company"></p>
-        <div class="tl-desc" data-translate="decathlon.desc"></div>
+        <h3 class="tl-title" data-translate="decathlon.title">Conseillère clientèle & Hôtesse de caisse</h3>
+        <p class="tl-company" data-translate="decathlon.company"><span style="color:var(--accent)">Decathlon · Wavre</span></p>
+        <div class="tl-desc" data-translate="decathlon.desc"><ul><li>2017-2021 &nbsp;—&nbsp; CDI</li><li>2015-2017 &nbsp;—&nbsp; CDD</li><li>2013-2015 &nbsp;—&nbsp; Étudiante</li></ul></div>
       </div>
 
     </div>
@@ -284,7 +298,7 @@
   <div class="skills-section-inner">
     <div class="section-head fade-slide-up" data-parallax="0.07">
       <div class="section-num-label">
-        <span class="sl" data-translate="sections.skillsTitle"></span>
+        <h2 class="sl" data-translate="sections.skillsTitle">Compétences</h2>
       </div>
     </div>
 
@@ -346,16 +360,12 @@
 <section id="contact">
   <div class="contact-inner">
     <div class="contact-content">
-      <h2 class="contact-big-title" data-translate="sections.contactTitle"></h2>
-      <p class="contact-sub" data-translate="sections.contactText"></p>
-      <p class="contact-wedding" data-translate="sections.contactWedding"></p>
-      <p class="contact-sign"><span data-translate="sections.contactSign"></span> <span class="contact-sign-name">Laurence</span></p>
+      <h2 class="contact-big-title" data-translate="sections.contactTitle">Travaillons ensemble.</h2>
+      <p class="contact-sub" data-translate="sections.contactText">Un projet de site ? Parlons-en.</p>
+      <p class="contact-wedding" data-translate="sections.contactWedding">Wedding planner ? Créons ensemble des sites de mariage à l'image de vos couples.</p>
+      <p class="contact-sign"><span data-translate="sections.contactSign">À très vite,</span> <span class="contact-sign-name">Laurence</span></p>
       <div class="contact-actions">
-        <a href="mailto:laurencewebdev@gmail.com" class="btn-primary" data-translate="contact.sendEmail">
-          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
-          </svg>
-        </a>
+        <a href="mailto:laurencewebdev@gmail.com" class="btn-primary" data-translate="contact.sendEmail">Contactez-moi</a>
       </div>
     </div>
   </div>
@@ -364,7 +374,7 @@
 </div><!-- /.skills-pin-wrap -->
 
 <footer>
-  <p data-translate="footer.copyright"></p>
+  <p data-translate="footer.copyright">© 2026 Laurence Pirard — Développeuse web freelance</p>
   <div class="footer-links">
     <a href="https://github.com/Laurence2712" target="_blank" aria-label="GitHub">
       <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
@@ -393,6 +403,6 @@
   </svg>
 </button>
 
-<script src="js/bundle.min.js?v=12"></script>
+<script src="js/bundle.min.js?v=13"></script>
 </body>
 </html>

@@ -4,9 +4,10 @@
   "main": "tailwind.config.js",
   "scripts": {
     "dev": "tailwindcss -i ./css/tailwind.css -o ./css/tailwind.css --watch",
-    "build": "npm run build:tailwind && npm run build:css && npm run build:js",
+    "build": "npm run build:tailwind && npm run build:css && npm run build:js && npm run build:html",
+    "build:html": "node scripts/prefill-html.js",
     "build:tailwind": "tailwindcss -i ./css/tailwind.css -o ./css/tailwind.css",
-    "build:css": "npx clean-css-cli css/tailwind.css css/style.css -o css/all.min.v11.css",
+    "build:css": "npx clean-css-cli css/tailwind.css css/style.css -o css/all.min.v12.css",
     "build:js": "npx terser js/translations.js js/main.js --compress --mangle -o js/bundle.min.js"
   },
   "keywords": [],

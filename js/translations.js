@@ -225,6 +225,7 @@ const translations = {
       venuesCat: "Site vitrine",
       meteoType: "Projet personnel",
       meteoTitle: "Météo en direct",
+      feDesc: "Site d'un centre de simulateurs de vol à Nivelles, avec de vrais pilotes de chasse. Refonte complète en thème WordPress sur mesure, en trois langues (FR/NL/EN), avec réservation en ligne via Bookingkit.",
       meteoDesc: "Application météo en temps réel au design d'instruments vintage. Projet perso en JavaScript vanilla : prévisions 24h et 7 jours, géolocalisation et villes favorites.",
       meteoCat: "App météo temps réel",
       poulettesType: "Projet personnel",
@@ -261,7 +262,7 @@ const translations = {
       aboutHero: "À <em>propos</em>",
       projectsTitle: "Projets web & WordPress — Laurence Pirard, Bruxelles",
       projectsHero: "<em>Projets</em>",
-      projectsCount: "14 projets",
+      projectsCount: "15 projets",
       projectsType: "Freelance & Agence",
       servicesTitle: "Sites & thèmes WordPress sur mesure — Laurence Pirard",
       servicesHero: "<em>Services</em>"
@@ -545,6 +546,7 @@ const translations = {
       venuesCat: "Showcase website",
       meteoType: "Personal Project",
       meteoTitle: "Live Weather",
+      feDesc: "Website for a flight simulator centre in Nivelles, with real fighter pilots. Complete redesign as a custom WordPress theme, in three languages (FR/NL/EN), with online booking through Bookingkit.",
       meteoDesc: "Real-time weather app styled like vintage measuring instruments. Personal project in vanilla JavaScript: 24h and 7-day forecasts, geolocation and favourite cities.",
       meteoCat: "Real-time weather app",
       poulettesType: "Personal Project",
@@ -581,7 +583,7 @@ const translations = {
       aboutHero: "<em>About</em>",
       projectsTitle: "Web & WordPress projects — Laurence Pirard, Brussels",
       projectsHero: "<em>Projects</em>",
-      projectsCount: "14 projects",
+      projectsCount: "15 projects",
       projectsType: "Freelance & Agency",
       servicesTitle: "Custom websites & WordPress themes — Laurence Pirard",
       servicesHero: "<em>Services</em>"

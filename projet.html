@@ -4,34 +4,49 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title data-translate="pages.projectsTitle">Projets web &amp; WordPress — Laurence Pirard, Bruxelles</title>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VCVHKEFHWK"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-VCVHKEFHWK');
+    // Analytics chargé après la première interaction (ou 5 s après le chargement) : ne ralentit pas l'affichage
+    (function () {
+      var done = false, evts = ['scroll', 'pointerdown', 'keydown', 'touchstart'];
+      function load() {
+        if (done) return;
+        done = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-VCVHKEFHWK';
+        document.head.appendChild(s);
+      }
+      evts.forEach(function (e) { addEventListener(e, load, { once: true, passive: true }); });
+      addEventListener('load', function () { setTimeout(load, 5000); });
+    })();
   </script>
   <meta name="description" content="Sélection de sites réalisés en freelance et en agence : thèmes WordPress sur mesure, intégrations et applications JavaScript. Projets de Laurence Pirard, Bruxelles." />
   <meta property="og:type"        content="website" />
   <meta property="og:url"         content="https://laurencepirard.be/projet.html" />
   <meta property="og:title"       content="Projets web &amp; WordPress — Laurence Pirard, Bruxelles" />
   <meta property="og:description" content="Sélection de sites réalisés en freelance et en agence : thèmes WordPress sur mesure, intégrations et applications JavaScript. Projets de Laurence Pirard, Bruxelles." />
-  <meta property="og:image"       content="https://laurencepirard.be/uploads/image_portfolio.jpeg" />
+  <meta property="og:image"       content="https://laurencepirard.be/uploads/og-image.jpg" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt"    content="Laurence Pirard — développeuse web freelance à Bruxelles" />
   <link rel="canonical" href="https://laurencepirard.be/projet.html" />
   <meta name="robots"             content="index, follow" />
   <meta name="author"             content="Laurence Pirard" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 42' fill='none' stroke='%234e7da6' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='9' y1='4' x2='9' y2='38'/%3E%3Cline x1='9' y1='38' x2='24' y2='38'/%3E%3Cpath d='M9 4 C9 4 38 4 38 15 C38 26 9 26 9 26' fill='none'/%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" onload="this.rel='stylesheet'" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap"></noscript>
-  <link rel="stylesheet" href="css/all.min.v11.css">
+  <link rel="preload" as="font" type="font/woff2" href="fonts/poppins-900.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="fonts/poppins-500.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="fonts/poppins-600.woff2" crossorigin>
+  <link rel="stylesheet" href="css/all.min.v12.css">
 </head>
 <body>
 
 <header id="main-header">
   <div class="nav-inner">
-    <a href="/" class="nav-logo">
+    <a href="/" class="nav-logo" aria-label="Accueil" data-fr-aria="Accueil" data-en-aria="Home">
       <svg width="46" height="42" viewBox="0 0 46 42" fill="none" stroke="#4e7da6" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
         <line x1="9" y1="4" x2="9" y2="38"/>
         <line x1="9" y1="38" x2="24" y2="38"/>
@@ -40,10 +55,10 @@
     </a>
 
     <nav class="nav-links" id="nav-desktop">
-      <a href="projet.html"    class="nav-link nav-link--active" data-translate="nav.works"></a>
-      <a href="services.html" class="nav-link" data-translate="nav.services"></a>
-      <a href="about.html"   class="nav-link" data-translate="nav.about"></a>
-      <a href="about.html#contact" class="nav-link" data-translate="nav.contact"></a>
+      <a href="projet.html"    class="nav-link nav-link--active" data-translate="nav.works">Projets</a>
+      <a href="services.html" class="nav-link" data-translate="nav.services">Services</a>
+      <a href="about.html"   class="nav-link" data-translate="nav.about">À propos</a>
+      <a href="about.html#contact" class="nav-link" data-translate="nav.contact">Contact</a>
     </nav>
 
     <div class="nav-langs">
@@ -60,10 +75,10 @@
 
   <div id="mobile-menu">
     <div class="menu-orb" aria-hidden="true"></div>
-    <a href="projet.html"          data-translate="nav.works"></a>
-    <a href="services.html"       data-translate="nav.services"></a>
-    <a href="about.html"         data-translate="nav.about"></a>
-    <a href="about.html#contact" data-translate="nav.contact"></a>
+    <a href="projet.html"          data-translate="nav.works">Projets</a>
+    <a href="services.html"       data-translate="nav.services">Services</a>
+    <a href="about.html"         data-translate="nav.about">À propos</a>
+    <a href="about.html#contact" data-translate="nav.contact">Contact</a>
   </div>
 </header>
 <div id="menu-overlay"></div>
@@ -72,33 +87,57 @@
 <main class="wk-page">
 
   <div class="wk-hero">
-    <h1 class="wk-big-title" data-parallax="0.07" data-translate="pages.projectsHero"></h1>
+    <h1 class="wk-big-title" data-parallax="0.07" data-translate="pages.projectsHero"><em>Projets</em></h1>
     <div class="wk-hero-meta">
-      <span data-translate="pages.projectsCount">14 projets</span>
-      <span data-translate="pages.projectsType">Freelance &amp; Agence</span>
+      <span data-translate="pages.projectsCount">15 projets</span>
+      <span data-translate="pages.projectsType">Freelance & Agence</span>
       <span data-fr="Bruxelles" data-en="Brussels">Bruxelles</span>
     </div>
   </div>
 
 
   <div class="wk-filters" id="wk-filters">
-    <button class="wk-filter active" data-filter="all"><span data-translate="filter.all"></span><span class="wk-filter-count">14</span></button>
-    <button class="wk-filter" data-filter="freelance"><span data-translate="filter.freelance"></span><span class="wk-filter-count">4</span></button>
-    <button class="wk-filter" data-filter="agency"><span data-translate="filter.agency"></span><span class="wk-filter-count">9</span></button>
-    <button class="wk-filter" data-filter="personal"><span data-translate="filter.personal"></span><span class="wk-filter-count">1</span></button>
+    <button class="wk-filter active" data-filter="all"><span data-translate="filter.all">Tous</span><span class="wk-filter-count">15</span></button>
+    <button class="wk-filter" data-filter="freelance"><span data-translate="filter.freelance">Freelance</span><span class="wk-filter-count">5</span></button>
+    <button class="wk-filter" data-filter="agency"><span data-translate="filter.agency">Agence</span><span class="wk-filter-count">9</span></button>
+    <button class="wk-filter" data-filter="personal"><span data-translate="filter.personal">Projets perso</span><span class="wk-filter-count">1</span></button>
   </div>
 
   <div class="wk-list">
 
-    <div class="wk-row" data-type="freelance" data-url="https://chiropracteur-mons.be/">
+    <div class="wk-row" data-type="freelance" data-url="https://flight-experience.be/">
       <div class="wk-info">
         <div class="wk-meta">
           <span class="wk-num">01</span>
           <span class="wk-badge wk-badge--freelance">Freelance</span>
+          <span class="wk-year">2026</span>
+        </div>
+        <h2 class="wk-title">Flight Experience</h2>
+        <p class="wk-desc" data-translate="portfolio.feDesc">Site d'un centre de simulateurs de vol à Nivelles, avec de vrais pilotes de chasse. Refonte complète en thème WordPress sur mesure, en trois langues (FR/NL/EN), avec réservation en ligne via Bookingkit.</p>
+        <div class="wk-tags">
+          <span>WordPress</span><span>ACF</span><span>WPML</span><span>Bookingkit</span>
+        </div>
+        <a href="https://flight-experience.be/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
+          <span data-fr="Voir le site" data-en="Visit site">Voir le site</span> <svg class="wk-cta-arrow" width="12" height="12" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="wk-shots">
+        <div class="wk-img-col">
+          <img src="uploads/flight-experience-800.webp" srcset="uploads/flight-experience-800.webp 800w, uploads/flight-experience.webp?v=2 1440w" sizes="(max-width: 900px) 100vw, 50vw" alt="Flight Experience" loading="lazy">
+        </div>
+        <img class="wk-mobile" src="uploads/flight-experience-mobile.webp?v=2" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
+      </div>
+    </div>
+
+    <div class="wk-row" data-type="freelance" data-url="https://chiropracteur-mons.be/">
+      <div class="wk-info">
+        <div class="wk-meta">
+          <span class="wk-num">02</span>
+          <span class="wk-badge wk-badge--freelance">Freelance</span>
           <span class="wk-year">2023</span>
         </div>
         <h2 class="wk-title">Chiropracteur Mons</h2>
-        <p class="wk-desc" data-translate="portfolio.chiroDesc"></p>
+        <p class="wk-desc" data-translate="portfolio.chiroDesc">Site vitrine pour un cabinet de chiropraxie à Mons. J'ai tout pris en charge en direct avec le client : maquette, développement WordPress, mise en ligne et maintenance.</p>
         <div class="wk-tags">
           <span>WordPress</span><span>Elementor</span><span>PHP</span><span>CSS</span>
         </div>
@@ -108,21 +147,21 @@
       </div>
       <div class="wk-shots">
         <div class="wk-img-col">
-          <img src="uploads/chiro.webp?v=2" alt="Chiropracteur Mons" loading="lazy">
+          <img src="uploads/chiro-800.webp" srcset="uploads/chiro-800.webp 800w, uploads/chiro.webp?v=2 1440w" sizes="(max-width: 900px) 100vw, 50vw" alt="Chiropracteur Mons" loading="lazy">
         </div>
-        <img class="wk-mobile" src="uploads/chiro-mobile.webp" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
+        <img class="wk-mobile" src="uploads/chiro-mobile.webp?v=2" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
       </div>
     </div>
 
     <div class="wk-row" data-type="agency" data-url="https://hospel-notaire.be/">
       <div class="wk-info">
         <div class="wk-meta">
-          <span class="wk-num">02</span>
+          <span class="wk-num">03</span>
           <span class="wk-badge wk-badge--agency" data-fr="Agence · PAF!" data-en="Agency · PAF!">Agence · PAF!</span>
           <span class="wk-year">2024</span>
         </div>
         <h2 class="wk-title">Notaire Hospel</h2>
-        <p class="wk-desc" data-translate="portfolio.hospelDesc"></p>
+        <p class="wk-desc" data-translate="portfolio.hospelDesc">Site d'une étude notariale à Montigny-le-Tilleul. Intégration des maquettes de l'agence en thème WordPress sur mesure, avec des contenus que le client modifie lui-même.</p>
         <div class="wk-tags">
           <span>WordPress</span><span>ACF</span><span>TailwindCSS</span><span>Swiper</span>
         </div>
@@ -132,258 +171,21 @@
       </div>
       <div class="wk-shots">
         <div class="wk-img-col">
-          <img src="uploads/hospel.webp?v=2" alt="Hospel Notaire" loading="lazy">
+          <img src="uploads/hospel-800.webp" srcset="uploads/hospel-800.webp 800w, uploads/hospel.webp?v=2 1440w" sizes="(max-width: 900px) 100vw, 50vw" alt="Hospel Notaire" loading="lazy">
         </div>
-        <img class="wk-mobile" src="uploads/hospel-mobile.webp" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
-      </div>
-    </div>
-
-    <div class="wk-row" data-type="agency" data-url="https://memisa.be/fr/">
-      <div class="wk-info">
-        <div class="wk-meta">
-          <span class="wk-num">03</span>
-          <span class="wk-badge wk-badge--agency" data-fr="Agence · PAF!" data-en="Agency · PAF!">Agence · PAF!</span>
-        </div>
-        <h2 class="wk-title">Memisa</h2>
-        <p class="wk-desc" data-translate="portfolio.memisaDesc"></p>
-        <div class="wk-tags">
-          <span>WordPress</span><span>ACF</span><span>WPML</span><span>GSAP</span>
-        </div>
-        <a href="https://memisa.be/fr/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
-          <span data-fr="Voir le site" data-en="Visit site">Voir le site</span> <svg class="wk-cta-arrow" width="12" height="12" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-      <div class="wk-shots">
-        <div class="wk-img-col">
-          <img src="uploads/memisa.webp?v=2" alt="Memisa" loading="lazy">
-        </div>
-        <img class="wk-mobile" src="uploads/memisa-mobile.webp" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
-      </div>
-    </div>
-
-    <div class="wk-row" data-type="agency" data-url="https://www.chateaudecourriere.be/">
-      <div class="wk-info">
-        <div class="wk-meta">
-          <span class="wk-num">04</span>
-          <span class="wk-badge wk-badge--agency" data-fr="Agence · PAF!" data-en="Agency · PAF!">Agence · PAF!</span>
-          <span class="wk-year">2022</span>
-        </div>
-        <h2 class="wk-title">Château de Courrière</h2>
-        <p class="wk-desc" data-translate="portfolio.courriereDesc"></p>
-        <div class="wk-tags">
-          <span>WordPress</span><span>ACF</span><span>PHP</span><span>jQuery</span>
-        </div>
-        <a href="https://www.chateaudecourriere.be/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
-          <span data-fr="Voir le site" data-en="Visit site">Voir le site</span> <svg class="wk-cta-arrow" width="12" height="12" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-      <div class="wk-shots">
-        <div class="wk-img-col">
-          <img src="uploads/courriere.webp?v=2" alt="Château de Courrière" loading="lazy">
-        </div>
-        <img class="wk-mobile" src="uploads/courriere-mobile.webp" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
-      </div>
-    </div>
-
-    <div class="wk-row" data-type="agency" data-url="https://venues.be/">
-      <div class="wk-info">
-        <div class="wk-meta">
-          <span class="wk-num">05</span>
-          <span class="wk-badge wk-badge--agency" data-fr="Agence · PAF!" data-en="Agency · PAF!">Agence · PAF!</span>
-        </div>
-        <h2 class="wk-title">Brussels Special Venues</h2>
-        <p class="wk-desc" data-translate="portfolio.venuesDesc"></p>
-        <div class="wk-tags">
-          <span>WordPress</span><span>ACF</span><span>PHP</span><span>jQuery</span>
-        </div>
-        <a href="https://venues.be/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
-          <span data-fr="Voir le site" data-en="Visit site">Voir le site</span> <svg class="wk-cta-arrow" width="12" height="12" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-      <div class="wk-shots">
-        <div class="wk-img-col">
-          <img src="uploads/venues.webp?v=2" alt="Venues.be" loading="lazy">
-        </div>
-        <img class="wk-mobile" src="uploads/venues-mobile.webp" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
-      </div>
-    </div>
-
-    <div class="wk-row" data-type="agency" data-url="https://deviensspiecialiste.be/">
-      <div class="wk-info">
-        <div class="wk-meta">
-          <span class="wk-num">06</span>
-          <span class="wk-badge wk-badge--agency" data-fr="Agence · PAF!" data-en="Agency · PAF!">Agence · PAF!</span>
-          <span class="wk-year">2023</span>
-        </div>
-        <h2 class="wk-title">SPIE Belgium</h2>
-        <p class="wk-desc" data-translate="portfolio.dsDesc"></p>
-        <div class="wk-tags">
-          <span>GSAP</span><span>Swiper</span><span>jQuery</span><span>Nginx</span>
-        </div>
-        <a href="https://deviensspiecialiste.be/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
-          <span data-fr="Voir le site" data-en="Visit site">Voir le site</span> <svg class="wk-cta-arrow" width="12" height="12" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-      <div class="wk-shots">
-        <div class="wk-img-col">
-          <img src="uploads/deviensspiecialiste.webp?v=2" alt="Deviens Spécialiste" loading="lazy">
-        </div>
-        <img class="wk-mobile" src="uploads/deviensspiecialiste-mobile.webp" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
-      </div>
-    </div>
-
-    <div class="wk-row" data-type="freelance" data-url="https://raymonddelepierre.com/">
-      <div class="wk-info">
-        <div class="wk-meta">
-          <span class="wk-num">07</span>
-          <span class="wk-badge wk-badge--freelance">Freelance</span>
-          <span class="wk-year">2023</span>
-        </div>
-        <h2 class="wk-title">Raymond Delepierre</h2>
-        <p class="wk-desc" data-translate="portfolio.rdDesc"></p>
-        <div class="wk-tags">
-          <span>WordPress</span><span>PHP</span><span>CSS</span>
-        </div>
-        <a href="https://raymonddelepierre.com/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
-          <span data-fr="Voir le site" data-en="Visit site">Voir le site</span> <svg class="wk-cta-arrow" width="12" height="12" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-      <div class="wk-shots">
-        <div class="wk-img-col">
-          <img src="uploads/raymonddelepierre.webp?v=2" alt="Raymond Delepierre" loading="lazy">
-        </div>
-        <img class="wk-mobile" src="uploads/raymonddelepierre-mobile.webp" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
-      </div>
-    </div>
-
-    <div class="wk-row" data-type="freelance" data-url="https://theccoach.be/">
-      <div class="wk-info">
-        <div class="wk-meta">
-          <span class="wk-num">08</span>
-          <span class="wk-badge wk-badge--freelance">Freelance</span>
-          <span class="wk-year">2024</span>
-        </div>
-        <h2 class="wk-title">The C Coach</h2>
-        <p class="wk-desc" data-translate="portfolio.tccDesc"></p>
-        <div class="wk-tags">
-          <span>WordPress</span><span>PHP</span><span>CSS</span>
-        </div>
-        <a href="https://theccoach.be/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
-          <span data-fr="Voir le site" data-en="Visit site">Voir le site</span> <svg class="wk-cta-arrow" width="12" height="12" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-      <div class="wk-shots">
-        <div class="wk-img-col">
-          <img src="uploads/theccoach.webp?v=2" alt="The C Coach" loading="lazy">
-        </div>
-        <img class="wk-mobile" src="uploads/theccoach-mobile.webp" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
-      </div>
-    </div>
-
-    <div class="wk-row" data-type="agency" data-url="https://intotheblue.be/bruxelles/">
-      <div class="wk-info">
-        <div class="wk-meta">
-          <span class="wk-num">09</span>
-          <span class="wk-badge wk-badge--agency" data-fr="Agence · PAF!" data-en="Agency · PAF!">Agence · PAF!</span>
-        </div>
-        <h2 class="wk-title">Into The Blue</h2>
-        <p class="wk-desc" data-translate="portfolio.itbDesc"></p>
-        <div class="wk-tags">
-          <span>WordPress</span><span>ACF</span><span>PHP</span><span>jQuery</span>
-        </div>
-        <a href="https://intotheblue.be/bruxelles/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
-          <span data-fr="Voir le site" data-en="Visit site">Voir le site</span> <svg class="wk-cta-arrow" width="12" height="12" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-      <div class="wk-shots">
-        <div class="wk-img-col">
-          <img src="uploads/intotheblue.webp?v=2" alt="Into The Blue" loading="lazy">
-        </div>
-        <img class="wk-mobile" src="uploads/intotheblue-mobile.webp" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
-      </div>
-    </div>
-
-    <div class="wk-row" data-type="agency" data-url="https://platformawards.eu/">
-      <div class="wk-info">
-        <div class="wk-meta">
-          <span class="wk-num">10</span>
-          <span class="wk-badge wk-badge--agency" data-fr="Agence · PAF!" data-en="Agency · PAF!">Agence · PAF!</span>
-          <span class="wk-year">2022</span>
-        </div>
-        <h2 class="wk-title">Platform Awards</h2>
-        <p class="wk-desc" data-translate="portfolio.paDesc"></p>
-        <div class="wk-tags">
-          <span>WordPress</span><span>ACF</span><span>PHP</span><span>jQuery</span>
-        </div>
-        <a href="https://platformawards.eu/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
-          <span data-fr="Voir le site" data-en="Visit site">Voir le site</span> <svg class="wk-cta-arrow" width="12" height="12" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-      <div class="wk-shots">
-        <div class="wk-img-col">
-          <img src="uploads/platformawards.webp?v=2" alt="Platform Awards" loading="lazy">
-        </div>
-        <img class="wk-mobile" src="uploads/platformawards-mobile.webp" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
-      </div>
-    </div>
-
-    <div class="wk-row" data-type="agency" data-url="https://intothewildfestival.be/">
-      <div class="wk-info">
-        <div class="wk-meta">
-          <span class="wk-num">11</span>
-          <span class="wk-badge wk-badge--agency" data-fr="Agence · PAF!" data-en="Agency · PAF!">Agence · PAF!</span>
-          <span class="wk-year">2022</span>
-        </div>
-        <h2 class="wk-title">Into The Wild Festival</h2>
-        <p class="wk-desc" data-translate="portfolio.itwDesc"></p>
-        <div class="wk-tags">
-          <span>WordPress</span><span>ACF</span><span>PHP</span><span>jQuery</span>
-        </div>
-        <a href="https://intothewildfestival.be/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
-          <span data-fr="Voir le site" data-en="Visit site">Voir le site</span> <svg class="wk-cta-arrow" width="12" height="12" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-      <div class="wk-shots">
-        <div class="wk-img-col">
-          <img src="uploads/intothewildfestival.webp?v=2" alt="Into The Wild Festival" loading="lazy">
-        </div>
-        <img class="wk-mobile" src="uploads/intothewildfestival-mobile.webp" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
-      </div>
-    </div>
-
-    <div class="wk-row" data-type="agency" data-url="https://w-e-b.be/">
-      <div class="wk-info">
-        <div class="wk-meta">
-          <span class="wk-num">12</span>
-          <span class="wk-badge wk-badge--agency" data-fr="Agence · PAF!" data-en="Agency · PAF!">Agence · PAF!</span>
-          <span class="wk-year">2022</span>
-        </div>
-        <h2 class="wk-title">Warehouses Estates Belgium</h2>
-        <p class="wk-desc" data-translate="portfolio.webDesc"></p>
-        <div class="wk-tags">
-          <span>WordPress</span><span>ACF</span><span>PHP</span><span>jQuery</span>
-        </div>
-        <a href="https://w-e-b.be/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
-          <span data-fr="Voir le site" data-en="Visit site">Voir le site</span> <svg class="wk-cta-arrow" width="12" height="12" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-      <div class="wk-shots">
-        <div class="wk-img-col">
-          <img src="uploads/web-be.webp?v=2" alt="W-E-B" loading="lazy">
-        </div>
-        <img class="wk-mobile" src="uploads/web-be-mobile.webp" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
+        <img class="wk-mobile" src="uploads/hospel-mobile.webp?v=2" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
       </div>
     </div>
 
     <div class="wk-row" data-type="freelance" data-url="https://mariage-demo-dev.netlify.app/">
       <div class="wk-info">
         <div class="wk-meta">
-          <span class="wk-num">13</span>
+          <span class="wk-num">04</span>
           <span class="wk-badge wk-badge--freelance">Freelance</span>
           <span class="wk-year">2026</span>
         </div>
         <h2 class="wk-title">Jade &amp; Antoine</h2>
-        <p class="wk-desc" data-translate="portfolio.mariageDesc"></p>
+        <p class="wk-desc" data-translate="portfolio.mariageDesc">Template de site de mariage, présenté avec des données fictives. Conception et développement complets, avec réponses des invités envoyées par email et centralisées dans un Google Drive.</p>
         <div class="wk-tags">
           <span>HTML</span><span>CSS</span><span>JavaScript</span><span>EmailJS</span><span>Google Drive API</span>
         </div>
@@ -393,21 +195,258 @@
       </div>
       <div class="wk-shots">
         <div class="wk-img-col">
-          <img src="uploads/mariage.webp?v=2" alt="Jade &amp; Antoine — Site de mariage" data-fr-alt="Jade &amp; Antoine — Site de mariage" data-en-alt="Jade &amp; Antoine — Wedding website" loading="lazy">
+          <img src="uploads/mariage-800.webp" srcset="uploads/mariage-800.webp 800w, uploads/mariage.webp?v=2 1440w" sizes="(max-width: 900px) 100vw, 50vw" alt="Jade &amp; Antoine — Site de mariage" data-fr-alt="Jade &amp; Antoine — Site de mariage" data-en-alt="Jade &amp; Antoine — Wedding website" loading="lazy">
         </div>
-        <img class="wk-mobile" src="uploads/mariage-mobile.webp" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
+        <img class="wk-mobile" src="uploads/mariage-mobile.webp?v=2" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
+      </div>
+    </div>
+
+    <div class="wk-row" data-type="agency" data-url="https://deviensspiecialiste.be/">
+      <div class="wk-info">
+        <div class="wk-meta">
+          <span class="wk-num">05</span>
+          <span class="wk-badge wk-badge--agency" data-fr="Agence · PAF!" data-en="Agency · PAF!">Agence · PAF!</span>
+          <span class="wk-year">2023</span>
+        </div>
+        <h2 class="wk-title">SPIE Belgium</h2>
+        <p class="wk-desc" data-translate="portfolio.dsDesc">Site de recrutement de SPIE Belgium pour attirer techniciens et chefs de projet. Intégration front-end, animations au scroll et mise en ligne.</p>
+        <div class="wk-tags">
+          <span>GSAP</span><span>Swiper</span><span>jQuery</span><span>Nginx</span>
+        </div>
+        <a href="https://deviensspiecialiste.be/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
+          <span data-fr="Voir le site" data-en="Visit site">Voir le site</span> <svg class="wk-cta-arrow" width="12" height="12" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="wk-shots">
+        <div class="wk-img-col">
+          <img src="uploads/deviensspiecialiste-800.webp" srcset="uploads/deviensspiecialiste-800.webp 800w, uploads/deviensspiecialiste.webp?v=2 1440w" sizes="(max-width: 900px) 100vw, 50vw" alt="Deviens Spécialiste" loading="lazy">
+        </div>
+        <img class="wk-mobile" src="uploads/deviensspiecialiste-mobile.webp?v=2" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
+      </div>
+    </div>
+
+    <div class="wk-row" data-type="agency" data-url="https://platformawards.eu/">
+      <div class="wk-info">
+        <div class="wk-meta">
+          <span class="wk-num">06</span>
+          <span class="wk-badge wk-badge--agency" data-fr="Agence · PAF!" data-en="Agency · PAF!">Agence · PAF!</span>
+          <span class="wk-year">2022</span>
+        </div>
+        <h2 class="wk-title">Platform Awards</h2>
+        <p class="wk-desc" data-translate="portfolio.paDesc">Prix européen qui récompense la coopération décentralisée au développement. Développement du thème WordPress sur mesure : candidatures, jury et lauréats.</p>
+        <div class="wk-tags">
+          <span>WordPress</span><span>ACF</span><span>PHP</span><span>jQuery</span>
+        </div>
+        <a href="https://platformawards.eu/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
+          <span data-fr="Voir le site" data-en="Visit site">Voir le site</span> <svg class="wk-cta-arrow" width="12" height="12" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="wk-shots">
+        <div class="wk-img-col">
+          <img src="uploads/platformawards-800.webp" srcset="uploads/platformawards-800.webp 800w, uploads/platformawards.webp?v=2 1440w" sizes="(max-width: 900px) 100vw, 50vw" alt="Platform Awards" loading="lazy">
+        </div>
+        <img class="wk-mobile" src="uploads/platformawards-mobile.webp?v=2" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
+      </div>
+    </div>
+
+    <div class="wk-row" data-type="agency" data-url="https://www.chateaudecourriere.be/">
+      <div class="wk-info">
+        <div class="wk-meta">
+          <span class="wk-num">07</span>
+          <span class="wk-badge wk-badge--agency" data-fr="Agence · PAF!" data-en="Agency · PAF!">Agence · PAF!</span>
+          <span class="wk-year">2022</span>
+        </div>
+        <h2 class="wk-title">Château de Courrière</h2>
+        <p class="wk-desc" data-translate="portfolio.courriereDesc">Site d'un château en Wallonie qui accueille événements, séminaires et hôtes. Développement du thème WordPress sur mesure : galeries photo, événements et hébergements.</p>
+        <div class="wk-tags">
+          <span>WordPress</span><span>ACF</span><span>PHP</span><span>jQuery</span>
+        </div>
+        <a href="https://www.chateaudecourriere.be/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
+          <span data-fr="Voir le site" data-en="Visit site">Voir le site</span> <svg class="wk-cta-arrow" width="12" height="12" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="wk-shots">
+        <div class="wk-img-col">
+          <img src="uploads/courriere-800.webp" srcset="uploads/courriere-800.webp 800w, uploads/courriere.webp?v=2 1440w" sizes="(max-width: 900px) 100vw, 50vw" alt="Château de Courrière" loading="lazy">
+        </div>
+        <img class="wk-mobile" src="uploads/courriere-mobile.webp?v=2" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
+      </div>
+    </div>
+
+    <div class="wk-row" data-type="agency" data-url="https://w-e-b.be/">
+      <div class="wk-info">
+        <div class="wk-meta">
+          <span class="wk-num">08</span>
+          <span class="wk-badge wk-badge--agency" data-fr="Agence · PAF!" data-en="Agency · PAF!">Agence · PAF!</span>
+          <span class="wk-year">2022</span>
+        </div>
+        <h2 class="wk-title">Warehouses Estates Belgium</h2>
+        <p class="wk-desc" data-translate="portfolio.webDesc">Site d'une société immobilière cotée, spécialisée en entrepôts et bureaux. Développement du thème WordPress sur mesure pour présenter son patrimoine et ses espaces à louer.</p>
+        <div class="wk-tags">
+          <span>WordPress</span><span>ACF</span><span>PHP</span><span>jQuery</span>
+        </div>
+        <a href="https://w-e-b.be/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
+          <span data-fr="Voir le site" data-en="Visit site">Voir le site</span> <svg class="wk-cta-arrow" width="12" height="12" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="wk-shots">
+        <div class="wk-img-col">
+          <img src="uploads/web-be-800.webp" srcset="uploads/web-be-800.webp 800w, uploads/web-be.webp?v=2 1440w" sizes="(max-width: 900px) 100vw, 50vw" alt="W-E-B" loading="lazy">
+        </div>
+        <img class="wk-mobile" src="uploads/web-be-mobile.webp?v=2" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
+      </div>
+    </div>
+
+    <div class="wk-row" data-type="agency" data-url="https://intothewildfestival.be/">
+      <div class="wk-info">
+        <div class="wk-meta">
+          <span class="wk-num">09</span>
+          <span class="wk-badge wk-badge--agency" data-fr="Agence · PAF!" data-en="Agency · PAF!">Agence · PAF!</span>
+          <span class="wk-year">2022</span>
+        </div>
+        <h2 class="wk-title">Into The Wild Festival</h2>
+        <p class="wk-desc" data-translate="portfolio.itwDesc">Site d'un festival belge, de l'annonce à la billetterie. Personnalisation du thème WordPress et mise en page de la programmation et des éditions passées.</p>
+        <div class="wk-tags">
+          <span>WordPress</span><span>ACF</span><span>PHP</span><span>jQuery</span>
+        </div>
+        <a href="https://intothewildfestival.be/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
+          <span data-fr="Voir le site" data-en="Visit site">Voir le site</span> <svg class="wk-cta-arrow" width="12" height="12" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="wk-shots">
+        <div class="wk-img-col">
+          <img src="uploads/intothewildfestival-800.webp" srcset="uploads/intothewildfestival-800.webp 800w, uploads/intothewildfestival.webp?v=2 1440w" sizes="(max-width: 900px) 100vw, 50vw" alt="Into The Wild Festival" loading="lazy">
+        </div>
+        <img class="wk-mobile" src="uploads/intothewildfestival-mobile.webp?v=2" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
+      </div>
+    </div>
+
+    <div class="wk-row" data-type="agency" data-url="https://memisa.be/fr/">
+      <div class="wk-info">
+        <div class="wk-meta">
+          <span class="wk-num">10</span>
+          <span class="wk-badge wk-badge--agency" data-fr="Agence · PAF!" data-en="Agency · PAF!">Agence · PAF!</span>
+        </div>
+        <h2 class="wk-title">Memisa</h2>
+        <p class="wk-desc" data-translate="portfolio.memisaDesc">Site trilingue (FR/EN/NL) d'une ONG médicale belge qui défend l'accès aux soins. Développement et évolutions du thème WordPress sur mesure : traductions, animations et accessibilité.</p>
+        <div class="wk-tags">
+          <span>WordPress</span><span>ACF</span><span>WPML</span><span>GSAP</span>
+        </div>
+        <a href="https://memisa.be/fr/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
+          <span data-fr="Voir le site" data-en="Visit site">Voir le site</span> <svg class="wk-cta-arrow" width="12" height="12" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="wk-shots">
+        <div class="wk-img-col">
+          <img src="uploads/memisa-800.webp" srcset="uploads/memisa-800.webp 800w, uploads/memisa.webp?v=2 1440w" sizes="(max-width: 900px) 100vw, 50vw" alt="Memisa" loading="lazy">
+        </div>
+        <img class="wk-mobile" src="uploads/memisa-mobile.webp?v=2" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
+      </div>
+    </div>
+
+    <div class="wk-row" data-type="agency" data-url="https://venues.be/">
+      <div class="wk-info">
+        <div class="wk-meta">
+          <span class="wk-num">11</span>
+          <span class="wk-badge wk-badge--agency" data-fr="Agence · PAF!" data-en="Agency · PAF!">Agence · PAF!</span>
+        </div>
+        <h2 class="wk-title">Brussels Special Venues</h2>
+        <p class="wk-desc" data-translate="portfolio.venuesDesc">Plateforme qui réunit les plus beaux lieux événementiels de Bruxelles. Développement du thème WordPress sur mesure, avec recherche avancée et fiches de lieux.</p>
+        <div class="wk-tags">
+          <span>WordPress</span><span>ACF</span><span>PHP</span><span>jQuery</span>
+        </div>
+        <a href="https://venues.be/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
+          <span data-fr="Voir le site" data-en="Visit site">Voir le site</span> <svg class="wk-cta-arrow" width="12" height="12" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="wk-shots">
+        <div class="wk-img-col">
+          <img src="uploads/venues-800.webp" srcset="uploads/venues-800.webp 800w, uploads/venues.webp?v=2 1440w" sizes="(max-width: 900px) 100vw, 50vw" alt="Venues.be" loading="lazy">
+        </div>
+        <img class="wk-mobile" src="uploads/venues-mobile.webp?v=2" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
+      </div>
+    </div>
+
+    <div class="wk-row" data-type="agency" data-url="https://intotheblue.be/bruxelles/">
+      <div class="wk-info">
+        <div class="wk-meta">
+          <span class="wk-num">12</span>
+          <span class="wk-badge wk-badge--agency" data-fr="Agence · PAF!" data-en="Agency · PAF!">Agence · PAF!</span>
+        </div>
+        <h2 class="wk-title">Into The Blue</h2>
+        <p class="wk-desc" data-translate="portfolio.itbDesc">Site d'Into The Blue, le festival de la mer de Bruxelles, mis à jour à chaque édition. Développement et évolutions du thème WordPress sur mesure.</p>
+        <div class="wk-tags">
+          <span>WordPress</span><span>ACF</span><span>PHP</span><span>jQuery</span>
+        </div>
+        <a href="https://intotheblue.be/bruxelles/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
+          <span data-fr="Voir le site" data-en="Visit site">Voir le site</span> <svg class="wk-cta-arrow" width="12" height="12" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="wk-shots">
+        <div class="wk-img-col">
+          <img src="uploads/intotheblue-800.webp" srcset="uploads/intotheblue-800.webp 800w, uploads/intotheblue.webp?v=2 1440w" sizes="(max-width: 900px) 100vw, 50vw" alt="Into The Blue" loading="lazy">
+        </div>
+        <img class="wk-mobile" src="uploads/intotheblue-mobile.webp?v=2" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
+      </div>
+    </div>
+
+    <div class="wk-row" data-type="freelance" data-url="https://theccoach.be/">
+      <div class="wk-info">
+        <div class="wk-meta">
+          <span class="wk-num">13</span>
+          <span class="wk-badge wk-badge--freelance">Freelance</span>
+          <span class="wk-year">2024</span>
+        </div>
+        <h2 class="wk-title">The C Coach</h2>
+        <p class="wk-desc" data-translate="portfolio.tccDesc">Site d'un cabinet de coaching et de formation pour particuliers et entreprises. Maintenance et évolutions WordPress : mises à jour, corrections et optimisations.</p>
+        <div class="wk-tags">
+          <span>WordPress</span><span>PHP</span><span>CSS</span>
+        </div>
+        <a href="https://theccoach.be/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
+          <span data-fr="Voir le site" data-en="Visit site">Voir le site</span> <svg class="wk-cta-arrow" width="12" height="12" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="wk-shots">
+        <div class="wk-img-col">
+          <img src="uploads/theccoach-800.webp" srcset="uploads/theccoach-800.webp 800w, uploads/theccoach.webp?v=2 1440w" sizes="(max-width: 900px) 100vw, 50vw" alt="The C Coach" loading="lazy">
+        </div>
+        <img class="wk-mobile" src="uploads/theccoach-mobile.webp?v=2" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
+      </div>
+    </div>
+
+    <div class="wk-row" data-type="freelance" data-url="https://raymonddelepierre.com/">
+      <div class="wk-info">
+        <div class="wk-meta">
+          <span class="wk-num">14</span>
+          <span class="wk-badge wk-badge--freelance">Freelance</span>
+          <span class="wk-year">2023</span>
+        </div>
+        <h2 class="wk-title">Raymond Delepierre</h2>
+        <p class="wk-desc" data-translate="portfolio.rdDesc">Site d'un artiste sonore et visuel bruxellois. Maintenance et évolutions WordPress : mises à jour, corrections et optimisations.</p>
+        <div class="wk-tags">
+          <span>WordPress</span><span>PHP</span><span>CSS</span>
+        </div>
+        <a href="https://raymonddelepierre.com/" target="_blank" rel="noopener noreferrer" class="wk-cta" onclick="event.stopPropagation()">
+          <span data-fr="Voir le site" data-en="Visit site">Voir le site</span> <svg class="wk-cta-arrow" width="12" height="12" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="wk-shots">
+        <div class="wk-img-col">
+          <img src="uploads/raymonddelepierre-800.webp" srcset="uploads/raymonddelepierre-800.webp 800w, uploads/raymonddelepierre.webp?v=2 1440w" sizes="(max-width: 900px) 100vw, 50vw" alt="Raymond Delepierre" loading="lazy">
+        </div>
+        <img class="wk-mobile" src="uploads/raymonddelepierre-mobile.webp?v=2" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
       </div>
     </div>
 
     <div class="wk-row" data-type="personal" data-url="https://observatoire-meteo-live.netlify.app/">
       <div class="wk-info">
         <div class="wk-meta">
-          <span class="wk-num">14</span>
+          <span class="wk-num">15</span>
           <span class="wk-badge wk-badge--personal" data-fr="Perso" data-en="Personal">Perso</span>
           <span class="wk-year">2026</span>
         </div>
         <h2 class="wk-title">Météo en direct</h2>
-        <p class="wk-desc" data-translate="portfolio.meteoDesc"></p>
+        <p class="wk-desc" data-translate="portfolio.meteoDesc">Application météo en temps réel au design d'instruments vintage. Projet perso en JavaScript vanilla : prévisions 24h et 7 jours, géolocalisation et villes favorites.</p>
         <div class="wk-tags">
           <span>JavaScript</span><span>Open-Meteo API</span><span>Geolocation</span><span>localStorage</span>
         </div>
@@ -417,9 +456,9 @@
       </div>
       <div class="wk-shots">
         <div class="wk-img-col">
-          <img src="uploads/observatoire-meteo.webp?v=2" alt="Météo en direct — journal météorologique en temps réel" data-fr-alt="Météo en direct — journal météorologique en temps réel" data-en-alt="Live weather — real-time weather journal" loading="lazy">
+          <img src="uploads/observatoire-meteo-800.webp" srcset="uploads/observatoire-meteo-800.webp 800w, uploads/observatoire-meteo.webp?v=2 1440w" sizes="(max-width: 900px) 100vw, 50vw" alt="Météo en direct — journal météorologique en temps réel" data-fr-alt="Météo en direct — journal météorologique en temps réel" data-en-alt="Live weather — real-time weather journal" loading="lazy">
         </div>
-        <img class="wk-mobile" src="uploads/observatoire-meteo-mobile.webp" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
+        <img class="wk-mobile" src="uploads/observatoire-meteo-mobile.webp?v=2" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">
       </div>
     </div>
 
@@ -428,7 +467,7 @@
 </main>
 
 <footer>
-  <p data-translate="footer.copyright"></p>
+  <p data-translate="footer.copyright">© 2026 Laurence Pirard — Développeuse web freelance</p>
   <div class="footer-links">
     <a href="https://github.com/Laurence2712" target="_blank" aria-label="GitHub">
       <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
@@ -457,6 +496,6 @@
   </svg>
 </button>
 
-<script src="js/bundle.min.js?v=12"></script>
+<script src="js/bundle.min.js?v=13"></script>
 </body>
 </html>
