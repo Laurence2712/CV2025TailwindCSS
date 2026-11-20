@@ -407,10 +407,6 @@
       <svg width="40" height="36" viewBox="0 0 46 42" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="9" y1="4" x2="9" y2="38"/><line x1="9" y1="38" x2="24" y2="38"/><path d="M9 4 C9 4 38 4 38 15 C38 26 9 26 9 26"/></svg>
     </a>
     <div class="nav-right">
-      <div class="nav-langs">
-        <button class="lang-btn" data-lang="fr" onclick="changeLanguage('fr')">FR</button>
-        <button class="lang-btn" data-lang="en" onclick="changeLanguage('en')">EN</button>
-      </div>
       <button id="menu-btn" class="menu-toggle" aria-expanded="false" aria-controls="site-menu">
         <span class="menu-dot" aria-hidden="true"></span><span data-translate="nav.menu">Menu</span>
       </button>
@@ -430,6 +426,11 @@
       <li><a href="about.html"><span data-translate="nav.about">À propos</span></a></li>
       <li><a href="services.html#formulaire"><span data-translate="nav.contact">Contact</span></a></li>
   </ul>
+  <div class="sm-langs">
+    <span class="sm-label" data-translate="nav.language">Langue</span>
+    <button class="lang-btn" data-lang="fr" onclick="changeLanguage('fr')" lang="fr">FR</button>
+    <button class="lang-btn" data-lang="en" onclick="changeLanguage('en')" lang="en">EN</button>
+  </div>
   <div class="sm-social">
     <span class="sm-label" data-translate="nav.social">Me retrouver</span>
     <a href="https://www.linkedin.com/in/laurence-pirard-2069a7ba/" target="_blank" rel="noopener noreferrer">LinkedIn <svg width="14" height="14" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>

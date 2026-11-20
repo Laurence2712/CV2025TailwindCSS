@@ -58,7 +58,8 @@ const translations = {
       home: "Accueil",
       menu: "Menu",
       close: "Fermer",
-      social: "Me retrouver"
+      social: "Me retrouver",
+      language: "Langue"
     },
     hero: {
       available: "Disponible pour de nouveaux projets",
@@ -433,7 +434,8 @@ const translations = {
       home: "Home",
       menu: "Menu",
       close: "Close",
-      social: "Find me"
+      social: "Find me",
+      language: "Language"
     },
     hero: {
       available: "Available for new projects",
@@ -831,7 +833,12 @@ function updateLanguageButtons(lang) {
 // Initialisation au chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
   try {
-    const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
+    // langue choisie auparavant, sinon celle du navigateur (français par défaut)
+    let savedLang = localStorage.getItem('preferredLanguage');
+    if (!savedLang) {
+      const pref = (navigator.languages || [navigator.language || 'fr']).find(l => /^(fr|en)/i.test(l));
+      savedLang = pref && /^en/i.test(pref) ? 'en' : 'fr';
+    }
     changeLanguage(savedLang);
   } catch (error) {
     console.error('Error during initialization:', error);
