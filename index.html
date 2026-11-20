@@ -146,30 +146,18 @@
   </script>
 </head>
 <body>
-<div id="intro" aria-hidden="true"><p class="intro-word"><span class="intro-dot"></span><span id="intro-text">Bonjour</span></p></div>
 <script>
-  // Écran d'entrée : une fois par visite, ignoré si l'utilisateur réduit les animations
+  // Entrée en douceur : la page apparaît floue puis devient nette.
+  // Une fois par visite ; ignorée si l'utilisateur réduit les animations.
   (function () {
-    var el = document.getElementById('intro'), seen = false;
+    var seen = false;
     try { seen = sessionStorage.getItem('introSeen'); } catch (e) {}
-    if (seen || matchMedia('(prefers-reduced-motion: reduce)').matches) { el.remove(); return; }
+    if (seen || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     try { sessionStorage.setItem('introSeen', '1'); } catch (e) {}
-    var root = document.documentElement, words = ['Bonjour', 'Hallo', 'Hello', 'Hola', 'Ciao', 'Bonjour'];
-    var i = 0, text = document.getElementById('intro-text'), done = false;
-    root.classList.add('intro-on');
-    function finish() {
-      if (done) return;
-      done = true;
-      clearInterval(tick);
-      el.classList.add('intro-out');
-      root.classList.remove('intro-on');
-      setTimeout(function () { el.remove(); }, 900);
-    }
-    var tick = setInterval(function () {
-      if (++i >= words.length) return finish();
-      text.textContent = words[i];
-    }, 190);
-    el.addEventListener('click', finish);
+    var root = document.documentElement;
+    root.classList.add('intro-blur');
+    // le flou est retiré à la fin : un filtre resté actif gênerait les éléments fixes
+    setTimeout(function () { root.classList.remove('intro-blur'); }, 1700);
   })();
 </script>
 
