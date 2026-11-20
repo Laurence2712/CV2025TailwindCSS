@@ -287,6 +287,21 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && siteMenu.classList.contains('open')) setMenu(false, true);
     });
+    // ordinateur : au survol d'un lien, aperçu flou de la page correspondante en arrière-plan
+    const previews = menuOverlay ? menuOverlay.querySelectorAll('.menu-previews img') : [];
+    if (previews.length && matchMedia('(hover: hover) and (min-width: 901px)').matches) {
+      const show = key => previews.forEach(img => img.classList.toggle('is-on', img.dataset.preview === key));
+      menuBtn.addEventListener('click', () => previews.forEach(img => {
+        if (!img.src) img.src = img.dataset.src;   // chargées seulement à la première ouverture
+      }));
+      siteMenu.querySelectorAll('.sm-links a[data-preview]').forEach(link => {
+        link.addEventListener('mouseenter', () => show(link.dataset.preview));
+        link.addEventListener('focus', () => show(link.dataset.preview));
+      });
+      siteMenu.querySelector('.sm-links').addEventListener('mouseleave', () => show(null));
+      menuBtn.addEventListener('click', () => show(null));
+    }
+
     // lien vers une ancre de la page en cours : fermer le menu avant de défiler
     siteMenu.addEventListener('click', e => {
       const link = e.target.closest('a');

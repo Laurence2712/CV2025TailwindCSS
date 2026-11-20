@@ -8,13 +8,15 @@
     "build:html": "node scripts/prefill-html.js",
     "build:tailwind": "tailwindcss -i ./css/tailwind.css -o ./css/tailwind.css",
     "build:css": "npx clean-css-cli css/tailwind.css css/style.css -o css/all.min.v14.css",
-    "build:js": "npx terser js/translations.js js/main.js --compress --mangle -o js/bundle.min.js"
+    "build:js": "npx terser js/translations.js js/main.js --compress --mangle -o js/bundle.min.js",
+    "build:previews": "node scripts/menu-previews.js"
   },
   "keywords": [],
   "author": "Laurence Pirard",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "puppeteer-core": "^23.11.1",
     "tailwindcss": "^3.4.4"
   }
 }
