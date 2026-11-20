@@ -1188,3 +1188,14 @@ body.pm-open { overflow: hidden; }
 @media (max-width: 640px) {
   .wk-hero-meta { display: none; }
 }
+
+/* téléphone : photo en pleine largeur, boutons empilés sur toute la largeur */
+@media (max-width: 640px) {
+  .hm-portrait, .ab2-portrait { max-width: none; width: 100%; }
+  .hm-portrait img, .ab2-portrait img { aspect-ratio: 1 / 1; object-position: center 20%; }
+  .hm-portrait figcaption { left: 16px; right: auto; bottom: 16px; }
+  .hm-ctas { flex-direction: column; }
+  .hm-ctas .btn-primary, .hm-ctas .btn-ghost,
+  .ab2-cv .btn-ghost, .hm-final .btn-primary { width: 100%; justify-content: center; }
+  .hm-reassure { text-align: center; }
+}
