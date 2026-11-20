@@ -39,264 +39,81 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 42' fill='none' stroke='%234e7da6' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='9' y1='4' x2='9' y2='38'/%3E%3Cline x1='9' y1='38' x2='24' y2='38'/%3E%3Cpath d='M9 4 C9 4 38 4 38 15 C38 26 9 26 9 26' fill='none'/%3E%3C/svg%3E">
   <link rel="preload" as="font" type="font/woff2" href="fonts/poppins-900.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="fonts/poppins-500.woff2" crossorigin>
-  <link rel="stylesheet" href="css/all.min.v12.css">
+  <link rel="stylesheet" href="css/all.min.v13.css">
 </head>
 <body>
 
 <header id="main-header">
   <div class="nav-inner">
     <a href="/" class="nav-logo" aria-label="Accueil" data-fr-aria="Accueil" data-en-aria="Home">
-      <svg width="46" height="42" viewBox="0 0 46 42" fill="none" stroke="#4e7da6" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-        <line x1="9" y1="4" x2="9" y2="38"/>
-        <line x1="9" y1="38" x2="24" y2="38"/>
-        <path d="M9 4 C9 4 38 4 38 15 C38 26 9 26 9 26" fill="none"/>
-      </svg>
+      <svg width="40" height="36" viewBox="0 0 46 42" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="9" y1="4" x2="9" y2="38"/><line x1="9" y1="38" x2="24" y2="38"/><path d="M9 4 C9 4 38 4 38 15 C38 26 9 26 9 26"/></svg>
     </a>
-
-    <nav class="nav-links" id="nav-desktop">
-      <a href="projet.html"    class="nav-link" data-translate="nav.works">Projets</a>
-      <a href="services.html" class="nav-link" data-translate="nav.services">Services</a>
-      <a href="about.html"   class="nav-link nav-link--active" data-translate="nav.about">À propos</a>
-      <a href="#contact"     class="nav-link" data-translate="nav.contact">Contact</a>
-    </nav>
-
-    <div class="nav-langs">
-      <button class="lang-btn" data-lang="fr" onclick="changeLanguage('fr')">FR</button>
-      <button class="lang-btn" data-lang="en" onclick="changeLanguage('en')">EN</button>
+    <div class="nav-right">
+      <div class="nav-langs">
+        <button class="lang-btn" data-lang="fr" onclick="changeLanguage('fr')">FR</button>
+        <button class="lang-btn" data-lang="en" onclick="changeLanguage('en')">EN</button>
+      </div>
+      <button id="menu-btn" class="menu-toggle" aria-expanded="false" aria-controls="site-menu">
+        <span class="menu-dot" aria-hidden="true"></span><span data-translate="nav.menu">Menu</span>
+      </button>
     </div>
-
-    <button id="menu-btn" aria-label="Menu">
-      <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
-  </div>
-
-  <div id="mobile-menu">
-    <div class="menu-orb" aria-hidden="true"></div>
-    <a href="projet.html"    data-translate="nav.works">Projets</a>
-    <a href="services.html" data-translate="nav.services">Services</a>
-    <a href="about.html"   data-translate="nav.about">À propos</a>
-    <a href="#contact"     data-translate="nav.contact">Contact</a>
   </div>
 </header>
 <div id="menu-overlay"></div>
+<nav id="site-menu" class="site-menu" aria-label="Menu" aria-hidden="true" inert>
+  <div class="sm-top">
+    <span class="sm-label" data-translate="nav.menu">Menu</span>
+    <button class="sm-close" type="button" data-translate="nav.close">Fermer</button>
+  </div>
+  <ul class="sm-links">
+      <li><a href="/"><span data-translate="nav.home">Accueil</span></a></li>
+      <li><a href="projet.html"><span data-translate="nav.works">Projets</span></a></li>
+      <li><a href="services.html"><span data-translate="nav.services">Services</span></a></li>
+      <li><a href="about.html" aria-current="page"><span data-translate="nav.about">À propos</span></a></li>
+      <li><a href="services.html#formulaire"><span data-translate="nav.contact">Contact</span></a></li>
+  </ul>
+  <div class="sm-social">
+    <span class="sm-label" data-translate="nav.social">Me retrouver</span>
+    <a href="https://www.linkedin.com/in/laurence-pirard-2069a7ba/" target="_blank" rel="noopener noreferrer">LinkedIn <svg width="14" height="14" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="https://github.com/Laurence2712" target="_blank" rel="noopener noreferrer">GitHub <svg width="14" height="14" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="mailto:laurencewebdev@gmail.com">Email <svg width="14" height="14" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="uploads/laurence_pirard_26.pdf" download data-cv="true"><span data-translate="nav.cv">CV</span> <svg width="14" height="14" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</nav>
 
 
 <div class="page-hero">
-  <h1 class="page-hero-title" data-parallax="0.07" data-translate="pages.aboutHero">À <em>propos</em></h1>
+  <h1 class="page-hero-title" data-translate="pages.aboutHero">À <em>propos</em></h1>
 </div>
 
 
 <section id="about" class="section">
   <div class="about-wrap">
-    <p class="about-text" data-translate="sections.aboutText">Développeuse web freelance à Bruxelles, <br>je crée des <strong>sites et des thèmes sur mesure</strong> <br>avec WordPress et Grav CMS, de la maquette à la mise en ligne. <br>Des sites performants, accessibles et pensés mobile first.</p>
+    <p class="about-text" data-translate="sections.aboutText">Développeuse web freelance à Bruxelles, <br>je crée des <strong>sites et des thèmes sur mesure</strong>, <br>de la maquette à la mise en ligne. <br>Des sites performants, accessibles et pensés mobile first.</p>
+    <p class="about-story" data-translate="sections.aboutStory">Avant le code, j'ai été éducatrice spécialisée, j'y ai appris à écouter et à rendre les choses simples. Diplômée en développement web à l'EPFC en 2020, j'ai rejoint l'agence Paf! Design en 2021. En 2023, j'ai lancé mon activité freelance en complément, et depuis 2026, je m'y consacre à temps plein.</p>
     <div class="about-stats-row">
       <div class="about-stat">
-        <span data-translate="about.stat1">ans d'expérience · freelance & agence</span>
         <strong data-count="5" data-suffix="+">5+</strong>
+        <span data-translate="about.stat1">ans d'expérience · freelance & agence</span>
       </div>
       <div class="about-stat">
-        <span data-translate="about.stat3">diplômée Web Developer · EPFC</span>
         <strong data-count="2020" data-count-from="2015">2020</strong>
+        <span data-translate="about.stat3">diplômée Web Developer · EPFC</span>
       </div>
+    </div>
+    <div class="about-cv">
+      <a href="uploads/laurence_pirard_26.pdf" download data-cv="true" class="btn-ghost">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+        <span data-translate="hero.ctaCV">Télécharger mon CV</span>
+      </a>
     </div>
   </div>
 </section>
 
 
-<div class="exp-pin-wrap">
-<section id="experience">
-  <div class="section-head section-head--cv fade-slide-up">
-    <div class="section-num-label">
-      <h2 class="sl" data-translate="sections.experienceTitle">Parcours</h2>
-    </div>
-    <a href="uploads/laurence_pirard_26.pdf" download data-cv="true" class="btn-ghost">
-      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
-      <span data-translate="hero.ctaCV">Télécharger mon CV</span>
-    </a>
-  </div>
-
-  <div class="tl-layout">
-
-    <!-- Navigation gauche -->
-    <nav class="tl-nav" aria-label="Parcours" data-fr-aria="Parcours" data-en-aria="Journey">
-      <div class="tl-nav-track"></div>
-      <div class="tl-nav-fill"></div>
-
-      <button class="tl-nav-item tl-item--freelance tl-nav-item--active" data-panel="0">
-        <span class="tl-nav-dot"></span>
-        <div class="tl-nav-meta">
-          <span class="tl-nav-year" data-translate="experience.date1">2023 – Présent</span>
-          <span class="tl-badge tl-badge--freelance" data-translate="experience.badge1">Freelance</span>
-        </div>
-      </button>
-
-      <button class="tl-nav-item tl-item--agency" data-panel="1">
-        <span class="tl-nav-dot"></span>
-        <div class="tl-nav-meta">
-          <span class="tl-nav-year" data-translate="experience.date2">2021 – 2026</span>
-          <span class="tl-badge tl-badge--agency" data-translate="experience.badge2">Agence</span>
-        </div>
-      </button>
-
-      <button class="tl-nav-item tl-item--education" data-panel="2">
-        <span class="tl-nav-dot"></span>
-        <div class="tl-nav-meta">
-          <span class="tl-nav-year" data-translate="formation.date1">2018 – 2020</span>
-          <span class="tl-badge tl-badge--education" data-translate="formation.badge1">Formation</span>
-        </div>
-      </button>
-
-      <button class="tl-nav-item tl-item--education" data-panel="3">
-        <span class="tl-nav-dot"></span>
-        <div class="tl-nav-meta">
-          <span class="tl-nav-year" data-translate="formation.date2">2012 – 2015</span>
-          <span class="tl-badge tl-badge--education" data-translate="formation.badge2">Formation</span>
-        </div>
-      </button>
-
-      <button class="tl-nav-item tl-item--work" data-panel="4">
-        <span class="tl-nav-dot"></span>
-        <div class="tl-nav-meta">
-          <span class="tl-nav-year" data-translate="decathlon.date">2013 – 2021</span>
-          <span class="tl-badge tl-badge--work" data-translate="decathlon.badge">Emploi</span>
-        </div>
-      </button>
-    </nav>
-
-    <!-- Panneaux de contenu -->
-    <div class="tl-panels">
-
-      <div class="tl-panel tl-item--freelance tl-panel--active" id="tl-panel-0">
-        <div class="tl-panel-meta">
-          <span class="tl-badge tl-badge--freelance tl-panel-badge" data-translate="experience.badge1">Freelance</span>
-          <span class="tl-panel-date" data-translate="experience.date1">2023 – Présent</span>
-        </div>
-        <h3 class="tl-title" data-translate="experience.title1">Développeuse web freelance</h3>
-        <p class="tl-company" data-translate="experience.company1"><span style="color:var(--accent)">Indépendante · Bruxelles</span></p>
-        <p class="tl-desc" data-translate="experience.desc1">Sites web et thèmes sur mesure avec WordPress et Grav CMS, création de maquettes et intégration, maintenance et évolution — pour indépendants, associations et PME. Un seul interlocuteur, de la première conversation à la mise en ligne.</p>
-        <div class="tl-tags-wrap">
-          <div class="tl-tag-group">
-            <span class="tl-tag-label">Technologies</span>
-            <span class="tl-tag">WordPress</span>
-            <span class="tl-tag">ACF</span>
-            <span class="tl-tag">Grav CMS</span>
-            <span class="tl-tag">Elementor</span>
-            <span class="tl-tag">PHP</span>
-            <span class="tl-tag">TypeScript</span>
-            <span class="tl-tag">Strapi</span>
-            <span class="tl-tag">Remix</span>
-          </div>
-        </div>
-        <a href="services.html" class="tl-link">
-          <span data-translate="experience.servicesLink">Voir mes services</span>
-          <svg class="tl-link-arrow" width="12" height="12" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-
-      <div class="tl-panel tl-item--agency" id="tl-panel-1">
-        <div class="tl-panel-meta">
-          <span class="tl-badge tl-badge--agency tl-panel-badge" data-translate="experience.badge2">Agence</span>
-          <span class="tl-panel-date" data-translate="experience.date2">2021 – 2026</span>
-        </div>
-        <h3 class="tl-title" data-translate="experience.title2">Full Stack Developer</h3>
-        <p class="tl-company" data-translate="experience.company2"><span style="color:var(--accent)"><a href="https://pafdesign.be/" target="_blank" rel="noopener noreferrer">Paf! Design</a> · Bruxelles</span></p>
-        <div class="tl-desc" data-translate="experience.desc2a">Développement de thèmes WordPress sur-mesure et maintenance de l'ensemble des sites en production : mises à jour WordPress, compatibilité et migrations PHP, ajout, modification et suppression de blocs ACF, correctifs et évolutions continues.</div>
-        <div class="tl-tags-wrap">
-          <div class="tl-tag-group">
-            <span class="tl-tag-label">Technologies</span>
-            <span class="tl-tag">WordPress</span>
-            <span class="tl-tag">PHP</span>
-            <span class="tl-tag">ACF</span>
-            <span class="tl-tag">WPML</span>
-            <span class="tl-tag">WooCommerce</span>
-            <span class="tl-tag">TailwindCSS</span>
-          </div>
-        </div>
-        <h3 class="tl-title tl-title--sub">Webmastering</h3>
-        <p class="tl-company tl-company--accent">Europcar / Goldcar</p>
-        <div class="tl-desc" data-translate="experience.desc2b"><ul><li>Contentful — Gestion de contenu multilingue : création, modification, publication sur environnements master &amp; development</li><li>Mise à jour des campagnes marketing</li><li>Suivi Jira &amp; maintenance technique</li><li>Livrables planifiés — respect des délais imposés</li></ul></div>
-        <div class="tl-tags-wrap">
-          <div class="tl-tag-group">
-            <span class="tl-tag-label" data-fr="Outils" data-en="Tools">Outils</span>
-            <span class="tl-tag">Contentful</span>
-            <span class="tl-tag">Jira</span>
-            <span class="tl-tag">Phrase</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="tl-panel tl-item--education" id="tl-panel-2">
-        <div class="tl-panel-meta">
-          <span class="tl-badge tl-badge--education tl-panel-badge" data-translate="formation.badge1">Formation</span>
-          <span class="tl-panel-date" data-translate="formation.date1">2018 – 2020</span>
-        </div>
-        <h3 class="tl-title" data-translate="formation.title1">BES Web Developer</h3>
-        <p class="tl-company" data-translate="formation.school1"><span style="color:var(--accent)">EPFC · Bruxelles</span></p>
-        <div class="tl-desc" data-translate="formation.desc1">Formation certifiante en développement web — diplômée avec grande distinction, 2020.</div>
-        <div class="tl-tags-wrap">
-          <div class="tl-tag-group">
-            <span class="tl-tag-label">Technologies</span>
-            <span class="tl-tag">PHP</span>
-            <span class="tl-tag">Symfony</span>
-            <span class="tl-tag">JavaScript</span>
-            <span class="tl-tag">VueJS</span>
-            <span class="tl-tag">MySQL</span>
-            <span class="tl-tag">WordPress</span>
-          </div>
-        </div>
-        <div class="tl-panel-meta">
-          <span class="tl-panel-date" data-translate="experience.date3">Oct. 2018 – Jan. 2019</span>
-        </div>
-        <h3 class="tl-title tl-title--sub" data-translate="experience.title3">Stage en entreprise</h3>
-        <p class="tl-company" data-translate="experience.company3"><span style="color:var(--accent)"><a href="https://mfmdigital.com/" target="_blank" rel="noopener noreferrer">MFM Digital</a> · Bruxelles</span></p>
-        <p class="tl-desc" data-translate="experience.desc3">Stage dans le cadre de la formation EPFC. Intégration HTML/CSS, JavaScript et travail sur des projets web réels dans un contexte professionnel.</p>
-        <div class="tl-tags-wrap">
-          <div class="tl-tag-group">
-            <span class="tl-tag-label">Technologies</span>
-            <span class="tl-tag">WordPress</span>
-            <span class="tl-tag">PHP</span>
-            <span class="tl-tag">JavaScript</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="tl-panel tl-item--education" id="tl-panel-3">
-        <div class="tl-panel-meta">
-          <span class="tl-badge tl-badge--education tl-panel-badge" data-translate="formation.badge2">Formation</span>
-          <span class="tl-panel-date" data-translate="formation.date2">2012 – 2015</span>
-        </div>
-        <h3 class="tl-title" data-translate="formation.title2">Éducatrice spécialisée en activités socio-sportives</h3>
-        <p class="tl-company" data-translate="formation.school2"><span style="color:var(--accent)">Parnasse-ISEI · Bruxelles</span></p>
-        <div class="tl-desc" data-translate="formation.desc2">Diplômée avec distinction — juin 2015.<ul><li><strong>Ouagadougou, Burkina Faso</strong>Stage au sein de l'association <a href="https://www.keoogo.org/" target="_blank" rel="noopener noreferrer">KEOOGO</a>, accompagnement d'enfants de la rue (2014-2015)</li><li><strong>Woluwe-Saint-Lambert</strong>Stage à l'Institut Royal d'Accueil pour le Handicap Moteur · <a href="https://www.irahm.be/" target="_blank" rel="noopener noreferrer">IRAHM ASBL</a> (2013-2014)</li><li><strong>Louvain-la-Neuve</strong>Stage à l'<a href="https://www.sport-adeps.be/" target="_blank" rel="noopener noreferrer">Adeps</a> (2012-2013)</li></ul></div>
-      </div>
-
-      <div class="tl-panel tl-item--work" id="tl-panel-4">
-        <div class="tl-panel-meta">
-          <span class="tl-badge tl-badge--work tl-panel-badge" data-translate="decathlon.badge">Emploi</span>
-          <span class="tl-panel-date" data-translate="decathlon.date">2013 – 2021</span>
-        </div>
-        <h3 class="tl-title" data-translate="decathlon.title">Conseillère clientèle & Hôtesse de caisse</h3>
-        <p class="tl-company" data-translate="decathlon.company"><span style="color:var(--accent)">Decathlon · Wavre</span></p>
-        <div class="tl-desc" data-translate="decathlon.desc"><ul><li>2017-2021 &nbsp;—&nbsp; CDI</li><li>2015-2017 &nbsp;—&nbsp; CDD</li><li>2013-2015 &nbsp;—&nbsp; Étudiante</li></ul></div>
-      </div>
-
-    </div>
-    <div class="tl-scroll-hint" aria-hidden="true">
-      <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-      </svg>
-    </div>
-  </div>
-</section>
-</div>
-
-
-<div class="skills-pin-wrap">
 <section id="skills">
   <div class="skills-section-inner">
-    <div class="section-head fade-slide-up" data-parallax="0.07">
+    <div class="section-head fade-slide-up">
       <div class="section-num-label">
         <h2 class="sl" data-translate="sections.skillsTitle">Compétences</h2>
       </div>
@@ -361,17 +178,16 @@
   <div class="contact-inner">
     <div class="contact-content">
       <h2 class="contact-big-title" data-translate="sections.contactTitle">Travaillons ensemble.</h2>
-      <p class="contact-sub" data-translate="sections.contactText">Un projet de site ? Parlons-en.</p>
+      <p class="contact-sub" data-translate="sections.contactText">Un projet de site ? Parlons-en.</p>
       <p class="contact-wedding" data-translate="sections.contactWedding">Wedding planner ? Créons ensemble des sites de mariage à l'image de vos couples.</p>
       <p class="contact-sign"><span data-translate="sections.contactSign">À très vite,</span> <span class="contact-sign-name">Laurence</span></p>
       <div class="contact-actions">
-        <a href="mailto:laurencewebdev@gmail.com" class="btn-primary" data-translate="contact.sendEmail">Contactez-moi</a>
+        <a href="services.html#formulaire" class="btn-primary" data-translate="sections.contactCta">Discutons de votre projet</a>
       </div>
     </div>
   </div>
 </section>
 
-</div><!-- /.skills-pin-wrap -->
 
 <footer>
   <p data-translate="footer.copyright">© 2026 Laurence Pirard — Développeuse web freelance</p>
@@ -403,6 +219,6 @@
   </svg>
 </button>
 
-<script src="js/bundle.min.js?v=13"></script>
+<script src="js/bundle.min.js?v=14"></script>
 </body>
 </html>

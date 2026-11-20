@@ -143,68 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ════════════════════════════════════════
-     4b. TIMELINE — STICKY SCROLL-DRIVEN
-  ════════════════════════════════════════ */
-  const expWrap    = document.querySelector('.exp-pin-wrap');
-  const tlNavItems = document.querySelectorAll('.tl-nav-item');
-  const tlPanels   = document.querySelectorAll('.tl-panel');
-  const tlNavFill  = document.querySelector('.tl-nav-fill');
-
-  const tlPanelsWrap = document.querySelector('.tl-panels');
-
-  if (expWrap && tlPanels.length) {
-    const count = tlPanels.length;
-    let currentIdx = -1;
-
-    const checkPanelScroll = panel => {
-      if (!panel || !tlPanelsWrap) return;
-      const atBottom = panel.scrollHeight - panel.scrollTop <= panel.clientHeight + 8;
-      tlPanelsWrap.classList.toggle('tl-at-bottom', atBottom);
-    };
-
-    const switchPanel = idx => {
-      if (idx === currentIdx) return;
-      tlPanels.forEach((p, i) => {
-        if (i === idx) {
-          p.classList.remove('tl-panel--out');
-          p.classList.add('tl-panel--visible');
-          p.onscroll = () => checkPanelScroll(p);
-          checkPanelScroll(p);
-        } else if (i === currentIdx) {
-          p.classList.remove('tl-panel--visible');
-          p.classList.add('tl-panel--out');
-          p.onscroll = null;
-          setTimeout(() => p.classList.remove('tl-panel--out'), 600);
-        }
-      });
-      tlNavItems.forEach((n, i) => n.classList.toggle('tl-nav-item--active', i === idx));
-      currentIdx = idx;
-    };
-
-    const updateExp = () => {
-      if (window.innerWidth <= 768) return;
-      const rect = expWrap.getBoundingClientRect();
-      const wrapH = expWrap.offsetHeight;
-      const vh = window.innerHeight;
-      const scrolled = Math.max(0, -rect.top);
-      const total = wrapH - vh;
-      const progress = Math.max(0, Math.min(1, scrolled / total));
-
-      const idx = Math.min(count - 1, Math.floor(progress * count));
-      switchPanel(idx);
-
-      if (tlNavFill) {
-        tlNavFill.style.height = (progress * 100) + '%';
-      }
-    };
-
-    window.addEventListener('scroll', updateExp, { passive: true });
-    window.addEventListener('resize', updateExp, { passive: true });
-    if (window.innerWidth > 768) switchPanel(0);
-    updateExp();
-  }
-
-  /* ════════════════════════════════════════
      5. SKILL CARDS — stagger bidirectionnel
   ════════════════════════════════════════ */
   const skillObs = new IntersectionObserver(entries => {
@@ -297,26 +235,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ════════════════════════════════════════
-     PARALLAXE — désactivée sur téléphone
-  ════════════════════════════════════════ */
-  // Parallaxe coupée sur téléphone : coûteuse au scroll et sans intérêt au doigt
-  const lowPowerMotion = window.matchMedia('(hover: none), (max-width: 900px)').matches;
-
-  /* ════════════════════════════════════════
      WORK PAGE FILTERS
   ════════════════════════════════════════ */
   const wkFilters = document.querySelectorAll('.wk-filter');
   const wkTypedRows = document.querySelectorAll('.wk-row[data-type]');
-
-  // Zigzag : une ligne visible sur deux a ses captures à gauche
-  const flipWkRows = () => {
-    let i = 0;
-    wkTypedRows.forEach(row => {
-      if (row.classList.contains('wk-row--hidden')) return;
-      row.classList.toggle('wk-row--flip', i++ % 2 === 1);
-    });
-  };
-  flipWkRows();
 
   if (wkFilters.length && wkTypedRows.length) {
     wkFilters.forEach(btn => {
@@ -334,33 +256,42 @@ document.addEventListener('DOMContentLoaded', () => {
             row.classList.remove('wk-row--in');
           }
         });
-        flipWkRows();
       });
     });
   }
 
   /* ════════════════════════════════════════
-     7. MENU MOBILE
+     7. MENU — panneau qui glisse depuis la droite
   ════════════════════════════════════════ */
-  const menuBtn    = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-
+  const menuBtn     = document.getElementById('menu-btn');
+  const siteMenu    = document.getElementById('site-menu');
   const menuOverlay = document.getElementById('menu-overlay');
 
-  function closeMenu() {
-    mobileMenu.classList.remove('open');
-    menuOverlay && menuOverlay.classList.remove('open');
-  }
+  if (menuBtn && siteMenu) {
+    const closeBtn = siteMenu.querySelector('.sm-close');
 
-  if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('open');
-      menuOverlay && menuOverlay.classList.toggle('open', isOpen);
+    const setMenu = (open, byKeyboard) => {
+      siteMenu.classList.toggle('open', open);
+      menuOverlay && menuOverlay.classList.toggle('open', open);
+      document.body.classList.toggle('menu-open', open);
+      menuBtn.setAttribute('aria-expanded', String(open));
+      siteMenu.setAttribute('aria-hidden', String(!open));
+      siteMenu.inert = !open;
+      // focus déplacé seulement au clavier : pas de cadre de focus après un clic de souris
+      if (byKeyboard) (open ? closeBtn : menuBtn).focus({ preventScroll: true });
+    };
+
+    menuBtn.addEventListener('click', e => setMenu(true, e.detail === 0));
+    closeBtn.addEventListener('click', e => setMenu(false, e.detail === 0));
+    menuOverlay && menuOverlay.addEventListener('click', () => setMenu(false));
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && siteMenu.classList.contains('open')) setMenu(false, true);
     });
-    mobileMenu.addEventListener('click', e => {
-      if (e.target.tagName === 'A' || e.target.classList.contains('lang-btn')) closeMenu();
+    // lien vers une ancre de la page en cours : fermer le menu avant de défiler
+    siteMenu.addEventListener('click', e => {
+      const link = e.target.closest('a');
+      if (link && link.hash && link.pathname === location.pathname) setMenu(false);
     });
-    menuOverlay && menuOverlay.addEventListener('click', closeMenu);
   }
 
   /* ════════════════════════════════════════
@@ -391,46 +322,55 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ════════════════════════════════════════
-     9. PROJECT ROWS — clic = ouvrir le site
+     9. PROJETS — modale avec toutes les infos, page floutée derrière
   ════════════════════════════════════════ */
-  const wkList = document.querySelector('.wk-list');
-  if (wkList) {
-    wkList.addEventListener('click', e => {
-      const row = e.target.closest('.wk-row');
-      if (!row || e.target.closest('.wk-cta')) return; // le lien s'ouvre normalement
-      if (row.dataset.url) window.open(row.dataset.url, '_blank', 'noopener');
-    });
-  }
-
-  /* ════════════════════════════════════════
-     PARALLAX ENGINE — [data-parallax]
-  ════════════════════════════════════════ */
-  if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches && !lowPowerMotion) {
-    const pxItems = [];
-    document.querySelectorAll('[data-parallax]').forEach(el => {
-      const rect = el.getBoundingClientRect();
-      pxItems.push({
-        el,
-        speed: parseFloat(el.dataset.parallax) || 0.1,
-        cy: rect.top + window.scrollY + rect.height / 2
-      });
-    });
-    if (pxItems.length) {
-      let pxTick = false;
-      const runPx = () => {
-        const half = window.innerHeight / 2;
-        pxItems.forEach(({ el, speed, cy }) => {
-          const offset = (window.scrollY + half - cy) * speed;
-          el.style.transform = `translateY(${offset}px)`;
-        });
-        pxTick = false;
-      };
-      window.addEventListener('scroll', () => {
-        if (!pxTick) { pxTick = true; requestAnimationFrame(runPx); }
-      }, { passive: true });
-      runPx();
+  (function () {
+    var pm = document.getElementById('pm'), list = document.querySelector('.pj-grid');
+    if (!pm || !list) return;
+    var q = function (s) { return pm.querySelector(s); }, lastRow = null;
+    var rows = list.querySelectorAll('.wk-row');
+    rows.forEach(function (r) { r.tabIndex = 0; r.setAttribute('role', 'button'); });
+    function open(row) {
+      lastRow = row;
+      var d = row.querySelector('.wk-img-col img'), m = row.querySelector('.wk-mobile');
+      q('.pm-desk').src = d ? d.src.replace('-800.webp', '.webp?v=2') : '';
+      q('.pm-desk').alt = row.querySelector('.wk-title').textContent;
+      q('.pm-mob').style.display = m ? '' : 'none'; if (m) q('.pm-mob').src = m.src;
+      var badge = row.querySelector('.wk-badge'), year = row.querySelector('.wk-year');
+      q('.pm-meta').innerHTML = '';
+      var b = document.createElement('b'); b.textContent = badge.textContent;
+      b.style.color = getComputedStyle(badge).color;
+      q('.pm-meta').appendChild(b);
+      if (year) q('.pm-meta').appendChild(document.createTextNode('  ·  ' + year.textContent));
+      q('.pm-title').textContent = row.querySelector('.wk-title').textContent;
+      q('.pm-desc').textContent = row.querySelector('.wk-desc').textContent;
+      q('.pm-tags').innerHTML = row.querySelector('.wk-tags').innerHTML;
+      var cta = row.querySelector('.wk-cta');
+      q('.pm-cta').href = row.dataset.url;
+      q('.pm-cta span').textContent = cta.querySelector('span').textContent;
+      pm.classList.add('open'); pm.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('pm-open');
+      setTimeout(function () { q('.pm-close').focus({ preventScroll: true }); }, 50);
     }
-  }
+    function close() {
+      pm.classList.remove('open'); pm.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('pm-open');
+      if (lastRow) lastRow.focus({ preventScroll: true });
+    }
+    // le clic sur une ligne ouvre la modale (au lieu d'ouvrir directement le site)
+    document.addEventListener('click', function (e) {
+      var row = e.target.closest('.pj-grid .wk-row');
+      if (!row) return;
+      e.preventDefault(); e.stopPropagation(); open(row);
+    }, true);
+    list.addEventListener('keydown', function (e) {
+      var row = e.target.closest('.wk-row');
+      if (row && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); open(row); }
+    });
+    q('.pm-close').addEventListener('click', close);
+    q('.pm-bd').addEventListener('click', close);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && pm.classList.contains('open')) close(); });
+  })();
 
 });
 

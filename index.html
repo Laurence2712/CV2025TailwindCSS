@@ -45,7 +45,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 42' fill='none' stroke='%234e7da6' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='9' y1='4' x2='9' y2='38'/%3E%3Cline x1='9' y1='38' x2='24' y2='38'/%3E%3Cpath d='M9 4 C9 4 38 4 38 15 C38 26 9 26 9 26' fill='none'/%3E%3C/svg%3E">
   <link rel="preload" as="font" type="font/woff2" href="fonts/poppins-900.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="fonts/poppins-500.woff2" crossorigin>
-  <link rel="stylesheet" href="css/all.min.v12.css">
+  <link rel="stylesheet" href="css/all.min.v13.css">
 
   <script type="application/ld+json">
 {
@@ -146,161 +146,193 @@
   </script>
 </head>
 <body>
+<div id="intro" aria-hidden="true"><p class="intro-word"><span class="intro-dot"></span><span id="intro-text">Bonjour</span></p></div>
+<script>
+  // Écran d'entrée : une fois par visite, ignoré si l'utilisateur réduit les animations
+  (function () {
+    var el = document.getElementById('intro'), seen = false;
+    try { seen = sessionStorage.getItem('introSeen'); } catch (e) {}
+    if (seen || matchMedia('(prefers-reduced-motion: reduce)').matches) { el.remove(); return; }
+    try { sessionStorage.setItem('introSeen', '1'); } catch (e) {}
+    var root = document.documentElement, words = ['Bonjour', 'Hallo', 'Hello', 'Hola', 'Ciao', 'Bonjour'];
+    var i = 0, text = document.getElementById('intro-text'), done = false;
+    root.classList.add('intro-on');
+    function finish() {
+      if (done) return;
+      done = true;
+      clearInterval(tick);
+      el.classList.add('intro-out');
+      root.classList.remove('intro-on');
+      setTimeout(function () { el.remove(); }, 900);
+    }
+    var tick = setInterval(function () {
+      if (++i >= words.length) return finish();
+      text.textContent = words[i];
+    }, 190);
+    el.addEventListener('click', finish);
+  })();
+</script>
 
 
 <header id="main-header">
   <div class="nav-inner">
     <a href="/" class="nav-logo" aria-label="Accueil" data-fr-aria="Accueil" data-en-aria="Home">
-      <svg width="46" height="42" viewBox="0 0 46 42" fill="none" stroke="#4e7da6" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-        
-        <line x1="9" y1="4" x2="9" y2="38"/>
-        
-        <line x1="9" y1="38" x2="24" y2="38"/>
-        
-        <path d="M9 4 C9 4 38 4 38 15 C38 26 9 26 9 26" fill="none"/>
-      </svg>
+      <svg width="40" height="36" viewBox="0 0 46 42" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="9" y1="4" x2="9" y2="38"/><line x1="9" y1="38" x2="24" y2="38"/><path d="M9 4 C9 4 38 4 38 15 C38 26 9 26 9 26"/></svg>
     </a>
-
-    <nav class="nav-links" id="nav-desktop">
-      <a href="projet.html"          class="nav-link" data-translate="nav.works">Projets</a>
-      <a href="services.html"       class="nav-link" data-translate="nav.services">Services</a>
-      <a href="about.html"         class="nav-link" data-translate="nav.about">À propos</a>
-      <a href="about.html#contact" class="nav-link" data-translate="nav.contact">Contact</a>
-    </nav>
-
-    <div class="nav-langs">
-      <button class="lang-btn" data-lang="fr" onclick="changeLanguage('fr')">FR</button>
-      <button class="lang-btn" data-lang="en" onclick="changeLanguage('en')">EN</button>
+    <div class="nav-right">
+      <div class="nav-langs">
+        <button class="lang-btn" data-lang="fr" onclick="changeLanguage('fr')">FR</button>
+        <button class="lang-btn" data-lang="en" onclick="changeLanguage('en')">EN</button>
+      </div>
+      <button id="menu-btn" class="menu-toggle" aria-expanded="false" aria-controls="site-menu">
+        <span class="menu-dot" aria-hidden="true"></span><span data-translate="nav.menu">Menu</span>
+      </button>
     </div>
-
-    <button id="menu-btn" aria-label="Menu">
-      <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
-  </div>
-
-  <div id="mobile-menu">
-    <div class="menu-orb" aria-hidden="true"></div>
-    <a href="projet.html"          data-translate="nav.works">Projets</a>
-    <a href="services.html"       data-translate="nav.services">Services</a>
-    <a href="about.html"         data-translate="nav.about">À propos</a>
-    <a href="about.html#contact" data-translate="nav.contact">Contact</a>
   </div>
 </header>
 <div id="menu-overlay"></div>
+<nav id="site-menu" class="site-menu" aria-label="Menu" aria-hidden="true" inert>
+  <div class="sm-top">
+    <span class="sm-label" data-translate="nav.menu">Menu</span>
+    <button class="sm-close" type="button" data-translate="nav.close">Fermer</button>
+  </div>
+  <ul class="sm-links">
+      <li><a href="/" aria-current="page"><span data-translate="nav.home">Accueil</span></a></li>
+      <li><a href="projet.html"><span data-translate="nav.works">Projets</span></a></li>
+      <li><a href="services.html"><span data-translate="nav.services">Services</span></a></li>
+      <li><a href="about.html"><span data-translate="nav.about">À propos</span></a></li>
+      <li><a href="services.html#formulaire"><span data-translate="nav.contact">Contact</span></a></li>
+  </ul>
+  <div class="sm-social">
+    <span class="sm-label" data-translate="nav.social">Me retrouver</span>
+    <a href="https://www.linkedin.com/in/laurence-pirard-2069a7ba/" target="_blank" rel="noopener noreferrer">LinkedIn <svg width="14" height="14" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="https://github.com/Laurence2712" target="_blank" rel="noopener noreferrer">GitHub <svg width="14" height="14" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="mailto:laurencewebdev@gmail.com">Email <svg width="14" height="14" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="uploads/laurence_pirard_26.pdf" download data-cv="true"><span data-translate="nav.cv">CV</span> <svg width="14" height="14" fill="none" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</nav>
 
 
-<section id="hero">
-
-  <div class="hero-orb hero-orb--1" aria-hidden="true"></div>
-  <div class="hero-orb hero-orb--2" aria-hidden="true"></div>
-  <div class="hero-orb hero-orb--3" aria-hidden="true"></div>
-
-  <svg class="hero-noise" xmlns="http://www.w3.org/2000/svg">
-    <filter id="noise-f">
-      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" stitchTiles="stitch"/>
-      <feColorMatrix type="saturate" values="0"/>
-    </filter>
-    <rect width="100%" height="100%" filter="url(#noise-f)" opacity="1"/>
-  </svg>
-
-  <div class="hero-wrap">
 
 
-    <div class="hero-topbar reveal-group">
-      <div class="hero-status">
-        <span class="status-pulse" aria-hidden></span>
-        <div class="rc">
-          <span class="rl" data-translate="hero.available">Disponible pour de nouveaux projets</span>
-        </div>
+<main class="hm">
+
+<section class="hm-hero">
+  <div class="hm-wrap hm-hero-grid">
+    <div>
+      <span class="hm-status"><i aria-hidden="true"></i><span data-translate="home.available">Disponible pour de nouveaux projets</span></span>
+      <h1 data-translate="home.title">Des sites web <em>sur mesure</em>, pensés pour votre activité.</h1>
+      <p class="hm-lead" data-translate="home.lead">De la maquette à la mise en ligne, vous n'avez qu'une seule interlocutrice.</p>
+      <div class="hm-ctas">
+        <a href="services.html#formulaire" class="btn-primary" data-translate="home.ctaContact">Discutons de votre projet</a>
+        <a href="projet.html" class="btn-ghost" data-translate="home.ctaProjects">Voir mes réalisations</a>
       </div>
-      <div class="hero-meta-right rc">
-        <span class="rl" data-translate="hero.location">Développeuse web freelance · Bruxelles</span>
-      </div>
+      <p class="hm-reassure" data-translate="home.reassure">Devis gratuit · Réponse sous 24 h · Bruxelles</p>
     </div>
-
-
-    <div class="hero-body">
-      <h1 class="hero-name-block reveal-group">
-        <div class="hero-name-line">
-          <span class="hl" style="--i:0">L</span><span class="hl" style="--i:1">a</span><span class="hl" style="--i:2">u</span><span class="hl" style="--i:3">r</span><span class="hl" style="--i:4">e</span><span class="hl" style="--i:5">n</span><span class="hl" style="--i:6">c</span><span class="hl" style="--i:7">e</span>
-        </div>
-        <div class="hero-name-line hero-name-line--indent">
-          <span class="hl" style="--i:9">P</span><span class="hl" style="--i:10">i</span><span class="hl" style="--i:11">r</span><span class="hl" style="--i:12">a</span><span class="hl" style="--i:13">r</span><span class="hl" style="--i:14">d</span>
-        </div>
-        <span class="sr-only" data-fr=" — développeuse web freelance à Bruxelles" data-en=" — freelance web developer in Brussels"> — développeuse web freelance à Bruxelles</span>
-      </h1>
-      <div class="hero-portrait">
-        <img fetchpriority="high" src="uploads/image_portfolio.webp" alt="Laurence Pirard"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="pp" style="display:none;">
-          <span>LP</span>
-          <p>Photo</p>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="hero-footer reveal-group">
-      <div class="hero-ctas">
-        <a href="projet.html" class="btn-primary" data-translate="hero.ctaProjects">Voir mes projets</a>
-        <a href="about.html#contact" class="btn-ghost" data-translate="hero.ctaContact">Me contacter</a>
-      </div>
-    </div>
-
-
-    <div class="hero-scroll" aria-hidden="true">
-      <svg class="scroll-chevrons" width="24" height="32" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <polyline class="sc-1" points="4,2 12,10 20,2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <polyline class="sc-2" points="4,12 12,20 20,12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <polyline class="sc-3" points="4,22 12,30 20,22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-
+    <figure class="hm-portrait">
+      <img fetchpriority="high" src="uploads/image_portfolio.webp" alt="Laurence Pirard" width="523" height="523">
+      <figcaption><strong>Laurence Pirard</strong><span data-translate="home.role">Développeuse web freelance</span></figcaption>
+    </figure>
   </div>
 </section>
 
-
-
-<section id="portfolio" class="section pf-split fade-slide-up">
-
-  <div class="pf-split-left">
-    <span class="pf-split-label" data-translate="sections.portfolioTitle">Portfolio</span>
-    <h2 class="pf-split-hook" data-parallax="0.08" data-translate="portfolio.hook">Des sites qui
-parlent d'eux-mêmes.</h2>
-    <p class="pf-split-sub" data-translate="sections.portfolioLead">Une sélection de sites sur lesquels j'ai travaillé — en agence ou en freelance.</p>
+<section class="hm-section">
+  <div class="hm-wrap">
+    <div class="hm-head">
+      <div>
+        <span class="hm-eyebrow" data-translate="home.workLabel">Réalisations</span>
+        <h2 class="hm-h2" data-translate="home.workTitle">Des sites qui parlent d'eux-mêmes.</h2>
+      </div>
+      <a href="projet.html" class="hm-link" data-translate="home.workAll">Voir les 15 projets →</a>
+    </div>
+    <div class="hm-projects">
+      <a class="hm-card" href="https://flight-experience.be/" target="_blank" rel="noopener noreferrer">
+        <div class="hm-card-img"><img src="uploads/flight-experience-800.webp" srcset="uploads/flight-experience-800.webp 800w, uploads/flight-experience.webp?v=2 1440w" sizes="(max-width: 900px) 100vw, 33vw" alt="Flight Experience" loading="lazy"></div>
+        <h3>Flight Experience</h3>
+        <p data-translate="home.p1">Refonte complète d'un centre de simulateurs de vol : thème WordPress sur mesure, trois langues et réservation en ligne.</p>
+        <div class="wk-tags"><span>WordPress</span><span>WPML</span><span>Bookingkit</span></div>
+      </a>
+      <a class="hm-card" href="https://chiropracteur-mons.be/" target="_blank" rel="noopener noreferrer">
+        <div class="hm-card-img"><img src="uploads/chiro-800.webp" srcset="uploads/chiro-800.webp 800w, uploads/chiro.webp?v=2 1440w" sizes="(max-width: 900px) 100vw, 33vw" alt="Chiropracteur Mons" loading="lazy"></div>
+        <h3>Chiropracteur Mons</h3>
+        <p data-translate="home.p2">Site vitrine d'un cabinet de chiropraxie, de la maquette à la mise en ligne, puis maintenu au quotidien.</p>
+        <div class="wk-tags"><span>WordPress</span><span data-translate="home.tagMockup">Maquette</span><span>Elementor</span></div>
+      </a>
+      <a class="hm-card" href="https://hospel-notaire.be/" target="_blank" rel="noopener noreferrer">
+        <div class="hm-card-img"><img src="uploads/hospel-800.webp" srcset="uploads/hospel-800.webp 800w, uploads/hospel.webp?v=2 1440w" sizes="(max-width: 900px) 100vw, 33vw" alt="Notaire Hospel" loading="lazy"></div>
+        <h3>Notaire Hospel</h3>
+        <p data-translate="home.p3">Site d'une étude notariale, en thème WordPress sur mesure, avec des contenus que le client modifie lui-même.</p>
+        <div class="wk-tags"><span>WordPress</span><span>ACF</span><span>TailwindCSS</span></div>
+      </a>
+    </div>
   </div>
-
-  <div class="pf-split-right" data-parallax="-0.06">
-    <a href="https://flight-experience.be/" target="_blank" class="pf-thumb pf-thumb--freelance" rel="noopener noreferrer">
-      <img src="uploads/flight-experience-800.webp" srcset="uploads/flight-experience-800.webp 800w, uploads/flight-experience.webp?v=2 1440w" sizes="(max-width: 900px) 50vw, 25vw" alt="Flight Experience" loading="lazy">
-      <div class="pf-thumb-over">
-        <span class="pf-thumb-badge pf-thumb-badge--freelance">Freelance</span>
-        <span class="pf-thumb-title">Flight Experience</span>
-      </div>
-    </a>
-    <a href="https://chiropracteur-mons.be/" target="_blank" class="pf-thumb pf-thumb--freelance" rel="noopener noreferrer">
-      <img src="uploads/chiro-800.webp" srcset="uploads/chiro-800.webp 800w, uploads/chiro.webp?v=2 1440w" sizes="(max-width: 900px) 50vw, 25vw" alt="Chiropracteur Mons" loading="lazy">
-      <div class="pf-thumb-over">
-        <span class="pf-thumb-badge pf-thumb-badge--freelance">Freelance</span>
-        <span class="pf-thumb-title">Chiropracteur Mons</span>
-      </div>
-    </a>
-    <a href="https://hospel-notaire.be/" target="_blank" class="pf-thumb pf-thumb--agency" rel="noopener noreferrer">
-      <img src="uploads/hospel-800.webp" srcset="uploads/hospel-800.webp 800w, uploads/hospel.webp?v=2 1440w" sizes="(max-width: 900px) 50vw, 25vw" alt="Hospel Notaire" loading="lazy">
-      <div class="pf-thumb-over">
-        <span class="pf-thumb-badge pf-thumb-badge--agency" data-fr="Agence" data-en="Agency">Agence</span>
-        <span class="pf-thumb-title">Notaire Hospel</span>
-      </div>
-    </a>
-    <a href="projet.html" class="pf-thumb pf-thumb--more">
-      <span class="pf-thumb-more-count" data-translate="portfolio.ctaCount">Voir tout</span>
-      <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-    </a>
-  </div>
-
 </section>
+
+<section class="hm-section">
+  <div class="hm-wrap">
+    <div class="hm-head">
+      <div>
+        <span class="hm-eyebrow" data-translate="home.servicesLabel">Services</span>
+        <h2 class="hm-h2" data-translate="home.servicesTitle">Ce que je peux faire pour vous.</h2>
+      </div>
+      <a href="services.html" class="hm-link" data-translate="home.servicesAll">Tous les détails →</a>
+    </div>
+    <div class="hm-services">
+      <div class="hm-service">
+        <h3 data-translate="home.s1t">Site web sur mesure</h3>
+        <p data-translate="home.s1d">Un site pensé pour votre activité, pas un modèle tout fait.</p>
+        <ul data-translate="home.s1l"><li>Rapide et lisible sur téléphone</li><li>Bien référencé sur Google</li><li>Modifiable par vous, sans code</li></ul>
+      </div>
+      <div class="hm-service">
+        <h3 data-translate="home.s2t">Thème sur mesure pour votre CMS</h3>
+        <p data-translate="home.s2d">Une base solide, développée de A à Z, qui tiendra dans la durée.</p>
+        <ul data-translate="home.s2l"><li>Sans constructeur de page lourd</li><li>Contenus faciles à mettre à jour</li><li>Multilingue si besoin</li></ul>
+      </div>
+      <div class="hm-service">
+        <h3 data-translate="home.s3t">Création de maquette & intégration</h3>
+        <p data-translate="home.s3d">Pas encore de design ? On le crée ensemble. Vous avez un Figma ? Je pars de là.</p>
+        <ul data-translate="home.s3l"><li>Maquette validée avant le code</li><li>Fidèle au pixel sur tous les écrans</li></ul>
+      </div>
+      <div class="hm-service">
+        <h3 data-translate="home.s4t">Maintenance & évolution</h3>
+        <p data-translate="home.s4d">Votre site reste à jour, sécurisé et continue d'évoluer avec vous.</p>
+        <ul data-translate="home.s4l"><li>Mises à jour et sauvegardes</li><li>Corrections et nouvelles fonctionnalités</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hm-section">
+  <div class="hm-wrap">
+    <div class="hm-head">
+      <div>
+        <span class="hm-eyebrow" data-translate="home.stepsLabel">Comment je travaille</span>
+        <h2 class="hm-h2" data-translate="home.stepsTitle">Un processus clair, de la première conversation à la mise en ligne.</h2>
+      </div>
+    </div>
+    <div class="hm-steps">
+      <div class="hm-step"><h3 data-translate="home.st1t">Découverte</h3><p data-translate="home.st1d">On discute de votre projet, vos objectifs et vos contraintes.</p></div>
+      <div class="hm-step"><h3 data-translate="home.st2t">Conception</h3><p data-translate="home.st2d">Structure, contenu, références visuelles : on aligne le cap avant de toucher au code.</p></div>
+      <div class="hm-step"><h3 data-translate="home.st3t">Développement</h3><p data-translate="home.st3d">Intégration propre, mobile first, testée sur plusieurs écrans.</p></div>
+      <div class="hm-step"><h3 data-translate="home.st4t">Mise en ligne</h3><p data-translate="home.st4d">Déploiement, redirections, et votre site est prêt à accueillir vos visiteurs.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="hm-section">
+  <div class="hm-wrap">
+    <div class="hm-final">
+      <div>
+        <h2 class="hm-h2" data-translate="home.finalTitle">Un projet de site ? Parlons-en.</h2>
+        <p data-translate="home.finalText">Racontez-moi votre projet en quelques lignes : je vous réponds sous 24 h avec une première proposition, sans engagement.</p>
+        <span class="hm-sign">Laurence</span>
+      </div>
+      <a href="services.html#formulaire" class="btn-primary" data-translate="home.ctaContact">Discutons de votre projet</a>
+    </div>
+  </div>
+</section>
+
+</main>
 
 
 <footer>
@@ -334,6 +366,6 @@ parlent d'eux-mêmes.</h2>
   </svg>
 </button>
 
-<script src="js/bundle.min.js?v=13"></script>
+<script src="js/bundle.min.js?v=14"></script>
 </body>
 </html>
