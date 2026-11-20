@@ -1080,7 +1080,9 @@ html.intro-blur .hm-hero .hm-wrap { animation: blur-in 1.6s cubic-bezier(.45,0,.
 .pj-grid .wk-shots { transition: transform .5s cubic-bezier(.16,1,.3,1); }
 .pj-grid .wk-row:hover .wk-shots { transform: translateY(-6px); }
 .pj-grid .wk-title::after {
-  content: '↗'; display: inline-block; margin-left: 8px; font-size: .8em;
+  /* flèche dessinée (SVG) : identique sur tous les appareils, contrairement au caractère ↗ qu'iOS affiche en emoji */
+  content: ''; display: inline-block; width: .55em; height: .55em; margin-left: 10px; vertical-align: .1em;
+  background: currentColor; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M2 12L12 2M12 2H4M12 2V10' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M2 12L12 2M12 2H4M12 2V10' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
   opacity: 0; transform: translate(-6px, 4px);
   transition: opacity .3s, transform .4s cubic-bezier(.16,1,.3,1);
 }
@@ -1147,8 +1149,15 @@ html.intro-blur .hm-hero .hm-wrap { animation: blur-in 1.6s cubic-bezier(.45,0,.
 .pm-cta:hover svg { transform: translate(3px, -3px); }
 body.pm-open { overflow: hidden; }
 @media (max-width: 640px) {
-  .pm { padding: 0; place-items: end stretch; }
-  .pm-panel { border-radius: 22px 22px 0 0; max-height: 92vh; padding: 28px 22px 32px; transform: translateY(100%); }
+  /* téléphone : la fenêtre occupe tout l'écran (dvh = hauteur réelle visible sur iPhone) */
+  .pm { padding: 0; place-items: stretch; }
+  .pm-panel {
+    width: 100%; height: 100vh; height: 100dvh; max-height: none; border-radius: 0;
+    padding: calc(64px + env(safe-area-inset-top)) 22px calc(32px + env(safe-area-inset-bottom));
+    transform: translateY(100%);
+  }
+  .pm-close { top: calc(14px + env(safe-area-inset-top)); right: 14px; }
+  .pm-cta { width: 100%; justify-content: center; }
   .pm-shots { margin: 0 14px 34px 0; }
   .pm-mob { right: -14px; width: 24%; }
 }
